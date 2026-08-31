@@ -1,0 +1,36 @@
+---
+description: No KiCad/schematic edits unless the operator explicitly commands implement/ship/patch
+alwaysApply: true
+---
+
+# Implement gate (hard rule)
+
+**Do not edit KiCad projects, schematic/PCB sources, or fabrication exports** unless the operator **explicitly** commands implementation in that turn or a prior turn they have not revoked.
+
+## Commands that authorize design work
+
+Only these (or clear equivalents in the same message):
+
+- `implement`
+- `ship`
+- `patch`
+- `fix` / `bugfix` when clearly directed at the board design
+
+## Does NOT authorize design edits
+
+- `triage`, `kickoff`, analysis, Q&A, "no code", "no design"
+- Locked spec, kickoff answers, "this is fine"
+- Pipeline / phase markdown updates during triage or kickoff (those flows have their own rules)
+
+## Pipeline docs
+
+- **triage** / **kickoff**: may edit `docs/todo/*` only — no KiCad project edits.
+- **implement** / **ship** / **patch**: KiCad + fab outputs allowed; pipeline close-out when ship/DoD says so.
+
+## When unsure
+
+Stop and ask: **triage**, **kickoff**, or **implement**? Do not start schematic or layout work without a kickoff lock on **R1** (architecture) or the relevant phase.
+
+## Conflicts
+
+User Rule **Collaboration standards** wins. This rule makes the implement gate explicit for wanos-pcb.

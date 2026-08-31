@@ -1,0 +1,11 @@
+# --- file: projects/wanos-board/bom-targets.yaml ---
+# Preferred parts — populate during S1/S1 kickoff
+
+library: TBD  # global / jlcpcb / project-local — lock at S1
+path: TBD
+
+# Example rows — replace with real LCSC parts during schematic design
+parts: []
+
+# When a part is missing from the symbol library, import via your LCSC flow
+# (see docs/kicad-setup.md and local kicad-cursor docs/setup.md)

@@ -1,0 +1,39 @@
+# --- file: .gitignore ---
+# KiCad
+*-backups/
+*-cache/
+*.kicad_prl
+fp-info-cache
+*.lck
+#auto_saved_files#
+
+# Fabrication outputs (regenerate from KiCad; keep README in fabrication/)
+projects/*/fabrication/*.gbr
+projects/*/fabrication/*.gbrjob
+projects/*/fabrication/*.drl
+projects/*/fabrication/*.zip
+projects/*/fabrication/*.csv
+projects/*/fabrication/*.xlsx
+projects/*/fabrication/*.pos
+projects/*/fabrication/*.ipc
+projects/*/fabrication/*.pdf
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Python (optional helper scripts)
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+*.key
+
+# Large datasheet binaries (keep structure, ignore bulk uploads)
+projects/*/datasheets/*.pdf
+!projects/*/datasheets/.gitkeep

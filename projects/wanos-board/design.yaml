@@ -1,0 +1,63 @@
+# --- file: projects/wanos-board/design.yaml ---
+# Design intent — WanOS electronics carrier board
+
+name: wanos-board
+description: Raspberry Pi GPIO carrier for WanOS pulse inputs, door contacts, SHT11 headers, and sauna/IR SSR drives
+kicadVersion: "10.0"  # confirm at S1 kickoff
+
+# Link to software contract
+wanosRepo: https://github.com/gitwannes/wanos
+gpioContract: docs/gpio-interface.md
+
+# Power domains (volts) — refine at R1 kickoff
+rails:
+  - name: PI_3V3
+    voltage: 3.3
+    notes: From Pi header
+  - name: PI_5V
+    voltage: 5.0
+    notes: From Pi header; SHT11 domain
+  - name: GND
+    voltage: 0
+
+# Functional blocks — implement after R1 locks architecture
+blocks:
+  - id: pi_header
+    description: Raspberry Pi GPIO header interface (model TBD at R1)
+    nets: [PI_3V3, PI_5V, GND]
+  - id: pulse_inputs
+    description: kWh + cold/hot water pulse conditioning
+    nets: [GPIO_PULSE_KWH, GPIO_PULSE_COLD, GPIO_PULSE_HOT, GND]
+    bcm: [12, 6, 5]
+  - id: door_inputs
+    description: Sauna + bathroom door contacts
+    nets: [GPIO_DOOR_SAUNA, GPIO_DOOR_BATH, GND]
+    bcm: [27, 22]
+  - id: ssr_outputs
+    description: Safety interlock + IR + sauna U/V/W SSR drivers
+    nets: [GPIO_SAFETY, GPIO_IR, GPIO_SAUNA_U, GPIO_SAUNA_V, GPIO_SAUNA_W, GND]
+    bcm: [4, 14, 15, 17, 18]
+  - id: sht11_headers
+    description: Four SHT11 sensor ports (D + C each)
+    nets: [SHT11_D_*, SHT11_C_*, PI_5V, GND]
+    sensors: [sauna_high, sauna_low, cinema, bathroom1]
+
+# Agent / layout constraints — defaults until R1
+constraints:
+  boardSizeMm: [100, 80]  # placeholder
+  layers: 2
+  minTrackWidthMm: 0.15
+  minClearanceMm: 0.15
+  preferLcscParts: true  # lock library path at S1
+
+# Hierarchical sheets (optional — fill at S1)
+sheets: []
+
+# Open questions — resolve at R1 kickoff (see phaseR-requirements.md)
+openQuestions:
+  - "Pi 4 vs Pi 5 vs CM — and HAT vs panel mount?"
+  - "On-board SSRs vs terminals to external DIN SSRs?"
+  - "Opto-isolation on pulse and door inputs?"
+  - "Connector family and pinout per field zone?"
+  - "JLCPCB bare PCB vs SMT assembly scope?"
+  - "Reserve I2C for future on-Pi LCDs (WanOS L2)?"
