@@ -1,8 +1,10 @@
 # wanos-pcb
 
-KiCad design and JLCPCB fabrication pack for the **WanOS electronics board** — the Raspberry Pi carrier that wires local GPIO (pulse meters, door contacts, SHT11 buses, sauna/IR SSR outputs) into the [WanOS](https://github.com/gitwannes/wanos) runtime.
+[![License: Source Available](https://img.shields.io/badge/License-Source%20Available-lightgrey.svg)](LICENSE)
 
-**Scope:** hardware design only. Application logic stays in the main WanOS repo.
+KiCad design and JLCPCB fabrication for **wanos-pcb-v1** — first-generation WanOS Pi carrier.
+
+**Today:** WanOS runs on **WISC** boards (legacy, not in this repo). **Target:** **wanos-pcb-v1** + future WanOS (version TBD). Code → [gitwannes/wanos](https://github.com/gitwannes/wanos).
 
 ---
 
@@ -11,20 +13,37 @@ KiCad design and JLCPCB fabrication pack for the **WanOS electronics board** —
 ```text
 wanos-pcb/
 ├── docs/
-│   ├── board-overview.md      # What the board must do (product reference)
-│   ├── gpio-interface.md      # Pi pin / connector contract vs WanOS config_hardware.yaml
-│   ├── jlcpcb-ordering.md     # Fab export checklist and JLCPCB order notes
-│   ├── kicad-setup.md         # Local KiCad + tooling
-│   └── todo/                  # Pipeline + phased delivery specs
-├── projects/
-│   └── wanos-board/           # KiCad project root
-│       ├── design.yaml        # Design intent for agents / kickoff
-│       ├── constraints.md     # Schematic + layout rules
-│       ├── bom-targets.yaml   # Preferred LCSC parts (filled during design)
-│       ├── datasheets/        # Reference PDFs (gitignored when large)
-│       └── fabrication/       # Gerber / BOM / CPL outputs for JLCPCB
+│   ├── board-spec.md            # wanos-pcb-v1 electrical spec (canonical)
+│   ├── board-overview.md
+│   ├── component-selection.md
+│   ├── hdmi-spi-eink.md
+│   ├── io-expander-map.md
+│   ├── gpio-interface.md
+│   ├── jlcpcb-ordering.md
+│   ├── kicad-setup.md
+│   └── todo/                    # Pipeline + phases
+├── projects/wanos-board/
+│   ├── components.xlsx
+│   ├── design.yaml
+│   └── fabrication/
 └── README.md
 ```
+
+---
+
+## Pipeline (summary)
+
+| Step | Id | What |
+|---|---|---|
+| 1–2 | **R1, R2** | Fix spec/BOM; lock architecture, plant, field wiring |
+| 3 | **Ops1** | Konnect + KiCad 10 + Cursor |
+| 4–5 | **S1, Gate-S1** | KiCad schematic + operator sign-off |
+| 6–7 | **L1, Gate-L1** | Layout + silkscreen + sign-off |
+| 8–9 | **Ops2, J1** | Fab readiness + JLCPCB order |
+| 10 | **Ops3** | Receiving inspection |
+| 11–12 | **V1a, V1b** | Bring-up (current WanOS) / full board (future WanOS code) |
+
+Full backlog + Manual checks → [`docs/todo/pipeline.md`](docs/todo/pipeline.md).
 
 ---
 
@@ -32,22 +51,21 @@ wanos-pcb/
 
 | Doc | Purpose |
 |---|---|
-| [`docs/todo/pipeline.md`](docs/todo/pipeline.md) | Ordered backlog (Sequence / Done / Ops) |
-| [`docs/gpio-interface.md`](docs/gpio-interface.md) | GPIO and field-wiring contract |
-| [`docs/jlcpcb-ordering.md`](docs/jlcpcb-ordering.md) | What to export and upload |
-| [`projects/wanos-board/design.yaml`](projects/wanos-board/design.yaml) | Block diagram + open questions |
+| [`docs/todo/pipeline.md`](docs/todo/pipeline.md) | Sequence + gates + must-not-forget list |
+| [`docs/board-spec.md`](docs/board-spec.md) | **wanos-pcb-v1** specification |
+| [`docs/kicad-setup.md`](docs/kicad-setup.md) | Konnect setup (**Ops1**) |
+| [`projects/wanos-board/components.xlsx`](projects/wanos-board/components.xlsx) | BOM / LCSC seed |
 
 ---
 
 ## Workflow
 
-1. **Kickoff** a pipeline item (`kickoff R1`, `kickoff S1`, …) — lock requirements in the matching phase file before schematic edits.
-2. **Design** in KiCad under `projects/wanos-board/` (schematic → layout → ERC/DRC clean).
-3. **Export** Gerbers, drill, BOM, and centroid (CPL) into `projects/wanos-board/fabrication/`.
-4. **Order** via JLCPCB using [`docs/jlcpcb-ordering.md`](docs/jlcpcb-ordering.md).
-5. **Bring-up** on the WanOS Pi; update product docs + close the phase in `docs/todo/`.
+1. **`kickoff R1`** → **`kickoff R2`** — locks before KiCad.
+2. **`implement`** — **S1** (schematic) → **L1** (layout) → **J1** (fab).
+3. Operator **Gate-S1** / **Gate-L1** sign-offs between phases.
+4. **`V1a`** — prove board with current WanOS; **`V1b`** when future WanOS supports full board.
 
-**DoD (every phase):** Last step = audit and update all `docs/**/*.md` (+ this README) against shipped artifacts.
+**DoD (every phase):** audit all `docs/**/*.md` + this README.
 
 ---
 
@@ -55,5 +73,13 @@ wanos-pcb/
 
 | Repo | Role |
 |---|---|
-| [gitwannes/wanos](https://github.com/gitwannes/wanos) | Runtime, `config_hardware.yaml`, sauna/IR control |
-| [kicad-cursor](https://github.com/) (local: `C:/data/git/kicad-cursor`) | Optional Cursor + KiCad MCP workflow reference |
+| [gitwannes/wanos](https://github.com/gitwannes/wanos) | Runtime (WISC today; **V1b** code later) |
+| [Konnect](https://github.com/mixelpixx/Konnect) | KiCad MCP automation |
+
+---
+
+## License
+
+Source available — personal use OK, no redistribution. Same terms as [wanos](https://github.com/gitwannes/wanos), adapted for PCB design files. See [LICENSE](LICENSE).
+
+Copyright (c) 2026 [Johan Wannes Hofmans](https://github.com/gitwannes). All rights reserved.

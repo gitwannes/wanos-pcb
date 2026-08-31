@@ -1,71 +1,78 @@
 <!-- --- file: docs/gpio-interface.md -->
 
-# GPIO interface contract
+# wanos-pcb-v1 — GPIO and field interface
 
-Mirror of the WanOS software pin map. **Source of truth for runtime** remains [`config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml) in the main repo — update this file when that YAML changes or when **R1** locks connector pinouts.
+Two views of the same board:
 
-All pins are **BCM** numbering on the Raspberry Pi GPIO header unless **R1** moves to a compute module carrier.
+1. **WISC-equivalent subset** — what **current WanOS** expects today (direct Pi GPIO on WISC hardware). Used for **V1a** bring-up adapter planning.
+2. **Full wanos-pcb-v1** — target mapping once expanders and plant I²C are supported in a **later WanOS**.
 
----
-
-## Pulse / digital inputs
-
-| Signal | BCM pin | WanOS idx | Type | Field name (NL) |
-|---|---:|---:|---|---|
-| kWh meter | 12 | 11001 | energy | kWh meter |
-| Cold water | 6 | 11002 | fluid | koud water |
-| Hot water | 5 | 11003 | fluid | warm water |
-| Sauna door | 27 | 10001 | door | sauna deur |
-| Bathroom door | 22 | 10002 | door | badkamer deur |
-
-WanOS treats pulse inputs as GPIO edges; kWh resolution is **1000 pulses/kWh** (1 Wh per pulse). See main repo [`sauna-ir.md`](https://github.com/gitwannes/wanos/blob/main/docs/sauna-ir.md).
+Runtime source of truth for **today’s software** → [wanos `config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml).
 
 ---
 
-## SSR / GPIO outputs
+## WISC-equivalent subset (current WanOS)
 
-| Signal | BCM pin | WanOS config key | Load notes (from software) |
-|---|---:|---|---|
-| Master safety | 4 | `safety_gpio` | Drives safety interlock; must default OFF at boot |
-| IR relay | 14 | `ir_relais` | IR PWM channel |
-| Sauna phase U | 15 | `sauna_relais_phase_U` | ~3500 W element, software PWM |
-| Sauna phase V | 17 | `sauna_relais_phase_V` | ~3500 W element, software PWM |
-| Sauna phase W | 18 | `sauna_relais_phase_W` | ~2000 W element, software PWM |
+Direct **BCM** pins on the Pi 40-pin header — matches WISC / current production wiring.
 
-Sauna PWM frequency default: **5 Hz** (`config.yaml` / `sauna.pwm_freq`). Outputs use `lgpio` software-timed PWM, not hardware PWM blocks.
+### Pulse / digital inputs
+
+| Signal | BCM | WanOS idx | Type |
+|---|---:|---:|---|
+| kWh meter | 12 | 11001 | energy |
+| Cold water | 6 | 11002 | fluid |
+| Hot water | 5 | 11003 | fluid |
+| Sauna door | 27 | 10001 | door |
+| Bathroom door | 22 | 10002 | door |
+
+kWh resolution: **1000 pulses/kWh** (1 Wh per pulse).
+
+### SSR / GPIO outputs (Pi GPIO — software PWM ~5 Hz on sauna phases)
+
+| Signal | BCM | Config key |
+|---|---:|---|
+| Master safety | 4 | `safety_gpio` |
+| IR relay | 14 | `ir_relais` |
+| Sauna phase U | 15 | `sauna_relais_phase_U` |
+| Sauna phase V | 17 | `sauna_relais_phase_V` |
+| Sauna phase W | 18 | `sauna_relais_phase_W` |
+
+### SHT11 sensors (bit-banged — current WanOS, not SHT31)
+
+| Location | idx | D pin | C pin |
+|---|---:|---:|---:|
+| Sauna high | 20001 | 11 | 25 |
+| Sauna low | 20002 | 7 | 8 |
+| Cinema | 20003 | 9 | 10 |
+| Bathroom 1e | 20004 | 24 | 23 |
+
+**V1a note:** wanos-pcb-v1 may route these functions through expanders on the PCB; **adapter firmware or wiring** must preserve this logical map until future WanOS adopts the full board map.
 
 ---
 
-## SHT11 sensors (bit-banged)
+## Full wanos-pcb-v1 (future WanOS)
 
-Each sensor uses a **data** pin (D) and **clock** pin (C). WanOS reads via `pi_sht1x` / `RPi.GPIO` on a background thread separate from `lgpio` inputs.
+See [`io-expander-map.md`](io-expander-map.md) and [`board-spec.md`](board-spec.md).
 
-| Location | WanOS idx | Name | D pin | C pin |
-|---|---:|---|---:|---:|
-| Sauna high | 20001 | sauna high | 11 | 25 |
-| Sauna low | 20002 | sauna low | 7 | 8 |
-| Cinema | 20003 | cinema | 9 | 10 |
-| Bathroom 1e | 20004 | badk 1e | 24 | 23 |
+| Function | Implementation |
+|---|---|
+| Doors, meters, kWh (incl. bathroom 2, 2× kWh) | **PCA9554** Expander A + JST field connectors |
+| Sauna LCD buttons | **PCA9554** Expander B |
+| 12 V presence / hard-lock | Optocoupler → expander pin (**R1** lock) |
+| SHT31 × 4 | **PCA9615** differential I²C + plant JST |
+| 2× LCD | I²C on Pi bus + JST headers |
+| WISC e-ink | HDMI→SPI ([`hdmi-spi-eink.md`](hdmi-spi-eink.md)) |
+| SSR × 4 | **Pi GPIO** → PN2222A → external SSR (unchanged drive path) |
 
-Sensors expect **5 V** I/O behaviour per library init (`vdd='5V'`). Board must respect SHT11 wiring and cable length limits.
+SSR channels remain on **Pi BCM** (not expander PWM). Pi GPIO allocation for SSR + I²C + SPI → lock at **R2** in [`phaseR-requirements.md`](todo/phaseR-requirements.md).
 
 ---
 
-## Software domains (for isolation design)
+## Software domains (WISC era)
 
-| Domain | Library | Pins used |
+| Domain | Library | Pins |
 |---|---|---|
-| A — Pulse inputs + SSR outputs | `lgpio` | Inputs: 5, 6, 12, 22, 27 — Outputs: 4, 14, 15, 17, 18 |
-| B — SHT11 polling | `RPi.GPIO` + `pi_sht1x` | 7, 8, 9, 10, 11, 23, 24, 25 |
+| Pulse inputs + SSR | `lgpio` | In: 5, 6, 12, 22, 27 — Out: 4, 14, 15, 17, 18 |
+| SHT11 | `RPi.GPIO` + `pi_sht1x` | 7, 8, 9, 10, 11, 23, 24, 25 |
 
-**R1** must confirm whether both domains can share this carrier without pin conflicts (they do not overlap today).
-
----
-
-## Open items (resolve at R1 kickoff)
-
-- Pi model (4 vs 5) and mounting (HAT, DIN, panel)
-- Connector types and pinout per field cable
-- Opto-isolation / SSR part numbers and coil/logic voltages
-- ESD and mains creepage for SSR switching nodes
-- Whether I2C LCD wiring stays on a separate Pi (see WanOS **L2**) or lands on this board later
+Future WanOS on wanos-pcb-v1 will move inputs/sensors to I²C expander / SHT31 drivers — tracked in the main wanos repo, not here.

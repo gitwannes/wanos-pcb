@@ -4,6 +4,8 @@
 
 How to produce and upload fabrication files for the WanOS board. Exact filenames follow the KiCad project name once **S1/L1** create `wanos-board.kicad_pro`.
 
+**BOM seed:** [`projects/wanos-board/components.xlsx`](../projects/wanos-board/components.xlsx) · **Template:** [`fabrication/JLCPCB_BOM_Template.xls`](../projects/wanos-board/fabrication/JLCPCB_BOM_Template.xls)
+
 ---
 
 ## Before export

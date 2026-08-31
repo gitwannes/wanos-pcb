@@ -1,56 +1,65 @@
 <!-- --- file: projects/wanos-board/constraints.md -->
 
-# PCB / schematic constraints — WanOS board
+# PCB / schematic constraints — wanos-pcb-v1
 
-Applies to `projects/wanos-board/`. Update when **R1** / **S1** kickoff locks values.
+Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](../../docs/board-spec.md).
 
 ---
 
 ## Board
 
-- Default **2-layer** unless `design.yaml` says otherwise
-- Board outline defined in PCB editor after **R1** form factor lock
-- Pi HAT: respect 40-pin keep-out and mounting holes per Pi model (**R1**)
-- Mounting holes >= 3.2 mm drill unless **R1** specifies otherwise
+- **Revision:** wanos-pcb-v1
+- **2-layer**, **85 × 56 mm**, **1.6 mm**, **ENIG** ([`board-spec.md`](../../docs/board-spec.md) § 8)
+- Pi 4/5 compatible outline (not a HAT)
+- Mounting holes: M2.5/M3 per [`components.xlsx`](components.xlsx) MH1–MH4
 
 ---
 
 ## Schematic
 
-- Net names: uppercase with underscores (`GPIO_PULSE_KWH`, `GPIO_SAFETY`, `SHT11_D_SAUNA_HIGH`)
-- One GND symbol style per sheet; single ground reference
-- Map every net to BCM pin in [`docs/gpio-interface.md`](../../docs/gpio-interface.md) or document deviation in phase **R1**
-- Decoupling: 100 nF per IC power pin; bulk cap on any local regulator output
-- SSR / safety outputs: default **OFF** at power-up (hardware + software)
+- Net names: `EXP_A_*`, `EXP_B_*`, `I2C_SCL`, `I2C_SDA`, `GPIO_SSR_*` — see [`io-expander-map.md`](../../docs/io-expander-map.md)
+- SSR outputs: **Pi GPIO** → 470 Ω → PN2222A — **not** expander PWM
+- 12 V monitor: single locked net (**R1**)
+- PCA9554 `A0`–`A2` tied for unique addresses
+- Decoupling: 100 nF per IC; 1 µF bulk near expanders
 
 ---
 
 ## Footprints
 
-- Lock footprint library at **S1** kickoff (global / JLCPCB / project-local)
-- Prefer LCSC-stocked parts when using JLC assembly
-- Document LCSC C-number in `bom-targets.yaml`
+- From [`component-selection.md`](../../docs/component-selection.md) and [`components.xlsx`](components.xlsx)
+- Validate LCSC stock at **J1**
 
 ---
 
-## Design verification
+## Layout zones
 
-- Run ERC after schematic changes (`kicad-cli sch erc`)
-- Run DRC after PCB changes (`kicad-cli pcb drc`)
-- Do not mark **S1** / **L1** complete until both pass or waivers are logged in the phase file
+[`board-spec.md`](../../docs/board-spec.md) § 7 — Pi left, logic top, field right, SSR/12V bottom.
 
----
-
-## Safety (sauna / IR)
-
-- This board interfaces to high-power heating control in WanOS — treat SSR and safety nets as **critical**
-- Creepage/clearance for mains-related fields is an **R1** lock (even if SSRs are off-board)
-- Never mark **V1** done without verifying boot-time SSR idle state on real hardware
+- Lock HDMI/SPI before Freerouting
+- Separate SSR/12V from I²C
 
 ---
 
-## KiCad paths (Windows — adjust per machine)
+## Verification
 
-- KiCad config: `%APPDATA%/kicad/10.0/`
-- CLI: `"C:/Program Files/KiCad/10.0/bin/kicad-cli.exe"`
-- See [`docs/kicad-setup.md`](../../docs/kicad-setup.md)
+```powershell
+& "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe" sch erc projects/wanos-board/wanos-board.kicad_sch
+& "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe" pcb drc projects/wanos-board/wanos-board.kicad_pcb
+```
+
+Konnect DRC/ERC also acceptable when documented in phase file.
+
+---
+
+## Safety
+
+- Sauna/IR SSR + 12 V hard-lock nets are **critical**
+- No mains on PCB
+- Fail-safe 12 V loss detection ([`board-spec.md`](../../docs/board-spec.md) § 2.2)
+
+---
+
+## Tooling
+
+[`docs/kicad-setup.md`](../../docs/kicad-setup.md) — KiCad 10 + Konnect.

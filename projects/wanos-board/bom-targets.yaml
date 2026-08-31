@@ -1,11 +1,14 @@
 # --- file: projects/wanos-board/bom-targets.yaml ---
-# Preferred parts — populate during S1/S1 kickoff
+# wanos-pcb-v1 — BOM pointer (canonical tabular BOM: components.xlsx)
 
-library: TBD  # global / jlcpcb / project-local — lock at S1
-path: TBD
+revision: wanos-pcb-v1
+spec: docs/board-spec.md
+components: projects/wanos-board/components.xlsx
+selection: docs/component-selection.md
 
-# Example rows — replace with real LCSC parts during schematic design
+# Populate detailed rows from components.xlsx at S1; validate LCSC at J1.
 parts: []
 
-# When a part is missing from the symbol library, import via your LCSC flow
-# (see docs/kicad-setup.md and local kicad-cursor docs/setup.md)
+notes:
+  - "R1 must fix J2 (doors), J6 (buttons 4-pin), missing LCD JSTs before schematic"
+  - "See phaseR-requirements.md section R1 checklist"

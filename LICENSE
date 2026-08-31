@@ -1,0 +1,42 @@
+WanOS PCB - Source Available License
+
+Copyright (c) 2026 Johan Wannes Hofmans (https://github.com/gitwannes)
+All rights reserved.
+
+1. Grant
+
+   You may view this source code, documentation, PCB design files (including
+   KiCad projects, schematics, board layouts, Gerbers, drill files, BOMs,
+   pick-and-place data, and related fabrication outputs), and use, run,
+   modify, and manufacture boards from these materials for your own personal,
+   non-commercial purposes on hardware you control.
+
+2. No redistribution
+
+   You may not redistribute, publish, sublicense, or otherwise make
+   available this software, documentation, PCB design files, or any derivative
+   work, in source or binary form, to any third party. This includes public
+   forks, mirrors, bundled distributions, sharing of design files or
+   fabrication outputs, and inclusion in other products or services.
+
+3. No commercial use
+
+   Commercial use, hosting for others, and use as part of a paid product
+   or service are not permitted without written permission from the
+   copyright holder.
+
+4. Attribution
+
+   You must retain this notice and applicable copyright notices in any
+   copy you keep for personal use.
+
+5. No warranty
+
+   This software and PCB design materials are provided "as is", without
+   warranty of any kind. Boards described here may interface with industrial
+   heating and high-voltage equipment. You assume all risk. See the safety
+   notice in the WanOS project (https://github.com/gitwannes/wanos).
+
+6. Contact
+
+   For permissions beyond personal use: contact via https://github.com/gitwannes

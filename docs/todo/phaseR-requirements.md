@@ -2,11 +2,11 @@
 
 # WanOS PCB Phase R — Requirements / architecture
 
-Board role, Pi platform, connectors, and safety/isolation strategy. **No schematic until R1 kickoff closes.**
+**wanos-pcb-v1** — spec locks, external plant, field wiring, migration reference. **No schematic until R2 closes.**
 
-**Status:** **R1** open — kickoff not started.
+**Status:** **R1** + **R2** open.
 
-**Related:** Product home → [`board-overview.md`](../board-overview.md), [`gpio-interface.md`](../gpio-interface.md). Software map → [wanos `config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml). Sequence → [`pipeline.md`](pipeline.md).
+**Related:** [`board-spec.md`](../board-spec.md) · [`gpio-interface.md`](../gpio-interface.md) · [`io-expander-map.md`](../io-expander-map.md) · [`projects/wanos-board/components.xlsx`](../../projects/wanos-board/components.xlsx) · Sequence → [`pipeline.md`](pipeline.md).
 
 **DoD convention:** Last DoD = audit & update ALL `docs/**/*.md` (and root README) against shipped artifacts.
 
@@ -16,52 +16,142 @@ Board role, Pi platform, connectors, and safety/isolation strategy. **No schemat
 
 | Id | What | Status |
 |---|---|---|
-| **R1** | Architecture kickoff — Pi model, form factor, blocks, connectors, isolation | **open** |
+| **R1** | Resolve spec + BOM contradictions | **open** |
+| **R2** | Architecture + external plant + field wiring + mechanical | **open** (after R1) |
 
 ---
 
-## R1 — Board architecture kickoff
+## Operator requests (verbatim)
 
-### Operator request (verbatim, 2026-08-31)
+**2026-08-31**
 
 > new repo  
 > goal = PCB creation (no code) for the WanOS electronics board  
 > Kicad files / all that is needed to send to JLCPCB  
 > create same docs & todo / MD structure
 
-### Verified facts (from WanOS software)
+**2026-08-31**
 
-* GPIO inputs: kWh + two water pulses + two doors — see [`gpio-interface.md`](../gpio-interface.md).
-* GPIO outputs: one safety line + IR + three sauna phases — software PWM at ~5 Hz on phases.
-* Four SHT11 sensors on dedicated D/C pin pairs; 5 V bit-bang reads.
-* Boot must clamp all SSR outputs OFF before WanOS arms (`hardware/actuators.py` sanitization).
-* Main repo: https://github.com/gitwannes/wanos
+> wanos-pcb-v1 is this board's revision … current wanos uses WISC boards … wanos does not do what this PCB is capable of — later version of wanos
 
-### Open questions (must lock at kickoff)
+**2026-08-31**
 
-1. **Pi platform** — Pi 4 vs Pi 5 vs CM? Header-only HAT or panel/DIN mount?
-2. **SSR interface** — onboard SSRs vs screw terminals to external DIN SSRs? Coil/logic voltage?
-3. **Input conditioning** — opto per input? debounce RC? TVS rating for field cables?
-4. **Connectors** — terminal blocks vs pluggable headers per zone (pulse / doors / SHT11 / SSR)?
-5. **Power** — Pi powered separately only, or also 5 V / 12 V field rails on-board?
-6. **Layers / size** — default 2-layer; max board outline?
-7. **Fab** — bare PCB only vs JLCPCB SMT assembly for which parts?
-8. **LCD / I2C** — stay on separate LCD Pi (WanOS L2) or reserve footprint on this board?
+> also triage as info item: I'll add/upload (later) the current WISC board layout … migrate from the current wanos & wisc board to the new wanos with the wanos pcb
 
-### Delivery locks (empty until kickoff)
+**2026-08-31**
 
-*(To be filled when operator confirms R1.)*
+> put all in triage (and add kicad & code items as well if there are any): full go
 
-### R1 DoD (stub)
+---
 
-- [ ] All open questions above answered and locked in this section
-- [ ] `design.yaml` updated with rails, blocks, board size
-- [ ] `gpio-interface.md` updated if connector pinout differs from raw BCM map
+## R1 — Resolve contradictions (blocking)
+
+**Must close before R2 kickoff.**
+
+### 12 V monitor pin (safety-critical)
+
+- One expander pin, one net — not “kWh aux OR 12 V” on Expander A P7.
+- **R1 lock:** 12 V opto → **Expander B P6** (recommended) or Pi GPIO; drop second kWh **or** add capacity.
+
+### Connectors vs `components.xlsx`
+
+| Issue | Current BOM | Required fix |
+|---|---|---|
+| Sauna buttons | J6 = 3-pin | **4-pin** (3 signals + GND) |
+| Door sensors | J2 = single 2-pin | **Two doors** → 2×2-pin or 1×4-pin |
+| LCD modules | Not in xlsx | **2× dedicated I²C LCD** JST headers |
+| I²C pull-ups | R9–R16 = 8× 4k7 | Segment diagram — which bus each pair serves |
+
+### Four SHT31s / one PCA9615
+
+- **R1 decision:** mux (e.g. TCA9548A), multiple plant connectors, or defer.
+
+### Net list cleanup
+
+- Align [`io-expander-map.md`](../io-expander-map.md); remove ambiguous `EXP_A_P7_KWH_AUX_OR_12V_MON` once resolved.
+
+### R1 DoD
+
+- [ ] Locks in [`board-spec.md`](../board-spec.md) + [`io-expander-map.md`](../io-expander-map.md)
+- [ ] [`components.xlsx`](../../projects/wanos-board/components.xlsx) updated
 - [ ] Last DoD: all `docs/**/*.md` + README audited
+
+---
+
+## R2 — wanos-pcb-v1 architecture lock
+
+**Prereq:** R1 closed.
+
+### Scope lock
+
+| Term | Meaning |
+|---|---|
+| **WISC** | Current production board (not in this repo) |
+| **wanos-pcb-v1** | This repo board revision |
+| **WISC-equivalent subset** | [`gpio-interface.md`](../gpio-interface.md) § WISC — **V1a** |
+| **Future WanOS** | Full board software → **V1b** (main repo, version TBD) |
+
+### On-board locks (kickoff)
+
+1. Pi 4 vs 5; 85×56 mounting; MH1–MH4 standoffs; enclosure clearance
+2. Pi **BCM** table: SSR (4× + safety), I²C, SPI/HDMI, optional INT from expanders
+3. JLCPCB: bare PCB vs SMT scope (which refs hand-soldered)
+4. Prototype revision label on silk (e.g. `wanos-pcb-v1.0`)
+5. **V1a** adapter strategy vs WISC field wiring
+
+### External plant (off-board — must document)
+
+Target product docs (create at R2 close-out):
+
+| Topic | Planned doc |
+|---|---|
+| External DIN SSR modules, coil voltage, JST → SSR wiring | `docs/external-plant.md` |
+| JST pinouts, wire gauge, max cable length (pulses, SHT31 plant) | `docs/field-wiring.md` |
+| Pi GND, field GND, 12 V return, SSR return | `docs/grounding.md` (or § in field-wiring) |
+
+**External 12 V safety chain:** document how site temp safety **cuts 12 V** and how opto on wanos-pcb-v1 detects loss (hard-lock story with WanOS).
+
+### Field / migration
+
+- [ ] Reuse vs replace WISC harnesses (needs WISC reference — pipeline Manual **Info — WISC**)
+- [ ] Sauna cabinet environment (humidity, temperature at PCB)
+- [ ] EN 60335-2-53: list assumptions; hardware thermal cutoff remains operator responsibility
+
+### Reference material (pre-S1)
+
+- [ ] **Datasheet pack** in `projects/wanos-board/datasheets/` (PCA9554, PCA9615, SHT31, PC817, PN2222, Molex HDMI, SMBJ12A)
+- [ ] WISC site photos / as-built (pipeline Manual)
+
+### R2 DoD
+
+- [ ] [`design.yaml`](../../projects/wanos-board/design.yaml) + [`constraints.md`](../../projects/wanos-board/constraints.md) match locks
+- [ ] [`gpio-interface.md`](../gpio-interface.md) — locked connector + BCM tables
+- [ ] `docs/external-plant.md`, `docs/field-wiring.md` (and grounding) published or explicitly deferred with rationale
+- [ ] Last DoD: all `docs/**/*.md` + README audited
+
+---
+
+## Info — WISC migration reference (not a delivery phase)
+
+**Pipeline:** Manual **Info — WISC board reference upload**.
+
+### Operator request (verbatim, 2026-08-31)
+
+> I'll add/upload (later) the current WISC board layout which wanos uses today - goal here being to migrate from the current wanos & wisc board to the new wanos with the wanos pcb (which version of wanos this will be I can't say)
+
+### When uploaded
+
+- **Home:** `docs/reference/wisc-board/`
+- **Feeds:** R2 harness parity, **V1a**, cutover runbook ([`phaseV-verify.md`](phaseV-verify.md) § Cutover)
+
+### Open
+
+- Target **WanOS** version for **V1b** — main repo decision
+- Cutover strategy — after WISC reference available
 
 ---
 
 ## Out of scope (R track)
 
-- WanOS application code changes (separate repo / phase there)
-- CE / legal compliance sign-off (operator responsibility unless later triaged)
+- WanOS application **implementation** (main repo — tracked under **V1b**)
+- CE / formal compliance sign-off unless later triaged

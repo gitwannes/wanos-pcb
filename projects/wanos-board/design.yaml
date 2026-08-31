@@ -1,63 +1,67 @@
 # --- file: projects/wanos-board/design.yaml ---
-# Design intent — WanOS electronics carrier board
+# Design intent — wanos-pcb-v1
 
 name: wanos-board
-description: Raspberry Pi GPIO carrier for WanOS pulse inputs, door contacts, SHT11 headers, and sauna/IR SSR drives
-kicadVersion: "10.0"  # confirm at S1 kickoff
+revision: wanos-pcb-v1
+description: Raspberry Pi carrier — expanders, SSR drives, SHT31 plant, WISC e-ink HDMI-SPI, 85x56 mm
+kicadVersion: "10.0"
 
-# Link to software contract
 wanosRepo: https://github.com/gitwannes/wanos
-gpioContract: docs/gpio-interface.md
+spec: docs/board-spec.md
+bomSeed: projects/wanos-board/components.xlsx
 
-# Power domains (volts) — refine at R1 kickoff
+# Production today: WISC boards. This revision is new hardware; full features need future WanOS.
+wiscSubset: docs/gpio-interface.md  # V1a bring-up map
+
 rails:
-  - name: PI_3V3
-    voltage: 3.3
-    notes: From Pi header
   - name: PI_5V
     voltage: 5.0
-    notes: From Pi header; SHT11 domain
+    notes: Pi header or optional USB-C (J41)
+  - name: LOGIC_3V3
+    voltage: 3.3
+    notes: From Pi
+  - name: SSR_12V
+    voltage: 12.0
+    notes: External sauna rail; monitored; cut by external safety
   - name: GND
     voltage: 0
 
-# Functional blocks — implement after R1 locks architecture
 blocks:
   - id: pi_header
-    description: Raspberry Pi GPIO header interface (model TBD at R1)
-    nets: [PI_3V3, PI_5V, GND]
-  - id: pulse_inputs
-    description: kWh + cold/hot water pulse conditioning
-    nets: [GPIO_PULSE_KWH, GPIO_PULSE_COLD, GPIO_PULSE_HOT, GND]
-    bcm: [12, 6, 5]
-  - id: door_inputs
-    description: Sauna + bathroom door contacts
-    nets: [GPIO_DOOR_SAUNA, GPIO_DOOR_BATH, GND]
-    bcm: [27, 22]
-  - id: ssr_outputs
-    description: Safety interlock + IR + sauna U/V/W SSR drivers
-    nets: [GPIO_SAFETY, GPIO_IR, GPIO_SAUNA_U, GPIO_SAUNA_V, GPIO_SAUNA_W, GND]
-    bcm: [4, 14, 15, 17, 18]
-  - id: sht11_headers
-    description: Four SHT11 sensor ports (D + C each)
-    nets: [SHT11_D_*, SHT11_C_*, PI_5V, GND]
-    sensors: [sauna_high, sauna_low, cinema, bathroom1]
+    description: 40-pin Pi + optional USB-C power
+    nets: [PI_5V, LOGIC_3V3, GND]
+  - id: io_expanders
+    description: PCA9554PW x2 — doors, meters, kWh, buttons
+    doc: docs/io-expander-map.md
+  - id: sht31_plant
+    description: PCA9615 differential I2C — 4x SHT31 (segment plan R1)
+    doc: docs/board-spec.md
+  - id: ssr_drivers
+    description: Pi GPIO -> PN2222A x4 -> external SSR JST
+    doc: docs/board-spec.md
+  - id: safety_12v_mon
+    description: Optocoupler 12V presence -> expander (pin R1)
+    doc: docs/board-spec.md
+  - id: wisc_eink
+    description: HDMI Type-A repurposed SPI
+    doc: docs/hdmi-spi-eink.md
+  - id: lcd_i2c
+    description: 2x I2C LCD headers (JST TBD R1)
+    doc: docs/board-spec.md
 
-# Agent / layout constraints — defaults until R1
 constraints:
-  boardSizeMm: [100, 80]  # placeholder
+  boardSizeMm: [85, 56]
   layers: 2
-  minTrackWidthMm: 0.15
-  minClearanceMm: 0.15
-  preferLcscParts: true  # lock library path at S1
+  thicknessMm: 1.6
+  surfaceFinish: ENIG
+  minTrackWidthMm: 0.25
+  minClearanceMm: 0.2
+  tooling: Konnect + KiCad 10
 
-# Hierarchical sheets (optional — fill at S1)
-sheets: []
-
-# Open questions — resolve at R1 kickoff (see phaseR-requirements.md)
 openQuestions:
-  - "Pi 4 vs Pi 5 vs CM — and HAT vs panel mount?"
-  - "On-board SSRs vs terminals to external DIN SSRs?"
-  - "Opto-isolation on pulse and door inputs?"
-  - "Connector family and pinout per field zone?"
-  - "JLCPCB bare PCB vs SMT assembly scope?"
-  - "Reserve I2C for future on-Pi LCDs (WanOS L2)?"
+  - "R1: 12V monitor pin vs second kWh on Expander A P7"
+  - "R1: SHT31 addressing (mux vs multi-segment PCA9615)"
+  - "R1: J2/J6 connector pin counts vs components.xlsx"
+  - "R1: 2x dedicated LCD JST headers"
+  - "R2: Pi BCM map for SSR + I2C + SPI"
+  - "R2: V1a adapter strategy for current WanOS on WISC-equivalent map"

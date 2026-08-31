@@ -2,11 +2,11 @@
 
 # WanOS PCB Phase J — JLCPCB fabrication pack
 
-Gerber, drill, BOM, and centroid exports plus order record for JLCPCB.
+Gerber, drill, BOM, CPL, and order for **wanos-pcb-v1**.
 
-**Status:** **J1** open — blocked on **L1**.
+**Status:** **J1** open — blocked on **Ops2**.
 
-**Related:** Checklist → [`jlcpcb-ordering.md`](../jlcpcb-ordering.md). Output dir → [`projects/wanos-board/fabrication/`](../../projects/wanos-board/fabrication/). Sequence → [`pipeline.md`](pipeline.md).
+**Related:** [`jlcpcb-ordering.md`](../jlcpcb-ordering.md) · [`component-selection.md`](../component-selection.md) · [`projects/wanos-board/components.xlsx`](../../projects/wanos-board/components.xlsx) · [`fabrication/JLCPCB_BOM_Template.xls`](../../projects/wanos-board/fabrication/JLCPCB_BOM_Template.xls) · Sequence → [`pipeline.md`](pipeline.md).
 
 **DoD convention:** Last DoD = audit & update ALL `docs/**/*.md` (and root README) against shipped artifacts.
 
@@ -16,7 +16,28 @@ Gerber, drill, BOM, and centroid exports plus order record for JLCPCB.
 
 | Id | What | Status |
 |---|---|---|
-| **J1** | Export + zip + JLCPCB order parameters | **open** (after L1) |
+| **J1** | Export, validate LCSC, place order | **open** (after Ops2) |
+
+---
+
+## Ops2 — Pre-J1 fab readiness (Sequence #8)
+
+**Prereq:** **Gate-L1** closed. Detail in pipeline Manual § Ops2.
+
+### Decisions (lock before export)
+
+| Topic | Options / notes |
+|---|---|
+| Prototype qty | Record in order notes |
+| Board ID | `wanos-pcb-v1.0` (or operator lock) on silk + JLC comment |
+| SMT assembly | Which refs JLC assembles vs bench hand-solder (J40, JST, terminals) |
+| Stencil | Required for SMT prototype? |
+| Stackup | 2-layer 1.6 mm ENIG per [`board-spec.md`](../board-spec.md) § 8 |
+
+### Ops2 DoD
+
+- [ ] Assembly split documented in this section
+- [ ] Operator go to proceed to **J1** export
 
 ---
 
@@ -24,25 +45,34 @@ Gerber, drill, BOM, and centroid exports plus order record for JLCPCB.
 
 ### Prereqs
 
-- **L1** closed — DRC clean
+- **Ops2** closed
 
-### Scope (stub — refine at J1 kickoff)
+### KiCad / Konnect export (implement phase)
 
-- Export all layers + drill to `fabrication/`
-- BOM CSV (+ LCSC columns if SMT)
-- Centroid / CPL for assembly side
-- Zip per [`jlcpcb-ordering.md`](../jlcpcb-ordering.md)
-- Record order id, qty, lead time, and stackup choices in this section
+| Output | Tool |
+|---|---|
+| Gerber + drill zip | Konnect fab pipeline and/or `kicad-cli pcb export gerbers` |
+| `bom.csv` | Konnect / `kicad-cli sch export bom` — LCSC column |
+| Centroid CPL | Konnect / `kicad-cli pcb export pos` |
+| Optional PDF | Assembly + schematic for bench |
 
-### J1 DoD (stub)
+Destination: `projects/wanos-board/fabrication/`
 
-- [ ] `fabrication/` contains reproducible export set (or script path documented)
-- [ ] Gerber zip verified (Gerber viewer spot-check)
-- [ ] JLCPCB order placed (or operator confirms manual order)
+### LCSC validation
+
+- [ ] Every SMT line in `components.xlsx` — C-number in stock at JLC
+- [ ] Substitutes noted if any part obsolete
+
+### J1 DoD
+
+- [ ] Gerber zip spot-checked (Gerber viewer)
+- [ ] JLCPCB order placed — record order id, qty, date here
+- [ ] **Spare parts bag** list (pipeline Manual) if applicable
+- [ ] Ready for **Ops3** receiving
 - [ ] Last DoD: all `docs/**/*.md` + README audited
 
 ---
 
-## Out of scope (J track)
+## Out of scope
 
-- Functional Pi test (**V1**)
+- Board power-on (**V1a** — after **Ops3**)
