@@ -26,6 +26,7 @@ Only these (or clear equivalents in the same message):
 
 - **triage** / **kickoff**: may edit `docs/todo/*` only — no KiCad project edits.
 - **implement** / **ship** / **patch**: KiCad + fab outputs allowed; pipeline close-out when ship/DoD says so.
+- Phase close-out: move Done `docs/todo/phase*.md` → `docs/todo/_archive/` — [`.cursor/rules/phase-archive.mdc`](phase-archive.mdc).
 
 ## When unsure
 

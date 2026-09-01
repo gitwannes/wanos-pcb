@@ -60,4 +60,4 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 - BOM seed: [`projects/wanos-board/components.xlsx`](../../projects/wanos-board/components.xlsx)
 - HDMI / e-ink: [`hdmi-spi-eink.md`](../../hdmi-spi-eink.md)
 - Components: [`component-selection.md`](../../component-selection.md)
-- R2 tracking: [`todo/phaseR-requirements.md`](../../todo/phaseR-requirements.md) § R2
+- R2 tracking: [`todo/_archive/phaseR-requirements.md`](../../todo/_archive/phaseR-requirements.md) § R2

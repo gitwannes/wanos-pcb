@@ -8,7 +8,7 @@ Structured specification for KiCad 10 + Konnect, manufactured via JLCPCB. **Targ
 
 **Related:** Overview → [`board-overview.md`](board-overview.md) · Components → [`component-selection.md`](component-selection.md) · Field wiring → [`field-wiring.md`](field-wiring.md) · HDMI→SPI → [`hdmi-spi-eink.md`](hdmi-spi-eink.md) · I/O map → [`io-expander-map.md`](io-expander-map.md) · GPIO contracts → [`gpio-interface.md`](gpio-interface.md) · Silkscreen → [`reference/silkscreen/README.md`](reference/silkscreen/README.md)
 
-**R1 locks:** 2026-09-01 · **R2 locks:** 2026-09-01 — [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R2 shipped summary.
+**R1 locks:** 2026-09-01 · **R2 locks:** 2026-09-01 — [`todo/_archive/phaseR-requirements.md`](todo/_archive/phaseR-requirements.md) § R2 shipped summary.
 
 ---
 

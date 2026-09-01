@@ -27,7 +27,7 @@ Optional reference: local `kicad-cursor` repo if present on your machine.
 
 ## End-to-end checklist (verified on Windows)
 
-Work through in order. **Ops1** in [`todo/pipeline.md`](todo/pipeline.md) is done when steps 1–8 all pass.
+Work through in order. **Ops1** closed **2026-09-01** when steps 1–8 pass (verified on WISC `wisc2-6-4` reference — `open_project` → `ipc_available: true` with KiCad PCB Editor open).
 
 | Step | Action | Pass criterion |
 |---:|---|---|
@@ -275,4 +275,4 @@ Do not close **S1** / **L1** until ERC/DRC pass or waivers are in the phase file
 | MCP UI | **+ New** opening JSON only is expected — edit `.cursor/mcp.json` |
 | Pipeline | **kickoff** before design locks; **implement** before KiCad edits on wanos-pcb-v1 |
 
-**Ops1** in [`todo/pipeline.md`](todo/pipeline.md) tracks machine setup completion.
+| Pipeline | **Ops1** Done **2026-09-01** — [`todo/pipeline.md`](todo/pipeline.md) |

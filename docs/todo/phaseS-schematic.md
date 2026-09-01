@@ -4,7 +4,7 @@
 
 KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** and **L1**.
 
-**Status:** **S1** open — **R2** Done; start after **Ops1** or in parallel.
+**Status:** **S1** open — **R2** Done; **Ops1** Done (2026-09-01).
 
 **Related:** [`board-spec.md`](../board-spec.md) · [`io-expander-map.md`](../io-expander-map.md) · [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) · [`component-selection.md`](../component-selection.md) · [`projects/wanos-board/components.xlsx`](../../projects/wanos-board/components.xlsx) · [`kicad-setup.md`](../kicad-setup.md) · Sequence → [`pipeline.md`](pipeline.md).
 
@@ -25,7 +25,7 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 ### Prereqs
 
 - **R2** Done — [`gpio-interface.md`](../gpio-interface.md), [`grounding.md`](../grounding.md)
-- **Ops1** Konnect + KiCad 10 usable ([`kicad-setup.md`](../kicad-setup.md))
+- **Ops1** Done — Konnect + KiCad 10 ([`kicad-setup.md`](../kicad-setup.md))
 - Datasheet pack in [`reference/datasheets/`](../reference/datasheets/README.md) (pipeline Manual)
 
 ### KiCad deliverables (implement phase)

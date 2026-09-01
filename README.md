@@ -36,10 +36,11 @@ wanos-pcb/
 
 | Step | Id | What |
 |---|---|---|
-| ~~1–2~~ | ~~**R1, R2**~~ | ~~Requirements / architecture~~ **Done** |
-| 3 | **Ops1** | Konnect + KiCad 10 + Cursor |
-| 4–5 | **S1, Gate-S1** | Schematic + sign-off |
-| 6–7 | **L1, Gate-L1** | Layout + silkscreen + sign-off |
+| ~~1–3~~ | ~~**R1, R2, Ops1**~~ | ~~Requirements / Konnect setup~~ **Done** |
+| 4 | **S1** | KiCad schematic |
+| 5 | **Gate-S1** | Schematic sign-off |
+| 6 | **L1** | PCB layout |
+| 7 | **Gate-L1** | Layout sign-off |
 | 8–9 | **Ops2, J1** | Fab readiness + JLCPCB order |
 | 10 | **Ops3** | Receiving inspection |
 | 11–12 | **V1a, V1b** | Bring-up / extended software |
@@ -57,7 +58,7 @@ Full backlog → [`docs/todo/pipeline.md`](docs/todo/pipeline.md).
 | [`docs/external-plant.md`](docs/external-plant.md) | DIN SSR + 12 V plant |
 | [`docs/field-wiring.md`](docs/field-wiring.md) | Connector pinouts |
 | [`docs/reference/datasheets/README.md`](docs/reference/datasheets/README.md) | Datasheet pack |
-| [`docs/kicad-setup.md`](docs/kicad-setup.md) | Konnect setup (**Ops1**) |
+| [`docs/kicad-setup.md`](docs/kicad-setup.md) | Konnect + KiCad 10 (**Ops1** Done) |
 | [`projects/wanos-board/components.xlsx`](projects/wanos-board/components.xlsx) | BOM / LCSC seed |
 
 ---
@@ -65,7 +66,7 @@ Full backlog → [`docs/todo/pipeline.md`](docs/todo/pipeline.md).
 ## Workflow
 
 1. ~~**`kickoff R2`**~~ — **Done** (2026-09-01).
-2. **`implement`** — **S1** → **L1** → **J1** (after **Ops1**).
+2. **`implement`** — **S1** → **L1** → **J1**.
 3. Operator **Gate-S1** / **Gate-L1** between phases.
 4. **`V1a`** — board + updated **wanos**; cutover from WISC.
 
