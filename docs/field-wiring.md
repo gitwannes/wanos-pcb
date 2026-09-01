@@ -2,7 +2,7 @@
 
 # wanos-pcb-v1 — field wiring and JST pinouts
 
-Locked at **R1** (2026-09-01). Canonical electrical behaviour → [`board-spec.md`](board-spec.md). Connector designators → [`projects/wanos-board/components.xlsx`](../projects/wanos-board/components.xlsx).
+Locked **R1** (2026-09-01) + **R2** (2026-09-01). Canonical electrical behaviour → [`board-spec.md`](board-spec.md). Connector designators → [`projects/wanos-board/components.xlsx`](../projects/wanos-board/components.xlsx).
 
 **WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
 
@@ -51,11 +51,10 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 | **J11** | 4 | SHT31 sauna mid | Mux **ch 2** |
 | **J12** | 4 | SHT31 sauna high | Mux **ch 3** |
 | **J13** | 5 | SSR field (WISC J1 class) | § 6 |
-| **J14** | 2 | 12 V in (KF301) | |
-| **J15** | 3 | 12 V aux (KF301) | |
+| **J14** | 2 | 12 V in (KF301) — post-safety **+12VA** + GND | § 9 |
 | **J16** | 4 | LCD I²C (both screens) | § 4 |
 | **J40** | 40 | Pi header | |
-| **J41** | USB-C | Optional Pi power | |
+| **J41** | USB-C | Pi power (primary) | |
 
 ---
 
@@ -98,7 +97,18 @@ WISC production **J1**: **B5B-XH-A 1×05 vertical**. Pin 1 = **GND**; pins 2–5
 | **4** | SSR phase 1 | Sauna phase U |
 | **5** | SSR IR | IR relay |
 
-**Safety (master)** is driven on-board (Pi GPIO) — not on this 5-pin field header (same as WISC).
+**Safety (master)** is driven on-board (**BCM 4**) — not on this 5-pin field header (same as WISC).
+
+---
+
+## 9. 12 V input — J14 (KF301-2P)
+
+| Pin | Signal |
+|----:|--------|
+| **1** | **+12VA** — after external temp safety |
+| **2** | **GND** |
+
+Detail → [`external-plant.md`](external-plant.md) § 3.
 
 ---
 
@@ -136,5 +146,4 @@ Do not populate extra pull-up pairs on the same segment. Disable Pi internal I²
 - [`io-expander-map.md`](io-expander-map.md) — expander pin map
 - [`gpio-interface.md`](gpio-interface.md) — software views
 - WISC summaries → [`reference/wisc-board/`](reference/wisc-board/)
-
-**R2:** external SSR plant, grounding, and harness reuse vs replace — [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R2.
+- External plant → [`external-plant.md`](external-plant.md) · Grounding → [`grounding.md`](grounding.md)

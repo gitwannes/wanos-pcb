@@ -40,5 +40,5 @@ __pycache__/
 *.key
 
 # Large datasheet binaries (keep structure, ignore bulk uploads)
-projects/*/datasheets/*.pdf
-!projects/*/datasheets/.gitkeep
+#docs/reference/datasheets/*.pdf
+#!docs/reference/datasheets/README.md

@@ -2,7 +2,7 @@
 
 Ordered backlog + closed history. Specs / DoD / locks live in the lettered phase files — not here.
 
-**Last updated:** 2026-08-31 (full triage — gates, ops, KiCad, migration)
+**Last updated:** 2026-09-01 (R2 Done)
 
 ---
 
@@ -42,7 +42,8 @@ When a phase finishes: Sequence → **Done**; trim Sequence only.
 |---|---|
 | **Triage** | Input docs promoted **2026-08-31** |
 | **Triage** | Full backlog (gates, ops, KiCad, migration) **2026-08-31** |
-| **R1** | Spec + BOM contradictions locked **2026-09-01** — [`field-wiring.md`](../field-wiring.md), [`phaseR-requirements.md`](phaseR-requirements.md) § R1 |
+| **R1** | Spec + BOM contradictions locked **2026-09-01** |
+| **R2** | Architecture + plant + BCM locked **2026-09-01** — [`gpio-interface.md`](../gpio-interface.md), [`external-plant.md`](../external-plant.md), [`grounding.md`](../grounding.md), [`phaseR-requirements.md`](phaseR-requirements.md) § R2 |
 
 ---
 
@@ -53,20 +54,19 @@ All open items. **Detail** = phase file section.
 ```text
 #   Status Size Id           What                                               Detail
 ──  ────── ──── ──────────── ────────────────────────────────────────────────── ──────────────────────────
-1   open   high R2           wanos-pcb-v1 architecture + plant + field wiring   phaseR § R2
-2   open   mid  Ops1          Konnect + KiCad 10 + Cursor on build machine       pipeline Manual § Ops1
-3   open   high S1            KiCad schematic wanos-pcb-v1 (ERC clean)           phaseS § S1
-4   open   low  Gate-S1       Operator schematic sign-off (PDF / review)         pipeline Manual § Gate-S1
-5   open   high L1            PCB layout 85×56 mm (DRC clean)                    phaseL § L1
-6   open   low  Gate-L1       Operator layout sign-off + silkscreen review       pipeline Manual § Gate-L1
-7   open   mid  Ops2           Pre-J1 fab readiness (assembly split, qty, stencil) pipeline Manual § Ops2
-8   open   mid  J1            JLCPCB export + order + LCSC validate              phaseJ § J1
-9   open   low  Ops3           Receiving + first-article inspection               pipeline Manual § Ops3
-10  open   mid  V1a           Bring-up: current WanOS / WISC-equivalent subset   phaseV § V1a
-11  hold   mid  V1b           Full wanos-pcb-v1 + future WanOS code              phaseV § V1b
+1   open   mid  Ops1          Konnect + KiCad 10 + Cursor on build machine       pipeline Manual § Ops1
+2   open   high S1            KiCad schematic wanos-pcb-v1 (ERC clean)           phaseS § S1
+3   open   low  Gate-S1       Operator schematic sign-off (PDF / review)         pipeline Manual § Gate-S1
+4   open   high L1            PCB layout 85×56 mm (DRC clean)                    phaseL § L1
+5   open   low  Gate-L1       Operator layout sign-off + silkscreen review       pipeline Manual § Gate-L1
+6   open   mid  Ops2           Pre-J1 fab readiness (assembly split, qty, stencil) pipeline Manual § Ops2
+7   open   mid  J1            JLCPCB export + order + LCSC validate              phaseJ § J1
+8   open   low  Ops3           Receiving + first-article inspection               pipeline Manual § Ops3
+9   open   mid  V1a           Bring-up: wanos-pcb-v1 + updated WanOS             phaseV § V1a
+10  hold   mid  V1b           Full board + future WanOS code                     phaseV § V1b
 ```
 
-Near-term: **R2** → **Ops1** ∥ **S1** (after R2) → gates → **J1** → **V1a**. Production WanOS stays on **WISC** until **V1a** go.
+Near-term: **Ops1** ∥ **S1** → gates → **J1** → **V1a**. Production WanOS stays on **WISC** until operator cuts over.
 
 ---
 
@@ -86,14 +86,14 @@ Near-term: **R2** → **Ops1** ∥ **S1** (after R2) → gates → **J1** → **
 
 | Item | Status | Notes |
 |---|---|---|
-| **External SSR + 12 V plant model** | open | Off-board DIN SSRs, coil V, ext. temp safety that cuts 12 V — [`phaseR-requirements.md`](phaseR-requirements.md) § R2 |
-| **Field harness pinouts** | Done | [`field-wiring.md`](../field-wiring.md) (R1); grounding still R2 |
-| **Grounding / return scheme** | open | Pi GND, field GND, 12 V return, SSR return — R2 → product doc |
-| **Reuse vs new WISC field cables** | open | After WISC reference upload |
-| **Pi + enclosure mechanical** | open | Standoffs, height, HDMI bend, cutouts — R2 |
-| **Datasheet pack** | open | PCA9554, TCA9546A, SHT31, PC817, PN2222, Molex HDMI, TVS → `projects/wanos-board/datasheets/` |
+| **External SSR + 12 V plant model** | Done | [`external-plant.md`](../external-plant.md) |
+| **Field harness pinouts** | Done | [`field-wiring.md`](../field-wiring.md) (R1) |
+| **Grounding / return scheme** | Done | [`grounding.md`](../grounding.md) |
+| **Reuse vs new WISC field cables** | Done | [`external-plant.md`](../external-plant.md) § 5 |
+| **Pi + enclosure mechanical** | Done | Pi 4; 2.6.4 outline; no enclosure constraint |
+| **Datasheet pack** | open | 12/13 — [`reference/datasheets/`](../reference/datasheets/README.md); `usb-c-j41.pdf` later |
 | **EN 60335-2-53 assumptions** | hold | Spec cites sauna context; formal safety case = operator |
-| **Sauna environment** | open | Humidity, temp at board, cable routing — R2 note |
+| **Sauna environment** | Done | Cabinet note — [`external-plant.md`](../external-plant.md) § 7 |
 | **CE / product marking** | hold | Only if scoped later |
 
 ### Design gates
@@ -139,4 +139,5 @@ Near-term: **R2** → **Ops1** ∥ **S1** (after R2) → gates → **J1** → **
 | 2026-08-31 | Full triage: Sequence gates Ops2/3, Manual backlog, KiCad/code pointers |
 | 2026-08-31 | Info: WISC board reference upload |
 | 2026-08-31 | Input docs promoted; Sequence R1–V1b |
-| 2026-09-01 | R1 Done; WISC KiCad → `reference/wisc-board/`; field-wiring + silkscreen docs |
+| 2026-09-01 | R1 Done; field-wiring, WISC reference upload |
+| 2026-09-01 | R2 Done; external-plant, grounding, gpio-interface, J15 dropped |

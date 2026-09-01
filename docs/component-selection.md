@@ -32,16 +32,15 @@ Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical
 
 ## 2. Screw terminals (12 V)
 
-- **KF301-2P** — **J14**
-- **KF301-3P** — **J15**
+- **KF301-2P** — **J14** only (**J15** dropped R2)
 
-Footprints: `TerminalBlock_Phoenix_MKDS-2-5.08_1x02` / `1x03`.
+Footprint: `TerminalBlock_Phoenix_MKDS-2-5.08_1x02`.
 
 ---
 
 ## 3. HDMI (e-ink SPI)
 
-- **Molex 208658-1052** — **J1** — `Connector_HDMI:HDMI_Molex_208658-1052`
+- **Molex 208658-1052** — **J1** (LCSC **C6990958**) — `Connector_HDMI:HDMI_Molex_208658-1052`
 
 Pin mapping → [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
@@ -66,7 +65,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | Part | Ref | Role |
 |---|---|---|
 | **PN2222A-TA** × 4 | Q1–Q4 | SSR drivers |
-| **PC817** SMD | U4 | 12 V opto |
+| **PC817A** SMD | U4 | 12 V opto |
 | **SMBJ12A** | D1 | 12 V TVS |
 | **BLM21PG331SN1** | FB1 | Pi 5 V ferrite |
 
@@ -99,16 +98,18 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | Buttons | JST XH 4-pin | J8 |
 | SHT31 plant | JST XH 4-pin × 4 | J9–J12 |
 | SSR | JST XH **5-pin** vertical | J13 |
-| 12 V | KF301 | J14, J15 |
+| 12 V | KF301 2P | J14 |
 | LCD | JST XH 4-pin × 1 | J16 |
 | Expanders | PCA9554PW × 2 | U1, U2 |
 | I²C mux | TCA9546A | U5 |
 | SSR drivers | PN2222A × 4 | Q1–Q4 |
-| 12 V monitor | PC817 | U4 |
+| 12 V monitor | PC817A | U4 |
 | Pi header | 2×20 | J40 |
-| Pi power | USB-C (optional) | J41 |
+| Pi power | USB-C | J41 |
 
 **External (not assembled):** LCD modules, SHT31 sensor boards, external DIN SSRs.
+
+**Datasheets:** [`reference/datasheets/README.md`](reference/datasheets/README.md) (12/13 on disk; `usb-c-j41.pdf` later).
 
 Validate LCSC stock before **J1**.
 

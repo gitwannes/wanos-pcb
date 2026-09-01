@@ -10,9 +10,7 @@
 | **WISC 2.6.4 HDMI** | **LCD Pi** node — **powers Pi only** today; legacy e-ink **broken** (HDMI not connected) |
 | **wanos-pcb-v1** | **New** integrated carrier — replaces split WISC setup + failed HDMI/e-ink path |
 
-Application logic stays in [gitwannes/wanos](https://github.com/gitwannes/wanos). Full **wanos-pcb-v1** capability targets a **later WanOS** release (version **not locked**). Until then, production WanOS stays on WISC; **V1a** proves the new board with a **WISC-equivalent subset**.
-
-**Migration reference:** KiCad trees + summaries → [`reference/wisc-board/`](reference/wisc-board/). **R1** closed **2026-09-01** — field pinouts → [`field-wiring.md`](field-wiring.md).
+Application logic stays in [gitwannes/wanos](https://github.com/gitwannes/wanos). Operator continues on **WISC** until **wanos** is updated for this board (**V1a**). **R1** + **R2** closed **2026-09-01**.
 
 ---
 
@@ -39,14 +37,17 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 | [`component-selection.md`](component-selection.md) | JLCPCB parts and footprints |
 | [`hdmi-spi-eink.md`](hdmi-spi-eink.md) | WISC e-ink HDMI→SPI |
 | [`io-expander-map.md`](io-expander-map.md) | PCA9554 + TCA9546 map |
-| [`gpio-interface.md`](gpio-interface.md) | WISC subset vs full-board GPIO |
+| [`gpio-interface.md`](gpio-interface.md) | Pi BCM map + software strategy (**R2**) |
+| [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant |
+| [`grounding.md`](grounding.md) | Ground / return scheme |
+| [`reference/datasheets/README.md`](reference/datasheets/README.md) | Datasheet pack |
 | [`reference/silkscreen/README.md`](reference/silkscreen/README.md) | Silkscreen font + artwork |
 | [`reference/wisc-board/`](reference/wisc-board/) | WISC summaries + read-only KiCad |
 | [`jlcpcb-ordering.md`](jlcpcb-ordering.md) | Fab export checklist |
 | [`kicad-setup.md`](kicad-setup.md) | KiCad 10, Konnect, Cursor MCP |
-| [`todo/pipeline.md`](todo/pipeline.md) | Delivery pipeline (R2 → V1b) |
+| [`todo/pipeline.md`](todo/pipeline.md) | Delivery pipeline (S1 → V1b) |
 
-**Planned at R2 / V1a close-out:** `docs/external-plant.md`, `docs/grounding.md`, `docs/installer-one-pager.md`, `docs/cutover-wisc-to-wanos-pcb-v1.md`.
+**V1a close-out (planned):** `docs/installer-one-pager.md`, `docs/cutover-wisc-to-wanos-pcb-v1.md`.
 
 ---
 
@@ -62,7 +63,7 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 
 - WanOS Python / YAML (main repo)
 - WISC legacy PCB **edits** (read-only under [`reference/wisc-board/`](reference/wisc-board/); see [`.cursor/rules/wisc-boards-readonly.mdc`](../.cursor/rules/wisc-boards-readonly.mdc))
-- Enclosure mechanical design (unless noted at **R2** kickoff)
+- Enclosure mechanical design (no constraint locked at R2)
 
 ---
 

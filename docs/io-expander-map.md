@@ -26,7 +26,7 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 
 **Part:** `U1` — PCA9554PW (TSSOP-16)  
 **Power:** VCC = 3.3 V; GND  
-**I²C address:** `0x20` (example — tie A0/A1/A2 per schematic)
+**I²C address:** `0x20` (U1 — A0–A2 = low)
 
 | Pin | Net | Field |
 |---|---|---|
@@ -46,20 +46,22 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 ## 3. PCA9554PW — Expander B (buttons + 12 V monitor)
 
 **Part:** `U2` — PCA9554PW (TSSOP-16)  
-**I²C address:** `0x21` (example — second address via A0–A2)
+**I²C address:** `0x21` (U2 — A0 = high, A1–A2 = low)
 
 | Pin | Net | Field |
 |---|---|---|
 | P0 | `EXP_B_P0_BTN1` | Sauna LCD button 1 (**J8**) |
 | P1 | `EXP_B_P1_BTN2` | Sauna LCD button 2 (**J8**) |
 | P2 | `EXP_B_P2_BTN3` | Sauna LCD button 3 (**J8**) |
-| P3 | `EXP_B_P3_UI_READY` | Optional UI |
-| P4 | `EXP_B_P4_UI_ERROR` | Optional UI |
-| P5 | `EXP_B_P5_UI_LED` | Optional status |
+| P3 | `EXP_B_P3_UI_READY` | Spare — **DNP** v1 |
+| P4 | `EXP_B_P4_UI_ERROR` | Spare — **DNP** v1 |
+| P5 | `EXP_B_P5_UI_LED` | Spare — **DNP** v1 |
 | P6 | `EXP_B_P6_12V_MON` | **12 V opto monitor (U4)** — safety-critical |
 | P7 | `EXP_B_P7_SPARE` | Spare |
 
 **Buttons:** Pull-up to 3.3 V; switch to GND when pressed; software debounce.
+
+**INT pin:** **Not connected** on v1 (polled I²C only).
 
 ---
 

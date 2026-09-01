@@ -1,50 +1,56 @@
 # --- file: projects/wanos-board/design.yaml ---
-# Design intent — wanos-pcb-v1 (R1 locked 2026-09-01)
+# Design intent — wanos-pcb-v1 (R1 + R2 locked 2026-09-01)
 
 name: wanos-board
-revision: wanos-pcb-v1
-description: Raspberry Pi carrier — expanders, SSR drives, SHT31 mux plant, WISC e-ink HDMI-SPI, 85x56 mm
+revision: wanos-pcb-v1.0
+description: Raspberry Pi 4 carrier — expanders, SSR drives, SHT31 mux plant, HDMI-SPI e-ink, 85x56 mm
 kicadVersion: "10.0"
 
 wanosRepo: https://github.com/gitwannes/wanos
 spec: docs/board-spec.md
 fieldWiring: docs/field-wiring.md
+externalPlant: docs/external-plant.md
+grounding: docs/grounding.md
+gpioMap: docs/gpio-interface.md
 bomSeed: projects/wanos-board/components.xlsx
+datasheets: docs/reference/datasheets/
 
-wiscSubset: docs/gpio-interface.md  # V1a bring-up map
 wiscReference: docs/reference/wisc-board/
+
+targetPi: Raspberry Pi 4
+mechanicalReference: docs/reference/wisc-board/wisc-v2-6-4-hdmi.md
 
 rails:
   - name: PI_5V
     voltage: 5.0
-    notes: Pi header or optional USB-C (J41)
+    notes: USB-C J41 on PCB powers Pi
   - name: LOGIC_3V3
     voltage: 3.3
     notes: From Pi
   - name: SSR_12V
     voltage: 12.0
-    notes: External sauna rail; monitored; cut by external safety
+    notes: J14 after external safety; monitored U4
   - name: GND
     voltage: 0
 
 blocks:
-  - id: pi_header
-    description: 40-pin Pi + optional USB-C power
-    nets: [PI_5V, LOGIC_3V3, GND]
+  - id: pi_power
+    description: 40-pin J40 + USB-C J41 (Pi supply)
+    doc: docs/gpio-interface.md
   - id: io_expanders
-    description: PCA9554PW x2 — doors, meters, kWh, buttons, 12V mon
+    description: PCA9554PW x2 — doors, meters, kWh, buttons, 12V mon; INT NC
     doc: docs/io-expander-map.md
   - id: sht31_plant
     description: TCA9546A mux — 4x SHT31 @ 0x44, 4x 4-pin Cat5 ~4-5m
     doc: docs/field-wiring.md
   - id: ssr_drivers
-    description: Pi GPIO -> PN2222A x4 -> J13 5-pin SSR
-    doc: docs/board-spec.md
+    description: Pi GPIO -> PN2222A x4 -> J13 5-pin; safety BCM4 on-board
+    doc: docs/external-plant.md
   - id: safety_12v_mon
     description: Optocoupler -> Expander B P6
     doc: docs/io-expander-map.md
-  - id: wisc_eink
-    description: HDMI Type-A repurposed SPI
+  - id: eink_hdmi_spi
+    description: Molex 208658-1052 J1 — SPI per hdmi-spi-eink.md
     doc: docs/hdmi-spi-eink.md
   - id: lcd_i2c
     description: 1x 4-pin I2C J16 (2 LCDs paralleled)
@@ -59,8 +65,5 @@ constraints:
   minClearanceMm: 0.2
   tooling: Konnect + KiCad 10
   silkscreenFont: https://www.fontspace.com/printed-circuit-board-7-font-f15777
-
-openQuestions:
-  - "R2: Pi BCM map for SSR + I2C + SPI"
-  - "R2: V1a adapter strategy for current WanOS on WISC-equivalent map"
-  - "R2: external plant + grounding docs"
+  silkscreenRevision: wanos-pcb-v1.0
+  jlcpcbAssembly: full PCBA including J40; LCSC C6990958 HDMI

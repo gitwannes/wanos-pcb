@@ -240,8 +240,9 @@ projects/wanos-board/
   wanos-board.kicad_*      # Created at S1
   fabrication/
     JLCPCB_BOM_Template.xls
-  datasheets/
 ```
+
+Datasheet PDFs → [`reference/datasheets/`](reference/datasheets/README.md) (lowercase filenames; gitignored).
 
 Product spec → [`board-spec.md`](board-spec.md). WISC reference summaries → [`reference/wisc-board/`](reference/wisc-board/).
 

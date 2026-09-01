@@ -2,79 +2,116 @@
 
 # wanos-pcb-v1 — GPIO and field interface
 
-Two views of the same board:
+**R2 lock (2026-09-01):** full-board **BCM** map for **wanos-pcb-v1** schematic and future WanOS on this PCB.
 
-1. **WISC-equivalent subset** — what **current WanOS** expects today (direct Pi GPIO on WISC hardware). Used for **V1a** bring-up adapter planning.
-2. **Full wanos-pcb-v1** — target mapping once expanders and SHT31 I²C are supported in a **later WanOS**.
-
-Runtime source of truth for **today's software** → [wanos `config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml).
-
-Field connector map (R1) → [`field-wiring.md`](field-wiring.md).
+Field connectors → [`field-wiring.md`](field-wiring.md) · Expander pins → [`io-expander-map.md`](io-expander-map.md) · E-ink HDMI pins → [`hdmi-spi-eink.md`](hdmi-spi-eink.md)
 
 ---
 
-## WISC-equivalent subset (current WanOS)
+## Software strategy
 
-Direct **BCM** pins on the Pi 40-pin header — matches WISC / current production wiring.
+| Phase | WanOS hardware | Notes |
+|---|---|---|
+| **Today** | **WISC** boards | [wanos `config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml) — direct GPIO / SHT11 |
+| **Cutover** | **wanos-pcb-v1** | Operator updates **wanos** for expanders, SHT31, HDMI SPI — **all** board functions (**V1a** / main repo) |
+| **No adapter** | — | No shim to preserve WISC GPIO map on this PCB |
+
+Historical WISC pin map (reference only) → [§ WISC legacy](#wisc-legacy-reference-only).
+
+---
+
+## Pi BCM — wanos-pcb-v1 (locked)
+
+### I²C bus (local)
+
+| Signal | BCM | Device |
+|---|---:|---|
+| SDA | **2** | U1, U2, U5, **J16** LCD |
+| SCL | **3** | |
+
+**Addresses:** U1 **PCA9554** `0x20` · U2 **PCA9554** `0x21` · U5 **TCA9546A** `0x70`
+
+### SSR outputs (Pi GPIO)
+
+| Signal | BCM | Field / notes |
+|---|---:|---|
+| Master safety | **4** | On-board — **not** J13 |
+| IR relay | **14** | J13 pin **5** |
+| Sauna phase U | **15** | J13 pin **4** |
+| Sauna phase V | **17** | J13 pin **3** |
+| Sauna phase W | **18** | J13 pin **2** |
+
+Software PWM ~1–5 Hz on sauna phases (same intent as WISC).
+
+### E-ink — HDMI J1 → SPI
+
+HDMI **physical pin** → signal per [`hdmi-spi-eink.md`](hdmi-spi-eink.md). **BCM:**
+
+| SPI function | BCM | HDMI pin | Dir |
+|---|---:|---:|---|
+| DC | **7** | 4 | out |
+| CS | **8** | 1 | out |
+| MOSI | **10** | 7 | out |
+| SCK | **11** | 10 | out |
+| BUSY | **24** | 3 | in |
+| RST | **25** | 6 | out |
+| HPD | — | 19 | tied **GND** on PCB |
+
+### Expander interrupts
+
+**PCA9554 INT** (U1, U2): **NC** on v1 — poll I²C only.
+
+---
+
+## Logical I/O (not direct GPIO)
+
+| Function | Implementation |
+|---|---|
+| Doors, water, 2× kWh | **PCA9554** U1 + **J2–J7** |
+| Sauna LCD buttons | **PCA9554** U2 **P0–P2** + **J8** |
+| 12 V presence / hard-lock | Opto **U4** → **U2 P6** |
+| SHT31 × 4 | **TCA9546A** U5 + **J9–J12** (ch 0–3, sensor @ `0x44`) |
+| LCD × 2 (paralleled) | **J16** I²C |
+
+---
+
+## WISC legacy (reference only)
+
+Direct **BCM** on production **WISC** — for migration context, **not** wanos-pcb-v1 wiring.
 
 ### Pulse / digital inputs
 
-| Signal | BCM | WanOS idx | Type |
-|---|---:|---:|---|
-| kWh meter | 12 | 11001 | energy |
-| Cold water | 6 | 11002 | fluid |
-| Hot water | 5 | 11003 | fluid |
-| Sauna door | 27 | 10001 | door |
-| Bathroom door | 22 | 10002 | door |
+| Signal | BCM | WanOS idx |
+|---|---:|---:|
+| kWh meter | 12 | 11001 |
+| Cold water | 6 | 11002 |
+| Hot water | 5 | 11003 |
+| Sauna door | 27 | 10001 |
+| Bathroom door | 22 | 10002 |
 
-kWh resolution: **1000 pulses/kWh** (1 Wh per pulse).
+### SSR (WISC)
 
-### SSR / GPIO outputs (Pi GPIO — software PWM ~5 Hz on sauna phases)
+| Signal | BCM |
+|---|---:|
+| Master safety | 4 |
+| IR relay | 14 |
+| Sauna phase U | 15 |
+| Sauna phase V | 17 |
+| Sauna phase W | 18 |
 
-| Signal | BCM | Config key |
-|---|---:|---|
-| Master safety | 4 | `safety_gpio` |
-| IR relay | 14 | `ir_relais` |
-| Sauna phase U | 15 | `sauna_relais_phase_U` |
-| Sauna phase V | 17 | `sauna_relais_phase_V` |
-| Sauna phase W | 18 | `sauna_relais_phase_W` |
+### SHT11 (bit-banged on WISC)
 
-### SHT11 sensors (bit-banged — current WanOS, not SHT31)
-
-| Location | idx | D pin | C pin |
+| Location | idx | D | C |
 |---|---:|---:|---:|
 | Sauna high | 20001 | 11 | 25 |
 | Sauna low | 20002 | 7 | 8 |
 | Cinema | 20003 | 9 | 10 |
-| Bathroom 1e | 20004 | 24 | 23 |
-
-**V1a note:** wanos-pcb-v1 routes these functions through expanders / I²C on the PCB; **adapter firmware or wiring** must preserve the logical map until future WanOS adopts the full board map.
+| Bathroom | 20004 | 24 | 23 |
 
 ---
 
-## Full wanos-pcb-v1 (future WanOS)
+## Related
 
-See [`io-expander-map.md`](io-expander-map.md) and [`board-spec.md`](board-spec.md).
-
-| Function | Implementation |
-|---|---|
-| Doors, meters, 2× kWh | **PCA9554** Expander A + **J2–J7** |
-| Sauna LCD buttons | **PCA9554** Expander B **P0–P2** + **J8** |
-| 12 V presence / hard-lock | Optocoupler → **Expander B P6** |
-| SHT31 × 4 | **TCA9546A** + **J9–J12** (mux ch 0–3, all **`0x44`**) |
-| LCD × 2 (paralleled) | **J16** 4-pin I²C (WISC 2.6.4 J7 pinout) |
-| WISC e-ink | HDMI→SPI ([`hdmi-spi-eink.md`](hdmi-spi-eink.md)) |
-| SSR × 4 | **Pi GPIO** → PN2222A → **J13** (5-pin, WISC parity) |
-
-SSR channels remain on **Pi BCM** (not expander PWM). Pi GPIO allocation for SSR + I²C + SPI → lock at **R2**.
-
----
-
-## Software domains (WISC era)
-
-| Domain | Library | Pins |
-|---|---|---|
-| Pulse inputs + SSR | `lgpio` | In: 5, 6, 12, 22, 27 — Out: 4, 14, 15, 17, 18 |
-| SHT11 | `RPi.GPIO` + `pi_sht1x` | 7, 8, 9, 10, 11, 23, 24, 25 |
-
-Future WanOS on wanos-pcb-v1 will use I²C expander + SHT31 drivers — tracked in the main wanos repo (**V1b**).
+- [`external-plant.md`](external-plant.md)
+- [`board-spec.md`](board-spec.md)
+- Delivery: [`todo/phaseV-verify.md`](todo/phaseV-verify.md) § V1a

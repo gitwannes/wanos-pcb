@@ -4,7 +4,7 @@
 
 KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** and **L1**.
 
-**Status:** **S1** open — blocked on **R2**.
+**Status:** **S1** open — **R2** Done; start after **Ops1** or in parallel.
 
 **Related:** [`board-spec.md`](../board-spec.md) · [`io-expander-map.md`](../io-expander-map.md) · [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) · [`component-selection.md`](../component-selection.md) · [`projects/wanos-board/components.xlsx`](../../projects/wanos-board/components.xlsx) · [`kicad-setup.md`](../kicad-setup.md) · Sequence → [`pipeline.md`](pipeline.md).
 
@@ -16,7 +16,7 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 | Id | What | Status |
 |---|---|---|
-| **S1** | KiCad project + schematic + ERC | **open** (after R2) |
+| **S1** | KiCad project + schematic + ERC | **open** |
 
 ---
 
@@ -24,9 +24,9 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 ### Prereqs
 
-- **R2** closed (**R1** Done — connector map in [`field-wiring.md`](../field-wiring.md))
+- **R2** Done — [`gpio-interface.md`](../gpio-interface.md), [`grounding.md`](../grounding.md)
 - **Ops1** Konnect + KiCad 10 usable ([`kicad-setup.md`](../kicad-setup.md))
-- Datasheet pack in `projects/wanos-board/datasheets/` (pipeline Manual)
+- Datasheet pack in [`reference/datasheets/`](../reference/datasheets/README.md) (pipeline Manual)
 
 ### KiCad deliverables (implement phase)
 

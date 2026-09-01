@@ -16,7 +16,7 @@ Bench validation, migration, and future full-board software integration.
 
 | Id | What | Status |
 |---|---|---|
-| **V1a** | wanos-pcb-v1 + **current WanOS** (WISC-equivalent subset) | **open** (after Ops3) |
+| **V1a** | wanos-pcb-v1 + **updated WanOS** (full board map) | **open** (after Ops3) |
 | **V1b** | Full board + **future WanOS code** | **hold** |
 
 ---
@@ -35,33 +35,33 @@ Record results here (date).
 
 ---
 
-## V1a — Current WanOS on wanos-pcb-v1
+## V1a — wanos-pcb-v1 bring-up
 
 ### Context
 
 - Production: **WanOS + WISC** today.
-- **V1a:** prove **wanos-pcb-v1** with **current WanOS** using **WISC-equivalent** logical map before production cutover.
-- **HDMI→SPI:** complete physical verification ([`hdmi-spi-eink.md`](../hdmi-spi-eink.md)) before e-ink depends on this board.
+- **V1a:** first power-on and field test of **wanos-pcb-v1** with **wanos** updated for expanders, SHT31, and HDMI SPI ([`gpio-interface.md`](../gpio-interface.md)). **No** WISC GPIO adapter.
+- **HDMI→SPI:** physical verification ([`hdmi-spi-eink.md`](../hdmi-spi-eink.md)) before relying on e-ink.
 
 ### Prereqs
 
 - **Ops3** passed
-- **R2** V1a wiring / adapter documented
-- [`external-plant.md`](../external-plant.md) / [`field-wiring.md`](../field-wiring.md) available for bench hookup
+- **R2** closed — [`external-plant.md`](../external-plant.md), [`grounding.md`](../grounding.md), [`field-wiring.md`](../field-wiring.md)
+- **wanos** branch / release with wanos-pcb-v1 drivers (main repo)
 
-### Paper test checklist (no new WanOS code required for baseline)
+### Paper test checklist
 
 | Step | Check |
 |---|---|
-| 1 | Visual + continuity (GND, no shorts on Pi 5V) |
-| 2 | Pi boot with board seated; no smoke |
+| 1 | Visual + continuity (GND, no shorts on Pi 5V / J41) |
+| 2 | Pi boot from **J41**; board seated; no smoke |
 | 3 | SSR outputs idle before WanOS arms GPIO |
-| 4 | 12 V present → opto state correct; **12 V removed** → detect + WanOS critical / lock (as wired today) |
-| 5 | kWh pulse (pin 12 logical) |
-| 6 | Water pulses + doors (WISC subset pins) |
-| 7 | SHT11 paths as wired for V1a adapter |
-| 8 | One SSR channel toggle (bench load — safe current) |
-| 9 | Optional: WISC e-ink via HDMI after cable/panel verification |
+| 4 | 12 V at **J14** → opto / expander P6; **12 V removed** → hard-lock in WanOS |
+| 5 | Expander inputs: doors, water, kWh (per wanos config) |
+| 6 | SHT31 via mux **J9–J12** |
+| 7 | Sauna buttons **J8** |
+| 8 | One SSR channel toggle (bench — safe load) |
+| 9 | E-ink via **J1** HDMI after cable/panel verification |
 | 10 | Log errata / bodges below |
 
 ### Deliverables (docs, not code)

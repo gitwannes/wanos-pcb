@@ -21,15 +21,16 @@ Install the font on the KiCad workstation so PCB Editor can render the same face
 
 ---
 
-## Logo / license artwork (WISC reference)
+## Logo artwork (wanos-pcb-v1)
 
-| File | Use |
+| File | wanos-pcb-v1 |
 |---|---|
-| [`Wannes-PCB-logo.png`](Wannes-PCB-logo.png) | Board logo (from WISC library) |
-| [`Cc-by-nc-sa_icon.svg.png`](Cc-by-nc-sa_icon.svg.png) | CC BY-NC-SA mark |
-| `W annes illiams.jpg` / inverted variant | Author mark (optional) |
+| [`Wannes-PCB-logo.png`](Wannes-PCB-logo.png) | **Use** — front silk (from WISC library) |
+| [`Wisclogo_small`](../wisc-board/211201%20wisc2-5-3/Wannes-library.pretty/Wisclogo_small.kicad_mod) | **Use** — front + back (WISC parity) |
+| `W annes illiams.jpg` / inverted variant | Optional author mark |
+| [`Cc-by-nc-sa_icon.svg.png`](Cc-by-nc-sa_icon.svg.png) | **Not used** on wanos-pcb-v1 (WISC reference only; repo [`LICENSE`](../../../LICENSE) is not CC) |
 
-Footprint sources live under [`../wisc-board/211201 wisc2-5-3/Wannes-library.pretty/`](../wisc-board/211201%20wisc2-5-3/Wannes-library.pretty/) — copy into `projects/wanos-board/` at **L1 implement**, do not edit reference KiCad trees.
+Footprint sources live under [`../wisc-board/211201 wisc2-5-3/Wannes-library.pretty/`](../wisc-board/211201%20wisc2-5-3/Wannes-library.pretty/) — copy **Wannes-PCB-logo** and **Wisclogo_small** into `projects/wanos-board/` at **L1 implement**, do not edit reference KiCad trees.
 
 ---
 

@@ -43,7 +43,7 @@ PCB layout for **wanos-pcb-v1** (85 × 56 mm). DRC clean before **Gate-L1** and 
 - [ ] SSR / 12 V area isolated from I²C ([`board-spec.md`](../board-spec.md) § 6)
 - [ ] Decoupling at each PCA9554 / TCA9546A
 - [ ] Test pads TP1–TP10 accessible
-- [ ] Copper pour / grounding per **R2** scheme
+- [ ] Copper pour / grounding per [`grounding.md`](../grounding.md)
 - [ ] Assembly drawing notes for hand-solder TH parts (JST, terminals, J40)
 
 ### L1 DoD

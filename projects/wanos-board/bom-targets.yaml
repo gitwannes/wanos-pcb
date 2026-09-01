@@ -10,6 +10,7 @@ selection: docs/component-selection.md
 parts: []
 
 notes:
-  - "R1 closed 2026-09-01 — see phaseR-requirements.md section R1 shipped summary"
-  - "J2-J16 connector map in field-wiring.md"
+  - "R1 + R2 closed 2026-09-01 — see phaseR-requirements.md"
+  - "J2-J16 connector map in field-wiring.md; J15 dropped R2"
   - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
+  - "Datasheets: docs/reference/datasheets/ (usb-c-j41.pdf pending)"

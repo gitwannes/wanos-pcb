@@ -4,11 +4,11 @@
 
 **Revision:** **wanos-pcb-v1** (first-generation WanOS carrier; replaces ad-hoc / **WISC**-era wiring on a new board — not a spin of the old WISC PCB).
 
-Structured specification for KiCad 10 + Konnect, manufactured via JLCPCB, mechanically compatible with Raspberry Pi 4/5.
+Structured specification for KiCad 10 + Konnect, manufactured via JLCPCB. **Target:** **Raspberry Pi 4** on **85 × 56 mm** outline (WISC 2.6.4 mechanical reference).
 
 **Related:** Overview → [`board-overview.md`](board-overview.md) · Components → [`component-selection.md`](component-selection.md) · Field wiring → [`field-wiring.md`](field-wiring.md) · HDMI→SPI → [`hdmi-spi-eink.md`](hdmi-spi-eink.md) · I/O map → [`io-expander-map.md`](io-expander-map.md) · GPIO contracts → [`gpio-interface.md`](gpio-interface.md) · Silkscreen → [`reference/silkscreen/README.md`](reference/silkscreen/README.md)
 
-**R1 locks:** 2026-09-01 — see [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R1 shipped summary.
+**R1 locks:** 2026-09-01 · **R2 locks:** 2026-09-01 — [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R2 shipped summary.
 
 ---
 
@@ -28,7 +28,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 
 **Board size:** **85 × 56 mm** (Pi-compatible outline; **not** a HAT stack).
 
-**Software note:** Full board capability targets a **later WanOS** release. **Current WanOS** continues on **WISC** boards until **wanos-pcb-v1** is proven (**V1a**). See [`gpio-interface.md`](gpio-interface.md) § WISC-equivalent subset.
+**Software note:** Operator continues **WanOS on WISC** until **wanos** is updated for this board. **One Pi** replaces the former two-Pi WISC split. GPIO / I²C map → [`gpio-interface.md`](gpio-interface.md).
 
 ---
 
@@ -41,7 +41,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 - Powers Raspberry Pi
 - Powers logic (PCA9554PW, TCA9546A, LEDs, I²C sensors on local bus)
 - Must **remain powered** when sauna safety triggers
-- Provided by Pi or external regulated supply
+- **Pi powered via USB-C J41** on this PCB (R2 lock)
 
 #### 12 V (sauna SSR rail)
 
@@ -58,7 +58,7 @@ Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 - 12 V → **1 kΩ – 2.2 kΩ** → optocoupler LED
 - Transistor → pull-up to 3.3 V → **Expander B pin P6**
 - Optional RC: 10 kΩ + 100 nF
-- Part: **PC817** / **LTV-817** class
+- Part: **PC817A** class (see [`reference/datasheets/pc817a.pdf`](reference/datasheets/pc817a.pdf))
 
 **Logic:** LOW = 12 V present; HIGH = 12 V missing → hard-lock.
 
@@ -116,21 +116,37 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 - WISC **2.6.4 J7** pinout; distinct backpack I²C addresses required
 - **No second LCD header on v1**
 
-### 4.4 Pi power (optional)
+### 4.4 Pi power
 
-- **J41** USB-C with 5k1 PD if used
+- **J41** USB-C — **primary** Pi supply (5 V on PCB)
+- **J40** 40-pin header — I/O only when Pi is fed from **J41**
 
 ---
 
 ## 5. Indicator LEDs
 
+**15** visible indicators (3 status + 12 activity). **No** activity LED on **master safety** SSR (BCM 4). **Four** SSR activity LEDs (**IR** + phases **U/V/W**) on **J13** channels.
+
 ### 5.1 Status (dim)
 
-- 5 V external, 12 V external, 5 V Pi — resistors **2k2–4k7**
+Resistors **R29–R31** (**2k2–4k7**).
+
+| LED | Indicates |
+|---|---|
+| 5 V in | USB **J41** / external 5 V present |
+| 12 V | **+12VA** at **J14** |
+| 5 V Pi | Pi / logic rail alive |
 
 ### 5.2 Activity (bright)
 
-- Doors (2×), water B1/B2 (4×), kWh (2×), SSR (4×) — **12** total; **220–330 Ω**
+Resistors **R17–R28** (**220–330 Ω**).
+
+| Group | Count | Signals |
+|---|---:|---|
+| Doors | 2 | J2 sauna, J3 bathroom |
+| Water B1 / B2 | 4 | J4–J5 cold + hot |
+| kWh | 2 | J6 main, J7 aux |
+| SSR (J13) | 4 | IR, phase U, V, W |
 
 ---
 
@@ -157,10 +173,10 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
 | Zone | Content |
 |---|---|
-| **Left** | Pi **J40**, HDMI **J1**, optional **J41** |
+| **Left** | Pi **J40**, HDMI **J1**, **J41** USB-C |
 | **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, decoupling |
 | **Right** | **J2–J8** field inputs, activity LEDs |
-| **Bottom** | **J14–J15** 12 V, **J13** SSR, Q1–Q4, U4 opto, TVS |
+| **Bottom** | **J14** 12 V, **J13** SSR, Q1–Q4, U4 opto, TVS |
 | **Center** | Routing keep-out; lock HDMI before Freerouting |
 
 Silkscreen font → [`reference/silkscreen/README.md`](reference/silkscreen/README.md).
@@ -176,10 +192,12 @@ Silkscreen font → [`reference/silkscreen/README.md`](reference/silkscreen/READ
 | Thickness | 1.6 mm |
 | Finish | ENIG |
 | Soldermask | Green |
-| Silkscreen | White; font → [`reference/silkscreen/README.md`](reference/silkscreen/README.md) |
+| Silkscreen | White; **`wanos-pcb-v1.0`** + Wannes logos — [`reference/silkscreen/README.md`](reference/silkscreen/README.md) |
 | Min text height | ≥ 1.0 mm |
 
 DRC → [`projects/wanos-board/constraints.md`](../projects/wanos-board/constraints.md).
+
+**JLCPCB assembly (R2):** full **PCBA** — SMD + through-hole (**J40**, JST, **J14**, HDMI **J1**) unless revised at **Ops2/J1**.
 
 ---
 
@@ -189,6 +207,9 @@ DRC → [`projects/wanos-board/constraints.md`](../projects/wanos-board/constrai
 |---|---|
 | [`field-wiring.md`](field-wiring.md) | JST pinouts, Cat5, mux channels |
 | [`component-selection.md`](component-selection.md) | Parts and footprints |
+| [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant |
+| [`grounding.md`](grounding.md) | Ground / return scheme |
+| [`gpio-interface.md`](gpio-interface.md) | Pi BCM + software strategy |
 | [`io-expander-map.md`](io-expander-map.md) | Expander + mux map |
 | [`components.xlsx`](../projects/wanos-board/components.xlsx) | BOM seed |
 
