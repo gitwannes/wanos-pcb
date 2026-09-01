@@ -6,7 +6,7 @@ Summary of the **85 × 56 mm WISC HDMI / e-ink interface** KiCad project. Source
 
 | | |
 |---|---|
-| **Folder** | [`docs/wisc_boards/220313 wisc2-6-4-HDMI/`](../../wisc_boards/220313%20wisc2-6-4-HDMI/) |
+| **Folder** | [`220313 wisc2-6-4-HDMI/`](220313%20wisc2-6-4-HDMI/) |
 | **Project** | `wisc2-6-4.kicad_pro` |
 | **Title block** | Wisc · rev **2.6.4** · 2022-03-13 · Hofmans |
 | **Silk ID** | `220313_wisc2-6-4` |
@@ -199,4 +199,4 @@ The wanos-pcb-v1 doc maps **HDMI pin numbers → signal names** (TMDS-oriented).
 
 ## 10. Konnect / Cursor
 
-Read-only inspection OK (`get_project_info`, `open_project`, file-mode reads). Do not edit under `docs/wisc_boards/`. Setup: [`kicad-setup.md`](../../kicad-setup.md).
+Read-only inspection OK (`get_project_info`, `open_project`, file-mode reads). Do not edit KiCad sources under this folder. Setup: [`kicad-setup.md`](../../kicad-setup.md).

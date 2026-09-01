@@ -2,7 +2,7 @@
 
 # PCB / schematic constraints — wanos-pcb-v1
 
-Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](../../docs/board-spec.md).
+Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](../../docs/board-spec.md). R1 locks → [`docs/field-wiring.md`](../../docs/field-wiring.md).
 
 ---
 
@@ -19,15 +19,19 @@ Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](..
 
 - Net names: `EXP_A_*`, `EXP_B_*`, `I2C_SCL`, `I2C_SDA`, `GPIO_SSR_*` — see [`io-expander-map.md`](../../docs/io-expander-map.md)
 - SSR outputs: **Pi GPIO** → 470 Ω → PN2222A — **not** expander PWM
-- 12 V monitor: single locked net (**R1**)
-- PCA9554 `A0`–`A2` tied for unique addresses
-- Decoupling: 100 nF per IC; 1 µF bulk near expanders
+- 12 V monitor: **`EXP_B_P6_12V_MON`** (locked)
+- PCA9554 `A0`–`A2` tied for unique addresses (`0x20`, `0x21` example)
+- TCA9546A @ **`0x70`**; four SHT31 plant ports **J9–J12**
+- I²C pull-ups: **2k2** on SCL/SDA only (**R9**, **R10**)
+- **No PCA9615** on v1
+- Decoupling: 100 nF per IC; 1 µF bulk near expanders/mux
 
 ---
 
 ## Footprints
 
 - From [`component-selection.md`](../../docs/component-selection.md) and [`components.xlsx`](components.xlsx)
+- SSR **J13**: `JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical` (WISC parity)
 - Validate LCSC stock at **J1**
 
 ---
@@ -38,6 +42,7 @@ Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](..
 
 - Lock HDMI/SPI before Freerouting
 - Separate SSR/12V from I²C
+- Silkscreen font → [`reference/silkscreen/README.md`](../../docs/reference/silkscreen/README.md)
 
 ---
 

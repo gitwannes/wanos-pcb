@@ -2,77 +2,61 @@
 
 # wanos-pcb-v1 — I/O expander schematic block
 
-Two **PCA9554PW** expanders plus **PCA9615** on the Pi I²C bus. Ready for KiCad sheet **IO_EXPANDERS** after **R1** resolves open pin conflicts (see [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R1 checklist).
+Two **PCA9554PW** expanders plus **TCA9546A** I²C mux on the Pi local bus. Ready for KiCad sheet **IO_EXPANDERS** (R1 locked **2026-09-01**).
+
+Field pinouts → [`field-wiring.md`](field-wiring.md).
 
 ---
 
-## 1. Common I²C bus
+## 1. Common I²C bus (local)
 
-- Nets: `I2C_SCL`, `I2C_SDA` (from Raspberry Pi 40-pin header)
-- Pull-ups: **4k7** to 3.3 V on SCL and SDA (main bus — additional segment pull-ups per [`board-spec.md`](board-spec.md) § 6.1)
-- Devices on bus:
-  - PCA9554PW Expander A
-  - PCA9554PW Expander B
-  - LCD modules (2× I²C)
-  - PCA9615 (differential I²C driver for SHT31 sensors)
+- Nets: `I2C_SCL`, `I2C_SDA` (from Raspberry Pi 40-pin header, BCM3/BCM2)
+- Pull-ups: **2k2** to 3.3 V on SCL and SDA (**R9**, **R10**) — sized for 4–5 m Cat5 on mux channels @ 100 kHz
+- Devices on local bus:
+  - PCA9554PW Expander A (**U1**)
+  - PCA9554PW Expander B (**U2**)
+  - **TCA9546A** mux (**U5**, address **`0x70`**)
+  - **J16** LCD I²C (both modules paralleled on one 4-pin header)
+
+**Not on v1:** PCA9615 differential driver (**U3** omitted).
 
 ---
 
 ## 2. PCA9554PW — Expander A (meters + doors + kWh)
 
-**Part:** `U_EXP_A` — PCA9554PW (TSSOP-16)  
-**Power:** VCC = 3.3 V; GND
+**Part:** `U1` — PCA9554PW (TSSOP-16)  
+**Power:** VCC = 3.3 V; GND  
+**I²C address:** `0x20` (example — tie A0/A1/A2 per schematic)
 
-**Pins:**
-
-- `SCL` → `I2C_SCL`
-- `SDA` → `I2C_SDA`
-- `A0`, `A1`, `A2` → tied to GND/VCC for I²C address (example: `0x20`)
-- `INT` → optional Pi GPIO or NC
-
-**GPIO mapping (Expander A):**
-
-| Pin | Net (proposed) | Field |
+| Pin | Net | Field |
 |---|---|---|
-| P0 | `EXP_A_P0_DOOR_BATH` | Bathroom door |
-| P1 | `EXP_A_P1_DOOR_SAUNA` | Sauna door |
-| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold meter |
-| P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot meter |
-| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold meter |
-| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot meter |
-| P6 | `EXP_A_P6_KWH_MAIN` | kWh main |
-| P7 | `EXP_A_P7_KWH_AUX_OR_12V_MON` | **R1:** kWh aux **or** 12 V monitor — **must not stay “either/or”** |
+| P0 | `EXP_A_P0_DOOR_BATH` | Bathroom door (**J3**) |
+| P1 | `EXP_A_P1_DOOR_SAUNA` | Sauna door (**J2**) |
+| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4**) |
+| P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) |
+| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J5**) |
+| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J5**) |
+| P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) |
+| P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) |
 
-**Per-input hardware:**
-
-- **100 nF** debounce on doors/meters
-- Activity LED per meter/door (220–330 Ω)
+**Per-input hardware:** 100 nF debounce; activity LED 220–330 Ω where specified in [`board-spec.md`](board-spec.md).
 
 ---
 
-## 3. PCA9554PW — Expander B (buttons + UI)
+## 3. PCA9554PW — Expander B (buttons + 12 V monitor)
 
-**Part:** `U_EXP_B` — PCA9554PW (TSSOP-16)  
-**Power:** VCC = 3.3 V; GND
+**Part:** `U2` — PCA9554PW (TSSOP-16)  
+**I²C address:** `0x21` (example — second address via A0–A2)
 
-**Pins:**
-
-- `SCL` → `I2C_SCL`
-- `SDA` → `I2C_SDA`
-- `A0`, `A1`, `A2` → second address (example: `0x21`)
-- `INT` → optional Pi GPIO or NC
-
-**GPIO mapping (Expander B):**
-
-| Pin | Net (proposed) | Field |
+| Pin | Net | Field |
 |---|---|---|
-| P0 | `EXP_B_P0_BTN1` | Sauna LCD button 1 |
-| P1 | `EXP_B_P1_BTN2` | Sauna LCD button 2 |
-| P2 | `EXP_B_P2_BTN3` | Sauna LCD button 3 |
+| P0 | `EXP_B_P0_BTN1` | Sauna LCD button 1 (**J8**) |
+| P1 | `EXP_B_P1_BTN2` | Sauna LCD button 2 (**J8**) |
+| P2 | `EXP_B_P2_BTN3` | Sauna LCD button 3 (**J8**) |
 | P3 | `EXP_B_P3_UI_READY` | Optional UI |
 | P4 | `EXP_B_P4_UI_ERROR` | Optional UI |
 | P5 | `EXP_B_P5_UI_LED` | Optional status |
-| P6 | `EXP_B_P6_12V_MON` | **R1 candidate:** 12 V presence (opto) |
+| P6 | `EXP_B_P6_12V_MON` | **12 V opto monitor (U4)** — safety-critical |
 | P7 | `EXP_B_P7_SPARE` | Spare |
 
 **Buttons:** Pull-up to 3.3 V; switch to GND when pressed; software debounce.
@@ -81,33 +65,42 @@ Two **PCA9554PW** expanders plus **PCA9615** on the Pi I²C bus. Ready for KiCad
 
 ## 4. 12 V monitor (safety-critical)
 
-**R1 must lock exactly one expander pin** for optocoupler output (see [`board-spec.md`](board-spec.md) § 2.2).
+**R1 lock:** optocoupler output → **`EXP_B_P6_12V_MON`** only.
 
-Recommended circuit:
-
-- 12 V → 1 kΩ–2.2 kΩ → optocoupler LED
-- Transistor → pull-up to 3.3 V → locked expander input
+- 12 V → 1 kΩ–2.2 kΩ → optocoupler LED (**U4** PC817 class)
+- Transistor → pull-up to 3.3 V → Expander B P6
 - Optional RC: 10 kΩ + 100 nF
-- Part: **PC817** / **LTV-817** (U4 in [`components.xlsx`](../projects/wanos-board/components.xlsx))
 
-Logic: LOW = 12 V present; HIGH = 12 V missing → hard-lock.
+Logic: **LOW** = 12 V present; **HIGH** = 12 V missing → hard-lock.
 
 ---
 
-## 5. Decoupling and layout
+## 5. SHT31 plant — TCA9546A mux
 
-- **100 nF** on each PCA9554 VCC; optional **1 µF** bulk nearby
+Four SHT31 modules share I²C address **`0x44`**. **U5** (TCA9546A) selects one channel at a time.
+
+| Mux ch | JST | Sensor |
+|---:|---|---|
+| 0 | **J9** | Bathroom |
+| 1 | **J10** | Cinema |
+| 2 | **J11** | Sauna mid |
+| 3 | **J12** | Sauna high |
+
+Each channel: **4-pin JST**, WISC **2.6.4 J7** pinout (GND, SDA, SCL, 3V3) over **~4–5 m Cat5**.
+
+Software: write mux channel byte to **`0x70`**, then read SHT31 at **`0x44`**.
+
+---
+
+## 6. Decoupling and layout
+
+- **100 nF** on each PCA9554 and TCA9546 VCC; optional **1 µF** bulk nearby
 - Expander A near **right-edge** field JST inputs
-- Expander B near **top-edge** LCD + button connectors
-
----
-
-## 6. SHT31 / PCA9615 (open at R1)
-
-Four SHT31 sensors need an addressing plan (SHT31 has two I²C addresses). Options: I²C mux, multiple differential segments, or fewer live sensors — **lock at R1/R2**. Current BOM: one PCA9615 (U3) + one 4-pin JST (J7).
+- Expander B near **top-edge** button + LCD zone
+- U5 near I²C cluster; keep SHT31 JSTs grouped on top/right edge
 
 ---
 
 ## 7. Net naming (KiCad)
 
-Use the `EXP_A_*` / `EXP_B_*` names in § 2–3 once **R1** resolves P7 / 12 V monitor placement.
+Use the `EXP_A_*` / `EXP_B_*` names in § 2–3. Do not use legacy `EXP_A_P7_KWH_AUX_OR_12V_MON`.

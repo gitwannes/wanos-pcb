@@ -2,115 +2,118 @@
 
 # wanos-pcb-v1 — component selection (JLCPCB-compatible)
 
-Verified JLCPCB-compatible parts for **wanos-pcb-v1**, aligned with [`board-spec.md`](board-spec.md).
+Verified JLCPCB-compatible parts for **wanos-pcb-v1**, aligned with [`board-spec.md`](board-spec.md) (R1 locks **2026-09-01**).
 
 **BOM seed:** [`projects/wanos-board/components.xlsx`](../projects/wanos-board/components.xlsx) (LCSC column — validate stock at **J1**).
+
+**Field connectors:** designators and pinouts → [`field-wiring.md`](field-wiring.md).
 
 ---
 
 ## 1. JST XH connectors (2.50 mm pitch)
 
-JLCPCB supports assembly of **through-hole JST XH** headers.
+| MPN pattern | Pins | wanos use |
+|---|---:|---|
+| **B2B-XH-A** | 2 | Doors **J2–J3**, kWh **J6–J7** |
+| **B4B-XH-A** | 4 | Buttons **J8**, SHT31 **J9–J12**, LCD **J16** |
+| **B5B-XH-A** | 5 | SSR **J13** (WISC J1 parity, vertical) |
+| **B6B-XH-A** | 6 | Water **J4–J5** |
 
-**Recommended parts (straight / right-angle):**
-
-- **B2B-XH-A(LF)(SN)** — 2-pin
-- **B3B-XH-A(LF)(SN)** — 3-pin
-- **B4B-XH-A(LF)(SN)** — 4-pin
-- **B6B-XH-A(LF)(SN)** — 6-pin
-- **B7B-XH-A(LF)(SN)** — 7-pin
-- **S6B-XH-A(LF)(SN)** — 6-pin right-angle
-
-**Use for:** door sensors, water meters (bathroom 1 and 2), kWh meters, buttons, SHT31 differential I²C, SSR outputs, LCD modules (connectors only).
-
-**KiCad footprints:**
+**KiCad footprints (vertical):**
 
 ```text
 Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical
-Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical
 Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical
+Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical
 Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical
-Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical
-Connector_JST:JST_XH_S6B-XH-A_1x06_P2.50mm_RightAngle
 ```
 
 ---
 
-## 2. Screw terminals (power input)
+## 2. Screw terminals (12 V)
 
-For **12 V input**:
+- **KF301-2P** — **J14**
+- **KF301-3P** — **J15**
 
-- **KF301-2P** — 2-pin, 5.08 mm pitch
-- **KF301-3P** — 3-pin, 5.08 mm pitch
-
-**KiCad footprints:**
-
-```text
-TerminalBlock:TerminalBlock_Phoenix_MKDS-2-5.08_1x02_P5.08mm
-TerminalBlock:TerminalBlock_Phoenix_MKDS-2-5.08_1x03_P5.08mm
-```
+Footprints: `TerminalBlock_Phoenix_MKDS-2-5.08_1x02` / `1x03`.
 
 ---
 
-## 3. HDMI connector (SPI repurposing)
+## 3. HDMI (e-ink SPI)
 
-- **Molex 208658-1052** — HDMI Type-A SMT female (JLCPCB assembly compatible)
-
-**KiCad footprint:**
-
-```text
-Connector_HDMI:HDMI_Molex_208658-1052
-```
+- **Molex 208658-1052** — **J1** — `Connector_HDMI:HDMI_Molex_208658-1052`
 
 Pin mapping → [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
 ---
 
-## 4. I/O expanders (two identical)
+## 4. I²C ICs
 
-- **PCA9554PW** × 2 — 8-bit I²C, TSSOP-16
-- **PCA9615DP** — differential I²C driver for SHT31 plant bus
+| Part | Ref | Role |
+|---|---|---|
+| **PCA9554PW** × 2 | U1, U2 | 8-bit expanders |
+| **TCA9546A** | U5 | 4-ch I²C mux @ **0x70** (SHT31 @ **0x44**) |
+| ~~PCA9615DP~~ | — | **Not used v1** |
 
-**KiCad footprints:**
-
-```text
-Package_SO:TSSOP-16_4.4x5mm_P0.65mm
-Package_SO:SOIC-8_3.9x4.9mm_P1.27mm
-```
+Footprints: `Package_SO:TSSOP-16_4.4x5mm_P0.65mm` (9554, 9546).
 
 Net map → [`io-expander-map.md`](io-expander-map.md).
 
 ---
 
-## 5. Additional components
+## 5. Other active parts
 
-| Part | Role | Package |
+| Part | Ref | Role |
 |---|---|---|
-| **PN2222A-TA** | SSR driver | SOT-23 |
-| **SMBJ12A** | 12 V TVS | SMB |
-| **BLM21PG331SN1** | Pi 5 V ferrite | 0805 |
-| **PC817 / LTV-817** | 12 V presence opto | SO-4 / SOP-4 |
-| Passives 0603/0805 | 470 Ω, 10k, 4k7, 220–330 Ω, 2k2–4k7, 100 nF, 1 µF | Standard |
+| **PN2222A-TA** × 4 | Q1–Q4 | SSR drivers |
+| **PC817** SMD | U4 | 12 V opto |
+| **SMBJ12A** | D1 | 12 V TVS |
+| **BLM21PG331SN1** | FB1 | Pi 5 V ferrite |
 
 ---
 
-## 6. BOM summary
+## 6. Passives (R1 locks)
 
-See [`components.xlsx`](../projects/wanos-board/components.xlsx) for designators, LCSC numbers, and mount types.
+| Ref | Value | Role |
+|---|---|---|
+| **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups (4–5 m Cat5 @ 100 kHz) |
+| R1–R4 | 470 Ω | SSR base |
+| R5–R8 | 10k | SSR pulldown |
+| R17–R28 | 220–330 Ω | Activity LEDs |
+| R29–R31 | 2k2–4k7 | Status LEDs |
+| R32 | 1k–2k2 | Opto LED |
+| R33 + C17 | 10k + 100 nF | Opto RC (optional) |
 
-| Function | Part | Notes |
+**Not populated v1:** R11–R16 (removed — no PCA9615 segment).
+
+---
+
+## 7. BOM summary
+
+| Function | Part | Connector / ref |
 |---|---|---|
 | HDMI / e-ink | Molex 208658-1052 | J1 |
-| Field inputs | JST XH | J2–J7 (connector counts **R1** review) |
-| SSR outputs | JST XH 6-pin RA | J8 |
-| 12 V input | KF301 screw terminals | J9, J10 |
-| I/O expanders | PCA9554PW × 2 | U1, U2 |
-| Diff I²C | PCA9615DP | U3 |
+| Doors | JST XH 2-pin × 2 | J2, J3 |
+| Water | JST XH 6-pin × 2 | J4, J5 |
+| kWh | JST XH 2-pin × 2 | J6, J7 |
+| Buttons | JST XH 4-pin | J8 |
+| SHT31 plant | JST XH 4-pin × 4 | J9–J12 |
+| SSR | JST XH **5-pin** vertical | J13 |
+| 12 V | KF301 | J14, J15 |
+| LCD | JST XH 4-pin × 1 | J16 |
+| Expanders | PCA9554PW × 2 | U1, U2 |
+| I²C mux | TCA9546A | U5 |
 | SSR drivers | PN2222A × 4 | Q1–Q4 |
-| 12 V monitor | PC817 SMD | U4 |
-| Pi header | 2×20 2.54 mm | J40 |
-| Optional Pi power | USB-C | J41 |
+| 12 V monitor | PC817 | U4 |
+| Pi header | 2×20 | J40 |
+| Pi power | USB-C (optional) | J41 |
 
 **External (not assembled):** LCD modules, SHT31 sensor boards, external DIN SSRs.
 
-Use Konnect to validate JLCPCB stock before **J1** order.
+Validate LCSC stock before **J1**.
+
+---
+
+## 8. Silkscreen
+
+Font: [Printed Circuit Board 7](https://www.fontspace.com/printed-circuit-board-7-font-f15777) — see [`reference/silkscreen/README.md`](reference/silkscreen/README.md).

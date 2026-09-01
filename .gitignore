@@ -18,9 +18,9 @@ projects/*/fabrication/*.pos
 projects/*/fabrication/*.ipc
 projects/*/fabrication/*.pdf
 
-# WISC legacy reference (docs/wisc_boards/)
+# WISC legacy reference (docs/reference/wisc-board/)
 # Operator archive bucket - not for git; move off-machine when convenient
-docs/wisc_boards/_donotcommit/
+docs/reference/wisc-board/_donotcommit/
 
 # OS / editor
 .DS_Store
@@ -28,6 +28,7 @@ Thumbs.db
 *.swp
 .vscode/
 .idea/
+*.lnk
 
 # Python (optional helper scripts)
 .venv/

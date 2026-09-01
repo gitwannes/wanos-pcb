@@ -6,7 +6,9 @@
 
 Structured specification for KiCad 10 + Konnect, manufactured via JLCPCB, mechanically compatible with Raspberry Pi 4/5.
 
-**Related:** Overview → [`board-overview.md`](board-overview.md) · Components → [`component-selection.md`](component-selection.md) · HDMI→SPI → [`hdmi-spi-eink.md`](hdmi-spi-eink.md) · I/O map → [`io-expander-map.md`](io-expander-map.md) · GPIO contracts → [`gpio-interface.md`](gpio-interface.md)
+**Related:** Overview → [`board-overview.md`](board-overview.md) · Components → [`component-selection.md`](component-selection.md) · Field wiring → [`field-wiring.md`](field-wiring.md) · HDMI→SPI → [`hdmi-spi-eink.md`](hdmi-spi-eink.md) · I/O map → [`io-expander-map.md`](io-expander-map.md) · GPIO contracts → [`gpio-interface.md`](gpio-interface.md) · Silkscreen → [`reference/silkscreen/README.md`](reference/silkscreen/README.md)
+
+**R1 locks:** 2026-09-01 — see [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R1 shipped summary.
 
 ---
 
@@ -16,11 +18,11 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 
 **wanos-pcb-v1** provides:
 
-- Digital inputs (doors, water meters, kWh meters, buttons)
-- Differential I²C sensor interfaces (SHT31 plant bus)
+- Digital inputs (doors, water meters, kWh meters, buttons) via **PCA9554** expanders
+- **SHT31** temperature/humidity (4×) via **TCA9546A** mux + Cat5 plant cables
 - SSR control outputs (3-phase sauna + IR)
-- Power monitoring (12 V sauna rail)
-- LCD interfaces (2× I²C)
+- **12 V** sauna rail monitoring (optocoupler hard-lock)
+- **1×** I²C LCD header (two displays paralleled)
 - E-ink display via repurposed HDMI connector (WISC SPI)
 - Status and activity LEDs
 
@@ -37,7 +39,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 #### 5 V (stable, independent)
 
 - Powers Raspberry Pi
-- Powers logic (PCA9554PW expanders, PCA9615, LEDs, sensors)
+- Powers logic (PCA9554PW, TCA9546A, LEDs, I²C sensors on local bus)
 - Must **remain powered** when sauna safety triggers
 - Provided by Pi or external regulated supply
 
@@ -49,85 +51,49 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 - Loss of 12 V → Pi stays alive → WanOS logs critical event + stops sauna
 - Sauna remains **hard-locked** until manual reset via UI/software
 
-### 2.2 12 V monitoring
+### 2.2 12 V monitoring (R1 lock)
 
-The design uses an **optocoupler** for robust, isolated 12 V presence detection.
+Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 
-- 12 V present → sauna control allowed
-- 12 V missing → critical shutdown + lockout
+- 12 V → **1 kΩ – 2.2 kΩ** → optocoupler LED
+- Transistor → pull-up to 3.3 V → **Expander B pin P6**
+- Optional RC: 10 kΩ + 100 nF
+- Part: **PC817** / **LTV-817** class
 
-#### Why optocoupler?
-
-- Galvanic isolation between 12 V sauna safety rail and 3.3 V logic
-- Protects Raspberry Pi and expanders from spikes or wiring faults
-- Clean digital detection of “12 V present” vs “12 V missing”
-- Supports required **hard-lock safety behaviour**
-
-#### Recommended circuit
-
-- 12 V → **1 kΩ – 2.2 kΩ resistor** → optocoupler LED
-- Optocoupler transistor → **pull-up to 3.3 V** → digital input (I/O expander — pin **TBD at R1**; see [`io-expander-map.md`](io-expander-map.md))
-- Optional RC filter (e.g. 10 kΩ + 100 nF) for noise immunity
-- Suggested optocoupler: **PC817**, **LTV-817**, or equivalent phototransistor type
-
-#### Logic interpretation
-
-- LED ON → transistor pulls signal LOW → **12 V present**
-- LED OFF → transistor floats HIGH → **12 V missing → trigger hard-lock**
+**Logic:** LOW = 12 V present; HIGH = 12 V missing → hard-lock.
 
 ---
 
 ## 3. Inputs
 
-### 3.1 Door sensors (bathroom and sauna)
+### 3.1 Door sensors
 
-- Reed switches
-- Debounce capacitors: **100 nF**
-- Routed to **I/O Expander A**
-- JST XH connectors
+- **2×** 2-pin JST (**J2** sauna, **J3** bathroom) — pin 1 GND, pin 2 signal
+- Reed switches, 100 nF debounce, **Expander A** P1/P0
 
-### 3.2 Water meters — bathroom 1 (cold and hot)
+### 3.2 Water meters — bathroom 1 and 2
 
-- Pulse counters
-- Routed to **I/O Expander A**
-- Activity LEDs: **220–330 Ω**
-- JST XH connectors
+- **J4**, **J5** — 6-pin JST each (cold + hot)
+- **Expander A** P2–P5; activity LEDs 220–330 Ω
 
-### 3.3 Water meters — bathroom 2 (cold and hot)
+### 3.3 kWh counters (main + aux)
 
-- Additional pulse counters
-- Routed to **I/O Expander A**
-- Activity LEDs: **220–330 Ω**
-- JST XH connectors
+- **J6**, **J7** — 2× 2-pin JST
+- **Expander A** P6 (main), P7 (aux); activity LEDs
 
-### 3.4 Energy kWh counter (main)
+### 3.4 Buttons (sauna LCD)
 
-- Pulse input
-- Routed to **I/O Expander A**
-- Activity LED: **220–330 Ω**
-- JST connector
+- **J8** — 4-pin JST (3 buttons + GND); Cat5 UTP harness
+- **Expander B** P0–P2; pinout → [`field-wiring.md`](field-wiring.md) § 5
 
-### 3.5 Energy kWh counter (additional)
-
-- Second kWh input
-- Routed to **I/O Expander A**
-- Activity LED: **220–330 Ω**
-- JST connector
-
-### 3.6 Buttons (sauna LCD)
-
-- 3 digital inputs
-- Routed to **I/O Expander B**
-- JST connector (**4-pin**: 3 signals + GND — see **R1** checklist in [`phaseR-requirements.md`](todo/phaseR-requirements.md))
-- Software debounce
-
-### 3.7 SHT31 sensors (4×)
+### 3.5 SHT31 sensors (4×)
 
 - Bathroom, cinema, sauna mid, sauna high
-- Via **PCA9615** differential I²C
-- Standard mode: **100 kHz**
-- Each segment requires **4k7 pull-ups**
-- JST connectors (addressing / segment plan **TBD at R1**)
+- **TCA9546A** (**U5**) @ **`0x70`** — one mux channel per sensor
+- **J9–J12** — 4× 4-pin JST, WISC **2.6.4 J7** I²C pinout
+- **~4–5 m Cat5** per sensor; all modules at I²C **`0x44`**
+- **100 kHz** Standard mode; **no PCA9615** on v1
+- Detail → [`field-wiring.md`](field-wiring.md) § 7
 
 ---
 
@@ -135,53 +101,36 @@ The design uses an **optocoupler** for robust, isolated 12 V presence detection.
 
 ### 4.1 SSR channels (4×)
 
-- 3 for sauna (3-phase heater)
-- 1 for IR
-- Software PWM: **1–5 Hz**
-- **Pi GPIO** → **470 Ω** → PN2222A → SSR (not via I²C expander)
-- PN2222A base pulldown: **10k**
-- SSR opto input powered from **12 V**
-- JST XH connectors for SSR outputs
+- 3 sauna phases + 1 IR
+- **Pi GPIO** → 470 Ω → PN2222A → external SSR
+- **J13** — **5-pin** JST vertical (**WISC J1** parity)
+- 12 V SSR opto supply; software PWM ~1–5 Hz on sauna phases
 
-Pi GPIO allocation → [`gpio-interface.md`](gpio-interface.md) § Full board.
-
-### 4.2 E-ink display (HDMI Type A repurposed as SPI)
+### 4.2 E-ink (HDMI → SPI)
 
 See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
-### 4.3 LCD screens (2×)
+### 4.3 LCD (2× modules, 1× header)
 
-- I²C bus
-- Shared with I/O Expander B zone
-- Standard 100 kHz
-- JST connectors (**dedicated headers TBD at R1** — see phase **R1** checklist)
+- **J16** — single **4-pin** I²C JST; both LCD tails wired in parallel (deployed practice)
+- WISC **2.6.4 J7** pinout; distinct backpack I²C addresses required
+- **No second LCD header on v1**
 
-### 4.4 Pi power connector (optional)
+### 4.4 Pi power (optional)
 
-- USB-A or USB-C
-- 5k1 PD resistor if USB-C
-- Only needed if powering Pi externally
+- **J41** USB-C with 5k1 PD if used
 
 ---
 
 ## 5. Indicator LEDs
 
-### 5.1 Status LEDs (dim)
+### 5.1 Status (dim)
 
-- 5 V external power
-- 12 V external power
-- 5 V Pi power
-- Resistors: **2k2–4k7**
+- 5 V external, 12 V external, 5 V Pi — resistors **2k2–4k7**
 
-### 5.2 Activity LEDs (bright)
+### 5.2 Activity (bright)
 
-- Doors (2×)
-- Water meters (bathroom 1: 2×)
-- Water meters (bathroom 2: 2×)
-- kWh meters (2×)
-- SSR channels (4×)
-- Total activity LEDs: **12**
-- Resistors: **220–330 Ω**
+- Doors (2×), water B1/B2 (4×), kWh (2×), SSR (4×) — **12** total; **220–330 Ω**
 
 ---
 
@@ -189,115 +138,58 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
 ### 6.1 I²C
 
-- Two × **PCA9554PW** expanders + LCDs + **PCA9615**
-- Pull-ups: **4k7** per segment
-- Keep I²C traces short and grouped
-- Differential I²C isolated from SSR area
+- **PCA9554PW × 2**, **TCA9546A**, **J16** LCD tap on **local bus**
+- Pull-ups: **2k2** on **SCL** and **SDA** only (**R9**, **R10**)
+- **100 kHz**; keep I²C away from SSR/12 V zone
 
 ### 6.2 SSR area
 
-- Keep SSR traces away from logic
-- Add **100 nF** near each PN2222A
-- Add **ferrite bead** on Pi 5 V rail
-- Add **TVS diode** on 12 V input
+- 100 nF near each PN2222A; ferrite on Pi 5 V; **SMBJ12A** on 12 V input
 
 ### 6.3 Safety
 
-- EN 60335-2-53 considerations
-- No mains on PCB
-- Clear separation between logic and SSR area
-- 12 V monitoring must be fail-safe
-- Sauna remains **hard-locked** until manual reset via UI/software
+- EN 60335-2-53 context; no mains on PCB
+- 12 V monitor fail-safe; hard-lock until manual reset
 
 ---
 
-## 7. Functional placement plan (85 × 56 mm)
+## 7. Functional placement (85 × 56 mm)
 
-### 7.1 Left edge — Raspberry Pi interface zone
+| Zone | Content |
+|---|---|
+| **Left** | Pi **J40**, HDMI **J1**, optional **J41** |
+| **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, decoupling |
+| **Right** | **J2–J8** field inputs, activity LEDs |
+| **Bottom** | **J14–J15** 12 V, **J13** SSR, Q1–Q4, U4 opto, TVS |
+| **Center** | Routing keep-out; lock HDMI before Freerouting |
 
-- 40-pin Pi header
-- HDMI Type A (SPI for e-ink)
-- Pi 5 V power connector (optional)
-- Keep HDMI traces short
-- Lock HDMI nets before Freerouting
-
-### 7.2 Top edge — logic and I²C zone
-
-- **PCA9554PW Expander A** (meters + doors + kWh)
-- **PCA9554PW Expander B** (buttons + LCD)
-- PCA9615
-- I²C connectors (JST XH)
-- Decoupling capacitors
-- Pull-ups
-- Test pads for I²C
-
-### 7.3 Right edge — field inputs zone (JST XH)
-
-- Door sensors
-- Water meters bathroom 1 and 2
-- kWh meters
-- Buttons
-- Activity LEDs
-
-### 7.4 Bottom edge — power and SSR zone
-
-- Screw terminals for **12 V input**
-- TVS diode
-- PN2222A transistors (4×)
-- Base resistors (470 Ω + 10k pulldown)
-- JST XH connectors for SSR outputs
-- Ground pour for noise control
-- Physical isolation from logic area
-
-### 7.5 Center — routing and keep-out
-
-- Keep center open for routing
-- Maintain separation between HDMI/SPI, I²C, SSR, 12 V monitoring
-- Freerouting only for non-HDMI nets
+Silkscreen font → [`reference/silkscreen/README.md`](reference/silkscreen/README.md).
 
 ---
 
-## 8. Manufacturing requirements (JLCPCB)
-
-### 8.1 PCB specs
+## 8. Manufacturing (JLCPCB)
 
 | Parameter | Value |
 |---|---|
-| Material | FR-4 |
 | Layers | 2 |
 | Size | 85 × 56 mm |
 | Thickness | 1.6 mm |
-| Surface finish | ENIG |
+| Finish | ENIG |
 | Soldermask | Green |
-| Silkscreen | White |
-| Vias | Tented |
-| Min drill | 0.3 mm |
+| Silkscreen | White; font → [`reference/silkscreen/README.md`](reference/silkscreen/README.md) |
+| Min text height | ≥ 1.0 mm |
 
-### 8.2 DRC rules (Konnect)
-
-| Rule | Value |
-|---|---|
-| Track width | 0.25 mm |
-| Clearance | 0.2 mm |
-| Via diameter | 0.6 mm |
-| Via drill | 0.3 mm |
-| Copper-to-edge | 0.25 mm |
-| Text height | ≥ 1.0 mm |
-| Mask clearance | 0.05 mm |
+DRC → [`projects/wanos-board/constraints.md`](../projects/wanos-board/constraints.md).
 
 ---
 
 ## 9. Summary
 
-This document is the electrical, mechanical, and functional requirements for **wanos-pcb-v1**.
-
-Detail supplements:
-
 | Doc | Content |
 |---|---|
-| [`component-selection.md`](component-selection.md) | JLCPCB parts, footprints, BOM |
-| [`hdmi-spi-eink.md`](hdmi-spi-eink.md) | WISC e-ink HDMI→SPI mapping |
-| [`io-expander-map.md`](io-expander-map.md) | PCA9554 net map (pre-R1 locks) |
-| [`projects/wanos-board/components.xlsx`](../projects/wanos-board/components.xlsx) | Assembly BOM seed |
+| [`field-wiring.md`](field-wiring.md) | JST pinouts, Cat5, mux channels |
+| [`component-selection.md`](component-selection.md) | Parts and footprints |
+| [`io-expander-map.md`](io-expander-map.md) | Expander + mux map |
+| [`components.xlsx`](../projects/wanos-board/components.xlsx) | BOM seed |
 
-Konnect + KiCad 10 provide automation for placement, routing, DRC, Freerouting, audits, and manufacturing export.
+Konnect + KiCad 10 for schematic, layout, DRC, and fab export.

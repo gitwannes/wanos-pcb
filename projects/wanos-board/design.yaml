@@ -1,17 +1,18 @@
 # --- file: projects/wanos-board/design.yaml ---
-# Design intent — wanos-pcb-v1
+# Design intent — wanos-pcb-v1 (R1 locked 2026-09-01)
 
 name: wanos-board
 revision: wanos-pcb-v1
-description: Raspberry Pi carrier — expanders, SSR drives, SHT31 plant, WISC e-ink HDMI-SPI, 85x56 mm
+description: Raspberry Pi carrier — expanders, SSR drives, SHT31 mux plant, WISC e-ink HDMI-SPI, 85x56 mm
 kicadVersion: "10.0"
 
 wanosRepo: https://github.com/gitwannes/wanos
 spec: docs/board-spec.md
+fieldWiring: docs/field-wiring.md
 bomSeed: projects/wanos-board/components.xlsx
 
-# Production today: WISC boards. This revision is new hardware; full features need future WanOS.
 wiscSubset: docs/gpio-interface.md  # V1a bring-up map
+wiscReference: docs/reference/wisc-board/
 
 rails:
   - name: PI_5V
@@ -31,23 +32,23 @@ blocks:
     description: 40-pin Pi + optional USB-C power
     nets: [PI_5V, LOGIC_3V3, GND]
   - id: io_expanders
-    description: PCA9554PW x2 — doors, meters, kWh, buttons
+    description: PCA9554PW x2 — doors, meters, kWh, buttons, 12V mon
     doc: docs/io-expander-map.md
   - id: sht31_plant
-    description: PCA9615 differential I2C — 4x SHT31 (segment plan R1)
-    doc: docs/board-spec.md
+    description: TCA9546A mux — 4x SHT31 @ 0x44, 4x 4-pin Cat5 ~4-5m
+    doc: docs/field-wiring.md
   - id: ssr_drivers
-    description: Pi GPIO -> PN2222A x4 -> external SSR JST
+    description: Pi GPIO -> PN2222A x4 -> J13 5-pin SSR
     doc: docs/board-spec.md
   - id: safety_12v_mon
-    description: Optocoupler 12V presence -> expander (pin R1)
-    doc: docs/board-spec.md
+    description: Optocoupler -> Expander B P6
+    doc: docs/io-expander-map.md
   - id: wisc_eink
     description: HDMI Type-A repurposed SPI
     doc: docs/hdmi-spi-eink.md
   - id: lcd_i2c
-    description: 2x I2C LCD headers (JST TBD R1)
-    doc: docs/board-spec.md
+    description: 1x 4-pin I2C J16 (2 LCDs paralleled)
+    doc: docs/field-wiring.md
 
 constraints:
   boardSizeMm: [85, 56]
@@ -57,11 +58,9 @@ constraints:
   minTrackWidthMm: 0.25
   minClearanceMm: 0.2
   tooling: Konnect + KiCad 10
+  silkscreenFont: https://www.fontspace.com/printed-circuit-board-7-font-f15777
 
 openQuestions:
-  - "R1: 12V monitor pin vs second kWh on Expander A P7"
-  - "R1: SHT31 addressing (mux vs multi-segment PCA9615)"
-  - "R1: J2/J6 connector pin counts vs components.xlsx"
-  - "R1: 2x dedicated LCD JST headers"
   - "R2: Pi BCM map for SSR + I2C + SPI"
   - "R2: V1a adapter strategy for current WanOS on WISC-equivalent map"
+  - "R2: external plant + grounding docs"

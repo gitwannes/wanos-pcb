@@ -6,7 +6,7 @@ Summary of the **production WISC** board WanOS runs on today. KiCad sources are 
 
 | | |
 |---|---|
-| **Folder** | [`docs/wisc_boards/211201 wisc2-5-3/`](../../wisc_boards/211201%20wisc2-5-3/) |
+| **Folder** | [`211201 wisc2-5-3/`](211201%20wisc2-5-3/) |
 | **Project** | `wisc-v5.kicad_pro` |
 | **Silk revision** | `wv5.0-pv3-d211201` |
 | **Date in tree** | 2021-12-01 upload folder name; PCB title block 2012 (legacy) |
@@ -117,8 +117,8 @@ Each header: **4-pin XH** (data, clock, 3V3, GND style plant cable).
 | Water meters | 1× bathroom (J5) | **2× bathrooms** + extra pulses |
 | kWh | 1× (J2) | **2×** kWh |
 | Sauna LCD buttons | None | Expander B + 4-pin JST |
-| Temperature | SHT11 × 4 | **SHT31 × 4** + **PCA9615** |
-| 12 V monitor | None | **Optocoupler** → expander (R1 lock) |
+| Temperature | SHT11 × 4 | **SHT31 × 4** + **TCA9546A** mux (no PCA9615 v1) |
+| 12 V monitor | None | **Optocoupler** → Expander B P6 |
 | LCD | None | **2× I²C LCD** JST |
 | E-ink | **J3** Molex `1746679-1` | **HDMI Type-A → SPI** ([`hdmi-spi-eink.md`](../../hdmi-spi-eink.md)) |
 | USB | **J6** USB-A on board | Not in wanos spec |
@@ -137,8 +137,8 @@ Each header: **4-pin XH** (data, clock, 3V3, GND style plant cable).
 
 **Copy assets (on implement)**
 
-- [`Wannes-library.kicad_sym`](../../wisc_boards/211201%20wisc2-5-3/Wannes-library.kicad_sym) — logos, custom symbols.
-- [`Wannes-library.pretty/`](../../wisc_boards/211201%20wisc2-5-3/Wannes-library.pretty/) — logos, **HCPL3700** footprint (unused here but relevant for 12 V monitor), Molex e-ink footprint.
+- [`Wannes-library.kicad_sym`](211201%20wisc2-5-3/Wannes-library.kicad_sym) — logos, custom symbols.
+- [`Wannes-library.pretty/`](211201%20wisc2-5-3/Wannes-library.pretty/) — logos, **HCPL3700** footprint (unused here but relevant for 12 V monitor), Molex e-ink footprint.
 
 **Use other reference**
 
@@ -159,6 +159,6 @@ Each header: **4-pin XH** (data, clock, 3V3, GND style plant cable).
 
 ## 9. Konnect / Cursor
 
-Safe **read-only** operations against this path: `get_project_info`, `open_project`, file-mode `get_board_info`. Do not edit sources here — see [`.cursor/rules/wisc-boards-readonly.mdc`](../../../.cursor/rules/wisc-boards-readonly.mdc).
+Safe **read-only** operations against this path: `get_project_info`, `open_project`, file-mode `get_board_info`. Do not edit KiCad sources here — see [`.cursor/rules/wisc-boards-readonly.mdc`](../../../.cursor/rules/wisc-boards-readonly.mdc).
 
 Setup: [`kicad-setup.md`](../../kicad-setup.md).

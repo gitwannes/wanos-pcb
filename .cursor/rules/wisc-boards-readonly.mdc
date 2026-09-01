@@ -1,19 +1,14 @@
----
-description: docs/wisc_boards/ is read-only legacy reference — never edit in place
-alwaysApply: true
----
-
 # WISC reference boards (read-only)
 
-Everything under **`docs/wisc_boards/`** is **legacy production reference** for current WanOS on WISC hardware. It is **not** the wanos-pcb-v1 design tree.
+Everything under **`docs/reference/wisc-board/`** is **legacy production reference** for current WanOS on WISC hardware. It is **not** the wanos-pcb-v1 design tree.
 
 ## Hard rule
 
-**Do not edit** any file under `docs/wisc_boards/`, including:
+**Do not edit** any KiCad sources under `docs/reference/wisc-board/`, including:
 
 - KiCad sources (`.kicad_pro`, `.kicad_sch`, `.kicad_pcb`, `.kicad_prl`, lib tables)
 - Custom libraries (`*.kicad_sym`, `*.pretty/`, footprints)
-- Fabrication exports (`gerbers/`, drills, zips, BOM xlsx)
+- Fabrication exports (`gerbers/`, drills, zips, BOM xlsx) except via `_donotcommit/` archive policy
 - KiCad lock/history sidecars (`.lck`, `.history/`)
 
 This applies even when the operator has a WISC board **open in KiCad** or asks to "fix" something on reference material.
@@ -22,16 +17,16 @@ This applies even when the operator has a WISC board **open in KiCad** or asks t
 
 - **Read** schematics, PCB, gerbers, and libraries for analysis
 - **Konnect / file reads** against these paths (e.g. `get_project_info`, `open_project`, `get_board_info` with `source: file`)
-- **Document** findings in product docs (`docs/*.md` outside `wisc_boards/`) or pipeline docs (`docs/todo/`)
+- **Document** findings in product docs (`docs/*.md` outside `reference/wisc-board/`) or pipeline docs (`docs/todo/`)
 - **Copy patterns** into `projects/wanos-board/` only after an explicit **`implement`** / **`ship`** / **`patch`** command on wanos-pcb-v1 work
 
 ## Where new design lives
 
 | Path | Role |
 |---|---|
-| `docs/wisc_boards/` | **Reference only** — what WanOS runs on today |
+| `docs/reference/wisc-board/` | **Reference only** — summaries + read-only KiCad |
 | `projects/wanos-board/` | **wanos-pcb-v1** KiCad project (when S1 starts) |
-| `docs/board-spec.md`, `docs/gpio-interface.md`, … | Canonical target spec for the new board |
+| `docs/board-spec.md`, `docs/field-wiring.md`, … | Canonical target spec for the new board |
 
 ## If reference must change
 

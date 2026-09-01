@@ -3,12 +3,13 @@
 
 revision: wanos-pcb-v1
 spec: docs/board-spec.md
+fieldWiring: docs/field-wiring.md
 components: projects/wanos-board/components.xlsx
 selection: docs/component-selection.md
 
-# Populate detailed rows from components.xlsx at S1; validate LCSC at J1.
 parts: []
 
 notes:
-  - "R1 must fix J2 (doors), J6 (buttons 4-pin), missing LCD JSTs before schematic"
-  - "See phaseR-requirements.md section R1 checklist"
+  - "R1 closed 2026-09-01 — see phaseR-requirements.md section R1 shipped summary"
+  - "J2-J16 connector map in field-wiring.md"
+  - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"

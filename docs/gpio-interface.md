@@ -5,9 +5,11 @@
 Two views of the same board:
 
 1. **WISC-equivalent subset** — what **current WanOS** expects today (direct Pi GPIO on WISC hardware). Used for **V1a** bring-up adapter planning.
-2. **Full wanos-pcb-v1** — target mapping once expanders and plant I²C are supported in a **later WanOS**.
+2. **Full wanos-pcb-v1** — target mapping once expanders and SHT31 I²C are supported in a **later WanOS**.
 
-Runtime source of truth for **today’s software** → [wanos `config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml).
+Runtime source of truth for **today's software** → [wanos `config_hardware.yaml`](https://github.com/gitwannes/wanos/blob/main/config_hardware.yaml).
+
+Field connector map (R1) → [`field-wiring.md`](field-wiring.md).
 
 ---
 
@@ -46,7 +48,7 @@ kWh resolution: **1000 pulses/kWh** (1 Wh per pulse).
 | Cinema | 20003 | 9 | 10 |
 | Bathroom 1e | 20004 | 24 | 23 |
 
-**V1a note:** wanos-pcb-v1 may route these functions through expanders on the PCB; **adapter firmware or wiring** must preserve this logical map until future WanOS adopts the full board map.
+**V1a note:** wanos-pcb-v1 routes these functions through expanders / I²C on the PCB; **adapter firmware or wiring** must preserve the logical map until future WanOS adopts the full board map.
 
 ---
 
@@ -56,15 +58,15 @@ See [`io-expander-map.md`](io-expander-map.md) and [`board-spec.md`](board-spec.
 
 | Function | Implementation |
 |---|---|
-| Doors, meters, kWh (incl. bathroom 2, 2× kWh) | **PCA9554** Expander A + JST field connectors |
-| Sauna LCD buttons | **PCA9554** Expander B |
-| 12 V presence / hard-lock | Optocoupler → expander pin (**R1** lock) |
-| SHT31 × 4 | **PCA9615** differential I²C + plant JST |
-| 2× LCD | I²C on Pi bus + JST headers |
+| Doors, meters, 2× kWh | **PCA9554** Expander A + **J2–J7** |
+| Sauna LCD buttons | **PCA9554** Expander B **P0–P2** + **J8** |
+| 12 V presence / hard-lock | Optocoupler → **Expander B P6** |
+| SHT31 × 4 | **TCA9546A** + **J9–J12** (mux ch 0–3, all **`0x44`**) |
+| LCD × 2 (paralleled) | **J16** 4-pin I²C (WISC 2.6.4 J7 pinout) |
 | WISC e-ink | HDMI→SPI ([`hdmi-spi-eink.md`](hdmi-spi-eink.md)) |
-| SSR × 4 | **Pi GPIO** → PN2222A → external SSR (unchanged drive path) |
+| SSR × 4 | **Pi GPIO** → PN2222A → **J13** (5-pin, WISC parity) |
 
-SSR channels remain on **Pi BCM** (not expander PWM). Pi GPIO allocation for SSR + I²C + SPI → lock at **R2** in [`phaseR-requirements.md`](todo/phaseR-requirements.md).
+SSR channels remain on **Pi BCM** (not expander PWM). Pi GPIO allocation for SSR + I²C + SPI → lock at **R2**.
 
 ---
 
@@ -75,4 +77,4 @@ SSR channels remain on **Pi BCM** (not expander PWM). Pi GPIO allocation for SSR
 | Pulse inputs + SSR | `lgpio` | In: 5, 6, 12, 22, 27 — Out: 4, 14, 15, 17, 18 |
 | SHT11 | `RPi.GPIO` + `pi_sht1x` | 7, 8, 9, 10, 11, 23, 24, 25 |
 
-Future WanOS on wanos-pcb-v1 will move inputs/sensors to I²C expander / SHT31 drivers — tracked in the main wanos repo, not here.
+Future WanOS on wanos-pcb-v1 will use I²C expander + SHT31 drivers — tracked in the main wanos repo (**V1b**).

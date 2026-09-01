@@ -8,7 +8,7 @@ Upstream Konnect docs: [github.com/mixelpixx/Konnect](https://github.com/mixelpi
 
 Optional reference: local `kicad-cursor` repo if present on your machine.
 
-**WISC reference boards** (read-only in repo): [`reference/wisc-board/`](reference/wisc-board/) — Konnect can inspect them; do not edit sources under `docs/wisc_boards/`.
+**WISC reference boards** (read-only in repo): [`reference/wisc-board/`](reference/wisc-board/) — Konnect can inspect them; do not edit KiCad sources there.
 
 ---
 
@@ -95,7 +95,7 @@ KiCad 10 runs as one **`kicad.exe`** process — you will not see separate `pcbn
 For Konnect **live** PCB tools and `open_project`:
 
 1. Open the project (Project Manager is fine to start).
-2. **Open PCB Editor** — load the `.kicad_pcb` (e.g. reference `docs/wisc_boards/211201 wisc2-5-3/wisc-v5.kicad_pcb`).
+2. **Open PCB Editor** — load the `.kicad_pcb` (e.g. reference `docs/reference/wisc-board/211201 wisc2-5-3/wisc-v5.kicad_pcb`).
 3. Leave **PCB Editor** open while using Cursor Agent.
 
 **Project Manager alone is not enough** for `open_project` to list an open board.
@@ -198,7 +198,7 @@ Ask the agent to run **`open_project`**. Expected:
 Optional: pass a project path to check a specific board is open:
 
 ```text
-open_project on docs/wisc_boards/211201 wisc2-5-3/wisc-v5.kicad_pro
+open_project on docs/reference/wisc-board/211201 wisc2-5-3/wisc-v5.kicad_pro
 ```
 
 → `requested_open: true` when that PCB is the one loaded in PCB Editor.
@@ -268,7 +268,7 @@ Do not close **S1** / **L1** until ERC/DRC pass or waivers are in the phase file
 |---|---|
 | PCB tools | KiCad open + board in **PCB Editor** (IPC) |
 | Schematic tools | Konnect can edit `.kicad_sch` without KiCad open |
-| WISC reference | Read-only under `docs/wisc_boards/` — see [`.cursor/rules/wisc-boards-readonly.mdc`](../.cursor/rules/wisc-boards-readonly.mdc) |
+| WISC reference | Read-only under `docs/reference/wisc-board/` — see [`.cursor/rules/wisc-boards-readonly.mdc`](../.cursor/rules/wisc-boards-readonly.mdc) |
 | Freerouting | Konnect Specctra pipeline — lock HDMI nets first ([`hdmi-spi-eink.md`](hdmi-spi-eink.md)) |
 | LCSC parts | Validate `components.xlsx` C-numbers at **J1** |
 | MCP UI | **+ New** opening JSON only is expected — edit `.cursor/mcp.json` |

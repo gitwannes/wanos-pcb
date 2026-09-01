@@ -101,7 +101,7 @@ Record results here (date).
 | Area | Work |
 |---|---|
 | I²C expanders | Driver for PCA9554 A/B — pulse, door, button inputs |
-| SHT31 plant | PCA9615 + segment/mux; replace SHT11 bit-bang where deployed |
+| SHT31 plant | TCA9546A mux + **J9–J12**; replace SHT11 bit-bang where deployed |
 | Extra I/O | Bathroom 2 meters, 2× kWh, on-board I²C LCDs |
 | 12 V hard-lock | Integrate expander opto net with sauna safety state machine |
 | `config_hardware.yaml` | New schema for expander map vs raw BCM |

@@ -1,0 +1,140 @@
+<!-- --- file: docs/field-wiring.md -->
+
+# wanos-pcb-v1 — field wiring and JST pinouts
+
+Locked at **R1** (2026-09-01). Canonical electrical behaviour → [`board-spec.md`](board-spec.md). Connector designators → [`projects/wanos-board/components.xlsx`](../projects/wanos-board/components.xlsx).
+
+**WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
+
+---
+
+## 1. Standard 4-pin I²C JST (XH)
+
+Used on **J9–J12** (SHT31 plant) and **J16** (LCD).
+
+| Pin | Signal | Notes |
+|---:|---|---|
+| **1** | **GND** | Common return |
+| **2** | **SDA** | Pi I²C data (BCM2) on local bus |
+| **3** | **SCL** | Pi I²C clock (BCM3) on local bus |
+| **4** | **+3V3** | Sensor / LCD module supply |
+
+Verified from WISC `wisc2-6-4.kicad_pcb` **J7** pad nets.
+
+---
+
+## 2. Standard 2-pin pulse / door JST
+
+Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production practice.
+
+| Pin | Signal |
+|---:|---|
+| **1** | **GND** |
+| **2** | **Pulse / reed signal** (to expander input, 10k pull-up on PCB) |
+
+---
+
+## 3. Connector map (J designators)
+
+| Ref | Pins | Function | Cable notes |
+|---|---:|---|---|
+| **J1** | HDMI | E-ink SPI | See [`hdmi-spi-eink.md`](hdmi-spi-eink.md) |
+| **J2** | 2 | Door sauna | |
+| **J3** | 2 | Door bathroom | |
+| **J4** | 6 | Water meters bathroom 1 | Cold + hot pulses |
+| **J5** | 6 | Water meters bathroom 2 | Cold + hot pulses |
+| **J6** | 2 | kWh main | |
+| **J7** | 2 | kWh aux | Full-board feature |
+| **J8** | 4 | Sauna LCD buttons | Cat5 UTP — § 5 |
+| **J9** | 4 | SHT31 bathroom | Mux **ch 0**, Cat5 ~4–5 m |
+| **J10** | 4 | SHT31 cinema | Mux **ch 1** |
+| **J11** | 4 | SHT31 sauna mid | Mux **ch 2** |
+| **J12** | 4 | SHT31 sauna high | Mux **ch 3** |
+| **J13** | 5 | SSR field (WISC J1 class) | § 6 |
+| **J14** | 2 | 12 V in (KF301) | |
+| **J15** | 3 | 12 V aux (KF301) | |
+| **J16** | 4 | LCD I²C (both screens) | § 4 |
+| **J40** | 40 | Pi header | |
+| **J41** | USB-C | Optional Pi power | |
+
+---
+
+## 4. LCD — one 4-pin header (J16)
+
+Both LCD modules share **one** JST: tails are wired **in parallel** at the harness (same as deployed WISC/LCD practice).
+
+- **Pinout:** § 1 (4-pin I²C).
+- **Addresses:** each LCD backpack must use a **different I²C address** (typical jumper: `0x27` vs `0x3F`).
+- **v1:** single **J16** only — no second LCD header.
+
+---
+
+## 5. Sauna buttons — Cat5 UTP to J8 (4-pin)
+
+Board: expander inputs with pull-up; button shorts to **GND** when pressed.
+
+**J8 (pin 1 = square pad):**
+
+| J8 pin | Signal | Cat5 (T568B) | Button end |
+|---:|---|---|---|
+| **1** | **GND** | Brown + Brown/white (tie together) | Common return |
+| **2** | **BTN1** | Orange/white | Switch to GND |
+| **3** | **BTN2** | Green/white | Switch to GND |
+| **4** | **BTN3** | Blue/white | Switch to GND |
+
+Leave Orange, Green, Blue solids unconnected (or tie to GND at PCB end only).
+
+---
+
+## 6. SSR — J13 (5-pin, WISC parity)
+
+WISC production **J1**: **B5B-XH-A 1×05 vertical**. Pin 1 = **GND**; pins 2–5 = SSR drive lines to external DIN SSR opto inputs.
+
+| Pin | WISC net (reference) | wanos channel |
+|---:|---|---|
+| **1** | GND | GND |
+| **2** | SSR phase 3 | Sauna phase W |
+| **3** | SSR phase 2 | Sauna phase V |
+| **4** | SSR phase 1 | Sauna phase U |
+| **5** | SSR IR | IR relay |
+
+**Safety (master)** is driven on-board (Pi GPIO) — not on this 5-pin field header (same as WISC).
+
+---
+
+## 7. SHT31 plant — Cat5 per sensor
+
+- **4×** separate Cat5 runs (~**4–5 m** each), one **4-pin JST** per sensor (**J9–J12**).
+- **TCA9546A** (U5) on PCB @ I²C **`0x70`** — select channel, then poll SHT31 at **`0x44`** (all modules use default address).
+- **No PCA9615** on v1 — direct I²C through mux per channel.
+- **Pull-ups:** **2k2** on main `I2C_SCL` / `I2C_SDA` only (**R9**, **R10**) — sized for ~5 m Cat5 @ 100 kHz.
+
+**Migration from WISC SHT11:** old 4-pin plant headers used pin 2 = **CLOCK**, pin 3 = **DATA**. I²C uses pin 2 = **SDA**, pin 3 = **SCL** — re-pin at the board end or replace tails.
+
+| Mux ch | JST | Location |
+|---:|---|---|
+| 0 | J9 | Bathroom |
+| 1 | J10 | Cinema |
+| 2 | J11 | Sauna mid |
+| 3 | J12 | Sauna high |
+
+---
+
+## 8. I²C pull-ups (R1 lock)
+
+| Ref | Value | Net |
+|---|---|---|
+| **R9** | **2k2** | `I2C_SCL` → 3.3 V |
+| **R10** | **2k2** | `I2C_SDA` → 3.3 V |
+
+Do not populate extra pull-up pairs on the same segment. Disable Pi internal I²C pull-ups when relying on board resistors.
+
+---
+
+## Related
+
+- [`io-expander-map.md`](io-expander-map.md) — expander pin map
+- [`gpio-interface.md`](gpio-interface.md) — software views
+- WISC summaries → [`reference/wisc-board/`](reference/wisc-board/)
+
+**R2:** external SSR plant, grounding, and harness reuse vs replace — [`todo/phaseR-requirements.md`](todo/phaseR-requirements.md) § R2.
