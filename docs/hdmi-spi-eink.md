@@ -6,6 +6,16 @@ The HDMI Type-A connector on **wanos-pcb-v1** is repurposed as a proprietary SPI
 
 **Board context:** [`board-spec.md`](board-spec.md) § 4.2 · **Part:** Molex 208658-1052 → [`component-selection.md`](component-selection.md)
 
+**Legacy WISC reference:** [`reference/wisc-board/wisc-v2-6-4-hdmi.md`](reference/wisc-board/wisc-v2-6-4-hdmi.md)
+
+---
+
+## Legacy WISC / motivation to redesign
+
+**Deployed today (operator, 2026-09-01):** the [**WISC 2.6.4 HDMI board**](reference/wisc-board/wisc-v2-6-4-hdmi.md) is in use on the **Raspberry Pi connected to the LCD screens**. The **HDMI cable is not connected** — the board **only powers that Pi**. **E-ink over HDMI worked in the past** but **does not work any more**; replacing this **HDMI / e-ink** arrangement is **one of the drivers** for **wanos-pcb-v1**.
+
+**wanos-pcb-v1** should treat the legacy HDMI-cable + repurposed-TMDS approach as **failed field history**, not a silent copy target. Lock connector, wiring, and software against verification on the **new** integrated carrier ([`board-spec.md`](board-spec.md) § 4.2).
+
 ---
 
 ## HDMI to SPI pin mapping

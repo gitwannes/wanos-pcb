@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "1746679-1")(type "Legacy")(uri "C:/data/OneDrive/data/sauna/saunacontrol/datasheets/HDMI_1746679-1/1746679-1.lib")(options "")(descr ""))
+  (lib (name "Wannes-library")(type "KiCad")(uri "${KIPRJMOD}/Wannes-library.kicad_sym")(options "")(descr ""))
+)

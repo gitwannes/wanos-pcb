@@ -1,5 +1,5 @@
 # --- file: .gitignore ---
-# KiCad
+# KiCad (global)
 *-backups/
 *-cache/
 *.kicad_prl
@@ -17,6 +17,10 @@ projects/*/fabrication/*.xlsx
 projects/*/fabrication/*.pos
 projects/*/fabrication/*.ipc
 projects/*/fabrication/*.pdf
+
+# WISC legacy reference (docs/wisc_boards/)
+# Operator archive bucket - not for git; move off-machine when convenient
+docs/wisc_boards/_donotcommit/
 
 # OS / editor
 .DS_Store
