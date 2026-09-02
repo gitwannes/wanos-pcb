@@ -1,49 +1,19 @@
-ERC report (2026-09-01T22:21:04, Encoding UTF8)
-Report includes: Errors, Warnings
+ERC report (2026-09-02T13:50:48, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(25.40 mm, 40.00 mm): Vertical Wire, length 0.63 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(30.00 mm, 60.00 mm): Symbol #PWR002 Pin 1 [Power input, Line]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(30.48 mm, 59.69 mm): Horizontal Wire, length 10.16 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(45.00 mm, 40.00 mm): Symbol #PWR003 Pin 1 [Power input, Line]
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(45.00 mm, 40.00 mm): Horizontal Wire, length 19.60 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(50.00 mm, 39.37 mm): Symbol #PWR005 Pin 1 [Power output, Line]
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(180.34 mm, 40.00 mm): Vertical Wire, length 3.18 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(180.34 mm, 40.00 mm): Vertical Wire, length 3.18 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(209.55 mm, 39.37 mm): Horizontal Wire, length 29.21 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(210.00 mm, 40.00 mm): Symbol #PWR001 Pin 1 [Power input, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(262.89 mm, 100.33 mm): Global Label 'GPIO_SSR_SAFETY'
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    @(121.92 mm, 130.81 mm): Global Label 'GPIO_SSR_SAFETY'
+[footprint_link_issues]: Footprint 'CP_Elec_6.3x5.4mm' not found in library 'Capacitor_SMD'
     ; warning
-    @(280.00 mm, 60.00 mm): Symbol #PWR004 Pin 1 [Power input, Line]
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(30.00 mm, 30.00 mm): Horizontal Wire, length 19.53 mm
+    @(135.89 mm, 30.48 mm): Symbol C1 [C_Polarized]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(30.00 mm, 30.00 mm): Symbol #PWR002 Pin 1 [Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(30.00 mm, 30.00 mm): Horizontal Wire, length 19.53 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(30.00 mm, 100.00 mm): Symbol #PWR001 Pin 1 [Power input, Line]
@@ -100,21 +70,6 @@ Report includes: Errors, Warnings
     @(180.00 mm, 30.00 mm): Symbol #PWR001 Pin 1 [Power input, Line]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(41.91 mm, 52.07 mm): Horizontal Wire, length 28.09 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(57.15 mm, 52.07 mm): Horizontal Wire, length 12.85 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(70.00 mm, 52.07 mm): Vertical Wire, length 2.93 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(70.00 mm, 52.07 mm): Vertical Wire, length 2.93 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(70.00 mm, 55.00 mm): Symbol #PWR001 Pin 1 [Power input, Line]
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
     @(20.00 mm, 30.00 mm): Symbol #PWR001 Pin 1 [Power input, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
@@ -163,64 +118,42 @@ Report includes: Errors, Warnings
     @(210.00 mm, 50.00 mm): Symbol #PWR004 Pin 1 [Power input, Line]
 
 ***** Sheet /Pi_Power/
-[no_connect_dangling]: Unconnected "no connection" flag
-    ; warning
-    @(22.86 mm, 123.19 mm): No Connect
-[no_connect_dangling]: Unconnected "no connection" flag
-    ; warning
-    @(45.72 mm, 85.09 mm): No Connect
-[no_connect_dangling]: Unconnected "no connection" flag
-    ; warning
-    @(45.72 mm, 90.17 mm): No Connect
-[no_connect_dangling]: Unconnected "no connection" flag
-    ; warning
-    @(45.72 mm, 97.79 mm): No Connect
-[no_connect_dangling]: Unconnected "no connection" flag
-    ; warning
-    @(45.72 mm, 102.87 mm): No Connect
-[no_connect_dangling]: Unconnected "no connection" flag
-    ; warning
-    @(45.72 mm, 113.03 mm): No Connect
-[same_local_global_label]: Local and global labels have same name
-    ; warning
-    @(149.86 mm, 34.29 mm): Global Label 'GND'
-    @(30.00 mm, 60.00 mm): Label 'GND'
-[same_local_global_label]: Local and global labels have same name
-    ; warning
-    @(180.34 mm, 43.18 mm): Global Label '+5VA'
-    @(210.00 mm, 40.00 mm): Label '+5VA'
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(196.85 mm, 85.09 mm): Symbol J40 Pin 8 [GPIO14/UART_TXD, Bidirectional, Line]
-    @(229.87 mm, 128.27 mm): Symbol J40 Pin 6 [GND, Power output, Line]
+    @(55.88 mm, 115.57 mm): Symbol J40 Pin 8 [GPIO14/UART_TXD, Bidirectional, Line]
+    @(88.90 mm, 158.75 mm): Symbol J40 Pin 6 [GND, Power output, Line]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(196.85 mm, 87.63 mm): Symbol J40 Pin 10 [GPIO15/UART_RXD, Bidirectional, Line]
-    @(229.87 mm, 128.27 mm): Symbol J40 Pin 6 [GND, Power output, Line]
+    @(55.88 mm, 118.11 mm): Symbol J40 Pin 10 [GPIO15/UART_RXD, Bidirectional, Line]
+    @(88.90 mm, 158.75 mm): Symbol J40 Pin 6 [GND, Power output, Line]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(196.85 mm, 95.25 mm): Symbol J40 Pin 11 [GPIO17/SPI1_~{CE1}, Bidirectional, Line]
-    @(229.87 mm, 128.27 mm): Symbol J40 Pin 6 [GND, Power output, Line]
+    @(55.88 mm, 125.73 mm): Symbol J40 Pin 11 [GPIO17/SPI1_~{CE1}, Bidirectional, Line]
+    @(88.90 mm, 158.75 mm): Symbol J40 Pin 6 [GND, Power output, Line]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(196.85 mm, 97.79 mm): Symbol J40 Pin 12 [GPIO18/SPI1_~{CE0}/PCM_CLK/PWM0, Bidirectional, Line]
-    @(229.87 mm, 128.27 mm): Symbol J40 Pin 6 [GND, Power output, Line]
+    @(55.88 mm, 128.27 mm): Symbol J40 Pin 12 [GPIO18/SPI1_~{CE0}/PCM_CLK/PWM0, Bidirectional, Line]
+    @(88.90 mm, 158.75 mm): Symbol J40 Pin 6 [GND, Power output, Line]
 [same_local_global_label]: Local and global labels have same name
     ; warning
-    @(262.89 mm, 80.01 mm): Global Label '+3V3'
-    @(280.00 mm, 60.00 mm): Label '+3V3'
+    @(121.92 mm, 110.49 mm): Global Label '+3V3'
+    @(59.69 mm, 139.70 mm): Label '+3V3'
 [same_local_global_label]: Local and global labels have same name
     ; warning
-    @(262.89 mm, 92.71 mm): Global Label 'I2C_SDA'
+    @(121.92 mm, 123.19 mm): Global Label 'I2C_SDA'
     @(119.38 mm, 53.34 mm): Label 'I2C_SDA'
 [same_local_global_label]: Local and global labels have same name
     ; warning
-    @(262.89 mm, 95.25 mm): Global Label 'I2C_SCL'
+    @(121.92 mm, 125.73 mm): Global Label 'I2C_SCL'
     @(119.38 mm, 34.29 mm): Label 'I2C_SCL'
 [same_local_global_label]: Local and global labels have same name
     ; warning
-    @(262.89 mm, 100.33 mm): Global Label 'GPIO_SSR_SAFETY'
+    @(121.92 mm, 130.81 mm): Global Label 'GPIO_SSR_SAFETY'
     @(90.17 mm, 156.21 mm): Label 'GPIO_SSR_SAFETY'
+[same_local_global_label]: Local and global labels have same name
+    ; warning
+    @(153.67 mm, 22.86 mm): Global Label '+5VA'
+    @(49.53 mm, 41.91 mm): Label '+5VA'
 
 ***** Sheet /HDMI_SPI/
 [no_connect_dangling]: Unconnected "no connection" flag
@@ -229,20 +162,24 @@ Report includes: Errors, Warnings
 [no_connect_dangling]: Unconnected "no connection" flag
     ; warning
     @(69.85 mm, 85.09 mm): No Connect
-
-***** Sheet /SSR_Drivers/
 [same_local_global_label]: Local and global labels have same name
     ; warning
-    @(41.91 mm, 64.77 mm): Global Label 'SSR_PHASE_V'
-    @(115.57 mm, 44.45 mm): Label 'SSR_PHASE_V'
-[multiple_net_names]: Both GND and GPIO_SSR_SAFETY are attached to the same items; GND will be used in the netlist
+    @(80.01 mm, 107.95 mm): Global Label 'GND'
+    @(30.00 mm, 100.00 mm): Label 'GND'
+
+***** Sheet /SSR_Drivers/
+[multiple_net_names]: Both GND and GPIO_SSR_IR are attached to the same items; GND will be used in the netlist
     ; warning
-    @(41.91 mm, 105.41 mm): Global Label 'GND'
-    @(90.17 mm, 156.21 mm): Label 'GPIO_SSR_SAFETY'
+    @(41.91 mm, 74.93 mm): Global Label 'GND'
+    @(90.17 mm, 125.73 mm): Global Label 'GPIO_SSR_IR'
 [same_local_global_label]: Local and global labels have same name
     ; warning
     @(154.94 mm, 77.47 mm): Global Label 'SSR_PHASE_W'
     @(115.57 mm, 30.48 mm): Label 'SSR_PHASE_W'
+[same_local_global_label]: Local and global labels have same name
+    ; warning
+    @(154.94 mm, 80.01 mm): Global Label 'SSR_PHASE_V'
+    @(115.57 mm, 44.45 mm): Label 'SSR_PHASE_V'
 [same_local_global_label]: Local and global labels have same name
     ; warning
     @(154.94 mm, 82.55 mm): Global Label 'SSR_PHASE_U'
@@ -295,7 +232,7 @@ Report includes: Errors, Warnings
 ***** Sheet /Safety_12V_Mon/
 [same_local_global_label]: Local and global labels have same name
     ; warning
-    @(30.48 mm, 26.67 mm): Global Label '+12VA'
+    @(41.91 mm, 27.94 mm): Global Label '+12VA'
     @(170.18 mm, 45.72 mm): Label '+12VA'
 
 ***** Sheet /I2C_Plant/
@@ -304,7 +241,7 @@ Report includes: Errors, Warnings
 
 ***** Sheet /LEDs/
 
- ** ERC messages: 87  Errors 0  Warnings 87
+ ** ERC messages: 66  Errors 0  Warnings 66
 
  ** Ignored checks:
     - Global label only appears once in the schematic

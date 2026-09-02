@@ -175,6 +175,33 @@ Option A alone is enough for Cursor. Option B helps when starting Konnect from K
 
 **Not configured in:** Plugin and Content Manager (install only).
 
+### 5.1 — kicad-cli path (ERC/DRC from Agent)
+
+KiCad installs `kicad-cli.exe` under `Program Files` — it is **not** on PATH by default. The **MCP** `konnect.exe` (Cursor) reads **`%APPDATA%\konnect\config.json`**, not the KiCad plugin `settings.json`.
+
+**Fix (pick one):**
+
+1. **Konnect user config (recommended)** — ask the agent to set `kicad_cli`, or edit:
+
+```json
+{
+  "kicad_cli": "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe"
+}
+```
+
+in `%APPDATA%\konnect\config.json` (merge with existing keys). **Reload Cursor** after edit.
+
+2. **System PATH** — add `C:\Program Files\KiCad\10.0\bin` to user or system PATH; restart Cursor.
+
+3. **KiCad plugin settings** — `…\3rdparty\plugins\com_github_mixelpixx_konnect\settings.json` already has `kicad_cli` for Konnect started **from KiCad**; the MCP server in `.cursor/mcp.json` uses the Roaming config above.
+
+**Verify:**
+
+```powershell
+& "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe" --version
+& "C:/Program Files/KiCad/10.0/bin/kicad-cli.exe" sch erc projects/wanos-board/wanos-board.kicad_sch
+```
+
 ---
 
 ## 6. Verify in Agent chat
@@ -224,6 +251,7 @@ open_project on docs/reference/wisc-board/211201 wisc2-5-3/wisc-v5.kicad_pro
 | `api.sock` missing in `%TEMP%\kicad\` | Windows named pipe (§ 2) | Ignore; use Preferences line |
 | Konnect not in Agent tools | MCP not loaded | Reload Cursor; check `.cursor/mcp.json` syntax |
 | `settings.json` missing | Never saved Konnect dialog | Normal if using Option A only |
+| `run_erc` / `Failed to spawn kicad-cli` | MCP Konnect cannot find CLI on PATH | Set `kicad_cli` in `%APPDATA%\\konnect\\config.json` (see § 5.1) **or** add KiCad `bin` to system PATH; reload Cursor |
 
 Enable tracing (optional): KiCad env `KICAD_ENABLE_TRACE=1`, `WXTRACE=KICAD_API` — see [KiCad IPC docs](https://dev-docs.kicad.org/en/apis-and-binding/ipc-api/for-addon-developers/index.html).
 

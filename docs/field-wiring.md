@@ -120,7 +120,7 @@ Detail → [`external-plant.md`](external-plant.md) § 3.
 | **1** | **+5V** — external PSU positive (before on-board conditioning) |
 | **2** | **GND** |
 
-On-board chain (WISC 2.6.4 class): **F1** 2 A → **D2** `1N4001` → **D1** `BZX85C5V6` → **`+5VA`** → **FB1** → **J40** pins **2 & 4** (Pi header 5 V injection).
+On-board chain: **F1** 2 A polyfuse (resettable) → **Q6** ideal diode → **D1** overvoltage clamp → **`+5VA`** → **FB1** → **`+5V-PI`** → **J40** pins **2 & 4** (Pi header 5 V injection).
 
 **J41** USB-C is **not populated** on v1.
 

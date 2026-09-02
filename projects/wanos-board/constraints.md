@@ -46,6 +46,7 @@ Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](..
 
 - Lock HDMI/SPI before Freerouting
 - Separate SSR/12V from I²C
+- **L2 (pi_power):** **Q6** ideal diode carries **full Pi 5 V current** — wide/short traces **F1 → Q6 → +5VA → FB1** (manual check: [`phaseL-layout.md`](../../docs/todo/phaseL-layout.md) § L2)
 
 ---
 

@@ -3,7 +3,8 @@
     "konnect": {
       "command": "C:\\Users\\johan\\Documents\\KiCad\\10.0\\3rdparty\\plugins\\com_github_mixelpixx_konnect\\bin\\konnect.exe",
       "env": {
-        "KICAD_API_SOCKET": "ipc://C:\\Users\\johan\\AppData\\Local\\Temp\\kicad\\api.sock"
+        "KICAD_API_SOCKET": "ipc://C:\\Users\\johan\\AppData\\Local\\Temp\\kicad\\api.sock",
+        "PATH": "C:\\Program Files\\KiCad\\10.0\\bin;${env:PATH}"
       }
     }
   }

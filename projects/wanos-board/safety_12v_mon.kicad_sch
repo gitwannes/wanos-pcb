@@ -1,21 +1,24 @@
 (kicad_sch
-	(version 20250610)
-	(generator "konnect")
+	(version 20260306)
+	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "cd8f728c-fae4-4986-82c7-944d0053c38b")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Isolator:PC817"
+		(symbol "Device:C"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016)
+				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -5.08 5.08 0)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -25,8 +28,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "PC817"
-				(at 0 5.08 0)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -36,21 +39,8 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_DIP:DIP-4_W7.62mm"
-				(at -5.08 -5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(justify left)
-				)
-			)
-			(property "Datasheet" "http://www.soselectronic.cz/a_info/resource/d/pc817.pdf"
-				(at 0 0 0)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -58,10 +48,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Description" "DC Optocoupler, Vce 35V, CTR 50-300%, DIP-4"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -72,7 +61,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "NPN DC Optocoupler"
+			(property "Description" "Unpolarized capacitor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -83,7 +72,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "DIP*W7.62mm*"
+			(property "ki_keywords" "cap capacitor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -94,110 +83,21 @@
 					)
 				)
 			)
-			(symbol "PC817_0_1"
-				(rectangle
-					(start -5.08 3.81)
-					(end 5.08 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
 					)
 				)
+			)
+			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -5.08 2.54)
-						(xy -2.54 2.54)
-						(xy -2.54 -0.635)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.175 -0.635)
-						(xy -1.905 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -0.635)
-						(xy -2.54 -2.54)
-						(xy -5.08 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -0.635)
-						(xy -3.175 0.635)
-						(xy -1.905 0.635)
-						(xy -2.54 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 0.508)
-						(xy 0.762 0.508)
-						(xy 0.381 0.381)
-						(xy 0.381 0.635)
-						(xy 0.762 0.508)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 -0.508)
-						(xy 0.762 -0.508)
-						(xy 0.381 -0.635)
-						(xy 0.381 -0.381)
-						(xy 0.762 -0.508)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 1.905)
-						(xy 2.54 -1.905)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -209,65 +109,10 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 0.635)
-						(xy 4.445 2.54)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.048 -1.651)
-						(xy 3.556 -1.143)
-						(xy 4.064 -2.159)
-						(xy 3.048 -1.651)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.445 2.54)
-						(xy 5.08 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.445 -2.54)
-						(xy 2.54 -0.635)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.445 -2.54)
-						(xy 5.08 -2.54)
-					)
-					(stroke
-						(width 0)
+						(width 0.508)
 						(type default)
 					)
 					(fill
@@ -275,10 +120,10 @@
 					)
 				)
 			)
-			(symbol "PC817_1_1"
+			(symbol "C_1_1"
 				(pin passive line
-					(at -7.62 2.54 0)
-					(length 2.54)
+					(at 0 3.81 270)
+					(length 2.794)
 					(name ""
 						(effects
 							(font
@@ -295,8 +140,8 @@
 					)
 				)
 				(pin passive line
-					(at -7.62 -2.54 0)
-					(length 2.54)
+					(at 0 -3.81 90)
+					(length 2.794)
 					(name ""
 						(effects
 							(font
@@ -305,42 +150,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 -2.54 180)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 2.54 180)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -491,20 +300,17 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Isolator:PC817"
 			(pin_names
-				(offset 0.254)
+				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
+			(property "Reference" "U"
+				(at -5.08 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -514,8 +320,8 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C"
-				(at 0.635 -2.54 0)
+			(property "Value" "PC817"
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -525,8 +331,21 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" ""
-				(at 0.9652 -3.81 0)
+			(property "Footprint" "Package_DIP:DIP-4_W7.62mm"
+				(at -5.08 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "http://www.soselectronic.cz/a_info/resource/d/pc817.pdf"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -534,9 +353,10 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Description" "DC Optocoupler, Vce 35V, CTR 50-300%, DIP-4"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -547,7 +367,7 @@
 					)
 				)
 			)
-			(property "Description" "Unpolarized capacitor"
+			(property "ki_keywords" "NPN DC Optocoupler"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -558,7 +378,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "cap capacitor"
+			(property "ki_fp_filters" "DIP*W7.62mm*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -569,22 +389,93 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "PC817_0_1"
+				(rectangle
+					(start -5.08 3.81)
+					(end 5.08 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
 					)
 				)
-			)
-			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 0.762)
-						(xy 2.032 0.762)
+						(xy -5.08 2.54) (xy -2.54 2.54) (xy -2.54 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 -0.635) (xy -1.905 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -0.635) (xy -2.54 -2.54) (xy -5.08 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -0.635) (xy -3.175 0.635) (xy -1.905 0.635) (xy -2.54 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 0.508) (xy 0.762 0.508) (xy 0.381 0.381) (xy 0.381 0.635) (xy 0.762 0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 -0.508) (xy 0.762 -0.508) (xy 0.381 -0.635) (xy 0.381 -0.381) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.905) (xy 2.54 -1.905)
 					)
 					(stroke
 						(width 0.508)
@@ -596,11 +487,58 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 -0.762)
-						(xy 2.032 -0.762)
+						(xy 2.54 0.635) (xy 4.445 2.54)
 					)
 					(stroke
-						(width 0.508)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.048 -1.651) (xy 3.556 -1.143) (xy 4.064 -2.159) (xy 3.048 -1.651)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 2.54) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 -2.54) (xy 2.54 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 -2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -608,10 +546,10 @@
 					)
 				)
 			)
-			(symbol "C_1_1"
+			(symbol "PC817_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
+					(at -7.62 2.54 0)
+					(length 2.54)
 					(name ""
 						(effects
 							(font
@@ -628,8 +566,8 @@
 					)
 				)
 				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
+					(at -7.62 -2.54 0)
+					(length 2.54)
 					(name ""
 						(effects
 							(font
@@ -638,6 +576,42 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -730,12 +704,7 @@
 			(symbol "GND_0_1"
 				(polyline
 					(pts
-						(xy 0 0)
-						(xy 0 -1.27)
-						(xy 1.27 -1.27)
-						(xy 0 -2.54)
-						(xy -1.27 -1.27)
-						(xy 0 -1.27)
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
 					)
 					(stroke
 						(width 0)
@@ -769,119 +738,217 @@
 			(embedded_fonts no)
 		)
 	)
+	(junction
+		(at 59.69 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "545d4674-dcc7-4494-9251-8408158b1130")
+	)
+	(junction
+		(at 71.12 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8f26c2f3-704f-476e-9e73-68113b1cb5f4")
+	)
+	(junction
+		(at 81.28 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ab5f94b2-0b86-4ce8-9b91-6c63f039b97e")
+	)
 	(wire
 		(pts
-			(xy 30.48 34.29)
-			(xy 41.91 34.29)
+			(xy 36.83 46.99) (xy 41.91 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3ef11ad9-aef6-4174-90ca-862f5c90b5fe")
+		(uuid "0b26ea9c-95a8-42a0-beda-5c7324dfe2b7")
 	)
 	(wire
 		(pts
-			(xy 41.91 34.29)
-			(xy 41.91 46.99)
+			(xy 71.12 58.42) (xy 71.12 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "731eb4c9-69eb-489d-b2d0-6877c6ffc519")
+		(uuid "10e4dda6-a8d2-4b4d-bfb9-dc52ff36282e")
 	)
 	(wire
 		(pts
-			(xy 30.48 34.29)
-			(xy 41.91 34.29)
+			(xy 36.83 63.5) (xy 59.69 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8db4c1e2-f2f4-43d4-8c14-3c4bb106db10")
+		(uuid "1d01d178-205a-40a8-8f34-449fbe74344a")
 	)
 	(wire
 		(pts
-			(xy 41.91 34.29)
-			(xy 41.91 46.99)
+			(xy 71.12 46.99) (xy 81.28 46.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c198a6f8-67d5-4a3a-b55f-1f31ae78e846")
+		(uuid "22176cac-1cdc-4026-90a1-a38db4776e9c")
 	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 41.91 52.07 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
+	(wire
+		(pts
+			(xy 41.91 27.94) (xy 36.83 27.94)
 		)
-		(uuid "c0f3e2c4-86c2-44b4-a3c7-fff0dc0f5ced")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22d9031d-76d2-421d-8f1f-00f4e6f7972c")
 	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 57.15 52.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 59.69 63.5) (xy 71.12 63.5)
 		)
-		(uuid "37280358-756f-4589-9c6e-eacd9a6625f7")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2dc86920-72f3-4fe9-bb32-182517273784")
 	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 30.48 34.29 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 71.12 46.99) (xy 71.12 50.8)
 		)
-		(uuid "88674f76-a268-4232-9595-0cb699f867f8")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32e62e4f-93d1-4d91-bd7f-1b7c22393b61")
 	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 100.33 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 81.28 33.02) (xy 86.36 33.02)
 		)
-		(uuid "e805b221-8018-404a-aec2-be079936b189")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3890edc3-8779-4020-8145-5aab237a4491")
 	)
-	(global_label "+3V3"
-		(shape bidirectional)
-		(at 100.33 45.72 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 36.83 27.94) (xy 36.83 31.75)
 		)
-		(uuid "d978e9cc-0cf6-4bcb-b740-b071632ac9ed")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62298f28-2fd6-46ef-adf8-3fda4dcbcd9f")
 	)
-	(global_label "+12VA"
-		(shape bidirectional)
-		(at 30.48 26.67 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
+	(wire
+		(pts
+			(xy 36.83 63.5) (xy 36.83 52.07)
 		)
-		(uuid "cc422beb-5568-4119-9077-c2014603e3ee")
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ff02e17-482a-4a06-ab94-e2a41c667a5b")
+	)
+	(wire
+		(pts
+			(xy 59.69 63.5) (xy 59.69 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7082f1ee-bf01-4494-98f4-b04f129d32d8")
+	)
+	(wire
+		(pts
+			(xy 57.15 52.07) (xy 59.69 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80050d3d-bbcb-4284-b642-ae217b1bf90c")
+	)
+	(wire
+		(pts
+			(xy 81.28 35.56) (xy 81.28 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94daa044-a254-4cd1-9e6e-b33aa40f84b4")
+	)
+	(wire
+		(pts
+			(xy 81.28 43.18) (xy 81.28 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "967f31e6-05be-405e-98a2-6a53f0e8fcd1")
+	)
+	(wire
+		(pts
+			(xy 36.83 39.37) (xy 36.83 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "991436b4-b951-401b-a373-1e3223d89f7e")
+	)
+	(wire
+		(pts
+			(xy 59.69 52.07) (xy 59.69 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad3d58e5-c130-4919-970b-411afdaaec8f")
+	)
+	(wire
+		(pts
+			(xy 57.15 46.99) (xy 71.12 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c15eb7d6-f44a-4a88-800b-8d00b1c6c58b")
+	)
+	(wire
+		(pts
+			(xy 36.83 52.07) (xy 41.91 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd9e9f84-d4eb-41c2-bc7e-1d4bfa398a6d")
+	)
+	(wire
+		(pts
+			(xy 81.28 46.99) (xy 86.36 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e95a0200-b12b-4706-af62-3daaaf8851c4")
 	)
 	(global_label "EXP_B_P6_12V_MON"
 		(shape bidirectional)
-		(at 57.15 46.99 0)
+		(at 86.36 46.99 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -889,85 +956,164 @@
 			(justify left bottom)
 		)
 		(uuid "1b68d34a-b13c-4d01-84d2-c2459d052d27")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 86.36 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 	)
-	(global_label "EXP_B_P6_12V_MON"
+	(global_label "+12VA"
 		(shape bidirectional)
-		(at 100.33 53.34 0)
+		(at 41.91 27.94 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "8a2899dc-dd74-4845-a1ca-0e6e6efe6c9d")
+		(uuid "cc422beb-5568-4119-9077-c2014603e3ee")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 41.91 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 	)
-	(global_label "EXP_B_P6_12V_MON"
+	(global_label "+3V3"
 		(shape bidirectional)
-		(at 100.33 66.04 0)
+		(at 86.36 33.02 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "0636df69-86b0-4d17-8cf0-6acdde1e028e")
+		(uuid "d978e9cc-0cf6-4bcb-b740-b071632ac9ed")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 86.36 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 	)
-(wire
-		(pts
-			(xy 57.15 52.07) (xy 70 52.07)
+	(symbol
+		(lib_id "Device:C")
+		(at 71.12 54.61 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0abcf2ec-9ecc-476a-969d-a55043dec82d")
+		(property "Reference" "C17"
+			(at 71.755 52.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
 		)
-		(stroke
-			(width 0)
-			(type default)
+		(property "Value" "100n"
+			(at 71.755 57.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
 		)
-		(uuid "a9a3b72d-0451-4217-98d5-9c7d2afa446f")
-	)
-(wire
-		(pts
-			(xy 70 52.07) (xy 70 55)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 71.12 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
-		(stroke
-			(width 0)
-			(type default)
+		(property "Datasheet" ""
+			(at 71.12 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
-		(uuid "cfa2aaec-3897-410f-a91b-b3c466508597")
-	)
-(wire
-		(pts
-			(xy 41.910000000000004 52.07) (xy 70 52.07)
+		(property "Description" "Unpolarized capacitor"
+			(at 71.12 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
-		(stroke
-			(width 0)
-			(type default)
+		(pin "2"
+			(uuid "ed03f9a6-f397-4486-b11e-ce907f2c97d5")
 		)
-		(uuid "50567e85-4ce0-464a-b0c8-3202d8d89f20")
-	)
-  (junction
-    (at 57.15 52.07)
-    (diameter 0)
-    (color 0 0 0 0)
-    (uuid "cdfcd5bb-50f9-4b01-b55e-9cba8ea2dd23")
-  )
-(wire
-		(pts
-			(xy 70 52.07) (xy 70 55)
+		(pin "1"
+			(uuid "ffc7d7d5-2dad-4684-a83c-d083a4c32f64")
 		)
-		(stroke
-			(width 0)
-			(type default)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/b3396166-4e71-4834-91ac-121b289b8e21"
+					(reference "C17")
+					(unit 1)
+				)
+			)
+			(project "safety_12v_mon"
+				(path "/cd8f728c-fae4-4986-82c7-944d0053c38b"
+					(reference "C17")
+					(unit 1)
+				)
+			)
 		)
-		(uuid "ccf64525-e984-4c41-a2b2-eb7c57ddd530")
 	)
 	(symbol
 		(lib_id "Isolator:PC817")
 		(at 49.53 49.53 0)
 		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "0f1d300d-b7ee-460a-af25-42822db6e982")
 		(property "Reference" "U4"
 			(at 44.45 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -977,6 +1123,8 @@
 		)
 		(property "Value" "PC817A"
 			(at 49.53 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -987,6 +1135,8 @@
 		(property "Footprint" "Package_SO:SO-4_4.4x3.9mm_P2.54mm"
 			(at 49.53 49.53 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -996,6 +1146,8 @@
 		(property "Datasheet" "http://www.soselectronic.cz/a_info/resource/d/pc817.pdf"
 			(at 49.53 49.53 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1005,15 +1157,35 @@
 		(property "Description" "DC Optocoupler, Vce 35V, CTR 50-300%, DIP-4"
 			(at 49.53 49.53 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
+		(pin "1"
+			(uuid "62517d87-74c2-4a21-8156-9bab9c40b970")
+		)
+		(pin "2"
+			(uuid "909f2aa8-1826-42e2-b8d4-b48247e42752")
+		)
+		(pin "3"
+			(uuid "d9287ddf-1b3e-4a18-951a-c979a0dc4b77")
+		)
+		(pin "4"
+			(uuid "2ca25979-601e-4e02-8f6f-e91a5a4a500c")
+		)
 		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/b3396166-4e71-4834-91ac-121b289b8e21"
+					(reference "U4")
+					(unit 1)
+				)
+			)
 			(project "safety_12v_mon"
-				(path "cd8f728c-fae4-4986-82c7-944d0053c38b"
+				(path "/cd8f728c-fae4-4986-82c7-944d0053c38b"
 					(reference "U4")
 					(unit 1)
 				)
@@ -1022,14 +1194,19 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 30.48 30.48 0)
+		(at 36.83 35.56 180)
 		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "3977ebb6-f96a-42b0-ab1e-f681098eec11")
 		(property "Reference" "R32"
-			(at 32.512 30.48 90)
+			(at 34.798 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1037,7 +1214,9 @@
 			)
 		)
 		(property "Value" "1k5"
-			(at 30.48 30.48 90)
+			(at 36.83 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1045,8 +1224,10 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 30.48 30.48 0)
+			(at 36.83 35.56 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1054,8 +1235,10 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 30.48 30.48 0)
+			(at 36.83 35.56 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1063,17 +1246,31 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 30.48 30.48 0)
+			(at 36.83 35.56 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
+		(pin "1"
+			(uuid "58002cbd-9389-4863-b924-b5b1d3ea6a67")
+		)
+		(pin "2"
+			(uuid "dde5550e-d71e-42e5-92d3-0ef7d6706154")
+		)
 		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/b3396166-4e71-4834-91ac-121b289b8e21"
+					(reference "R32")
+					(unit 1)
+				)
+			)
 			(project "safety_12v_mon"
-				(path "cd8f728c-fae4-4986-82c7-944d0053c38b"
+				(path "/cd8f728c-fae4-4986-82c7-944d0053c38b"
 					(reference "R32")
 					(unit 1)
 				)
@@ -1082,14 +1279,19 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 100.33 49.53 0)
+		(at 81.28 39.37 0)
 		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "e86a96d6-ecc3-4f8c-a0d3-cae4783fe3c2")
 		(property "Reference" "R33"
-			(at 102.362 49.53 90)
+			(at 83.312 39.37 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1097,7 +1299,9 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 100.33 49.53 90)
+			(at 81.28 39.37 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1105,8 +1309,10 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 100.33 49.53 0)
+			(at 81.28 39.37 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1114,8 +1320,10 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 49.53 0)
+			(at 81.28 39.37 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1123,17 +1331,31 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 100.33 49.53 0)
+			(at 81.28 39.37 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
+		(pin "1"
+			(uuid "93e65c29-85c3-4bf2-b343-6b050787df9c")
+		)
+		(pin "2"
+			(uuid "c5d44443-e14f-47bb-a804-46ac3c760186")
+		)
 		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/b3396166-4e71-4834-91ac-121b289b8e21"
+					(reference "R33")
+					(unit 1)
+				)
+			)
 			(project "safety_12v_mon"
-				(path "cd8f728c-fae4-4986-82c7-944d0053c38b"
+				(path "/cd8f728c-fae4-4986-82c7-944d0053c38b"
 					(reference "R33")
 					(unit 1)
 				)
@@ -1141,78 +1363,22 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 100.33 69.85 0)
-		(unit 1)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0abcf2ec-9ecc-476a-969d-a55043dec82d")
-		(property "Reference" "C17"
-			(at 100.965 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100n"
-			(at 100.965 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 100.33 69.85 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 100.33 69.85 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 100.33 69.85 0)
-			(hide yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(instances
-			(project "safety_12v_mon"
-				(path "cd8f728c-fae4-4986-82c7-944d0053c38b"
-					(reference "C17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 70 55 0)
+		(at 59.69 67.31 0)
 		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
-		(uuid "087a65f7-c8aa-4370-a0a4-b32c304d38f9")
-		(property "Reference" "#PWR001"
-			(at 70 61.35 0)
+		(fields_autoplaced yes)
+		(uuid "ef7cc294-d52c-4f9d-8363-daf0671b612a")
+		(property "Reference" "#PWR05"
+			(at 59.69 73.66 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1220,7 +1386,9 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 70 58.81 0)
+			(at 59.69 72.39 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1228,8 +1396,10 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 70 55 0)
+			(at 59.69 67.31 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1237,8 +1407,10 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 70 55 0)
+			(at 59.69 67.31 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1246,18 +1418,23 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 70 55 0)
+			(at 59.69 67.31 0)
 			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
+		(pin "1"
+			(uuid "b9a5ae64-e541-413e-992b-3dd71f6f9544")
+		)
 		(instances
-			(project "safety_12v_mon"
-				(path "/cd8f728c-fae4-4986-82c7-944d0053c38b"
-					(reference "#PWR001")
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/b3396166-4e71-4834-91ac-121b289b8e21"
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)

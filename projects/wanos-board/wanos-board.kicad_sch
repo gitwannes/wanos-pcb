@@ -1,177 +1,382 @@
 (kicad_sch
-	(version 20250610)
-	(generator "konnect")
+	(version 20260306)
+	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662")
 	(paper "A4")
-	(lib_symbols
+	(lib_symbols)
+	(sheet
+		(at 165 25)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "006a613e-41c3-4476-9433-d2c4cbc0a7ef")
+		(property "Sheetname" "SSR_Drivers"
+			(at 165 24.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ssr_drivers.kicad_sch"
+			(at 165 65.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "4")
+				)
+			)
+		)
 	)
 	(sheet
-    (at 25 25)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "826a0190-1527-493e-a075-83637d3eb0fb")
-    (property "Sheetname" "Pi_Power"
-      (at 25 24.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "pi_power.kicad_sch"
-      (at 25 65.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "2"))
-      )
-    )
-  )
+		(at 165 75)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "08a79a1f-fed3-4b65-a041-bd4ae3cb853a")
+		(property "Sheetname" "Connectors"
+			(at 165 74.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "connectors.kicad_sch"
+			(at 165 115.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "8")
+				)
+			)
+		)
+	)
 	(sheet
-    (at 25 75)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "c83e49a9-60e4-4411-9031-a2f99c6b57bf")
-    (property "Sheetname" "HDMI_SPI"
-      (at 25 74.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "hdmi_spi.kicad_sch"
-      (at 25 115.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "3"))
-      )
-    )
-  )
+		(at 235 75)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5223e218-2b0a-48ff-a1ad-0a8e1e905c39")
+		(property "Sheetname" "LEDs"
+			(at 235 74.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "leds.kicad_sch"
+			(at 235 115.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "9")
+				)
+			)
+		)
+	)
 	(sheet
-    (at 165 25)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "006a613e-41c3-4476-9433-d2c4cbc0a7ef")
-    (property "Sheetname" "SSR_Drivers"
-      (at 165 24.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "ssr_drivers.kicad_sch"
-      (at 165 65.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "4"))
-      )
-    )
-  )
+		(at 95 25)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5d339490-f2b0-4f6b-90ec-d5a21503c58c")
+		(property "Sheetname" "IO_Expanders"
+			(at 95 24.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "io_expanders.kicad_sch"
+			(at 95 65.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "5")
+				)
+			)
+		)
+	)
 	(sheet
-    (at 95 25)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "5d339490-f2b0-4f6b-90ec-d5a21503c58c")
-    (property "Sheetname" "IO_Expanders"
-      (at 95 24.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "io_expanders.kicad_sch"
-      (at 95 65.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "5"))
-      )
-    )
-  )
+		(at 25 25)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "826a0190-1527-493e-a075-83637d3eb0fb")
+		(property "Sheetname" "Pi_Power"
+			(at 25 24.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "pi_power.kicad_sch"
+			(at 25 65.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "2")
+				)
+			)
+		)
+	)
 	(sheet
-    (at 235 25)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "b3396166-4e71-4834-91ac-121b289b8e21")
-    (property "Sheetname" "Safety_12V_Mon"
-      (at 235 24.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "safety_12v_mon.kicad_sch"
-      (at 235 65.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "6"))
-      )
-    )
-  )
+		(at 235 25)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b3396166-4e71-4834-91ac-121b289b8e21")
+		(property "Sheetname" "Safety_12V_Mon"
+			(at 235 24.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "safety_12v_mon.kicad_sch"
+			(at 235 65.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "6")
+				)
+			)
+		)
+	)
 	(sheet
-    (at 95 75)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "d5d2b518-35f2-4645-9c36-5b2d12c7d297")
-    (property "Sheetname" "I2C_Plant"
-      (at 95 74.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "i2c_plant.kicad_sch"
-      (at 95 115.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "7"))
-      )
-    )
-  )
+		(at 25 75)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "c83e49a9-60e4-4411-9031-a2f99c6b57bf")
+		(property "Sheetname" "HDMI_SPI"
+			(at 25 74.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "hdmi_spi.kicad_sch"
+			(at 25 115.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "3")
+				)
+			)
+		)
+	)
 	(sheet
-    (at 165 75)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "08a79a1f-fed3-4b65-a041-bd4ae3cb853a")
-    (property "Sheetname" "Connectors"
-      (at 165 74.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "connectors.kicad_sch"
-      (at 165 115.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "8"))
-      )
-    )
-  )
-	(sheet
-    (at 235 75)
-    (size 60 40)
-    (fields_autoplaced yes)
-    (stroke (width 0.1524) (type solid))
-    (fill (color 0 0 0 0.0))
-    (uuid "5223e218-2b0a-48ff-a1ad-0a8e1e905c39")
-    (property "Sheetname" "LEDs"
-      (at 235 74.365 0)
-      (effects (font (size 1.27 1.27)) (justify left bottom))
-    )
-    (property "Sheetfile" "leds.kicad_sch"
-      (at 235 115.635 0)
-      (effects (font (size 1.27 1.27)) (justify left top))
-    )
-    (instances
-      (project "wanos-board"
-        (path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662" (page "9"))
-      )
-    )
-  )
+		(at 95 75)
+		(size 60 40)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "d5d2b518-35f2-4645-9c36-5b2d12c7d297")
+		(property "Sheetname" "I2C_Plant"
+			(at 95 74.365 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "i2c_plant.kicad_sch"
+			(at 95 115.635 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )

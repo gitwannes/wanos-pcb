@@ -91,7 +91,7 @@ Near-term: **Gate-S1** → **L1** → gates → **J1** → **V1a**. Production W
 | **Grounding / return scheme** | Done | [`grounding.md`](../grounding.md) |
 | **Reuse vs new WISC field cables** | Done | [`external-plant.md`](../external-plant.md) § 5 |
 | **Pi + enclosure mechanical** | Done | Pi 4; 2.6.4 outline; no enclosure constraint |
-| **Datasheet pack** | open | 12/13 — [`reference/datasheets/`](../reference/datasheets/README.md); `usb-c-j41.pdf` later |
+| **Datasheet pack** | open | 14/15 — [`reference/datasheets/`](../reference/datasheets/README.md); `usb-c-j41.pdf` deferred (J41 DNP v1) |
 | **EN 60335-2-53 assumptions** | hold | Spec cites sauna context; formal safety case = operator |
 | **Sauna environment** | Done | Cabinet note — [`external-plant.md`](../external-plant.md) § 7 |
 | **CE / product marking** | hold | Only if scoped later |
@@ -102,6 +102,7 @@ Near-term: **Gate-S1** → **L1** → gates → **J1** → **V1a**. Production W
 |---|---|---|
 | **Gate-S1 — schematic sign-off** | open | Sequence #1; operator review before **L1** |
 | **Gate-L1 — layout sign-off** | open | Sequence #4; connector orientation, zones, **`wanos-pcb-v1` rev on silk** |
+| **L2 — Q6 Pi high-current routing** | open | Manual before Gate-L1 — [`phaseL-layout.md`](phaseL-layout.md) § L2 (**F1 → Q6 → +5VA**, ≥ 3 A peak) |
 | **HDMI→SPI physical verification** | open | Cable + WISC panel before relying on e-ink — [`hdmi-spi-eink.md`](../hdmi-spi-eink.md); before **V1a** e-ink test |
 | **Silkscreen / assembly drawing** | open | Label every JST; polarity; installer hints — **L1** / **Ops2** |
 

@@ -41,17 +41,19 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 | [x] | Omron **G3PJ-225B DC12-24** (DIN SSR) | `omron-g3pj.pdf` |
 | [x] | **SHT3x** (Sensirion — SHT31 plant sensor) | `sht3x.pdf` |
 
-### Pi power (R2 lock — J41 populated)
+### Pi power (R2 lock — J41 DNP v1)
 
 | Done | Part | Filename |
 |:---:|---|---|
+| [x] | **BZX85C5V6** family / **BZT52C5V6** (5 V zener, **D1**) | `bzx85c.pdf` |
+| [x] | **1N400x** family (legacy reference; reverse block replaced by **Q6** ideal diode on wanos v1) | `1n400x.pdf` |
 | [ ] | USB-C receptacle **J41** (LCSC part from `components.xlsx`) | `usb-c-j41.pdf` — **operator to add later** |
 
 ---
 
 ## Status
 
-**12 / 13** PDFs on disk. **Deferred:** `usb-c-j41.pdf` (operator).
+**14 / 15** PDFs on disk. **Deferred:** `usb-c-j41.pdf` (J41 DNP v1).
 
 ---
 

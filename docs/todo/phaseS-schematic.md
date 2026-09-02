@@ -31,8 +31,8 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 | Item | Lock |
 |---|---|
 | **5 V in** | **KF301-2P** screw terminal (**J17**) — external PSU + / GND |
-| **5 V to Pi** | **`+5VA`** → **FB1** → **J40** pins **2 & 4** + GND (header injection — WISC 2.6.4) |
-| **Conditioning** | **F1** **2 A**, **D2** `1N4001`, **D1** `BZX85C5V6`, bulk/decoupling → **`+5VA`** |
+| **5 V to Pi** | **`+5VA`** → **FB1** → **`+5V-PI`** → **J40** pins **2 & 4** + GND (header injection — WISC 2.6.4) |
+| **Conditioning** | **F1** **2 A** polyfuse, **Q6** `AO3401A` ideal diode, **D1** `BZT52C5V6` shunt, **C1** 100 µF → **`+5VA`** |
 | **FB1** | **Populate** `BLM21PG331SN1` (after conditioning, before **J40** 5 V) |
 | **J41** | **DNP v1** — no USB-C Pi power |
 
@@ -48,8 +48,8 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 | LED | Sense |
 |---|---|
-| **5 V in** | Post-**F1** / **`+5VA`** entry (PSU + fuse OK) |
-| **5 V Pi** | **`+5VA`** at **J40** pin **2** feed (Pi rail alive) |
+| **5 V in** | Post-**F1** / **`+5VA`** entry (PSU + polyfuse OK) |
+| **5 V Pi** | **`+5V-PI`** at **J40** pin **2** feed (post-**FB1**) |
 | **12 V** | **`+12VA`** at **J14** |
 
 **HDMI panel 5 V (locked 2026-09-01 — option 2):**
@@ -91,7 +91,7 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 | Sheet | Source |
 |---|---|
-| `Pi_Power` | **J17** 5 V screw in, WISC conditioning, **FB1**, **J40** 5 V to Pi; **J41** DNP |
+| `Pi_Power` | **J17** 5 V screw in, input conditioning (**F1**, **Q6**, **D1**), **FB1**, **J40** 5 V to Pi; **J41** DNP |
 | `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) |
 | `SSR_Drivers` | Pi GPIO → R/Q → **J13** (5-pin); 12 V rail ref |
 | `Safety_12V_Mon` | U4 opto → Exp B P6; R32, R33, C17 |
@@ -127,15 +127,15 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 
 **Post-implement fix:** **J13 pin 1** restored to **GND** (was briefly tied to **+12VA** during ERC pass — corrected per [`field-wiring.md`](../field-wiring.md) § 6).
 
-**Footprint follow-up (L1 / Gate-S1):** validate SMD vs THT choices (e.g. **Q1–Q5** footprint class, **D1/D2** THT vs PCBA intent) at layout sign-off.
-
-**Helpers (one-shot):** `helpers/fix_global_labels.py`, `helpers/cleanup_stale_labels.py`, `helpers/find_duplicate_labels.py`, `helpers/update_components_xlsx_s1.py` — delete after soak if no longer needed.
+**Footprint follow-up (L1 / Gate-S1):** **Q1–Q5** SSR drivers SOT-23; pi-power **Q6** ideal diode + **F1** polyfuse + **C1/D1** SMD (**2026-09-02**).
 
 ---
 
 ## Gate-S1 — Operator schematic sign-off
 
 **Pipeline Sequence #2** (not a letter subphase). **Prereq:** S1 ERC clean.
+
+**Checklist:** [`schematic-signoff.md`](../schematic-signoff.md) (per-sheet sign-off).
 
 - [ ] Operator reviews schematic PDF (or KiCad) — connector orientation, SSR path, 12 V opto, net names
 - [ ] Sign-off recorded (date + name) in this section before **L1** starts

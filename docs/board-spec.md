@@ -41,7 +41,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 - Powers Raspberry Pi
 - Powers logic (PCA9554PW, TCA9546A, LEDs, I²C sensors on local bus)
 - Must **remain powered** when sauna safety triggers
-- External **5 V** via **J17** screw terminal → WISC-style conditioning → **`+5VA`**
+- External **5 V** via **J17** screw terminal → input conditioning → **`+5VA`**
 - **Pi** fed via **J40** header pins **2 & 4** (header injection; **J41** USB-C **DNP** v1)
 
 #### 12 V (sauna SSR rail)
@@ -120,8 +120,8 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md). Panel **+5 V** (HDMI pin **18**) via
 ### 4.4 Pi power
 
 - **J17** — **KF301-2P** screw terminal: external **5 V** in (+ / GND)
-- Conditioning (WISC 2.6.4): **F1** 2 A, **D2** `1N4001`, **D1** `BZX85C5V6`, **FB1** ferrite → **`+5VA`**
-- **J40** 40-pin header — **+5VA** on pins **2 & 4** powers Pi; remaining pins = GPIO / I²C / SSR / e-ink
+- Conditioning: **F1** 2 A polyfuse (SMD 1206, resettable), **Q6** `AO3401A` ideal diode (reverse block, ~mΩ drop), **D1** `BZT52C5V6` (overvoltage shunt), **C1** 100 µF bulk, **FB1** ferrite → **`+5VA`** / **`+5V-PI`** at **J40**
+- **J40** 40-pin header — **`+5V-PI`** on pins **2 & 4** powers Pi (post-**FB1**); remaining pins = GPIO / I²C / SSR / e-ink
 - **J41** USB-C — **DNP** v1 (not populated)
 
 ---
@@ -136,9 +136,9 @@ Resistors: **R29**, **R31** = **2k0** (5 V rails); **R30** = **6k8** (12 V — m
 
 | LED | Indicates |
 |---|---|
-| 5 V in | **`+5VA`** post-**F1** (PSU + fuse OK) |
+| 5 V in | **`+5VA`** post-**F1** (PSU + polyfuse OK; self-resets after overcurrent) |
 | 12 V | **+12VA** at **J14** |
-| 5 V Pi | **`+5VA`** at **J40** pin **2** |
+| 5 V Pi | **`+5V-PI`** at **J40** pin **2** (post-**FB1**) |
 
 ### 5.2 Activity
 

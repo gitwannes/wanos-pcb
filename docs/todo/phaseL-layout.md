@@ -17,6 +17,22 @@ PCB layout for **wanos-pcb-v1** (85 × 56 mm). DRC clean before **Gate-L1** and 
 | Id | What | Status |
 |---|---|---|
 | **L1** | Placement, routing, DRC, silkscreen | **open** (after Gate-S1) |
+| **L2** | Pi-power high-current layout (manual) | **open** (during / after L1) |
+
+---
+
+## L2 — Pi-power high-current layout (manual)
+
+**From schematic (pi_power):** **Q6** `AO3401A` is the 5 V ideal diode — **full Pi load** flows **F1 → Q6 → +5VA → FB1 → J40**.
+
+### Operator manual check (before Gate-L1)
+
+- [ ] **Q6 trace width / copper** sized for **≥ 3 A** peak (Pi 4 + peripherals), short path **F1 → Q6 → +5VA**
+- [ ] **F1 → Q6** and **Q6 → bulk (`C1`) / `FB1`** kept tight; avoid thin necks or long detours
+- [ ] **Thermal:** Q6 `Rds(on)` × I² — verify pad/via strategy if the FET runs warm under load
+- [ ] **Silk / assy note** near **Q6** optional: “5 V ideal diode — high current”
+
+**Agent reminder:** flag **L2** whenever routing pi-power or reviewing layout DRC.
 
 ---
 
@@ -40,6 +56,7 @@ PCB layout for **wanos-pcb-v1** (85 × 56 mm). DRC clean before **Gate-L1** and 
 
 ### Layout checklist
 
+- [ ] **L2:** **Q6** carries full Pi current — see [§ L2](#l2--pi-power-high-current-layout-manual)
 - [ ] SSR / 12 V area isolated from I²C ([`board-spec.md`](../board-spec.md) § 6)
 - [ ] Decoupling at each PCA9554 / TCA9546A
 - [ ] Test pads TP1–TP10 accessible

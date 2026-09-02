@@ -24,10 +24,11 @@ parts:
     mpn: PC817A
     lcsc: C411142
     role: 12 V opto monitor
-  - ref: Q1-Q4
+  - ref: Q1-Q5
     mpn: PN2222A-TA
     lcsc: C181091
-    role: SSR drivers
+    footprint: Package_TO_SOT_SMD:SOT-23
+    role: SSR drivers + master safety
   - ref: J1
     mpn: Molex 208658-1052
     lcsc: C6990958
@@ -49,24 +50,34 @@ parts:
     lcsc: TBD
     role: DNP v1
   - ref: F1
-    mpn: Fuse 2A
-    lcsc: C72043
-    role: 5 V input fuse
+    mpn: SMD1206P200TF
+    lcsc: C545216
+    footprint: Fuse:Fuse_1206_3216Metric
+    role: 5 V input polyfuse 2A hold (resettable)
   - ref: F2
     mpn: Polyfuse 500mA
     lcsc: C369233
+    footprint: Fuse:Fuse_1206_3216Metric
     role: HDMI pin 18 panel 5 V
+  - ref: C1
+    mpn: RVT1A101M0605
+    lcsc: C72472
+    footprint: Capacitor_SMD:CP_Elec_6.3x5.4mm
+    role: +5VA bulk 100uF 10V
   - ref: D1
-    mpn: BZX85C5V6
-    lcsc: C81598
-    role: 5 V zener conditioning
-  - ref: D2
-    mpn: 1N4001
-    lcsc: C81598
-    role: 5 V reverse protection
+    mpn: BZT52C5V6
+    lcsc: C173406
+    footprint: Diode_SMD:D_SOD-123
+    role: 5 V overvoltage shunt (SMD 500mW)
+  - ref: Q6
+    mpn: AO3401A
+    lcsc: C15127
+    footprint: Package_TO_SOT_SMD:SOT-23
+    role: 5 V input ideal diode (P-FET, G tied to D)
   - ref: D3
     mpn: SMBJ12A
-    lcsc: C171756
+    lcsc: C353398
+    footprint: Diode_SMD:D_SMB
     role: 12 V TVS
   - ref: FB1
     mpn: BLM21PG331SN1
@@ -118,4 +129,4 @@ notes:
   - "J17 5V screw in; J2-J16 connector map in field-wiring.md; J15 dropped R2; J41 DNP v1"
   - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
   - "LCSC codes are targets — validate stock at J1 order time"
-  - "Datasheets: docs/reference/datasheets/ (J41 DNP — usb-c-j41.pdf N/A v1)"
+  - "Datasheets: docs/reference/datasheets/ (14/15 on disk; J41 DNP — usb-c-j41.pdf N/A v1)"

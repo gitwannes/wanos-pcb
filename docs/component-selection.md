@@ -64,10 +64,15 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 
 | Part | Ref | Role |
 |---|---|---|
-| **PN2222A-TA** × 4 | Q1–Q4 | SSR drivers |
+| **PN2222A-TA** × 5 | Q1–Q5 | SSR drivers + master safety (SOT-23) |
 | **PC817A** SMD | U4 | 12 V opto |
-| **SMBJ12A** | D1 | 12 V TVS |
+| **SMBJ12A** | D3 | 12 V TVS (SMD SMB) — [`smbj12a.pdf`](reference/datasheets/smbj12a.pdf) |
+| **BZT52C5V6** | D1 | 5 V overvoltage clamp (SMD SOD-123, shunt to GND) — family ref [`bzx85c.pdf`](reference/datasheets/bzx85c.pdf) |
+| **AO3401A** | Q6 | 5 V ideal diode / reverse block (P-FET SOT-23, gate tied to drain) |
+| **RVT1A101M0605** | C1 | +5VA bulk 100 µF 10 V (SMD 6.3×5.4 mm) |
 | **BLM21PG331SN1** | FB1 | Pi 5 V ferrite |
+| **SMD1206P200TF** | F1 | 5 V input polyfuse 2 A hold (resettable, 1206, LCSC C545216) |
+| **500 mA polyfuse** | F2 | HDMI panel 5 V (1206, LCSC C369233) |
 
 ---
 
@@ -103,7 +108,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | LCD | JST XH 4-pin × 1 | J16 |
 | Expanders | PCA9554PW × 2 | U1, U2 |
 | I²C mux | TCA9546A | U5 |
-| SSR drivers | PN2222A × 4 | Q1–Q4 |
+| SSR drivers | PN2222A × 5 | Q1–Q5 |
 | 12 V monitor | PC817A | U4 |
 | Pi header | 2×20 | J40 |
 | 5 V in | KF301 2P | **J17** |
@@ -111,7 +116,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 
 **External (not assembled):** LCD modules, SHT31 sensor boards, external DIN SSRs.
 
-**Datasheets:** [`reference/datasheets/README.md`](reference/datasheets/README.md) (12/13 on disk; `usb-c-j41.pdf` later).
+**Datasheets:** [`reference/datasheets/README.md`](reference/datasheets/README.md) (14/15 on disk; `usb-c-j41.pdf` deferred — J41 DNP v1).
 
 Validate LCSC stock before **J1**.
 
