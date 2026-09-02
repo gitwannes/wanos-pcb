@@ -24,7 +24,11 @@ wanos-pcb/
 │   │   └── wisc-board/
 │   └── todo/
 ├── projects/wanos-board/
+│   ├── wanos-board.kicad_pro    # KiCad 10 project (S1)
+│   ├── wanos-board.kicad_sch
+│   ├── wanos-board.kicad_pcb    # stub for L1
 │   ├── components.xlsx
+│   ├── bom-targets.yaml
 │   ├── design.yaml
 │   └── fabrication/
 └── README.md
@@ -37,7 +41,7 @@ wanos-pcb/
 | Step | Id | What |
 |---|---|---|
 | ~~1–3~~ | ~~**R1, R2, Ops1**~~ | ~~Requirements / Konnect setup~~ **Done** |
-| 4 | **S1** | KiCad schematic |
+| 4 | **S1** | KiCad schematic — **ERC clean** (Gate-S1 next) |
 | 5 | **Gate-S1** | Schematic sign-off |
 | 6 | **L1** | PCB layout |
 | 7 | **Gate-L1** | Layout sign-off |

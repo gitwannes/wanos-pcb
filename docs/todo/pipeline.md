@@ -23,7 +23,7 @@ Ordered backlog + closed history. Specs / DoD / locks live in the lettered phase
 | Letter | Affinity | File |
 |---|---|---|
 | **R** | Requirements / architecture | [`_archive/phaseR-requirements.md`](_archive/phaseR-requirements.md) (Done) |
-| **S** | Schematic (+ KiCad project) | [`phaseS-schematic.md`](phaseS-schematic.md) |
+| **S** | Schematic (+ KiCad project) | [`phaseS-schematic.md`](phaseS-schematic.md) — **S1 Done** |
 | **L** | Layout | [`phaseL-layout.md`](phaseL-layout.md) |
 | **J** | JLCPCB fabrication pack | [`phaseJ-jlcpcb.md`](phaseJ-jlcpcb.md) |
 | **V** | Verification / bring-up | [`phaseV-verify.md`](phaseV-verify.md) |
@@ -45,6 +45,7 @@ When a phase finishes: Sequence → **Done**; trim Sequence only.
 | **R1** | Spec + BOM contradictions locked **2026-09-01** |
 | **R2** | Architecture + plant + BCM locked **2026-09-01** — [`gpio-interface.md`](../gpio-interface.md), [`external-plant.md`](../external-plant.md), [`grounding.md`](../grounding.md), [`_archive/phaseR-requirements.md`](_archive/phaseR-requirements.md) § R2 |
 | **Ops1** | Konnect + KiCad 10 + Cursor on build machine **2026-09-01** — [`kicad-setup.md`](../kicad-setup.md); IPC verified with WISC reference project |
+| **S1** | KiCad schematic **wanos-pcb-v1** — ERC **0 errors** **2026-09-01** — [`phaseS-schematic.md`](phaseS-schematic.md) § S1 |
 
 ---
 
@@ -55,18 +56,17 @@ All open items. **Detail** = phase file section.
 ```text
 #   Status Size Id           What                                               Detail
 ──  ────── ──── ──────────── ────────────────────────────────────────────────── ──────────────────────────
-1   open   high S1            KiCad schematic wanos-pcb-v1 (ERC clean)           phaseS § S1
-2   open   low  Gate-S1       Operator schematic sign-off (PDF / review)         pipeline Manual § Gate-S1
-3   open   high L1            PCB layout 85×56 mm (DRC clean)                    phaseL § L1
-4   open   low  Gate-L1       Operator layout sign-off + silkscreen review       pipeline Manual § Gate-L1
-5   open   mid  Ops2           Pre-J1 fab readiness (assembly split, qty, stencil) pipeline Manual § Ops2
-6   open   mid  J1            JLCPCB export + order + LCSC validate              phaseJ § J1
-7   open   low  Ops3           Receiving + first-article inspection               pipeline Manual § Ops3
-8   open   mid  V1a           Bring-up: wanos-pcb-v1 + updated WanOS             phaseV § V1a
-9   hold   mid  V1b           Full board + future WanOS code                     phaseV § V1b
+1   open   low  Gate-S1       Operator schematic sign-off (PDF / review)         phaseS § Gate-S1
+2   open   high L1            PCB layout 85×56 mm (DRC clean)                    phaseL § L1
+3   open   low  Gate-L1       Operator layout sign-off + silkscreen review       pipeline Manual § Gate-L1
+4   open   mid  Ops2           Pre-J1 fab readiness (assembly split, qty, stencil) pipeline Manual § Ops2
+5   open   mid  J1            JLCPCB export + order + LCSC validate              phaseJ § J1
+6   open   low  Ops3           Receiving + first-article inspection               pipeline Manual § Ops3
+7   open   mid  V1a           Bring-up: wanos-pcb-v1 + updated WanOS             phaseV § V1a
+8   hold   mid  V1b           Full board + future WanOS code                     phaseV § V1b
 ```
 
-Near-term: **S1** → gates → **J1** → **V1a**. Production WanOS stays on **WISC** until operator cuts over.
+Near-term: **Gate-S1** → **L1** → gates → **J1** → **V1a**. Production WanOS stays on **WISC** until operator cuts over.
 
 ---
 
@@ -100,7 +100,7 @@ Near-term: **S1** → gates → **J1** → **V1a**. Production WanOS stays on **
 
 | Item | Status | Notes |
 |---|---|---|
-| **Gate-S1 — schematic sign-off** | open | Sequence #2; operator review before **L1** |
+| **Gate-S1 — schematic sign-off** | open | Sequence #1; operator review before **L1** |
 | **Gate-L1 — layout sign-off** | open | Sequence #4; connector orientation, zones, **`wanos-pcb-v1` rev on silk** |
 | **HDMI→SPI physical verification** | open | Cable + WISC panel before relying on e-ink — [`hdmi-spi-eink.md`](../hdmi-spi-eink.md); before **V1a** e-ink test |
 | **Silkscreen / assembly drawing** | open | Label every JST; polarity; installer hints — **L1** / **Ops2** |
@@ -142,3 +142,4 @@ Near-term: **S1** → gates → **J1** → **V1a**. Production WanOS stays on **
 | 2026-09-01 | R1 Done; field-wiring, WISC reference upload |
 | 2026-09-01 | Ops1 Done; Konnect + KiCad IPC verified |
 | 2026-09-01 | R2 Done; external-plant, grounding, gpio-interface, J15 dropped; R track → `_archive/` |
+| 2026-09-01 | S1 Done; wanos-board KiCad schematic ERC 0 errors; Gate-S1 next |

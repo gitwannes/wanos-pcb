@@ -78,9 +78,10 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups (4–5 m Cat5 @ 100 kHz) |
 | R1–R4 | 470 Ω | SSR base |
 | R5–R8 | 10k | SSR pulldown |
-| R17–R28 | 220–330 Ω | Activity LEDs |
-| R29–R31 | 2k2–4k7 | Status LEDs |
-| R32 | 1k–2k2 | Opto LED |
+| R17–R28 | **1k0** | Activity LEDs |
+| R29, R31 | **2k0** | Status LEDs (5 V rails) |
+| R30 | **6k8** | Status LED (12 V) |
+| R32 | **1k5** | Opto LED |
 | R33 + C17 | 10k + 100 nF | Opto RC (optional) |
 
 **Not populated v1:** R11–R16 (removed — no PCA9615 segment).
@@ -105,7 +106,8 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | SSR drivers | PN2222A × 4 | Q1–Q4 |
 | 12 V monitor | PC817A | U4 |
 | Pi header | 2×20 | J40 |
-| Pi power | USB-C | J41 |
+| 5 V in | KF301 2P | **J17** |
+| ~~Pi USB-C~~ | — | **J41 DNP v1** |
 
 **External (not assembled):** LCD modules, SHT31 sensor boards, external DIN SSRs.
 

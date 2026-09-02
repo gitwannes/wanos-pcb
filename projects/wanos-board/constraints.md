@@ -25,7 +25,8 @@ Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](..
 - I²C pull-ups: **2k2** on SCL/SDA only (**R9**, **R10**)
 - **No PCA9615** on v1
 - **J14** only for 12 V (**J15** dropped)
-- **J41** USB-C powers Pi
+- **J17** KF301 **5 V** screw in; **J41** USB-C **DNP** v1
+- **J40** **+5VA** on pins **2 & 4** (header injection)
 - Decoupling: 100 nF per IC; 1 µF bulk near expanders/mux
 
 ---

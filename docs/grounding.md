@@ -40,7 +40,7 @@ There is **no** separate “signal ground” vs “power ground” on the PCB fo
 
 ## 4. Pi and 5 V logic
 
-- Pi powered via **J41** USB-C on this PCB (R2 lock).
+- Pi powered via **J17** external 5 V → on-board **`+5VA`** → **J40** header pins **2 & 4** (**J41** USB-C **DNP** v1).
 - **5 V** and **3.3 V** logic return through Pi header **GND** to PCB plane.
 - When **12 V** is cut by temp safety, **5 V** to Pi must **remain** (USB / board supply independent of **+12VA**).
 

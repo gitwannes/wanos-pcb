@@ -23,7 +23,7 @@ mechanicalReference: docs/reference/wisc-board/wisc-v2-6-4-hdmi.md
 rails:
   - name: PI_5V
     voltage: 5.0
-    notes: USB-C J41 on PCB powers Pi
+    notes: J17 screw terminal -> +5VA -> J40 pins 2/4; J41 DNP
   - name: LOGIC_3V3
     voltage: 3.3
     notes: From Pi
@@ -35,7 +35,7 @@ rails:
 
 blocks:
   - id: pi_power
-    description: 40-pin J40 + USB-C J41 (Pi supply)
+    description: J17 5V screw in, WISC conditioning, FB1, J40 5V to Pi; J41 DNP
     doc: docs/gpio-interface.md
   - id: io_expanders
     description: PCA9554PW x2 — doors, meters, kWh, buttons, 12V mon; INT NC

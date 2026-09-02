@@ -7,10 +7,115 @@ fieldWiring: docs/field-wiring.md
 components: projects/wanos-board/components.xlsx
 selection: docs/component-selection.md
 
-parts: []
+parts:
+  - ref: U1
+    mpn: PCA9554PW
+    lcsc: C79990
+    role: Expander A @ 0x20
+  - ref: U2
+    mpn: PCA9554PW
+    lcsc: C79990
+    role: Expander B @ 0x21
+  - ref: U5
+    mpn: TCA9546A
+    lcsc: C130026
+    role: I2C mux @ 0x70
+  - ref: U4
+    mpn: PC817A
+    lcsc: C411142
+    role: 12 V opto monitor
+  - ref: Q1-Q4
+    mpn: PN2222A-TA
+    lcsc: C181091
+    role: SSR drivers
+  - ref: J1
+    mpn: Molex 208658-1052
+    lcsc: C6990958
+    role: HDMI / e-ink SPI
+  - ref: J17
+    mpn: KF301-2P
+    lcsc: C474892
+    role: 5 V screw input
+  - ref: J14
+    mpn: KF301-2P
+    lcsc: C474892
+    role: 12 V screw input
+  - ref: J40
+    mpn: Pin header 2x20
+    lcsc: C2890011
+    role: Pi 40-pin
+  - ref: J41
+    mpn: USB-C receptacle
+    lcsc: TBD
+    role: DNP v1
+  - ref: F1
+    mpn: Fuse 2A
+    lcsc: C72043
+    role: 5 V input fuse
+  - ref: F2
+    mpn: Polyfuse 500mA
+    lcsc: C369233
+    role: HDMI pin 18 panel 5 V
+  - ref: D1
+    mpn: BZX85C5V6
+    lcsc: C81598
+    role: 5 V zener conditioning
+  - ref: D2
+    mpn: 1N4001
+    lcsc: C81598
+    role: 5 V reverse protection
+  - ref: D3
+    mpn: SMBJ12A
+    lcsc: C171756
+    role: 12 V TVS
+  - ref: FB1
+    mpn: BLM21PG331SN1
+    lcsc: C1015
+    role: Pi 5 V ferrite
+  - ref: R9-R10
+    mpn: 2k2
+    lcsc: C17513
+    role: I2C pull-ups
+  - ref: R1-R4
+    mpn: 470R
+    lcsc: C17477
+    role: SSR base
+  - ref: R5-R8
+    mpn: 10k
+    lcsc: C17414
+    role: SSR pulldown
+  - ref: R17-R28
+    mpn: 1k0
+    lcsc: C17513
+    role: Activity LEDs
+  - ref: R29
+    mpn: 2k0
+    lcsc: C17513
+    role: Status LED 5 V in
+  - ref: R30
+    mpn: 6k8
+    lcsc: C17607
+    role: Status LED 12 V
+  - ref: R31
+    mpn: 2k0
+    lcsc: C17513
+    role: Status LED 5 V Pi
+  - ref: R32
+    mpn: 1k5
+    lcsc: C22843
+    role: Opto LED
+  - ref: R33
+    mpn: 10k
+    lcsc: C17414
+    role: Opto pull-up
+  - ref: R34-R36
+    mpn: 10k
+    lcsc: C17414
+    role: Exp B P3-P5 pull-ups (DNP field)
 
 notes:
   - "R1 + R2 closed 2026-09-01 — see docs/todo/_archive/phaseR-requirements.md"
-  - "J2-J16 connector map in field-wiring.md; J15 dropped R2"
+  - "J17 5V screw in; J2-J16 connector map in field-wiring.md; J15 dropped R2; J41 DNP v1"
   - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
-  - "Datasheets: docs/reference/datasheets/ (usb-c-j41.pdf pending)"
+  - "LCSC codes are targets — validate stock at J1 order time"
+  - "Datasheets: docs/reference/datasheets/ (J41 DNP — usb-c-j41.pdf N/A v1)"

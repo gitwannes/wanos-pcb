@@ -41,7 +41,8 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 - Powers Raspberry Pi
 - Powers logic (PCA9554PW, TCA9546A, LEDs, I²C sensors on local bus)
 - Must **remain powered** when sauna safety triggers
-- **Pi powered via USB-C J41** on this PCB (R2 lock)
+- External **5 V** via **J17** screw terminal → WISC-style conditioning → **`+5VA`**
+- **Pi** fed via **J40** header pins **2 & 4** (header injection; **J41** USB-C **DNP** v1)
 
 #### 12 V (sauna SSR rail)
 
@@ -55,7 +56,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 
 Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 
-- 12 V → **1 kΩ – 2.2 kΩ** → optocoupler LED
+- 12 V → **R32 1k5** → optocoupler LED
 - Transistor → pull-up to 3.3 V → **Expander B pin P6**
 - Optional RC: 10 kΩ + 100 nF
 - Part: **PC817A** class (see [`reference/datasheets/pc817a.pdf`](reference/datasheets/pc817a.pdf))
@@ -74,7 +75,7 @@ Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 ### 3.2 Water meters — bathroom 1 and 2
 
 - **J4**, **J5** — 6-pin JST each (cold + hot)
-- **Expander A** P2–P5; activity LEDs 220–330 Ω
+- **Expander A** P2–P5; activity LEDs **1k0** (R17–R28)
 
 ### 3.3 kWh counters (main + aux)
 
@@ -102,13 +103,13 @@ Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 ### 4.1 SSR channels (4×)
 
 - 3 sauna phases + 1 IR
-- **Pi GPIO** → 470 Ω → PN2222A → external SSR
-- **J13** — **5-pin** JST vertical (**WISC J1** parity)
+- **Pi GPIO** → 470 Ω → **PN2222A** (**Q1–Q4** field, **Q5** master safety BCM4) → external SSR
+- **J13** — **5-pin** JST vertical (**WISC J1** parity); pin **1** = **GND**
 - 12 V SSR opto supply; software PWM ~1–5 Hz on sauna phases
 
 ### 4.2 E-ink (HDMI → SPI)
 
-See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
+See [`hdmi-spi-eink.md`](hdmi-spi-eink.md). Panel **+5 V** (HDMI pin **18**) via **F2** 500 mA polyfuse from **`+5VA`**.
 
 ### 4.3 LCD (2× modules, 1× header)
 
@@ -118,8 +119,10 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
 ### 4.4 Pi power
 
-- **J41** USB-C — **primary** Pi supply (5 V on PCB)
-- **J40** 40-pin header — I/O only when Pi is fed from **J41**
+- **J17** — **KF301-2P** screw terminal: external **5 V** in (+ / GND)
+- Conditioning (WISC 2.6.4): **F1** 2 A, **D2** `1N4001`, **D1** `BZX85C5V6`, **FB1** ferrite → **`+5VA`**
+- **J40** 40-pin header — **+5VA** on pins **2 & 4** powers Pi; remaining pins = GPIO / I²C / SSR / e-ink
+- **J41** USB-C — **DNP** v1 (not populated)
 
 ---
 
@@ -129,17 +132,17 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 
 ### 5.1 Status (dim)
 
-Resistors **R29–R31** (**2k2–4k7**).
+Resistors: **R29**, **R31** = **2k0** (5 V rails); **R30** = **6k8** (12 V — matched brightness).
 
 | LED | Indicates |
 |---|---|
-| 5 V in | USB **J41** / external 5 V present |
+| 5 V in | **`+5VA`** post-**F1** (PSU + fuse OK) |
 | 12 V | **+12VA** at **J14** |
-| 5 V Pi | Pi / logic rail alive |
+| 5 V Pi | **`+5VA`** at **J40** pin **2** |
 
-### 5.2 Activity (bright)
+### 5.2 Activity
 
-Resistors **R17–R28** (**220–330 Ω**).
+Resistors **R17–R28** = **1k0**.
 
 | Group | Count | Signals |
 |---|---:|---|
@@ -173,7 +176,7 @@ Resistors **R17–R28** (**220–330 Ω**).
 
 | Zone | Content |
 |---|---|
-| **Left** | Pi **J40**, HDMI **J1**, **J41** USB-C |
+| **Left** | Pi **J40**, HDMI **J1**, **J17** 5 V screw |
 | **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, decoupling |
 | **Right** | **J2–J8** field inputs, activity LEDs |
 | **Bottom** | **J14** 12 V, **J13** SSR, Q1–Q4, U4 opto, TVS |

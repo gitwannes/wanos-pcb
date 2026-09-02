@@ -5,7 +5,12 @@ alwaysApply: true
 
 # Phase file archive (pipeline close-out)
 
-When a **phase detail file** is **fully Done** (pipeline **Done** row + Last DoD executed):
+When a **phase detail file** is **fully Done** (entire letter track: no open Sequence/hold rows for that detail file + Last DoD executed):
+
+## When NOT to archive
+
+- **Subphase** close-out (e.g. C25) does **not** move the parent `phaseC-shell.md` while other C-track items remain open.
+- Archive only the **whole** `phaseX-*.md` when that letter track is finished.
 
 ## Move (do not delete)
 
@@ -25,7 +30,7 @@ Per User Rule phase close-out: status **Done**, shipped summary, pointers to pro
 
 ## Tell the operator
 
-List which files were moved to `_archive/` in the close-out message.
+List which files were moved to `_archive/` in the close-out message (no "move it offline yourself").
 
 ## Repo-specific paths
 

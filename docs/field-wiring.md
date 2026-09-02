@@ -53,8 +53,9 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 | **J13** | 5 | SSR field (WISC J1 class) | § 6 |
 | **J14** | 2 | 12 V in (KF301) — post-safety **+12VA** + GND | § 9 |
 | **J16** | 4 | LCD I²C (both screens) | § 4 |
+| **J17** | 2 | **5 V screw in** (KF301) — external PSU + / GND | § 10 |
 | **J40** | 40 | Pi header | |
-| **J41** | USB-C | Pi power (primary) | |
+| **J41** | — | USB-C | **DNP v1** |
 
 ---
 
@@ -109,6 +110,19 @@ WISC production **J1**: **B5B-XH-A 1×05 vertical**. Pin 1 = **GND**; pins 2–5
 | **2** | **GND** |
 
 Detail → [`external-plant.md`](external-plant.md) § 3.
+
+---
+
+## 10. 5 V input — J17 (KF301-2P)
+
+| Pin | Signal |
+|----:|--------|
+| **1** | **+5V** — external PSU positive (before on-board conditioning) |
+| **2** | **GND** |
+
+On-board chain (WISC 2.6.4 class): **F1** 2 A → **D2** `1N4001` → **D1** `BZX85C5V6` → **`+5VA`** → **FB1** → **J40** pins **2 & 4** (Pi header 5 V injection).
+
+**J41** USB-C is **not populated** on v1.
 
 ---
 
