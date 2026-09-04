@@ -62,7 +62,9 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 
 Plus **D29** **SMBJ5.0A** across **`+5VA`** → **GND** at **J4** (sensor supply clamp).
 
-**J4** — RJ45 (Amphenol **RJHSE-5380** class, footprint `Connector_RJ:RJ45_Amphenol_RJHSE5380`). **SH** tabs → **GND** (board end only).
+**J4** — TE Connectivity **5556416-1** (LCSC **C86492**): RJ45 8P8C **TH**, **no LED**, **no magnetics**, unshielded. KiCad symbol `Connector:RJ45`, footprint **`Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal`** (same 8-pad modjack class). JLC assembly: **wave soldering**.
+
+Optional Cat5 foil/drain: bond at enclosure / PE (jack has no SH tabs) — [`grounding.md`](grounding.md).
 
 ### Cat5 wiring (T568B) — recommended
 
@@ -79,7 +81,7 @@ Plus **D29** **SMBJ5.0A** across **`+5VA`** → **GND** at **J4** (sensor supply
 
 **Bath 2 blacks:** splice to any **GND** conductor (pins **2** / **5** / **6**). **Bath 2** cold+hot share pair 4 (OK at ~7–200 Hz); do not leave unused pair conductors floating at the board end — they are already assigned.
 
-**Shielded Cat5 (optional):** bond shield / foil drain to **J4 SH** / PCB **GND** at the **board end only** — see [`grounding.md`](grounding.md).
+**Shielded Cat5 (optional):** jack is **unshielded** — bond foil/drain to enclosure **PE** / chassis at **board end only** (not both ends).
 
 | Net | Expander |
 |---|---|

@@ -23,9 +23,7 @@ Verified JLCPCB-compatible parts for **wanos-pcb-v1**, aligned with [`board-spec
 
 | Part | Ref | Notes |
 |---|---|---|
-| **Amphenol RJHSE-5380** (or JLCPCB equiv. 8P8C) | **J4** | RJ45 without magnetics — [`field-wiring.md`](field-wiring.md) § 2a |
-
-Footprint: `Connector_RJ:RJ45_Amphenol_RJHSE5380` (pads **1–8** + **SH** → **GND**).
+| **Amphenol / TE modjack class** | **J4** | TE **5556416-1** (LCSC **C86492**) — TH, **no LED**, no magnetics; footprint `Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal` |
 
 **KiCad footprints (JST vertical):**
 

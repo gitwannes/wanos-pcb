@@ -132,7 +132,7 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 
 **2026-09-02:** **`safety_12v_mon.kicad_sch`** merged into **`pi_power.kicad_sch`** (**U4**, **R32**–**R33**, **C17**); status LEDs **D23** / **D24** on **Pi_Power**; net name **`+12V`** (not **`+12VA`**) for external 12 V input; **J14** + **D3** TVS moved to **Pi_Power** (off **Connectors**).
 
-**2026-09-04:** Water meters **YF-B6/B10** — sheet **`water_meters.kicad_sch`**: **J4** RJ45 (Cat5 ~10 m, T568B map in [`field-wiring.md`](../field-wiring.md) § 2a); OD pull-up to **`+3V3`**, **330 Ω**, **100 nF**, activity LEDs; SIG TVS **D25**–**D28** + **D29** on **`+5VA`**; **no MOSFET**; **J5** unused (collapsed).
+**2026-09-04:** Water meters **YF-B6/B10** — sheet **`water_meters.kicad_sch`** regenerated: **J4** TE **5556416-1** / LCSC **C86492** (TH, **no LED**, no magnetics; fp `RJ45_Amphenol_54602-x08_Horizontal`); Cat5 ~10 m T568B map in [`field-wiring.md`](../field-wiring.md) § 2a; OD pull-up / series / debounce / LEDs; SIG TVS **D25**–**D28** + **D29** on **`+5VA`**; **no MOSFET**; **J5** unused.
 
 **2026-09-02:** Re-run ERC + netlist after **`leds.kicad_sch`** removal and Exp B **NC** cleanup — [`wanos-board-erc.rpt`](../../projects/wanos-board/wanos-board-erc.rpt) on disk may still list the old **LEDs** sheet.
 
