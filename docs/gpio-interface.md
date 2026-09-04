@@ -69,7 +69,7 @@ HDMI **physical pin** → signal per [`hdmi-spi-eink.md`](hdmi-spi-eink.md). **B
 
 | Function | Implementation |
 |---|---|
-| Doors, water, 2× kWh | **PCA9554** U1 + **J2–J7** |
+| Doors, water, 2× kWh | **PCA9554** U1 + **J2–J7** (water via **`water_meters`** front-end) |
 | Sauna LCD buttons | **PCA9554** U2 **P0–P2** + **J8** |
 | 12 V presence / hard-lock | Opto **U4** → **U2 P6** |
 | SHT31 × 4 | **TCA9546A** U5 + **J9–J12** (ch 0–3, sensor @ `0x44`) |

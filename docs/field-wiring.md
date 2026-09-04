@@ -6,7 +6,7 @@ Locked **R1** (2026-09-01) + **R2** (2026-09-01). Canonical electrical behaviour
 
 **WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
 
-**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J8** → **`connectors.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Field input activity LEDs **D11–D18** / **R17–R24** → **`io_expanders.kicad_sch`** (with **U1**/**U2**).
+**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J5**, **J6–J8** → **`connectors.kicad_sch`** (water **J4–J5** pinouts). YF front-end (pull-ups / series / debounce / activity LEDs) → **`water_meters.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Door/kWh activity LEDs → **`io_expanders.kicad_sch`**; water activity LEDs → **`water_meters.kicad_sch`**.
 
 ---
 
@@ -36,6 +36,46 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 
 ---
 
+## 2a. Water meters — J4 / J5 (6-pin) + YF-B6/B10
+
+**Sensor:** YF-B6 / YF-B10 hall flow meter — datasheet [`reference/datasheets/external/YF-B6 B10 waterflow-sensor.pdf`](reference/datasheets/external/YF-B6%20B10%20waterflow-sensor.pdf).
+
+| Spec | Value |
+|---|---|
+| Supply | **DC 5–15 V** (min **4.5 V**) → board **`+5VA`** |
+| Output | **Open-drain** (requires pull-up) — yellow wire |
+| Wires | Red **VDD**, black **GND**, yellow **SIG** |
+| Rate | \(F = 6.6 \times Q\) (L/min) → ~7–200 Hz |
+
+**No MOSFET / opto** on v1 — OD + pull-up to **`+3V3`** is level-safe into PCA9554.
+
+**On-board front-end** (sheet **`water_meters.kicad_sch`**), per channel:
+
+| Element | Value | Role |
+|---|---|---|
+| **Rpu** | **10 kΩ** → **`+3V3`** | Idle HIGH |
+| **Rs** | **330 Ω** | Series field → expander |
+| **Cd** | **100 nF** | Debounce / EMI (\(\tau \approx 1\,\text{ms}\)) |
+| **Rled + D** | **1k0** + LED | Activity (lights on pulse / SIG low) |
+
+**J4 / J5 pinout** (pin **1** = square pad):
+
+| Pin | Signal | Sensor wire |
+|---:|---|---|
+| **1** | **GND** | Black (both meters) |
+| **2** | **COLD SIG** | Yellow cold |
+| **3** | **HOT SIG** | Yellow hot |
+| **4** | **`+5VA`** | Red (both meters) |
+| **5** | **GND** | Extra return |
+| **6** | **`+5VA`** | Extra supply |
+
+| Connector | Cold net | Hot net | Expander |
+|---|---|---|---|
+| **J4** (bath 1) | `WM_B1_COLD` | `WM_B1_HOT` | **U1** P2 / P3 |
+| **J5** (bath 2) | `WM_B2_COLD` | `WM_B2_HOT` | **U1** P4 / P5 |
+
+---
+
 ## 3. Connector map (J designators)
 
 | Ref | Pins | Function | Cable notes |
@@ -43,8 +83,8 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 | **J1** | HDMI | E-ink SPI | See [`hdmi-spi-eink.md`](hdmi-spi-eink.md) |
 | **J2** | 2 | Door sauna | |
 | **J3** | 2 | Door bathroom | |
-| **J4** | 6 | Water meters bathroom 1 | Cold + hot pulses |
-| **J5** | 6 | Water meters bathroom 2 | Cold + hot pulses |
+| **J4** | 6 | Water meters bathroom 1 | YF-B6/B10 ×2 — § 2a |
+| **J5** | 6 | Water meters bathroom 2 | YF-B6/B10 ×2 — § 2a |
 | **J6** | 2 | kWh main | |
 | **J7** | 2 | kWh aux | Full-board feature |
 | **J8** | 4 | Sauna LCD buttons | Cat5 UTP — § 5 |

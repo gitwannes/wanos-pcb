@@ -74,8 +74,10 @@ Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P
 
 ### 3.2 Water meters — bathroom 1 and 2
 
-- **J4**, **J5** — 6-pin JST each (cold + hot)
-- **Expander A** P2–P5; activity LEDs **1k0** (**R17–R24** on **`io_expanders.kicad_sch`**)
+- **Sensor:** **YF-B6 / YF-B10** hall flow meter — OD pulse, supply **5–15 V** ([datasheet](reference/datasheets/external/YF-B6%20B10%20waterflow-sensor.pdf))
+- **J4**, **J5** — 6-pin JST each (GND, cold SIG, hot SIG, **`+5VA`**, GND, **`+5VA`**) — [`field-wiring.md`](field-wiring.md) § 2a
+- **Front-end** on **`water_meters.kicad_sch`**: per channel **10 kΩ** pull-up to **`+3V3`**, **330 Ω** series, **100 nF** debounce, activity LED **1k0** — **no MOSFET**
+- **Expander A** P2–P5 (`EXP_A_P2`…`P5`)
 
 ### 3.3 kWh counters (main + aux)
 
@@ -167,15 +169,15 @@ On **`pi_power.kicad_sch`**. Resistors: **R29** = **2k0** (**+5VA**); **R30** = 
 
 **D25** dropped — was a duplicate **`+5VA`** indicator (same rail as **D23**).
 
-### 5.2 Field input activity (`io_expanders.kicad_sch`)
+### 5.2 Field input activity
 
-**Eight** LEDs (**D11–D18**), resistors **R17–R24** = **1k0**, anode on **`+3V3`**, cathode on expander input nets.
+**Eight** LEDs total, resistors **1k0**, anode on **`+3V3`**, cathode on the logic/input net (lights when input is low).
 
-| Group | Count | LEDs | Signals |
-|---|---:|---|---|
-| Doors | 2 | D11, D12 | J2 sauna, J3 bathroom |
-| Water B1 / B2 | 4 | D13–D16 | J4–J5 cold + hot |
-| kWh | 2 | D17, D18 | J6 main, J7 aux |
+| Group | Count | LEDs / R | Sheet | Signals |
+|---|---:|---|---|---|
+| Doors | 2 | D11–D12 / R17–R18 | `io_expanders.kicad_sch` | J2 sauna, J3 bathroom |
+| Water B1 / B2 | 4 | D13–D16 / R19–R22 | `water_meters.kicad_sch` | J4–J5 cold + hot |
+| kWh | 2 | D17–D18 / R23–R24 | `io_expanders.kicad_sch` | J6 main, J7 aux |
 
 ### 5.3 SSR activity (`ssr_drivers.kicad_sch`)
 

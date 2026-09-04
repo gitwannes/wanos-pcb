@@ -40,6 +40,7 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 |:---:|---|---|
 | [x] | Omron **G3PJ-225B DC12-24** (DIN SSR) | `omron-g3pj.pdf` |
 | [x] | **SHT3x** (Sensirion — SHT31 plant sensor) | `sht3x.pdf` |
+| [x] | **YF-B6 / YF-B10** water flow sensor | `external/YF-B6 B10 waterflow-sensor.pdf` |
 
 ### Pi power (R2 lock — J41 DNP v1)
 

@@ -20,7 +20,7 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 
 **Not on v1:** PCA9615 differential driver (**U3** omitted).
 
-**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **R9**/**R10**, **R17**–**R24**, **D11**–**D18**, **C3**/**C4**. **TCA9546A** (**U5**) + **C6**/**C7** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
+**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **R9**/**R10**, door/kWh activity **D11**–**D12** / **D17**–**D18** / **R17**–**R18** / **R23**–**R24**, button pull-ups **R34**–**R36**, **C3**/**C4**. Water front-end → [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch). **TCA9546A** (**U5**) + **C6**/**C7** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
 
 ### PCA9554 address straps (hardware pins — not GPIO)
 
@@ -49,24 +49,36 @@ Address = `0x20 + (A2<<2) + (A1<<1) + A0`. **Direct tie** to **`+3V3`** or **GND
 |---|---|---|
 | P0 | `EXP_A_P0_DOOR_BATH` | Bathroom door (**J3**) |
 | P1 | `EXP_A_P1_DOOR_SAUNA` | Sauna door (**J2**) |
-| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4**) |
-| P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) |
-| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J5**) |
-| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J5**) |
+| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4**) — via **`water_meters.kicad_sch`** |
+| P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) — via **`water_meters.kicad_sch`** |
+| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J5**) — via **`water_meters.kicad_sch`** |
+| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J5**) — via **`water_meters.kicad_sch`** |
 | P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) |
 | P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) |
 
-**Per-input hardware:** 100 nF debounce (target — see [`board-spec.md`](board-spec.md)); activity LED **1k0** (**R17**–**R24**, **D11**–**D18**) on this sheet — **`+3V3`** → resistor → LED → expander GPIO. The LED string biases the line high when the field input is idle (no separate 10 kΩ on used Exp A pins).
+**Doors / kWh (this sheet):** activity LED **1k0** (**D11**–**D12**, **D17**–**D18** / **R17**–**R18**, **R23**–**R24**) — **`+3V3`** → R → LED → GPIO. Debounce **100 nF** still target for doors/kWh (not yet separate sheet).
 
-### Field input activity LEDs (same sheet)
+### Water meters (YF-B6/B10) — separate sheet
+
+Canonical: [`field-wiring.md`](field-wiring.md) § 2a · schematic [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch).
+
+| Field net | Series | Pull-up | Debounce | Activity | Expander net |
+|---|---|---|---|---|---|
+| `WM_B1_COLD` | **R41** 330 Ω | **R37** 10k → **`+3V3`** | **C18** 100 nF | **D13** / **R19** | `EXP_A_P2_WM_B1_COLD` |
+| `WM_B1_HOT` | **R42** 330 Ω | **R38** 10k | **C19** 100 nF | **D14** / **R20** | `EXP_A_P3_WM_B1_HOT` |
+| `WM_B2_COLD` | **R43** 330 Ω | **R39** 10k | **C20** 100 nF | **D15** / **R21** | `EXP_A_P4_WM_B2_COLD` |
+| `WM_B2_HOT` | **R44** 330 Ω | **R40** 10k | **C21** 100 nF | **D16** / **R22** | `EXP_A_P5_WM_B2_HOT` |
+
+Sensor **VDD** = **`+5VA`** on **J4**/**J5**. Output is **open-drain** — **no MOSFET**. Idle HIGH, pulse LOW.
+
+### Door / kWh activity LEDs (this sheet)
 
 | Refs | Value | Nets |
 |---|---|---|
 | **D11**–**D12**, **R17**–**R18** | 1k0 | **J2** sauna door, **J3** bathroom door |
-| **D13**–**D16**, **R19**–**R22** | 1k0 | **J4**–**J5** water cold + hot |
 | **D17**–**D18**, **R23**–**R24** | 1k0 | **J6** kWh main, **J7** kWh aux |
 
-Status LEDs (**D23**/**D24**) stay on **`pi_power.kicad_sch`**; SSR activity (**D19**–**D22**) on **`ssr_drivers.kicad_sch`**.
+Status LEDs (**D23**/**D24**) on **`pi_power.kicad_sch`**; SSR activity (**D19**–**D22**) on **`ssr_drivers.kicad_sch`**.
 
 ---
 
@@ -87,7 +99,7 @@ Status LEDs (**D23**/**D24**) stay on **`pi_power.kicad_sch`**; SSR activity (**
 | P6 | `EXP_B_P6_12V_MON` | **12 V opto monitor (U4)** — safety-critical |
 | P7 | — | **NC** v1 |
 
-**Buttons:** Active-low to **GND** when pressed (**J8**). Target: **10 kΩ** pull-up to **`+3V3`** per button input — confirm on schematic before sign-off.
+**Buttons:** Active-low to **GND** when pressed (**J8**). Pull-up **R34**–**R36** (10 kΩ → **`+3V3`**) on **P0**–**P2**.
 
 **Unused GPIO (P3, P4, P5, P7):** hardware **NC** — no nets, no pull resistors. Firmware: configure as **output LOW** at PCA9554 init (see [`gpio-interface.md`](gpio-interface.md)).
 
@@ -96,13 +108,14 @@ Status LEDs (**D23**/**D24**) stay on **`pi_power.kicad_sch`**; SSR activity (**
 | Pin group | Pull bias | Why |
 |---|---|---|
 | **I²C** SCL/SDA | **R9**/**R10** 2k2 | Bus requirement — not GPIO |
-| **Exp A** P0–P7 (field) | **R17**–**R24** + LED to **`+3V3`** | ~1 kΩ path holds line high when field is open; pulse/door active-low |
-| **Exp B** P0–P2 (buttons) | **10 kΩ** target (see buttons note) | Switch shorts to **GND** when pressed |
+| **Exp A** doors / kWh | Activity LED **1k0** path (for now) | Idle bias via LED string; dedicated 10k + RC still preferred |
+| **Exp A** water P2–P5 | **R37**–**R40** 10k on **`water_meters.kicad_sch`** | YF OD → must pull to **`+3V3`** (not 5 V) |
+| **Exp B** P0–P2 (buttons) | **R34**–**R36** 10 kΩ | Switch shorts to **GND** when pressed |
 | **Exp B** P6 (12 V mon) | **R33** on **`pi_power.kicad_sch`** | Opto open-collector output |
 | **Exp B** P3–P5, P7 | **NC** — no hardware bias | Unused; firmware drives **LOW** as output |
 | Address **A0–A2** | Direct **GND** / **`+3V3`** tie | Strap, not pull resistor |
 
-Do **not** add 10 kΩ on every GPIO: used inputs already have a defined idle state from the field device, the activity-LED string, or a dedicated sense circuit.
+Do **not** pull YF signal lines to **`+5VA`** into the PCA9554. Do **not** use a MOSFET for YF-B6/B10 (OD already level-safe with 3.3 V pull-up).
 
 ---
 

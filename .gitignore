@@ -1,4 +1,7 @@
 # --- file: .gitignore ---
+
+.history
+
 # KiCad (global)
 *-backups/
 *-cache/

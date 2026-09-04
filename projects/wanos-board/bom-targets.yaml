@@ -122,10 +122,18 @@ parts:
     lcsc: C49678
     footprint: Capacitor_SMD:C_0805_2012Metric
     role: SSR driver C-E decoupling per Q1-Q5
-  - ref: R17-R24
+  - ref: R17-R18
     mpn: 1k0
     lcsc: C17513
-    role: Field input activity LEDs (io_expanders.kicad_sch)
+    role: Door activity LEDs (io_expanders.kicad_sch)
+  - ref: R19-R22
+    mpn: 1k0
+    lcsc: C17513
+    role: Water activity LEDs (water_meters.kicad_sch)
+  - ref: R23-R24
+    mpn: 1k0
+    lcsc: C17513
+    role: kWh activity LEDs (io_expanders.kicad_sch)
   - ref: R25-R28
     mpn: 1k0
     lcsc: C17513
@@ -146,12 +154,30 @@ parts:
     mpn: 10k
     lcsc: C17414
     role: Opto pull-up
+  - ref: R34-R36
+    mpn: 10k
+    lcsc: C17414
+    role: Exp B button P0-P2 pull-ups (io_expanders.kicad_sch)
+  - ref: R37-R40
+    mpn: 10k
+    lcsc: C17414
+    role: Water YF OD pull-ups to +3V3 (water_meters.kicad_sch)
+  - ref: R41-R44
+    mpn: 330
+    lcsc: C17613
+    role: Water series field to expander (water_meters.kicad_sch)
+  - ref: C18-C21
+    mpn: 100nF
+    lcsc: C49678
+    footprint: Capacitor_SMD:C_0805_2012Metric
+    role: Water debounce (water_meters.kicad_sch)
 
 notes:
   - "R1 + R2 closed 2026-09-01 — see docs/todo/_archive/phaseR-requirements.md"
   - "J17 5V screw in; J2-J16 connector map in field-wiring.md; J15 dropped R2; J41 DNP v1"
   - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
   - "PCA9554 decoupling C3/C4 on io_expanders; C5 dropped; U5 C6/C7 on i2c_plant"
-  - "Exp B P3-P5 P7 NC v1; R34-R36 dropped"
+  - "Exp B P3-P5 P7 NC v1; R34-R36 = button pull-ups"
+  - "Water YF-B6/B10: water_meters.kicad_sch; R37-R44 C18-C21; no MOSFET"
   - "LCSC codes are targets — validate stock at J1 order time"
   - "Datasheets: docs/reference/datasheets/ (14/15 on disk; J41 DNP — usb-c-j41.pdf N/A v1)"

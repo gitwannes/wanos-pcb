@@ -38,8 +38,11 @@ blocks:
     description: J17 + J14 screw terminals; 5V conditioning, D3 TVS, FB1, J40; status D23/D24; U4 12V monitor; J41 DNP
     doc: docs/gpio-interface.md
   - id: io_expanders
-    description: PCA9554PW x2 — doors, meters, kWh, buttons, field activity LEDs, 12V mon; INT NC
+    description: PCA9554PW x2 — doors, kWh, buttons, door/kWh LEDs, 12V mon; INT NC
     doc: docs/io-expander-map.md
+  - id: water_meters
+    description: YF-B6/B10 x4 front-end (J4/J5 on connectors) — OD pull-up to 3V3, series R, debounce, activity LEDs; no MOSFET
+    doc: docs/field-wiring.md
   - id: sht31_plant
     description: TCA9546A mux — 4x SHT31 @ 0x44, 4x 4-pin Cat5 ~4-5m
     doc: docs/field-wiring.md

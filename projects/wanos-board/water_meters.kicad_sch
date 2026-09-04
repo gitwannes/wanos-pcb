@@ -1,0 +1,3085 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "84dc939e-d49f-45a6-8f6a-baeb64de529b")
+	(paper "A4")
+	(title_block
+		(title "wanos-pcb-v1 Water Meters")
+		(comment 1 "YF-B6/B10 OD front-end — +3V3 pull-up, 330 series, 100n, LED; no MOSFET")
+	)
+	(lib_symbols
+			(symbol "Device:R"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "R"
+					(at 2.032 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "R"
+					(at 0 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at -1.778 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Resistor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "R res resistor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "R_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "R_0_1"
+					(rectangle
+						(start -1.016 -2.54)
+						(end 1.016 2.54)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "R_1_1"
+					(pin passive line
+						(at 0 3.81 270)
+						(length 1.27)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -3.81 90)
+						(length 1.27)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+			(symbol "Device:C"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0.254)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "C"
+					(at 0.635 2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "C"
+					(at 0.635 -2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0.9652 -3.81 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Unpolarized capacitor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "cap capacitor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "C_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "C_0_1"
+					(polyline
+						(pts
+							(xy -2.032 0.762) (xy 2.032 0.762)
+						)
+						(stroke
+							(width 0.508)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy -2.032 -0.762) (xy 2.032 -0.762)
+						)
+						(stroke
+							(width 0.508)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "C_1_1"
+					(pin passive line
+						(at 0 3.81 270)
+						(length 2.794)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -3.81 90)
+						(length 2.794)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+			(symbol "Device:LED"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 1.016)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "D"
+					(at 0 2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "LED"
+					(at 0 -2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Light emitting diode"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Sim.Pins" "1=K 2=A"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "LED diode"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "LED_0_1"
+					(polyline
+						(pts
+							(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy -1.27 0) (xy 1.27 0)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy -1.27 -1.27) (xy -1.27 1.27)
+						)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+						)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "LED_1_1"
+					(pin passive line
+						(at -3.81 0 0)
+						(length 2.54)
+						(name "K"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 3.81 0 180)
+						(length 2.54)
+						(name "A"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+	)
+	(text "YF-B6/B10 — OD to +3V3 pull-up, 330 series, 100n debounce, LED (no MOSFET)"
+		(exclude_from_sim no)
+		(at 25.4 12.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9e854db8-1e83-49e3-a636-1784ce51710b")
+	)
+	(text "J4/J5 pinout: 1=GND 2=COLD SIG 3=HOT SIG 4=+5VA 5=GND 6=+5VA (connectors sheet)"
+		(exclude_from_sim no)
+		(at 25.4 15.24 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "57e79456-3def-4e67-90bf-02c88c1b2fa4")
+	)
+	(text "B1 COLD / J4"
+		(exclude_from_sim no)
+		(at 35.56 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0930991f-be52-4316-a989-a7cfca35fa3c")
+	)
+	(global_label "WM_B1_COLD"
+		(shape bidirectional)
+		(at 35.56 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cc210d4e-548f-43bf-ae8c-47358183a3d3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 35.56 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 48.260000000000005 55.88 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "71f0b19b-94d3-4cd5-b036-e75f5b02e386")
+		(property "Reference" "R41"
+			(at 50.292 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 48.260000000000005 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 48.260000000000005 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 48.260000000000005 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 48.260000000000005 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "760b7598-091a-45a6-8eb0-6afed0e4c716")
+		)
+		(pin "2"
+			(uuid "44a3cb3d-7aab-4035-b74b-f70151f33827")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 35.56 55.88) (xy 44.45 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd431ee8-078d-4d39-b133-7679708d0906")
+	)
+	(wire
+		(pts
+			(xy 52.07000000000001 55.88) (xy 63.5 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e285b92-3486-4d70-8faf-efe7754b8675")
+	)
+	(junction
+		(at 63.5 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "244d27b4-b3ad-45b8-9bd3-96c65b574609")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 63.5 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2b13bcd6-d1c9-4b88-8f31-702993091c9f")
+		(property "Reference" "R37"
+			(at 65.532 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 63.5 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 63.5 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 63.5 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 63.5 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fba7503f-d81a-4ab9-8879-b621a54d6a03")
+		)
+		(pin "2"
+			(uuid "f759c808-5d23-43d4-9986-b7d87630c45b")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 63.5 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ba6849a5-480e-492c-8583-eda12cfbcdca")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 63.5 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 39.370000000000005) (xy 63.5 39.370000000000005)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "719ae938-ecf0-4247-af7e-ec58c8dac645")
+	)
+	(wire
+		(pts
+			(xy 63.5 46.99000000000001) (xy 63.5 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b8c60eb-e32e-4e20-abb1-a1f132040ee4")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 63.5 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2b779eb6-ae12-48c5-977d-aa81152080fc")
+		(property "Reference" "C18"
+			(at 66.04 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 66.04 68.58000000000001 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 63.5 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 63.5 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 63.5 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "eed4ee30-fa59-489a-bc34-f5a9dc1ab875")
+		)
+		(pin "2"
+			(uuid "b9e77430-a8c0-4a96-a684-09c67ee3ab66")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 55.88) (xy 63.5 63.50000000000001)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "610f8000-7376-45cf-bec3-9e873832819a")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 63.5 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3b2b5b90-1fd5-444e-a53f-3769ec893feb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 63.5 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 68.58000000000001) (xy 63.5 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bcbff12a-3699-4204-83de-49f9ac7ceb44")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 76.2 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "989e0ceb-19ae-44c7-9b79-f5a4921e54d5")
+		(property "Reference" "R19"
+			(at 78.232 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k0"
+			(at 76.2 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 76.2 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 76.2 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b8eb33b5-c4a1-4757-bbf1-892490fa5737")
+		)
+		(pin "2"
+			(uuid "39f82522-82fc-43ec-bb62-52432d8bdd63")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 76.2 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "acbbee13-da3e-4319-86bf-616f3d5448e4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 76.2 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 76.2 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8514cd14-b8d6-4296-8661-35f799775b1e")
+		(property "Reference" "D13"
+			(at 73.66 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 78.74000000000001 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 76.2 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LED"
+			(at 76.2 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "35ff6c83-b129-47d8-88e8-eb3df932ec3a")
+		)
+		(pin "1"
+			(uuid "471b8e5a-3f59-466c-8aad-09fc7d1f52ca")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 76.2 46.99000000000001) (xy 76.2 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5f1b215-9894-457d-9dc0-1fc8eec4761e")
+	)
+	(wire
+		(pts
+			(xy 76.2 54.61) (xy 76.2 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7d412ac-2501-4be3-aa89-601053e56cbb")
+	)
+	(wire
+		(pts
+			(xy 76.2 55.88) (xy 63.5 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a79e2b5-71f9-4300-81ab-abc2453355ae")
+	)
+	(junction
+		(at 76.2 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e2cdb7f0-6639-4384-9a12-ca69c1b0f4d7")
+	)
+	(global_label "EXP_A_P2_WM_B1_COLD"
+		(shape bidirectional)
+		(at 88.9 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b89354cc-db46-4e2a-9997-15ffd554c45c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 88.9 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 63.5 55.88) (xy 88.9 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbccd742-9f6c-456f-b922-f86696d3331c")
+	)
+	(text "B1 HOT / J4"
+		(exclude_from_sim no)
+		(at 86.36 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b1b5d24a-27ef-4339-b7ad-49a3929871b8")
+	)
+	(global_label "WM_B1_HOT"
+		(shape bidirectional)
+		(at 86.36 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "11675492-6e49-40db-ad87-545b8ca36b2e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 86.36 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 99.06 55.88 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e489d383-ccf5-4787-b6d5-6219b8e32260")
+		(property "Reference" "R42"
+			(at 101.092 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 99.06 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 99.06 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 99.06 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ebe8fbf4-7dbe-4502-91db-6b0ea40c5b54")
+		)
+		(pin "2"
+			(uuid "3327857e-bd42-4efe-86c1-30ffd5ee66d7")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R42")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 86.36 55.88) (xy 95.25 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f712580-5509-422a-b4d7-10888f77ea71")
+	)
+	(wire
+		(pts
+			(xy 102.87 55.88) (xy 114.3 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49bcd9e4-9a0e-4e2b-addf-ac857b3b06b5")
+	)
+	(junction
+		(at 114.3 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "51e00ed8-f28d-4cec-bdeb-3202ee091ff4")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 114.3 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "65e84959-0007-4043-acb9-7f46c7ad8f73")
+		(property "Reference" "R38"
+			(at 116.332 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 114.3 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 114.3 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 114.3 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "57972cb5-cdf5-4a17-a0d3-bea6c48ae53d")
+		)
+		(pin "2"
+			(uuid "5d5fcea4-80da-4d57-a7a4-728cb4d14665")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 114.3 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6530abab-c959-42db-a24a-4a203d85a583")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 114.3 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 114.3 39.370000000000005) (xy 114.3 39.370000000000005)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad332e50-7f4d-43fb-8652-ec706c33cb4f")
+	)
+	(wire
+		(pts
+			(xy 114.3 46.99000000000001) (xy 114.3 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36a58a37-2124-44e8-8180-d670bf5e678b")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 114.3 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "710c4618-09c8-4fea-b981-f7a4a05b4c91")
+		(property "Reference" "C19"
+			(at 116.84 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 116.84 68.58000000000001 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 114.3 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 114.3 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a2505b46-2c0d-4c7c-8f99-334b49174180")
+		)
+		(pin "2"
+			(uuid "1a7ce379-1b0a-4b4c-a04c-85245428b6e5")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 114.3 55.88) (xy 114.3 63.50000000000001)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c5f22f3-122a-4e84-9bf6-af104a28fdd5")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 114.3 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e6a5b265-05ca-4bcf-b436-138265f8aa56")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 114.3 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 114.3 68.58000000000001) (xy 114.3 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1d55820-dbb9-4198-b22d-9b1517d12d67")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 127.0 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e59e23c1-a6e1-46f3-9043-8f330f6d2574")
+		(property "Reference" "R20"
+			(at 129.032 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k0"
+			(at 127.0 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 127.0 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127.0 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 127.0 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0a5b6a69-8223-4363-8497-b075d8126b4a")
+		)
+		(pin "2"
+			(uuid "23c0513f-df0b-48bb-ba5d-c37ffa0da531")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 127.0 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ca1ac650-0e14-4345-bcf4-cda54f8731a4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 127.0 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 127.0 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1560a0bb-a84c-4d74-91d9-7e31a9a92558")
+		(property "Reference" "D14"
+			(at 124.46 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 129.54 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 127.0 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127.0 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LED"
+			(at 127.0 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9c4f4720-05fa-4629-b013-618ff3ce4ff5")
+		)
+		(pin "1"
+			(uuid "1fe81fe7-daca-498d-806b-44db0d9bc798")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 127.0 46.99000000000001) (xy 127.0 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "29423e15-758a-4829-99ef-6c2438d969ea")
+	)
+	(wire
+		(pts
+			(xy 127.0 54.61) (xy 127.0 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "046e69eb-48f1-442d-b488-bc1109fefc12")
+	)
+	(wire
+		(pts
+			(xy 127.0 55.88) (xy 114.3 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f814a8e1-ffaf-4c8b-adbf-3e9bc285d2a2")
+	)
+	(junction
+		(at 127.0 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e690ae45-14c6-4cf5-a9ac-0048c64ef4b0")
+	)
+	(global_label "EXP_A_P3_WM_B1_HOT"
+		(shape bidirectional)
+		(at 139.7 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7215350a-5a58-4400-92eb-1ee6f10f9428")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 139.7 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 114.3 55.88) (xy 139.7 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "890ce82b-991e-4d0f-9273-59dd2d8fb6e4")
+	)
+	(text "B2 COLD / J5"
+		(exclude_from_sim no)
+		(at 137.16 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "981df0d3-fdb9-4b4c-9f82-aab0ae52b7c5")
+	)
+	(global_label "WM_B2_COLD"
+		(shape bidirectional)
+		(at 137.16 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "78f8c31a-82cb-4b18-8def-81b7e94222a5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 137.16 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 149.85999999999999 55.88 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "be09eebe-79c7-4bfd-9b0b-0f20df74c952")
+		(property "Reference" "R43"
+			(at 151.892 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 149.85999999999999 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 149.85999999999999 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 149.85999999999999 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 149.85999999999999 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8f787674-24fb-482a-a840-ee726f7d6f2e")
+		)
+		(pin "2"
+			(uuid "2b10deb8-d498-4aad-a6da-42bbf422a60b")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R43")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 137.16 55.88) (xy 146.04999999999998 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b17ae4c-b5bb-4527-bb0d-ff7df21d93d5")
+	)
+	(wire
+		(pts
+			(xy 153.67 55.88) (xy 165.1 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "282c69fe-6f19-4b1a-8008-8da751069c8f")
+	)
+	(junction
+		(at 165.1 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c3ae1337-224c-4fd2-95da-1a4cf2468b59")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 165.1 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7d606ac1-fea4-43bb-b46f-c2113bfaa0ed")
+		(property "Reference" "R39"
+			(at 167.132 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 165.1 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 165.1 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 165.1 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 165.1 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9a66d354-58aa-4c7d-86ba-6411cc906ecd")
+		)
+		(pin "2"
+			(uuid "39bbc1ce-e528-47bb-a675-562564b83de3")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 165.1 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e10d9bd9-a73e-4426-841a-7bb7bba0b38b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 165.1 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 165.1 39.370000000000005) (xy 165.1 39.370000000000005)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "75b00cca-754d-4e0d-90e1-3d765bc99f36")
+	)
+	(wire
+		(pts
+			(xy 165.1 46.99000000000001) (xy 165.1 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5551e9e8-460b-4688-9ae7-5f3fcc603c2e")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 165.1 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7de42088-c45a-452a-9a5e-0e7e4b9eee86")
+		(property "Reference" "C20"
+			(at 167.64 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 167.64 68.58000000000001 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 165.1 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 165.1 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 165.1 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7b462e6e-e7ac-4428-9838-fdbff343419c")
+		)
+		(pin "2"
+			(uuid "2952cee6-5722-4fc4-a80b-e86770adc581")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "C20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 165.1 55.88) (xy 165.1 63.50000000000001)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0567e31-c930-4bc4-a5e8-258cb40395c3")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 165.1 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fc3007be-dfdf-4063-9db9-5eb51d410dc2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 165.1 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 165.1 68.58000000000001) (xy 165.1 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72aff2a3-e0dd-44cc-8abe-4af702613874")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 177.79999999999998 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1de7dc0b-0b12-494b-a573-5b9b761e8a59")
+		(property "Reference" "R21"
+			(at 179.832 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k0"
+			(at 177.79999999999998 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 177.79999999999998 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.79999999999998 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 177.79999999999998 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "44927fd7-c0d7-4112-b787-ce10c1c6e7e0")
+		)
+		(pin "2"
+			(uuid "ede9c7d7-cc5c-407a-adb9-0f28861564b9")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 177.79999999999998 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aa082909-a057-4ebf-b896-24aba9cc8aeb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 177.79999999999998 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 177.79999999999998 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4304b81d-082c-4348-a300-e15f3902c2ae")
+		(property "Reference" "D15"
+			(at 175.26 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 180.33999999999997 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 177.79999999999998 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.79999999999998 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LED"
+			(at 177.79999999999998 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "abeff4c0-bf28-415b-8661-f1dc8d5e46ce")
+		)
+		(pin "1"
+			(uuid "d2a8c11a-67d3-4c6f-b85b-1ffe1ce46319")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 177.79999999999998 46.99000000000001) (xy 177.79999999999998 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f307c16-da58-42f3-8b0c-ccacb7f64d66")
+	)
+	(wire
+		(pts
+			(xy 177.79999999999998 54.61) (xy 177.79999999999998 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e23e591-a5b6-4c6f-b906-85da3862fd86")
+	)
+	(wire
+		(pts
+			(xy 177.79999999999998 55.88) (xy 165.1 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ba34e297-f630-4b36-97cd-1ee088df2700")
+	)
+	(junction
+		(at 177.79999999999998 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7c57b748-c1a2-4952-9220-c0a105d7d3da")
+	)
+	(global_label "EXP_A_P4_WM_B2_COLD"
+		(shape bidirectional)
+		(at 190.5 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3fd26fd8-b0da-4d8e-9776-fc265cea8642")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 190.5 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 165.1 55.88) (xy 190.5 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40b72465-f6e6-409f-a796-828d0ddd20a6")
+	)
+	(text "B2 HOT / J5"
+		(exclude_from_sim no)
+		(at 187.96 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "846e3b8f-97d8-40af-890e-44d40a70e8aa")
+	)
+	(global_label "WM_B2_HOT"
+		(shape bidirectional)
+		(at 187.96 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "321b4fc1-8b52-4830-abb2-2d362bbee233")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 187.96 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 200.66 55.88 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b82a8d00-ab43-431c-9220-fdc23668fd61")
+		(property "Reference" "R44"
+			(at 202.692 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 200.66 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 200.66 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 200.66 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 200.66 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2012f5d5-4174-4fc3-894c-ceda44963515")
+		)
+		(pin "2"
+			(uuid "ae89bfc6-1060-4342-86f7-b863c7a53e1c")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R44")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 187.96 55.88) (xy 196.85 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbdf9abf-c405-4b88-af57-8a6d0969d6e6")
+	)
+	(wire
+		(pts
+			(xy 204.47 55.88) (xy 215.9 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2675ee8f-5d5f-48f8-84d3-8f64d70d1c55")
+	)
+	(junction
+		(at 215.9 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "49fd860b-f638-43fb-ba5e-22d2e9a25d50")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 215.9 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7307123a-14af-4953-8b95-1eb8f6e18278")
+		(property "Reference" "R40"
+			(at 217.93200000000002 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 215.9 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 215.9 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 215.9 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 215.9 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "46d4ccaf-e9c7-4176-aab1-22dbb9c08208")
+		)
+		(pin "2"
+			(uuid "d49469ed-98e1-484e-a01c-85317a3cd699")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R40")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 215.9 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c9ff8bfb-0a2b-4310-b0d8-9043f278eb6c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 215.9 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 215.9 39.370000000000005) (xy 215.9 39.370000000000005)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c05fb2d-027a-4d63-8fa0-71a781aca13c")
+	)
+	(wire
+		(pts
+			(xy 215.9 46.99000000000001) (xy 215.9 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b26a85ef-e671-49fe-9339-f40e48768ac4")
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 215.9 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a5840b84-28cd-4b2a-843b-114b65051fc1")
+		(property "Reference" "C21"
+			(at 218.44 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100n"
+			(at 218.44 68.58000000000001 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 215.9 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 215.9 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 215.9 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9854290f-705a-4a89-a0c9-aea5fe4998a8")
+		)
+		(pin "2"
+			(uuid "d20fa856-b042-4501-b83d-756fd3775950")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 215.9 55.88) (xy 215.9 63.50000000000001)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99e55699-7ef3-497f-bf2c-69dd60f4ba88")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 215.9 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c4d65196-24b6-40e8-9a4d-1c9519e07cb7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 215.9 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 215.9 68.58000000000001) (xy 215.9 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aeb62c11-5c38-488d-80da-61821cff12cf")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 228.6 43.18000000000001 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a7c4acf1-a62a-46f7-91b5-9219410264f3")
+		(property "Reference" "R22"
+			(at 230.632 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1k0"
+			(at 228.6 43.18000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 228.6 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 228.6 43.18000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d7f257c7-5aee-4db0-b8c0-d6eac0fc8d4c")
+		)
+		(pin "2"
+			(uuid "ee6b5643-9303-4f87-829a-9673336bd116")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 228.6 39.370000000000005 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e1a35c73-1893-406f-a7e8-0254ea66cfc1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 228.6 39.370000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 228.6 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f0802682-9c00-4435-a698-935cae68d9d5")
+		(property "Reference" "D16"
+			(at 226.06 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 231.14 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 228.6 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 228.6 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LED"
+			(at 228.6 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "adc5eb2a-4a4e-41b6-84e0-4c907b5158bc")
+		)
+		(pin "1"
+			(uuid "77104853-cbe1-4161-90ed-2fdfadcd6cef")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 228.6 46.99000000000001) (xy 228.6 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe6ef2c5-d76e-4a3d-be48-40a2959cdb55")
+	)
+	(wire
+		(pts
+			(xy 228.6 54.61) (xy 228.6 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45c5ba69-47aa-4f32-871f-cc0b7332afc0")
+	)
+	(wire
+		(pts
+			(xy 228.6 55.88) (xy 215.9 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7149715f-1fc4-45e3-ab70-a7ce19ab4d8a")
+	)
+	(junction
+		(at 228.6 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7e63167c-faee-4ae8-b6a2-577375a617cb")
+	)
+	(global_label "EXP_A_P5_WM_B2_HOT"
+		(shape bidirectional)
+		(at 241.3 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1d682643-38dd-4d6e-b658-cd101042e3d2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 241.3 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 215.9 55.88) (xy 241.3 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aedbca0f-65c9-4015-9e81-e9a4f33ab9b5")
+	)
+	(text "Field nets WM_* leave connectors J4/J5; EXP_A_P* enter U1 on IO_Expanders"
+		(exclude_from_sim no)
+		(at 25.4 110.0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e518e0f4-1091-4dab-b75e-d804f59f1e3b")
+	)
+	(global_label "+5VA"
+		(shape bidirectional)
+		(at 25.4 100.0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f19252a1-c5fc-45a1-892a-55a841f8b7f6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 25.4 100.0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(text "Sensor VDD = +5VA on J4/J5 (not on this netlist node — harness)"
+		(exclude_from_sim no)
+		(at 40.64 100.0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "14540dca-9375-4147-af39-0527a2ddf75c")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

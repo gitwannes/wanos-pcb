@@ -94,13 +94,14 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 | Sheet | Source |
 |---|---|
 | `Pi_Power` | **J17** + **J14** screw terminals; 5 V conditioning (**F1**, **Q6**, **D1**), **FB1**, **J40**; **D3** TVS; status **D23** / **D24**; **U4** 12 V monitor → Exp B P6 (**R32**, **R33**, **C17**); **J41** DNP |
-| `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) — **U1**/**U2**, I²C pull-ups, field activity **D11–D18** / **R17–R24** |
+| `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) — **U1**/**U2**, I²C pull-ups, door/kWh activity LEDs |
+| `Water_Meters` | YF-B6/B10 front-end — OD pull-ups, series R, debounce, water LEDs ([`field-wiring.md`](../field-wiring.md) § 2a); nets `WM_*` ↔ `EXP_A_P2`…`P5` |
 | `SSR_Drivers` | Pi GPIO → R/Q → **J13** (5-pin); **`+12V`** rail ref; SSR activity **D19–D22** / **R25–R28** |
 | `HDMI_SPI` | J1 — [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) |
 | `I2C_Plant` | U5 TCA9546A; **J9–J12** SHT31; **J16** LCD |
-| `Connectors` | Field JST **J2–J8** per [`field-wiring.md`](../field-wiring.md) |
+| `Connectors` | Field JST **J2–J8** (incl. water **J4–J5**) per [`field-wiring.md`](../field-wiring.md) |
 
-Status on **Pi_Power**; SSR activity on **SSR_Drivers**. Field input activity LEDs co-located on **IO_Expanders** (no separate **LEDs** sheet).
+Status on **Pi_Power**; SSR activity on **SSR_Drivers**. Water conditioning on **Water_Meters**. Door/kWh activity LEDs on **IO_Expanders**.
 
 Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konnect.
 
@@ -130,6 +131,8 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 **Post-implement fix:** **J13 pin 1** restored to **GND** (was briefly tied to **+12V** during ERC pass — corrected per [`field-wiring.md`](../field-wiring.md) § 6).
 
 **2026-09-02:** **`safety_12v_mon.kicad_sch`** merged into **`pi_power.kicad_sch`** (**U4**, **R32**–**R33**, **C17**); status LEDs **D23** / **D24** on **Pi_Power**; net name **`+12V`** (not **`+12VA`**) for external 12 V input; **J14** + **D3** TVS moved to **Pi_Power** (off **Connectors**).
+
+**2026-09-04:** Water meters **YF-B6/B10** — sheet **`water_meters.kicad_sch`** (OD pull-up to **`+3V3`**, **330 Ω** series, **100 nF**, activity LEDs); **no MOSFET**. See [`field-wiring.md`](../field-wiring.md) § 2a.
 
 **2026-09-02:** Re-run ERC + netlist after **`leds.kicad_sch`** removal and Exp B **NC** cleanup — [`wanos-board-erc.rpt`](../../projects/wanos-board/wanos-board-erc.rpt) on disk may still list the old **LEDs** sheet.
 

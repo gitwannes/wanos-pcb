@@ -83,13 +83,18 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups on **`io_expanders.kicad_sch`** (4–5 m Cat5 @ 100 kHz) |
 | **C3**, **C4** | 100 nF | PCA9554 VCC decoupling (**U1**, **U2** on **`io_expanders.kicad_sch`**) |
 | **C6**, **C7** | 100 nF | TCA9546A VCC decoupling (**U5** on **`i2c_plant.kicad_sch`**) |
+| **R34**–**R36** | 10 kΩ | Exp B button **P0–P2** pull-ups (**`io_expanders.kicad_sch`**) |
+| **R37**–**R40** | 10 kΩ | Water YF OD pull-ups → **`+3V3`** (**`water_meters.kicad_sch`**) |
+| **R41**–**R44** | **330 Ω** | Water series field → expander (**`water_meters.kicad_sch`**) |
+| **C18**–**C21** | 100 nF | Water debounce (**`water_meters.kicad_sch`**) |
 | R1–R4 | 470 Ω | SSR field base (**Q1–Q4**) |
 | R5–R8 | 10 kΩ | SSR field base pulldown (base → emitter / **`SAFETY_BUS`**) |
 | **R14** | 470 Ω | **Q5** base (**GPIO_SSR_SAFETY**) |
 | **R15** | 10 kΩ | **Q5** base pulldown → **GND** |
 | **R16** | 10 kΩ | **`SAFETY_BUS`** pull-up → **`+5VA`** |
 | C8–C12 | 100 nF | SSR driver decoupling (C–E per **Q1–Q5**) |
-| R17–R24 | **1k0** | Field input activity LEDs (**`io_expanders.kicad_sch`**, **`+3V3`**) |
+| R17–R18, R23–R24 | **1k0** | Door / kWh activity LEDs (**`io_expanders.kicad_sch`**) |
+| R19–R22 | **1k0** | Water activity LEDs (**`water_meters.kicad_sch`**) |
 | R25–R28 | **1k0** | SSR activity LEDs (**`ssr_drivers.kicad_sch`**, **`+5VA`** → **`SSR_*`**) |
 | R29 | **2k0** | Status LED (**+5VA**) |
 | R30 | **6k8** | Status LED (**+12V**) |
@@ -106,7 +111,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 |---|---|---|
 | HDMI / e-ink | Molex 208658-1052 | J1 |
 | Doors | JST XH 2-pin × 2 | J2, J3 |
-| Water | JST XH 6-pin × 2 | J4, J5 |
+| Water | JST XH 6-pin × 2 | J4, J5 — YF-B6/B10, **`+5VA`** |
 | kWh | JST XH 2-pin × 2 | J6, J7 |
 | Buttons | JST XH 4-pin | J8 |
 | SHT31 plant | JST XH 4-pin × 4 | J9–J12 |
