@@ -13,7 +13,8 @@ Ground and return scheme for field install. Locked at **R2** (2026-09-01).
 All of the following tie to **one PCB ground plane** (common **GND**):
 
 - Raspberry Pi **J40** ground pins
-- Every field JST **pin 1 GND** (**J2–J8**, **J9–J12**, **J13** pin 1)
+- Every field JST **pin 1 GND** (**J2–J3**, **J6–J8**, **J9–J12**, **J13** pin 1)
+- Water **J4** RJ45 pins **2**, **5**, **6** (**GND**) + **SH** tabs
 - **J14** pin 2 (12 V return)
 - HDMI **J1** shields and repurposed GND pins per [`hdmi-spi-eink.md`](hdmi-spi-eink.md)
 - **Q5** emitter (safety gate), opto **U4** return
@@ -66,7 +67,8 @@ Detail → [`board-spec.md`](board-spec.md) § 4.1 · [`external-plant.md`](exte
 
 | Cable | Ground practice |
 |---|---|
-| **JST** doors, meters, kWh, buttons | Pin **1** = GND at PCB |
+| **JST** doors, kWh, buttons | Pin **1** = GND at PCB |
+| **Cat5** water (**J4** RJ45) | GND on pins **2** / **5** / **6**; shield → **SH**/GND board end only |
 | **Cat5** SHT31 / buttons | Use designated GND pair; do **not** float shield at both ends |
 | **Cat5 shield** (if present) | Bond **board end only** to GND unless install standard says otherwise |
 

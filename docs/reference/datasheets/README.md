@@ -23,6 +23,8 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 | [x] | **PC817A** (12 V opto, U4) | `pc817a.pdf` |
 | [x] | **PN2222A** (SSR driver) | `pn2222a.pdf` |
 | [x] | **SMBJ12A** (12 V TVS) | `smbj12a.pdf` |
+| [ ] | **PESD5V0S1BA** (water SIG TVS, **D25**–**D28**) | `pesd5v0s1ba.pdf` — optional |
+| [ ] | **SMBJ5.0A** (water **`+5VA`** TVS, **D29**) | `smbj5.0a.pdf` — optional |
 | [x] | **BLM21PG331SN1** (Pi 5 V ferrite) | `blm21pg331sn1.pdf` |
 
 ### Connectors

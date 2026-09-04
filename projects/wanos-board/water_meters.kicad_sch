@@ -3,13 +3,13 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "84dc939e-d49f-45a6-8f6a-baeb64de529b")
-	(paper "A4")
+	(paper "A3")
 	(title_block
 		(title "wanos-pcb-v1 Water Meters")
-		(comment 1 "YF-B6/B10 OD front-end — +3V3 pull-up, 330 series, 100n, LED; no MOSFET")
+		(comment 1 "J4 RJ45 Cat5 ~10m; YF OD; TVS; 3V3 pull-up; no MOSFET")
 	)
 	(lib_symbols
-			(symbol "Device:R"
+		(symbol "R"
 				(pin_numbers
 					(hide yes)
 				)
@@ -149,7 +149,7 @@
 				)
 				(embedded_fonts no)
 			)
-			(symbol "Device:C"
+		(symbol "C"
 				(pin_numbers
 					(hide yes)
 				)
@@ -304,7 +304,7 @@
 				)
 				(embedded_fonts no)
 			)
-			(symbol "Device:LED"
+		(symbol "LED"
 				(pin_numbers
 					(hide yes)
 				)
@@ -505,49 +505,1158 @@
 				)
 				(embedded_fonts no)
 			)
+		(symbol "D_TVS"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 1.016)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "D"
+					(at 0 2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "D_TVS"
+					(at 0 -2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Bidirectional transient-voltage-suppression diode"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "diode TVS thyrector"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "D_TVS_0_1"
+					(polyline
+						(pts
+							(xy -2.54 1.27) (xy -2.54 -1.27) (xy 2.54 1.27) (xy 2.54 -1.27) (xy -2.54 1.27)
+						)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 0.508 1.27) (xy 0 1.27) (xy 0 -1.27) (xy -0.508 -1.27)
+						)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy 1.27 0) (xy -1.27 0)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "D_TVS_1_1"
+					(pin passive line
+						(at -3.81 0 0)
+						(length 2.54)
+						(name "A1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 3.81 0 180)
+						(length 2.54)
+						(name "A2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "Conn_01x08"
+				(pin_names
+					(offset 1.016)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "J"
+					(at 0 10.16 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "Conn_01x08"
+					(at 0 -12.7 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "connector"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "Connector*:*_1x??_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "Conn_01x08_1_1"
+					(rectangle
+						(start -1.27 8.89)
+						(end 1.27 -11.43)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+					(rectangle
+						(start -1.27 7.747)
+						(end 0 7.493)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 5.207)
+						(end 0 4.953)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 2.667)
+						(end 0 2.413)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 0.127)
+						(end 0 -0.127)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 -2.413)
+						(end 0 -2.667)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 -4.953)
+						(end 0 -5.207)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 -7.493)
+						(end 0 -7.747)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(rectangle
+						(start -1.27 -10.033)
+						(end 0 -10.287)
+						(stroke
+							(width 0.1524)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(pin passive line
+						(at -5.08 7.62 0)
+						(length 3.81)
+						(name "Pin_1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 5.08 0)
+						(length 3.81)
+						(name "Pin_2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 2.54 0)
+						(length 3.81)
+						(name "Pin_3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 0 0)
+						(length 3.81)
+						(name "Pin_4"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "4"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 -2.54 0)
+						(length 3.81)
+						(name "Pin_5"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "5"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 -5.08 0)
+						(length 3.81)
+						(name "Pin_6"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "6"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 -7.62 0)
+						(length 3.81)
+						(name "Pin_7"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "7"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -5.08 -10.16 0)
+						(length 3.81)
+						(name "Pin_8"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "8"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
 	)
-	(text "YF-B6/B10 — OD to +3V3 pull-up, 330 series, 100n debounce, LED (no MOSFET)"
+	(text "J4 RJ45 (T568B): 1=B1_COLD 2=GND 3=B1_HOT 4=+5VA 5=GND 6=GND 7=B2_COLD 8=B2_HOT; SH->GND"
 		(exclude_from_sim no)
-		(at 25.4 12.7 0)
+		(at 12.7 12.7 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(uuid "9e854db8-1e83-49e3-a636-1784ce51710b")
+		(uuid "e4be0936-0270-4702-b3a7-0cff10dc4849")
 	)
-	(text "J4/J5 pinout: 1=GND 2=COLD SIG 3=HOT SIG 4=+5VA 5=GND 6=+5VA (connectors sheet)"
+	(text "Cat5 ~10m; YF OD + 3V3 pull-up; TVS D25-D28 SIG, D29 +5VA; no MOSFET"
 		(exclude_from_sim no)
-		(at 25.4 15.24 0)
+		(at 12.7 15.24 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(uuid "57e79456-3def-4e67-90bf-02c88c1b2fa4")
+		(uuid "e729c54d-ef53-4212-bfde-2a5ac8fe30e7")
 	)
-	(text "B1 COLD / J4"
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x08")
+		(at 30.48 55.88 0)
+		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
-		(at 35.56 27.94 0)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "33dcbe28-9815-4017-8edd-24398046c671")
+		(property "Reference" "J4"
+			(at 30.48 53.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
-		(uuid "0930991f-be52-4316-a989-a7cfca35fa3c")
+		(property "Value" "WATER_RJ45"
+			(at 30.48 58.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_RJ:RJ45_Amphenol_RJHSE5380"
+			(at 30.48 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 30.48 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "19a866e8-1b3f-4acc-9d01-d1cc7f3dddb9")
+		)
+		(pin "2"
+			(uuid "398e6d99-576a-4370-b20d-cc93751f2203")
+		)
+		(pin "3"
+			(uuid "578ec916-9c99-4210-9643-919ce08ea277")
+		)
+		(pin "4"
+			(uuid "6de14a4f-bd3d-4048-9550-d57dfa9924fe")
+		)
+		(pin "5"
+			(uuid "1429cbb3-958c-4f73-a1ae-6a395352bb98")
+		)
+		(pin "6"
+			(uuid "b33cc2c9-37ff-4755-9c7f-30edc26f145b")
+		)
+		(pin "7"
+			(uuid "0b7c45a7-5cb6-4996-b4d1-37eaffcd827c")
+		)
+		(pin "8"
+			(uuid "3a83051d-18b8-4310-b3b2-07efa52c4467")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 63.5) (xy 25.4 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b39c5d5-f024-49e0-8f4a-fa2e3b772053")
 	)
 	(global_label "WM_B1_COLD"
 		(shape bidirectional)
-		(at 35.56 55.88 180)
+		(at 17.78 63.5 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "cc210d4e-548f-43bf-ae8c-47358183a3d3")
+		(uuid "665f54e0-2449-4b0c-a4fb-9b6fad2be90d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 35.56 55.88 0)
+			(at 17.78 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 60.96) (xy 25.4 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d756c73d-ae7d-40af-85b7-3f672525eeea")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 17.78 60.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "aa80e365-43ff-4d27-9d11-b7e9e7c961b2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 58.42) (xy 25.4 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5e6ea45-d7c6-4626-a3cf-c8a39a420652")
+	)
+	(global_label "WM_B1_HOT"
+		(shape bidirectional)
+		(at 17.78 58.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2b044484-fced-46fe-a022-3bc4eac6ab67")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 55.88) (xy 25.4 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03d69ef4-6b0f-4d94-be88-08aea537e26d")
+	)
+	(global_label "+5VA"
+		(shape bidirectional)
+		(at 17.78 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "074bff63-9222-4a7c-8c7a-7ad37063ccdb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 53.34) (xy 25.4 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60da760a-0f92-4b7b-81ca-5658d5a934f5")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 17.78 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "aec78041-bfa2-4a2a-9d48-9b920fa081e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 50.800000000000004) (xy 25.4 50.800000000000004)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c8a5fa2-1d12-4ae8-91f9-ef5fcca24ab8")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 17.78 50.800000000000004 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "cbb64e73-8d43-4b87-8f08-8ebd1f2bc4fc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 50.800000000000004 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 48.260000000000005) (xy 25.4 48.260000000000005)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e0353a9f-ba4d-4e84-9bfa-77614b4d425b")
+	)
+	(global_label "WM_B2_COLD"
+		(shape bidirectional)
+		(at 17.78 48.260000000000005 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6780e003-87c0-47d8-951f-ceddca221734")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 48.260000000000005 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 17.78 45.72) (xy 25.4 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8583984-70a3-47f5-964a-df6511a07034")
+	)
+	(global_label "WM_B2_HOT"
+		(shape bidirectional)
+		(at 17.78 45.72 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "16745f10-4394-45d9-a47f-6e9455d6deda")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 17.78 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 45.72 54.61 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3833adf5-4f9f-4f23-997f-ce68a1d32846")
+		(property "Reference" "D29"
+			(at 45.72 52.07 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SMBJ5.0A"
+			(at 45.72 57.15 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMB"
+			(at 45.72 54.61 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 45.72 54.61 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 45.72 54.61 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4b1d4b4a-65e5-48b8-821a-a7afd8b8b277")
+		)
+		(pin "2"
+			(uuid "451bb595-7431-4c1f-b2d4-f84d19e1c178")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+5VA"
+		(shape bidirectional)
+		(at 45.72 48.26 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "dfaa7e28-bb02-45b8-9e75-4c98c8776df1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 45.72 60.96 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "69fa99cc-4a9a-4799-8f29-95d39f596d1a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(text "D29 +5VA clamp"
+		(exclude_from_sim no)
+		(at 48.26 52.07 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "93d66fe1-bf04-4c78-b05d-f1e7f2dbd998")
+	)
+	(text "B1 COLD"
+		(exclude_from_sim no)
+		(at 20 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "487cd658-bbc9-4b21-a429-64249ebe488d")
+	)
+	(global_label "WM_B1_COLD"
+		(shape bidirectional)
+		(at 20.32 95.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b4f7b733-4cd1-48ea-85cf-7cb26f7806f5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 20.32 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 20.32 95.25) (xy 50.8 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f578448f-0469-4764-b3b8-4b8353099c68")
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 35.56 100.33 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2ca82ef4-4081-44c8-a75e-c5539393dc57")
+		(property "Reference" "D25"
+			(at 35.56 97.78999999999999 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PESD5V0S1BA"
+			(at 35.56 102.87 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 35.56 100.33 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 100.33 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 100.33 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "49b597c8-fd56-4243-8c23-2837aaef32ab")
+		)
+		(pin "2"
+			(uuid "0d16a07f-713e-4edc-915b-6af5ec711f02")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 35.56 95.25) (xy 35.56 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1fdb9440-3b24-4c45-9a24-7cf99f5042e2")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 35.56 105.41 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "fd9b8034-731e-4977-bad6-1a126eede8ff")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 35.56 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -560,7 +1669,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 48.260000000000005 55.88 90)
+		(at 45.72 90.17 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -568,9 +1677,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "71f0b19b-94d3-4cd5-b036-e75f5b02e386")
-		(property "Reference" "R41"
-			(at 50.292 55.88 90)
+		(uuid "557a11d0-f906-4e18-a283-0994a7364e65")
+		(property "Reference" "R37"
+			(at 45.72 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -579,8 +1688,8 @@
 				)
 			)
 		)
-		(property "Value" "330"
-			(at 48.260000000000005 55.88 90)
+		(property "Value" "10k"
+			(at 45.72 92.71000000000001 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -590,7 +1699,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 48.260000000000005 55.88 0)
+			(at 45.72 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -601,7 +1710,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.260000000000005 55.88 0)
+			(at 45.72 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -611,8 +1720,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 48.260000000000005 55.88 0)
+		(property "Description" ""
+			(at 45.72 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -623,10 +1732,121 @@
 			)
 		)
 		(pin "1"
-			(uuid "760b7598-091a-45a6-8eb0-6afed0e4c716")
+			(uuid "5299e103-8f9b-426c-b897-3ac64104d0f3")
 		)
 		(pin "2"
-			(uuid "44a3cb3d-7aab-4035-b74b-f70151f33827")
+			(uuid "c25971f1-249a-4b38-bea5-da58e8636bbe")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 45.72 95.25) (xy 45.72 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fce3056d-6e0e-4bd6-92de-5af127e8f5d7")
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 45.72 85.09 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "18884ec9-df71-464e-99d5-6a8cd05cef43")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 58.42 95.25 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "db292489-89cd-4ae7-a6dc-d1404429fd73")
+		(property "Reference" "R41"
+			(at 58.42 92.71 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 58.42 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 58.42 95.25 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 95.25 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 58.42 95.25 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c185d961-8ea3-4981-a2b3-58049f6e5143")
+		)
+		(pin "2"
+			(uuid "2c53d0a7-df4a-4e7d-acd9-bae0e627d19b")
 		)
 		(instances
 			(project "wanos-board"
@@ -639,121 +1859,36 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 55.88) (xy 44.45 55.88)
+			(xy 50.8 95.25) (xy 55.88 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dd431ee8-078d-4d39-b133-7679708d0906")
+		(uuid "8ba14f58-5907-4a49-bb82-4ad0e814630d")
 	)
 	(wire
 		(pts
-			(xy 52.07000000000001 55.88) (xy 63.5 55.88)
+			(xy 60.96 95.25) (xy 76.2 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3e285b92-3486-4d70-8faf-efe7754b8675")
+		(uuid "440e6834-24b5-4eda-a246-0e3c48654514")
 	)
-	(junction
-		(at 63.5 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "244d27b4-b3ad-45b8-9bd3-96c65b574609")
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 63.5 43.18000000000001 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2b13bcd6-d1c9-4b88-8f31-702993091c9f")
-		(property "Reference" "R37"
-			(at 65.532 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 63.5 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 63.5 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 63.5 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fba7503f-d81a-4ab9-8879-b621a54d6a03")
-		)
-		(pin "2"
-			(uuid "f759c808-5d23-43d4-9986-b7d87630c45b")
-		)
-		(instances
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
-					(reference "R37")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(global_label "+3V3"
+	(global_label "EXP_A_P2_WM_B1_COLD"
 		(shape bidirectional)
-		(at 63.5 39.370000000000005 0)
+		(at 76.2 95.25 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "ba6849a5-480e-492c-8583-eda12cfbcdca")
+		(uuid "25c70920-4087-4be5-87a1-904107002931")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 63.5 39.370000000000005 0)
+			(at 76.2 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -764,29 +1899,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 63.5 39.370000000000005) (xy 63.5 39.370000000000005)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "719ae938-ecf0-4247-af7e-ec58c8dac645")
-	)
-	(wire
-		(pts
-			(xy 63.5 46.99000000000001) (xy 63.5 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7b8c60eb-e32e-4e20-abb1-a1f132040ee4")
-	)
 	(symbol
 		(lib_id "Device:C")
-		(at 63.5 66.04 0)
+		(at 50.8 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -794,9 +1909,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2b779eb6-ae12-48c5-977d-aa81152080fc")
+		(uuid "345ddc6a-e802-4720-9e8e-f5cd8b71830a")
 		(property "Reference" "C18"
-			(at 66.04 66.04 0)
+			(at 50.8 100.33 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -806,7 +1921,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 66.04 68.58000000000001 0)
+			(at 50.8 105.41000000000001 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -816,7 +1931,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 63.5 66.04 0)
+			(at 50.8 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -827,7 +1942,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 66.04 0)
+			(at 50.8 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -837,8 +1952,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 63.5 66.04 0)
+		(property "Description" ""
+			(at 50.8 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -849,10 +1964,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "eed4ee30-fa59-489a-bc34-f5a9dc1ab875")
+			(uuid "33fe27b4-b9fe-4a6e-beec-37c2aef76a46")
 		)
 		(pin "2"
-			(uuid "b9e77430-a8c0-4a96-a684-09c67ee3ab66")
+			(uuid "ba32ca60-6e8a-47b8-ba13-cb35d9f2fc3b")
 		)
 		(instances
 			(project "wanos-board"
@@ -865,26 +1980,26 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 55.88) (xy 63.5 63.50000000000001)
+			(xy 50.8 95.25) (xy 50.8 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "610f8000-7376-45cf-bec3-9e873832819a")
+		(uuid "ccc4ddcf-9964-42bd-83c0-e7bb8968e1c9")
 	)
 	(global_label "GND"
 		(shape bidirectional)
-		(at 63.5 71.12 0)
+		(at 50.8 107.95 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "3b2b5b90-1fd5-444e-a53f-3769ec893feb")
+		(uuid "07de32ff-d56c-411d-906e-2cb59b7aa5a4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 63.5 71.12 0)
+			(at 50.8 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -895,19 +2010,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 63.5 68.58000000000001) (xy 63.5 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bcbff12a-3699-4204-83de-49f9ac7ceb44")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 76.2 43.18000000000001 0)
+		(at 68.58 87.63 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -915,9 +2020,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "989e0ceb-19ae-44c7-9b79-f5a4921e54d5")
+		(uuid "136549b6-0f54-4f73-822f-2cd75dd7e984")
 		(property "Reference" "R19"
-			(at 78.232 43.18000000000001 90)
+			(at 68.58 85.08999999999999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -927,7 +2032,7 @@
 			)
 		)
 		(property "Value" "1k0"
-			(at 76.2 43.18000000000001 90)
+			(at 68.58 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -937,7 +2042,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 76.2 43.18000000000001 0)
+			(at 68.58 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -948,7 +2053,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 43.18000000000001 0)
+			(at 68.58 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -958,8 +2063,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 76.2 43.18000000000001 0)
+		(property "Description" ""
+			(at 68.58 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -970,10 +2075,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "b8eb33b5-c4a1-4757-bbf1-892490fa5737")
+			(uuid "d9596ff0-b547-4be3-a4b7-a6aaab8950bc")
 		)
 		(pin "2"
-			(uuid "39f82522-82fc-43ec-bb62-52432d8bdd63")
+			(uuid "065258a7-dcf3-41ed-8607-55ca7e934fc6")
 		)
 		(instances
 			(project "wanos-board"
@@ -984,31 +2089,9 @@
 			)
 		)
 	)
-	(global_label "+3V3"
-		(shape bidirectional)
-		(at 76.2 39.370000000000005 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "acbbee13-da3e-4319-86bf-616f3d5448e4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.2 39.370000000000005 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 76.2 52.07 0)
+		(at 68.58 92.71 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1016,9 +2099,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8514cd14-b8d6-4296-8661-35f799775b1e")
+		(uuid "2cba6a71-14a5-431c-8c1f-3ff733ecad6b")
 		(property "Reference" "D13"
-			(at 73.66 49.53 0)
+			(at 68.58 90.16999999999999 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1028,7 +2111,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 78.74000000000001 49.53 0)
+			(at 68.58 95.25 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1038,7 +2121,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 76.2 52.07 0)
+			(at 68.58 92.71 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1049,7 +2132,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 52.07 0)
+			(at 68.58 92.71 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1059,8 +2142,8 @@
 				)
 			)
 		)
-		(property "Description" "LED"
-			(at 76.2 52.07 0)
+		(property "Description" ""
+			(at 68.58 92.71 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1070,11 +2153,11 @@
 				)
 			)
 		)
-		(pin "2"
-			(uuid "35ff6c83-b129-47d8-88e8-eb3df932ec3a")
+		(pin "K"
+			(uuid "11c333bd-9193-44da-a664-460c00a7477e")
 		)
-		(pin "1"
-			(uuid "471b8e5a-3f59-466c-8aad-09fc7d1f52ca")
+		(pin "A"
+			(uuid "7e51991a-f9e7-4add-a394-b999882c9658")
 		)
 		(instances
 			(project "wanos-board"
@@ -1085,54 +2168,18 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 76.2 46.99000000000001) (xy 76.2 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5f1b215-9894-457d-9dc0-1fc8eec4761e")
-	)
-	(wire
-		(pts
-			(xy 76.2 54.61) (xy 76.2 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7d412ac-2501-4be3-aa89-601053e56cbb")
-	)
-	(wire
-		(pts
-			(xy 76.2 55.88) (xy 63.5 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a79e2b5-71f9-4300-81ab-abc2453355ae")
-	)
-	(junction
-		(at 76.2 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e2cdb7f0-6639-4384-9a12-ca69c1b0f4d7")
-	)
-	(global_label "EXP_A_P2_WM_B1_COLD"
+	(global_label "+3V3"
 		(shape bidirectional)
-		(at 88.9 55.88 0)
+		(at 68.58 82.55 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "b89354cc-db46-4e2a-9997-15ffd554c45c")
+		(uuid "a9e5e466-1b44-407a-8804-bcf6fd06d4b2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 88.9 55.88 0)
+			(at 68.58 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1145,36 +2192,158 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 55.88) (xy 88.9 55.88)
+			(xy 68.58 90.17) (xy 68.58 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dbccd742-9f6c-456f-b922-f86696d3331c")
+		(uuid "9525e98f-15a7-400b-bfcf-2d62b9a082b4")
 	)
-	(text "B1 HOT / J4"
+	(text "B1 HOT"
 		(exclude_from_sim no)
-		(at 86.36 27.94 0)
+		(at 20 113.03 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(uuid "b1b5d24a-27ef-4339-b7ad-49a3929871b8")
+		(uuid "05cff327-da03-49a4-ad8b-5ccd136965a0")
 	)
 	(global_label "WM_B1_HOT"
 		(shape bidirectional)
-		(at 86.36 55.88 180)
+		(at 20.32 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "391ca8aa-a6e0-4433-b5ff-241d9b40b250")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 20.32 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 20.32 120.65) (xy 50.8 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "840ec974-4158-4aae-a4cc-8a0ab4c174ae")
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 35.56 125.73 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7a0bb453-0e6b-4b06-be4d-277e2dba2ae8")
+		(property "Reference" "D26"
+			(at 35.56 123.19 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PESD5V0S1BA"
+			(at 35.56 128.27 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 35.56 125.73 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 125.73 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 125.73 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a765b51f-07e6-42ad-aefe-5b49dcbc92ee")
+		)
+		(pin "2"
+			(uuid "491c9475-da20-4a41-8bd2-21d513b16ed0")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 35.56 120.65) (xy 35.56 123.19000000000001)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4de2ecef-a0ae-4395-8c19-898adfe76ea0")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 35.56 130.81 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "11675492-6e49-40db-ad87-545b8ca36b2e")
+		(uuid "e4e24359-e1d3-4864-a868-75d98f15f6e7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 86.36 55.88 0)
+			(at 35.56 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1187,7 +2356,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 99.06 55.88 90)
+		(at 45.72 115.57000000000001 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1195,9 +2364,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "e489d383-ccf5-4787-b6d5-6219b8e32260")
-		(property "Reference" "R42"
-			(at 101.092 55.88 90)
+		(uuid "b4691a6b-3a73-4562-a62f-eeed88ac5aaa")
+		(property "Reference" "R38"
+			(at 45.72 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1206,8 +2375,8 @@
 				)
 			)
 		)
-		(property "Value" "330"
-			(at 99.06 55.88 90)
+		(property "Value" "10k"
+			(at 45.72 118.11000000000001 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1217,7 +2386,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 99.06 55.88 0)
+			(at 45.72 115.57000000000001 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1228,7 +2397,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 55.88 0)
+			(at 45.72 115.57000000000001 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1238,8 +2407,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 99.06 55.88 0)
+		(property "Description" ""
+			(at 45.72 115.57000000000001 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1250,10 +2419,121 @@
 			)
 		)
 		(pin "1"
-			(uuid "ebe8fbf4-7dbe-4502-91db-6b0ea40c5b54")
+			(uuid "0041e410-4a45-47b5-a9ab-ade7aa951aa9")
 		)
 		(pin "2"
-			(uuid "3327857e-bd42-4efe-86c1-30ffd5ee66d7")
+			(uuid "0f3c1ab2-63f7-4f3d-b90d-8501587d41a9")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 45.72 120.65) (xy 45.72 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac26b97d-e852-4d20-b17e-e5b3227d8794")
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 45.72 110.49000000000001 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7b2bc529-4452-4b0e-b55b-c771fd37c46a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 110.49000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 58.42 120.65 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7515f105-1964-4315-be2e-9b0ea3647095")
+		(property "Reference" "R42"
+			(at 58.42 118.11 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 58.42 123.19000000000001 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 58.42 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 58.42 120.65 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dbee3c39-b5cc-4651-a54e-96050b0aeb37")
+		)
+		(pin "2"
+			(uuid "ef9067b9-7629-4475-bc35-b5733f1c9a23")
 		)
 		(instances
 			(project "wanos-board"
@@ -1266,121 +2546,36 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 55.88) (xy 95.25 55.88)
+			(xy 50.8 120.65) (xy 55.88 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9f712580-5509-422a-b4d7-10888f77ea71")
+		(uuid "2bfe84f2-be46-4f2e-bbbd-97ce436f43ee")
 	)
 	(wire
 		(pts
-			(xy 102.87 55.88) (xy 114.3 55.88)
+			(xy 60.96 120.65) (xy 76.2 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "49bcd9e4-9a0e-4e2b-addf-ac857b3b06b5")
+		(uuid "57e806e7-3297-45c8-9fa5-90ce7e825368")
 	)
-	(junction
-		(at 114.3 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "51e00ed8-f28d-4cec-bdeb-3202ee091ff4")
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 114.3 43.18000000000001 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "65e84959-0007-4043-acb9-7f46c7ad8f73")
-		(property "Reference" "R38"
-			(at 116.332 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 114.3 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 114.3 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 114.3 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "57972cb5-cdf5-4a17-a0d3-bea6c48ae53d")
-		)
-		(pin "2"
-			(uuid "5d5fcea4-80da-4d57-a7a4-728cb4d14665")
-		)
-		(instances
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
-					(reference "R38")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(global_label "+3V3"
+	(global_label "EXP_A_P3_WM_B1_HOT"
 		(shape bidirectional)
-		(at 114.3 39.370000000000005 0)
+		(at 76.2 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "6530abab-c959-42db-a24a-4a203d85a583")
+		(uuid "63d1b233-323e-4d01-b7f9-39c6cb8ec460")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.3 39.370000000000005 0)
+			(at 76.2 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1391,29 +2586,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 114.3 39.370000000000005) (xy 114.3 39.370000000000005)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad332e50-7f4d-43fb-8652-ec706c33cb4f")
-	)
-	(wire
-		(pts
-			(xy 114.3 46.99000000000001) (xy 114.3 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "36a58a37-2124-44e8-8180-d670bf5e678b")
-	)
 	(symbol
 		(lib_id "Device:C")
-		(at 114.3 66.04 0)
+		(at 50.8 128.27 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1421,9 +2596,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "710c4618-09c8-4fea-b981-f7a4a05b4c91")
+		(uuid "3bbe6db4-0653-442f-bbee-9b0c1baf4092")
 		(property "Reference" "C19"
-			(at 116.84 66.04 0)
+			(at 50.8 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1433,7 +2608,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 116.84 68.58000000000001 0)
+			(at 50.8 130.81 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1443,7 +2618,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 114.3 66.04 0)
+			(at 50.8 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1454,7 +2629,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 66.04 0)
+			(at 50.8 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1464,8 +2639,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 114.3 66.04 0)
+		(property "Description" ""
+			(at 50.8 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1476,10 +2651,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "a2505b46-2c0d-4c7c-8f99-334b49174180")
+			(uuid "74584f7a-4a4f-47fc-ab84-eee7e3805834")
 		)
 		(pin "2"
-			(uuid "1a7ce379-1b0a-4b4c-a04c-85245428b6e5")
+			(uuid "96d2d18a-bc02-46f8-b864-64dbd2287abc")
 		)
 		(instances
 			(project "wanos-board"
@@ -1492,26 +2667,26 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 55.88) (xy 114.3 63.50000000000001)
+			(xy 50.8 120.65) (xy 50.8 125.73)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5c5f22f3-122a-4e84-9bf6-af104a28fdd5")
+		(uuid "509a285e-39d4-4d86-9c17-a71ef29480c6")
 	)
 	(global_label "GND"
 		(shape bidirectional)
-		(at 114.3 71.12 0)
+		(at 50.8 133.35 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "e6a5b265-05ca-4bcf-b436-138265f8aa56")
+		(uuid "b1c10777-bd53-49c3-bdc2-d5539d2d94f7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.3 71.12 0)
+			(at 50.8 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1522,19 +2697,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 114.3 68.58000000000001) (xy 114.3 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1d55820-dbb9-4198-b22d-9b1517d12d67")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 127.0 43.18000000000001 0)
+		(at 68.58 113.03 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1542,9 +2707,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "e59e23c1-a6e1-46f3-9043-8f330f6d2574")
+		(uuid "fdf0a337-8e2a-4219-9eec-43b4562b87f3")
 		(property "Reference" "R20"
-			(at 129.032 43.18000000000001 90)
+			(at 68.58 110.49 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1554,7 +2719,7 @@
 			)
 		)
 		(property "Value" "1k0"
-			(at 127.0 43.18000000000001 90)
+			(at 68.58 115.57000000000001 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1564,7 +2729,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 127.0 43.18000000000001 0)
+			(at 68.58 113.03 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1575,7 +2740,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127.0 43.18000000000001 0)
+			(at 68.58 113.03 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1585,8 +2750,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 127.0 43.18000000000001 0)
+		(property "Description" ""
+			(at 68.58 113.03 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1597,10 +2762,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "0a5b6a69-8223-4363-8497-b075d8126b4a")
+			(uuid "1128f2b5-af08-4ac0-8319-c0a92ed4ab4f")
 		)
 		(pin "2"
-			(uuid "23c0513f-df0b-48bb-ba5d-c37ffa0da531")
+			(uuid "b57633c8-dca5-409b-9c33-89b185eae615")
 		)
 		(instances
 			(project "wanos-board"
@@ -1611,31 +2776,9 @@
 			)
 		)
 	)
-	(global_label "+3V3"
-		(shape bidirectional)
-		(at 127.0 39.370000000000005 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ca1ac650-0e14-4345-bcf4-cda54f8731a4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.0 39.370000000000005 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 127.0 52.07 0)
+		(at 68.58 118.11 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1643,9 +2786,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1560a0bb-a84c-4d74-91d9-7e31a9a92558")
+		(uuid "360cdb61-2aa0-4e73-b395-0a4b6ccd5615")
 		(property "Reference" "D14"
-			(at 124.46 49.53 0)
+			(at 68.58 115.57 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1655,7 +2798,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 129.54 49.53 0)
+			(at 68.58 120.65 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1665,7 +2808,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 127.0 52.07 0)
+			(at 68.58 118.11 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1676,7 +2819,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127.0 52.07 0)
+			(at 68.58 118.11 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1686,8 +2829,8 @@
 				)
 			)
 		)
-		(property "Description" "LED"
-			(at 127.0 52.07 0)
+		(property "Description" ""
+			(at 68.58 118.11 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1697,11 +2840,11 @@
 				)
 			)
 		)
-		(pin "2"
-			(uuid "9c4f4720-05fa-4629-b013-618ff3ce4ff5")
+		(pin "K"
+			(uuid "19106155-460f-4995-ba67-1ee461868a1d")
 		)
-		(pin "1"
-			(uuid "1fe81fe7-daca-498d-806b-44db0d9bc798")
+		(pin "A"
+			(uuid "fea6f446-d550-43b5-9705-1b2093504fb9")
 		)
 		(instances
 			(project "wanos-board"
@@ -1712,54 +2855,18 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 127.0 46.99000000000001) (xy 127.0 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29423e15-758a-4829-99ef-6c2438d969ea")
-	)
-	(wire
-		(pts
-			(xy 127.0 54.61) (xy 127.0 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "046e69eb-48f1-442d-b488-bc1109fefc12")
-	)
-	(wire
-		(pts
-			(xy 127.0 55.88) (xy 114.3 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f814a8e1-ffaf-4c8b-adbf-3e9bc285d2a2")
-	)
-	(junction
-		(at 127.0 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e690ae45-14c6-4cf5-a9ac-0048c64ef4b0")
-	)
-	(global_label "EXP_A_P3_WM_B1_HOT"
+	(global_label "+3V3"
 		(shape bidirectional)
-		(at 139.7 55.88 0)
+		(at 68.58 107.95 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "7215350a-5a58-4400-92eb-1ee6f10f9428")
+		(uuid "81878519-294d-4ff9-999c-7ff60bba56ae")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 139.7 55.88 0)
+			(at 68.58 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1772,36 +2879,158 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 55.88) (xy 139.7 55.88)
+			(xy 68.58 115.57000000000001) (xy 68.58 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "890ce82b-991e-4d0f-9273-59dd2d8fb6e4")
+		(uuid "de8b098d-4642-4ae1-a76c-f1ff3ffced21")
 	)
-	(text "B2 COLD / J5"
+	(text "B2 COLD"
 		(exclude_from_sim no)
-		(at 137.16 27.94 0)
+		(at 20 138.43 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(uuid "981df0d3-fdb9-4b4c-9f82-aab0ae52b7c5")
+		(uuid "b76f1771-c243-44ca-ad1c-eab3098e7796")
 	)
 	(global_label "WM_B2_COLD"
 		(shape bidirectional)
-		(at 137.16 55.88 180)
+		(at 20.32 146.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cf967912-b5af-48f3-89f6-868d3d192b4e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 20.32 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 20.32 146.05) (xy 50.8 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afd7f132-d0d5-4fd3-81bc-9c25069ed09f")
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 35.56 151.13000000000002 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8063e9e2-a59c-4303-8ecc-e12517fd3524")
+		(property "Reference" "D27"
+			(at 35.56 148.59000000000003 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PESD5V0S1BA"
+			(at 35.56 153.67000000000002 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 35.56 151.13000000000002 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 151.13000000000002 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 151.13000000000002 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "318f4e9f-bddd-4d7c-8ad5-94fe7d32a8f2")
+		)
+		(pin "2"
+			(uuid "5afbf1fb-82d9-44ed-84e3-993240843771")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 35.56 146.05) (xy 35.56 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68b6bf42-b741-4ed8-b9be-33f7db1baa23")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 35.56 156.21 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "78f8c31a-82cb-4b18-8def-81b7e94222a5")
+		(uuid "eb66928e-01e3-492a-8d2d-26405ac59e2e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 55.88 0)
+			(at 35.56 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1814,7 +3043,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 149.85999999999999 55.88 90)
+		(at 45.72 140.97 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1822,9 +3051,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "be09eebe-79c7-4bfd-9b0b-0f20df74c952")
-		(property "Reference" "R43"
-			(at 151.892 55.88 90)
+		(uuid "08088273-6c33-46ad-aeff-cfffaf396936")
+		(property "Reference" "R39"
+			(at 45.72 138.43 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1833,8 +3062,8 @@
 				)
 			)
 		)
-		(property "Value" "330"
-			(at 149.85999999999999 55.88 90)
+		(property "Value" "10k"
+			(at 45.72 143.51 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1844,7 +3073,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 149.85999999999999 55.88 0)
+			(at 45.72 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1855,7 +3084,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 149.85999999999999 55.88 0)
+			(at 45.72 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1865,8 +3094,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 149.85999999999999 55.88 0)
+		(property "Description" ""
+			(at 45.72 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1877,10 +3106,121 @@
 			)
 		)
 		(pin "1"
-			(uuid "8f787674-24fb-482a-a840-ee726f7d6f2e")
+			(uuid "f7804054-4a6a-402c-93b6-a1d0722deb20")
 		)
 		(pin "2"
-			(uuid "2b10deb8-d498-4aad-a6da-42bbf422a60b")
+			(uuid "12d165a7-7a59-4c12-8a75-a9c04c73c760")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 45.72 146.05) (xy 45.72 143.51000000000002)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6846a47-3060-4bd8-8ab0-8a14b18727bc")
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 45.72 135.89000000000001 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0b88e743-bbc7-4158-82e5-063c64d3aa6a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 135.89000000000001 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 58.42 146.05 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8e1ca2b4-7c8d-4625-ae9f-9256ae57abc5")
+		(property "Reference" "R43"
+			(at 58.42 143.51000000000002 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 58.42 148.59 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 58.42 146.05 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 146.05 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 58.42 146.05 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "df83b5b5-c558-4432-8aae-604786d388b0")
+		)
+		(pin "2"
+			(uuid "8d25d3ea-c523-4bf7-940a-7da25be7e9ae")
 		)
 		(instances
 			(project "wanos-board"
@@ -1893,121 +3233,36 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 55.88) (xy 146.04999999999998 55.88)
+			(xy 50.8 146.05) (xy 55.88 146.05)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0b17ae4c-b5bb-4527-bb0d-ff7df21d93d5")
+		(uuid "fa2ca4fe-f7a5-4185-a715-70f02d0149b3")
 	)
 	(wire
 		(pts
-			(xy 153.67 55.88) (xy 165.1 55.88)
+			(xy 60.96 146.05) (xy 76.2 146.05)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "282c69fe-6f19-4b1a-8008-8da751069c8f")
+		(uuid "66b6e01c-ff2b-42cb-b2c6-68fc7a60fe34")
 	)
-	(junction
-		(at 165.1 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c3ae1337-224c-4fd2-95da-1a4cf2468b59")
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 165.1 43.18000000000001 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7d606ac1-fea4-43bb-b46f-c2113bfaa0ed")
-		(property "Reference" "R39"
-			(at 167.132 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 165.1 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 165.1 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 165.1 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 165.1 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9a66d354-58aa-4c7d-86ba-6411cc906ecd")
-		)
-		(pin "2"
-			(uuid "39bbc1ce-e528-47bb-a675-562564b83de3")
-		)
-		(instances
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
-					(reference "R39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(global_label "+3V3"
+	(global_label "EXP_A_P4_WM_B2_COLD"
 		(shape bidirectional)
-		(at 165.1 39.370000000000005 0)
+		(at 76.2 146.05 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "e10d9bd9-a73e-4426-841a-7bb7bba0b38b")
+		(uuid "9354fc6b-f1e1-42ef-88c0-2c486dec87a5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 165.1 39.370000000000005 0)
+			(at 76.2 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2018,29 +3273,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 165.1 39.370000000000005) (xy 165.1 39.370000000000005)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75b00cca-754d-4e0d-90e1-3d765bc99f36")
-	)
-	(wire
-		(pts
-			(xy 165.1 46.99000000000001) (xy 165.1 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5551e9e8-460b-4688-9ae7-5f3fcc603c2e")
-	)
 	(symbol
 		(lib_id "Device:C")
-		(at 165.1 66.04 0)
+		(at 50.8 153.67000000000002 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2048,9 +3283,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "7de42088-c45a-452a-9a5e-0e7e4b9eee86")
+		(uuid "a286dc95-5c89-460a-875b-d1e8b1e5e41a")
 		(property "Reference" "C20"
-			(at 167.64 66.04 0)
+			(at 50.8 151.13000000000002 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2060,7 +3295,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 167.64 68.58000000000001 0)
+			(at 50.8 156.21 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2070,7 +3305,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 165.1 66.04 0)
+			(at 50.8 153.67000000000002 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2081,7 +3316,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 66.04 0)
+			(at 50.8 153.67000000000002 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2091,8 +3326,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 165.1 66.04 0)
+		(property "Description" ""
+			(at 50.8 153.67000000000002 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2103,10 +3338,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "7b462e6e-e7ac-4428-9838-fdbff343419c")
+			(uuid "3c5ea21b-3aee-4b43-af38-2e4169139abe")
 		)
 		(pin "2"
-			(uuid "2952cee6-5722-4fc4-a80b-e86770adc581")
+			(uuid "ba15ccab-d6d3-40ce-9d4a-59593f6a1938")
 		)
 		(instances
 			(project "wanos-board"
@@ -2119,26 +3354,26 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 55.88) (xy 165.1 63.50000000000001)
+			(xy 50.8 146.05) (xy 50.8 151.13000000000002)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b0567e31-c930-4bc4-a5e8-258cb40395c3")
+		(uuid "a1083615-0c10-4860-9e31-0427d910f060")
 	)
 	(global_label "GND"
 		(shape bidirectional)
-		(at 165.1 71.12 0)
+		(at 50.8 158.75 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "fc3007be-dfdf-4063-9db9-5eb51d410dc2")
+		(uuid "f908b00b-ff99-4995-b190-18e33d81548d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 165.1 71.12 0)
+			(at 50.8 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2149,19 +3384,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 165.1 68.58000000000001) (xy 165.1 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "72aff2a3-e0dd-44cc-8abe-4af702613874")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 177.79999999999998 43.18000000000001 0)
+		(at 68.58 138.43 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2169,9 +3394,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1de7dc0b-0b12-494b-a573-5b9b761e8a59")
+		(uuid "d831909f-a607-46db-a87c-a55a6d19be89")
 		(property "Reference" "R21"
-			(at 179.832 43.18000000000001 90)
+			(at 68.58 135.89000000000001 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2181,7 +3406,7 @@
 			)
 		)
 		(property "Value" "1k0"
-			(at 177.79999999999998 43.18000000000001 90)
+			(at 68.58 140.97 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2191,7 +3416,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 177.79999999999998 43.18000000000001 0)
+			(at 68.58 138.43 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2202,7 +3427,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.79999999999998 43.18000000000001 0)
+			(at 68.58 138.43 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2212,8 +3437,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 177.79999999999998 43.18000000000001 0)
+		(property "Description" ""
+			(at 68.58 138.43 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2224,10 +3449,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "44927fd7-c0d7-4112-b787-ce10c1c6e7e0")
+			(uuid "0b85195a-fba2-424d-b079-1d555ee82839")
 		)
 		(pin "2"
-			(uuid "ede9c7d7-cc5c-407a-adb9-0f28861564b9")
+			(uuid "027638f4-d3ba-416f-834f-7e51ed2faba3")
 		)
 		(instances
 			(project "wanos-board"
@@ -2238,31 +3463,9 @@
 			)
 		)
 	)
-	(global_label "+3V3"
-		(shape bidirectional)
-		(at 177.79999999999998 39.370000000000005 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "aa082909-a057-4ebf-b896-24aba9cc8aeb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 177.79999999999998 39.370000000000005 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 177.79999999999998 52.07 0)
+		(at 68.58 143.51000000000002 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2270,9 +3473,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "4304b81d-082c-4348-a300-e15f3902c2ae")
+		(uuid "f24b8888-f881-48bc-8172-036e140cfba6")
 		(property "Reference" "D15"
-			(at 175.26 49.53 0)
+			(at 68.58 140.97000000000003 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2282,7 +3485,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 180.33999999999997 49.53 0)
+			(at 68.58 146.05 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2292,7 +3495,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 177.79999999999998 52.07 0)
+			(at 68.58 143.51000000000002 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2303,7 +3506,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.79999999999998 52.07 0)
+			(at 68.58 143.51000000000002 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2313,8 +3516,8 @@
 				)
 			)
 		)
-		(property "Description" "LED"
-			(at 177.79999999999998 52.07 0)
+		(property "Description" ""
+			(at 68.58 143.51000000000002 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2324,11 +3527,11 @@
 				)
 			)
 		)
-		(pin "2"
-			(uuid "abeff4c0-bf28-415b-8661-f1dc8d5e46ce")
+		(pin "K"
+			(uuid "0db2d400-abcf-4b4d-9f47-b13855df3480")
 		)
-		(pin "1"
-			(uuid "d2a8c11a-67d3-4c6f-b85b-1ffe1ce46319")
+		(pin "A"
+			(uuid "77199fea-f3ad-4ce1-bd77-13593c7c7a6e")
 		)
 		(instances
 			(project "wanos-board"
@@ -2339,54 +3542,18 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 177.79999999999998 46.99000000000001) (xy 177.79999999999998 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f307c16-da58-42f3-8b0c-ccacb7f64d66")
-	)
-	(wire
-		(pts
-			(xy 177.79999999999998 54.61) (xy 177.79999999999998 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4e23e591-a5b6-4c6f-b906-85da3862fd86")
-	)
-	(wire
-		(pts
-			(xy 177.79999999999998 55.88) (xy 165.1 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ba34e297-f630-4b36-97cd-1ee088df2700")
-	)
-	(junction
-		(at 177.79999999999998 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7c57b748-c1a2-4952-9220-c0a105d7d3da")
-	)
-	(global_label "EXP_A_P4_WM_B2_COLD"
+	(global_label "+3V3"
 		(shape bidirectional)
-		(at 190.5 55.88 0)
+		(at 68.58 133.35000000000002 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "3fd26fd8-b0da-4d8e-9776-fc265cea8642")
+		(uuid "f600ebb8-ec19-4282-ad15-01c999a515ca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 190.5 55.88 0)
+			(at 68.58 133.35000000000002 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2399,36 +3566,158 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 55.88) (xy 190.5 55.88)
+			(xy 68.58 140.97) (xy 68.58 146.05)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "40b72465-f6e6-409f-a796-828d0ddd20a6")
+		(uuid "18679261-0ccb-46cb-8d51-1ba562e463f0")
 	)
-	(text "B2 HOT / J5"
+	(text "B2 HOT"
 		(exclude_from_sim no)
-		(at 187.96 27.94 0)
+		(at 20 163.82999999999998 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left bottom)
 		)
-		(uuid "846e3b8f-97d8-40af-890e-44d40a70e8aa")
+		(uuid "1a599dd9-d5e2-4985-8c32-742d3cb0da3f")
 	)
 	(global_label "WM_B2_HOT"
 		(shape bidirectional)
-		(at 187.96 55.88 180)
+		(at 20.32 171.45 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6b412279-8576-4b42-b97a-f99a71245c92")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 20.32 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 20.32 171.45) (xy 50.8 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc2ef7e2-66f5-488a-a45e-2606e380c571")
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 35.56 176.53 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "38b0b11d-eb06-4345-9568-b3453ab56119")
+		(property "Reference" "D28"
+			(at 35.56 173.99 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PESD5V0S1BA"
+			(at 35.56 179.07 270)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 35.56 176.53 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 35.56 176.53 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 176.53 270)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "143f3bd5-20e2-43d1-a286-ec79f1aed8f8")
+		)
+		(pin "2"
+			(uuid "4c65f8fa-a5bc-4ccc-aee8-12ec52e1bd2a")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "D28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 35.56 171.45) (xy 35.56 173.98999999999998)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ba6cf201-672a-4699-9a42-566b6ffa4d3a")
+	)
+	(global_label "GND"
+		(shape bidirectional)
+		(at 35.56 181.60999999999999 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "321b4fc1-8b52-4830-abb2-2d362bbee233")
+		(uuid "bc17951f-098d-49e4-92dd-b45a8f16efb1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 187.96 55.88 0)
+			(at 35.56 181.60999999999999 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2441,7 +3730,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 200.66 55.88 90)
+		(at 45.72 166.36999999999998 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2449,9 +3738,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b82a8d00-ab43-431c-9220-fdc23668fd61")
-		(property "Reference" "R44"
-			(at 202.692 55.88 90)
+		(uuid "e2568451-9360-44c3-a6fd-9a7fe143467c")
+		(property "Reference" "R40"
+			(at 45.72 163.82999999999998 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2460,8 +3749,8 @@
 				)
 			)
 		)
-		(property "Value" "330"
-			(at 200.66 55.88 90)
+		(property "Value" "10k"
+			(at 45.72 168.90999999999997 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2471,7 +3760,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 200.66 55.88 0)
+			(at 45.72 166.36999999999998 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2482,7 +3771,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.66 55.88 0)
+			(at 45.72 166.36999999999998 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2492,8 +3781,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 200.66 55.88 0)
+		(property "Description" ""
+			(at 45.72 166.36999999999998 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2504,10 +3793,121 @@
 			)
 		)
 		(pin "1"
-			(uuid "2012f5d5-4174-4fc3-894c-ceda44963515")
+			(uuid "45bc29df-9684-4245-b252-ce026241bc8b")
 		)
 		(pin "2"
-			(uuid "ae89bfc6-1060-4342-86f7-b863c7a53e1c")
+			(uuid "23a37564-2663-4cae-9529-d793b2a27c36")
+		)
+		(instances
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
+					(reference "R40")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 45.72 171.45) (xy 45.72 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9db5565c-b450-4c3e-851c-0be3fc80b11a")
+	)
+	(global_label "+3V3"
+		(shape bidirectional)
+		(at 45.72 161.29 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ae93103d-1849-4068-a0bf-e2a54624bf46")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 58.42 171.45 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "93bdeb56-45be-48b0-94a9-06d8582d72f8")
+		(property "Reference" "R44"
+			(at 58.42 168.91 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "330"
+			(at 58.42 173.98999999999998 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 58.42 171.45 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 171.45 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 58.42 171.45 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1d76447d-a464-458d-8860-3a5dc1a199a7")
+		)
+		(pin "2"
+			(uuid "ba4f31d7-081c-421b-a93f-03812d908043")
 		)
 		(instances
 			(project "wanos-board"
@@ -2520,121 +3920,36 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 55.88) (xy 196.85 55.88)
+			(xy 50.8 171.45) (xy 55.88 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dbdf9abf-c405-4b88-af57-8a6d0969d6e6")
+		(uuid "65fb9e72-31c0-4ca4-9b2f-955249bbd692")
 	)
 	(wire
 		(pts
-			(xy 204.47 55.88) (xy 215.9 55.88)
+			(xy 60.96 171.45) (xy 76.2 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2675ee8f-5d5f-48f8-84d3-8f64d70d1c55")
+		(uuid "7525e86b-4138-4a7e-8c8c-ca6d48313a46")
 	)
-	(junction
-		(at 215.9 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "49fd860b-f638-43fb-ba5e-22d2e9a25d50")
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 215.9 43.18000000000001 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7307123a-14af-4953-8b95-1eb8f6e18278")
-		(property "Reference" "R40"
-			(at 217.93200000000002 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 215.9 43.18000000000001 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 215.9 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 215.9 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 215.9 43.18000000000001 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "46d4ccaf-e9c7-4176-aab1-22dbb9c08208")
-		)
-		(pin "2"
-			(uuid "d49469ed-98e1-484e-a01c-85317a3cd699")
-		)
-		(instances
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/84dc939e-d49f-45a6-8f6a-baeb64de529b"
-					(reference "R40")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(global_label "+3V3"
+	(global_label "EXP_A_P5_WM_B2_HOT"
 		(shape bidirectional)
-		(at 215.9 39.370000000000005 0)
+		(at 76.2 171.45 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "c9ff8bfb-0a2b-4310-b0d8-9043f278eb6c")
+		(uuid "31bd777f-828a-4396-9c67-1e6a6ea54db2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 215.9 39.370000000000005 0)
+			(at 76.2 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2645,29 +3960,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 215.9 39.370000000000005) (xy 215.9 39.370000000000005)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c05fb2d-027a-4d63-8fa0-71a781aca13c")
-	)
-	(wire
-		(pts
-			(xy 215.9 46.99000000000001) (xy 215.9 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b26a85ef-e671-49fe-9339-f40e48768ac4")
-	)
 	(symbol
 		(lib_id "Device:C")
-		(at 215.9 66.04 0)
+		(at 50.8 179.07 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2675,9 +3970,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a5840b84-28cd-4b2a-843b-114b65051fc1")
+		(uuid "7b447611-9d8d-4196-9719-77c36023e259")
 		(property "Reference" "C21"
-			(at 218.44 66.04 0)
+			(at 50.8 176.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2687,7 +3982,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 218.44 68.58000000000001 0)
+			(at 50.8 181.60999999999999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2697,7 +3992,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 215.9 66.04 0)
+			(at 50.8 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2708,7 +4003,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 66.04 0)
+			(at 50.8 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2718,8 +4013,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 215.9 66.04 0)
+		(property "Description" ""
+			(at 50.8 179.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2730,10 +4025,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "9854290f-705a-4a89-a0c9-aea5fe4998a8")
+			(uuid "7c2eb3da-ce53-4354-b83a-ffb6fc4c8e87")
 		)
 		(pin "2"
-			(uuid "d20fa856-b042-4501-b83d-756fd3775950")
+			(uuid "de55146e-296d-422a-9985-e44bc4b03193")
 		)
 		(instances
 			(project "wanos-board"
@@ -2746,26 +4041,26 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 55.88) (xy 215.9 63.50000000000001)
+			(xy 50.8 171.45) (xy 50.8 176.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "99e55699-7ef3-497f-bf2c-69dd60f4ba88")
+		(uuid "64a6ab57-79e0-4dc8-9946-732d0405811c")
 	)
 	(global_label "GND"
 		(shape bidirectional)
-		(at 215.9 71.12 0)
+		(at 50.8 184.14999999999998 270)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "c4d65196-24b6-40e8-9a4d-1c9519e07cb7")
+		(uuid "ca9dc811-a80d-4816-a69f-3f1f35fbb3b7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 215.9 71.12 0)
+			(at 50.8 184.14999999999998 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2776,19 +4071,9 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 215.9 68.58000000000001) (xy 215.9 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aeb62c11-5c38-488d-80da-61821cff12cf")
-	)
 	(symbol
 		(lib_id "Device:R")
-		(at 228.6 43.18000000000001 0)
+		(at 68.58 163.82999999999998 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2796,9 +4081,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a7c4acf1-a62a-46f7-91b5-9219410264f3")
+		(uuid "7b89c431-03d4-4140-b01e-5cc49cff8b62")
 		(property "Reference" "R22"
-			(at 230.632 43.18000000000001 90)
+			(at 68.58 161.29 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2808,7 +4093,7 @@
 			)
 		)
 		(property "Value" "1k0"
-			(at 228.6 43.18000000000001 90)
+			(at 68.58 166.36999999999998 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2818,7 +4103,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 228.6 43.18000000000001 0)
+			(at 68.58 163.82999999999998 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2829,7 +4114,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 43.18000000000001 0)
+			(at 68.58 163.82999999999998 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2839,8 +4124,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 228.6 43.18000000000001 0)
+		(property "Description" ""
+			(at 68.58 163.82999999999998 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2851,10 +4136,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "d7f257c7-5aee-4db0-b8c0-d6eac0fc8d4c")
+			(uuid "46a7c09f-946c-4730-8c96-258800b0970f")
 		)
 		(pin "2"
-			(uuid "ee6b5643-9303-4f87-829a-9673336bd116")
+			(uuid "b7ea3adc-efaf-47db-9da8-b0c899c0a95e")
 		)
 		(instances
 			(project "wanos-board"
@@ -2865,31 +4150,9 @@
 			)
 		)
 	)
-	(global_label "+3V3"
-		(shape bidirectional)
-		(at 228.6 39.370000000000005 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e1a35c73-1893-406f-a7e8-0254ea66cfc1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 228.6 39.370000000000005 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 228.6 52.07 0)
+		(at 68.58 168.91 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2897,9 +4160,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "f0802682-9c00-4435-a698-935cae68d9d5")
+		(uuid "91665b36-4e3c-4548-a747-902d4fe7fa58")
 		(property "Reference" "D16"
-			(at 226.06 49.53 0)
+			(at 68.58 166.37 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2909,7 +4172,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 231.14 49.53 0)
+			(at 68.58 171.45 270)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2919,7 +4182,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 228.6 52.07 0)
+			(at 68.58 168.91 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2930,7 +4193,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 52.07 0)
+			(at 68.58 168.91 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2940,8 +4203,8 @@
 				)
 			)
 		)
-		(property "Description" "LED"
-			(at 228.6 52.07 0)
+		(property "Description" ""
+			(at 68.58 168.91 270)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2951,11 +4214,11 @@
 				)
 			)
 		)
-		(pin "2"
-			(uuid "adc5eb2a-4a4e-41b6-84e0-4c907b5158bc")
+		(pin "K"
+			(uuid "47422fb6-f20a-45e5-857d-eaac027a4277")
 		)
-		(pin "1"
-			(uuid "77104853-cbe1-4161-90ed-2fdfadcd6cef")
+		(pin "A"
+			(uuid "d81b32da-27f7-4e38-9103-e61141542196")
 		)
 		(instances
 			(project "wanos-board"
@@ -2966,54 +4229,18 @@
 			)
 		)
 	)
-	(wire
-		(pts
-			(xy 228.6 46.99000000000001) (xy 228.6 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe6ef2c5-d76e-4a3d-be48-40a2959cdb55")
-	)
-	(wire
-		(pts
-			(xy 228.6 54.61) (xy 228.6 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "45c5ba69-47aa-4f32-871f-cc0b7332afc0")
-	)
-	(wire
-		(pts
-			(xy 228.6 55.88) (xy 215.9 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7149715f-1fc4-45e3-ab70-a7ce19ab4d8a")
-	)
-	(junction
-		(at 228.6 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7e63167c-faee-4ae8-b6a2-577375a617cb")
-	)
-	(global_label "EXP_A_P5_WM_B2_HOT"
+	(global_label "+3V3"
 		(shape bidirectional)
-		(at 241.3 55.88 0)
+		(at 68.58 158.75 90)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "1d682643-38dd-4d6e-b658-cd101042e3d2")
+		(uuid "b77e5393-e783-4b33-83b6-e681b7b037a2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 241.3 55.88 0)
+			(at 68.58 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3026,59 +4253,17 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 55.88) (xy 241.3 55.88)
+			(xy 68.58 166.36999999999998) (xy 68.58 171.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "aedbca0f-65c9-4015-9e81-e9a4f33ab9b5")
-	)
-	(text "Field nets WM_* leave connectors J4/J5; EXP_A_P* enter U1 on IO_Expanders"
-		(exclude_from_sim no)
-		(at 25.4 110.0 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "e518e0f4-1091-4dab-b75e-d804f59f1e3b")
-	)
-	(global_label "+5VA"
-		(shape bidirectional)
-		(at 25.4 100.0 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f19252a1-c5fc-45a1-892a-55a841f8b7f6")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 100.0 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(text "Sensor VDD = +5VA on J4/J5 (not on this netlist node — harness)"
-		(exclude_from_sim no)
-		(at 40.64 100.0 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "14540dca-9375-4147-af39-0527a2ddf75c")
+		(uuid "46346844-b310-47e7-a36a-60aceb334bf8")
 	)
 	(sheet_instances
 		(path "/"
-			(page "1")
+			(page "6")
 		)
 	)
 	(embedded_fonts no)

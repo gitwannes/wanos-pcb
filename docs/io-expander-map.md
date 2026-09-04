@@ -49,10 +49,10 @@ Address = `0x20 + (A2<<2) + (A1<<1) + A0`. **Direct tie** to **`+3V3`** or **GND
 |---|---|---|
 | P0 | `EXP_A_P0_DOOR_BATH` | Bathroom door (**J3**) |
 | P1 | `EXP_A_P1_DOOR_SAUNA` | Sauna door (**J2**) |
-| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4**) — via **`water_meters.kicad_sch`** |
+| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4** RJ45) — via **`water_meters.kicad_sch`** |
 | P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) — via **`water_meters.kicad_sch`** |
-| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J5**) — via **`water_meters.kicad_sch`** |
-| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J5**) — via **`water_meters.kicad_sch`** |
+| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J4**) — via **`water_meters.kicad_sch`** |
+| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J4**) — via **`water_meters.kicad_sch`** |
 | P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) |
 | P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) |
 
@@ -62,14 +62,14 @@ Address = `0x20 + (A2<<2) + (A1<<1) + A0`. **Direct tie** to **`+3V3`** or **GND
 
 Canonical: [`field-wiring.md`](field-wiring.md) § 2a · schematic [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch).
 
-| Field net | Series | Pull-up | Debounce | Activity | Expander net |
-|---|---|---|---|---|---|
-| `WM_B1_COLD` | **R41** 330 Ω | **R37** 10k → **`+3V3`** | **C18** 100 nF | **D13** / **R19** | `EXP_A_P2_WM_B1_COLD` |
-| `WM_B1_HOT` | **R42** 330 Ω | **R38** 10k | **C19** 100 nF | **D14** / **R20** | `EXP_A_P3_WM_B1_HOT` |
-| `WM_B2_COLD` | **R43** 330 Ω | **R39** 10k | **C20** 100 nF | **D15** / **R21** | `EXP_A_P4_WM_B2_COLD` |
-| `WM_B2_HOT` | **R44** 330 Ω | **R40** 10k | **C21** 100 nF | **D16** / **R22** | `EXP_A_P5_WM_B2_HOT` |
+| Field net | Series | Pull-up | Debounce | TVS | Activity | Expander net |
+|---|---|---|---|---|---|---|
+| `WM_B1_COLD` | **R41** 330 Ω | **R37** 10k → **`+3V3`** | **C18** 100 nF | **D25** | **D13** / **R19** | `EXP_A_P2_WM_B1_COLD` |
+| `WM_B1_HOT` | **R42** 330 Ω | **R38** 10k | **C19** 100 nF | **D26** | **D14** / **R20** | `EXP_A_P3_WM_B1_HOT` |
+| `WM_B2_COLD` | **R43** 330 Ω | **R39** 10k | **C20** 100 nF | **D27** | **D15** / **R21** | `EXP_A_P4_WM_B2_COLD` |
+| `WM_B2_HOT` | **R44** 330 Ω | **R40** 10k | **C21** 100 nF | **D28** | **D16** / **R22** | `EXP_A_P5_WM_B2_HOT` |
 
-Sensor **VDD** = **`+5VA`** on **J4**/**J5**. Output is **open-drain** — **no MOSFET**. Idle HIGH, pulse LOW.
+Sensor **VDD** = **`+5VA`** on **J4** (RJ45 pin **4**); **D29** **SMBJ5.0A** clamps **`+5VA`** at the jack. Output is **open-drain** — **no MOSFET**. Idle HIGH, pulse LOW. Cat5 map → [`field-wiring.md`](field-wiring.md) § 2a.
 
 ### Door / kWh activity LEDs (this sheet)
 

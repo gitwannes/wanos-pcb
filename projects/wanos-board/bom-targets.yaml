@@ -171,6 +171,20 @@ parts:
     lcsc: C49678
     footprint: Capacitor_SMD:C_0805_2012Metric
     role: Water debounce (water_meters.kicad_sch)
+  - ref: D25-D28
+    mpn: PESD5V0S1BA
+    lcsc: C8545
+    footprint: Diode_SMD:D_SOD-323
+    role: Water SIG TVS (water_meters.kicad_sch, Cat5 ~10m)
+  - ref: D29
+    mpn: SMBJ5.0A
+    lcsc: C13559
+    footprint: Diode_SMD:D_SMB
+    role: Water +5VA TVS at J4
+  - ref: J4
+    mpn: RJHSE-5380
+    footprint: Connector_RJ:RJ45_Amphenol_RJHSE5380
+    role: Water meters RJ45 (Cat5)
 
 notes:
   - "R1 + R2 closed 2026-09-01 — see docs/todo/_archive/phaseR-requirements.md"
@@ -178,6 +192,6 @@ notes:
   - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
   - "PCA9554 decoupling C3/C4 on io_expanders; C5 dropped; U5 C6/C7 on i2c_plant"
   - "Exp B P3-P5 P7 NC v1; R34-R36 = button pull-ups"
-  - "Water YF-B6/B10: water_meters.kicad_sch; R37-R44 C18-C21; no MOSFET"
+  - "Water YF-B6/B10: J4 RJ45 + water_meters.kicad_sch; D25-D29 TVS; R37-R44 C18-C21; J5 unused; no MOSFET"
   - "LCSC codes are targets — validate stock at J1 order time"
   - "Datasheets: docs/reference/datasheets/ (14/15 on disk; J41 DNP — usb-c-j41.pdf N/A v1)"

@@ -75,9 +75,10 @@ Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P
 ### 3.2 Water meters — bathroom 1 and 2
 
 - **Sensor:** **YF-B6 / YF-B10** hall flow meter — OD pulse, supply **5–15 V** ([datasheet](reference/datasheets/external/YF-B6%20B10%20waterflow-sensor.pdf))
-- **J4**, **J5** — 6-pin JST each (GND, cold SIG, hot SIG, **`+5VA`**, GND, **`+5VA`**) — [`field-wiring.md`](field-wiring.md) § 2a
-- **Front-end** on **`water_meters.kicad_sch`**: per channel **10 kΩ** pull-up to **`+3V3`**, **330 Ω** series, **100 nF** debounce, activity LED **1k0** — **no MOSFET**
+- **J4** — **RJ45** (8P8C); **one Cat5 ~10 m** for all four meters — pinout / colours [`field-wiring.md`](field-wiring.md) § 2a
+- **Front-end** on **`water_meters.kicad_sch`**: per channel **PESD5V0S1BA** TVS, **10 kΩ** pull-up to **`+3V3`**, **330 Ω** series, **100 nF** debounce, activity LED **1k0** — **no MOSFET**; **SMBJ5.0A** on **`+5VA`** at **J4**
 - **Expander A** P2–P5 (`EXP_A_P2`…`P5`)
+- **J5** unused v1
 
 ### 3.3 kWh counters (main + aux)
 
@@ -176,7 +177,7 @@ On **`pi_power.kicad_sch`**. Resistors: **R29** = **2k0** (**+5VA**); **R30** = 
 | Group | Count | LEDs / R | Sheet | Signals |
 |---|---:|---|---|---|
 | Doors | 2 | D11–D12 / R17–R18 | `io_expanders.kicad_sch` | J2 sauna, J3 bathroom |
-| Water B1 / B2 | 4 | D13–D16 / R19–R22 | `water_meters.kicad_sch` | J4–J5 cold + hot |
+| Water B1 / B2 | 4 | D13–D16 / R19–R22 | `water_meters.kicad_sch` | **J4** RJ45 cold + hot ×2 |
 | kWh | 2 | D17–D18 / R23–R24 | `io_expanders.kicad_sch` | J6 main, J7 aux |
 
 ### 5.3 SSR activity (`ssr_drivers.kicad_sch`)
@@ -224,7 +225,7 @@ When the driver is off, the LED can see **~7 V reverse** (12 V net vs 5 V rail).
 |---|---|
 | **Left** | Pi **J40**, HDMI **J1**, **J17** 5 V screw |
 | **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, decoupling |
-| **Right** | **J2–J8** field inputs, activity LEDs |
+| **Right** | **J2–J4**, **J6–J8** field inputs, activity LEDs |
 | **Bottom** | **J14** 12 V (**pi_power**), **J13** SSR, **Q1–Q5**, SSR activity **D19–D22**, **U4** opto, **D3** TVS |
 | **Center** | Routing keep-out; lock HDMI before Freerouting |
 
