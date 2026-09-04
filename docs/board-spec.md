@@ -76,7 +76,7 @@ Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P
 
 - **Sensor:** **YF-B6 / YF-B10** hall flow meter — OD pulse, supply **5–15 V** ([datasheet](reference/datasheets/external/YF-B6%20B10%20waterflow-sensor.pdf))
 - **J4** — TE **5556416-1** RJ45 (LCSC **C86492**); **one Cat5 ~10 m** for all four meters — pinout / colours [`field-wiring.md`](field-wiring.md) § 2a
-- **Front-end** on **`water_meters.kicad_sch`**: per channel **PESD5V0S1BA** TVS, **10 kΩ** pull-up to **`+3V3`**, **330 Ω** series, **100 nF** debounce, activity LED **1k0** — **no MOSFET**; **SMBJ5.0A** on **`+5VA`** at **J4**
+- **Front-end** on **`water_meters.kicad_sch`**: per channel **PESD5V0S1BA** TVS ([`pesd5v0s1ba.pdf`](reference/datasheets/pesd5v0s1ba.pdf)), **10 kΩ** pull-up to **`+3V3`**, **330 Ω** series, **100 nF** debounce, activity LED **1k0** — **no MOSFET**; **SMBJ5.0A** on **`+5VA`** at **J4**
 - **Expander A** P2–P5 (`EXP_A_P2`…`P5`)
 - **J5** unused v1
 

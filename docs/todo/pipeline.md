@@ -91,7 +91,7 @@ Near-term: **Gate-S1** → **L1** → gates → **J1** → **V1a**. Production W
 | **Grounding / return scheme** | Done | [`grounding.md`](../grounding.md) |
 | **Reuse vs new WISC field cables** | Done | [`external-plant.md`](../external-plant.md) § 5 |
 | **Pi + enclosure mechanical** | Done | Pi 4; 2.6.4 outline; no enclosure constraint |
-| **Datasheet pack** | open | 14/15 — [`reference/datasheets/`](../reference/datasheets/README.md); `usb-c-j41.pdf` deferred (J41 DNP v1) |
+| **Datasheet pack** | open | [`reference/datasheets/`](../reference/datasheets/README.md) — water TVS + Amphenol **54602** on disk; `usb-c-j41.pdf` deferred (J41 DNP v1) |
 | **EN 60335-2-53 assumptions** | hold | Spec cites sauna context; formal safety case = operator |
 | **Sauna environment** | Done | Cabinet note — [`external-plant.md`](../external-plant.md) § 7 |
 | **CE / product marking** | hold | Only if scoped later |

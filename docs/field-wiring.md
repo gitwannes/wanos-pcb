@@ -54,19 +54,21 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 
 | Element | Value | Role |
 |---|---|---|
-| **TVS** | **PESD5V0S1BA** (**D25**–**D28**) | ESD / surge clamp SIG → **GND** (long Cat5) |
+| **TVS** | **PESD5V0S1BA** (**D25**–**D28**) | ESD / surge clamp SIG → **GND** (long Cat5) — [`pesd5v0s1ba.pdf`](reference/datasheets/pesd5v0s1ba.pdf) |
 | **Rpu** | **10 kΩ** → **`+3V3`** | Idle HIGH |
 | **Rs** | **330 Ω** | Series field → expander |
 | **Cd** | **100 nF** | Debounce / EMI (\(\tau \approx 1\,\text{ms}\)) |
 | **Rled + D** | **1k0** + LED | Activity (lights on pulse / SIG low) |
 
-Plus **D29** **SMBJ5.0A** across **`+5VA`** → **GND** at **J4** (sensor supply clamp).
+Plus **D29** **SMBJ5.0A** across **`+5VA`** → **GND** at **J4** (sensor supply clamp) — [`smbj5.0a.pdf`](reference/datasheets/smbj5.0a.pdf).
 
-**J4** — TE Connectivity **5556416-1** (LCSC **C86492**): RJ45 8P8C **TH**, **no LED**, **no magnetics**, unshielded. KiCad symbol `Connector:RJ45`, footprint **`Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal`** (same 8-pad modjack class). JLC assembly: **wave soldering**.
+**J4** — TE Connectivity **5556416-1** (LCSC **C86492**): RJ45 8P8C **TH**, **no LED**, **no magnetics**, unshielded. Schematic uses `Connector_Generic:Conn_01x08` + footprint **`Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal`** (Amphenol **54602** land-pattern class — [`amphenol-54602.pdf`](reference/datasheets/amphenol-54602.pdf), [`amphenol-54602-drawing.pdf`](reference/datasheets/amphenol-54602-drawing.pdf)). JLC assembly: **wave soldering**.
 
 Optional Cat5 foil/drain: bond at enclosure / PE (jack has no SH tabs) — [`grounding.md`](grounding.md).
 
 ### Cat5 wiring (T568B) — recommended
+
+Colour cheat-sheet: [`reference/datasheets/rj45-t568b-wiring-colors.jpg`](reference/datasheets/rj45-t568b-wiring-colors.jpg).
 
 | J4 pin | T568B wire | Pair | Net | Field / sensor |
 |---:|---|---|---|---|

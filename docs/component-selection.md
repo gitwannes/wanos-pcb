@@ -23,7 +23,7 @@ Verified JLCPCB-compatible parts for **wanos-pcb-v1**, aligned with [`board-spec
 
 | Part | Ref | Notes |
 |---|---|---|
-| **Amphenol / TE modjack class** | **J4** | TE **5556416-1** (LCSC **C86492**) — TH, **no LED**, no magnetics; footprint `Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal` |
+| **Amphenol / TE modjack class** | **J4** | TE **5556416-1** (LCSC **C86492**) — TH, **no LED**, no magnetics; footprint `Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal` — fp refs [`amphenol-54602.pdf`](reference/datasheets/amphenol-54602.pdf) / [`amphenol-54602-drawing.pdf`](reference/datasheets/amphenol-54602-drawing.pdf) |
 
 **KiCad footprints (JST vertical):**
 
@@ -72,8 +72,8 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | **PN2222A-TA** × 5 | Q1–Q5 | SSR field drivers + safety gate **Q5** (SOT-23) |
 | **PC817A** SMD | U4 | 12 V opto |
 | **SMBJ12A** | D3 | 12 V TVS (SMD SMB) — [`smbj12a.pdf`](reference/datasheets/smbj12a.pdf) |
-| **PESD5V0S1BA** × 4 | D25–D28 | Water SIG TVS SOD-323 (**`water_meters.kicad_sch`**, ~10 m Cat5) |
-| **SMBJ5.0A** | D29 | Water **`+5VA`** TVS at **J4** (SMD SMB) |
+| **PESD5V0S1BA** × 4 | D25–D28 | Water SIG TVS SOD-323 (**`water_meters.kicad_sch`**, ~10 m Cat5) — [`pesd5v0s1ba.pdf`](reference/datasheets/pesd5v0s1ba.pdf) |
+| **SMBJ5.0A** | D29 | Water **`+5VA`** TVS at **J4** (SMD SMB) — [`smbj5.0a.pdf`](reference/datasheets/smbj5.0a.pdf) |
 | **BZT52C5V6** | D1 | 5 V overvoltage clamp (SMD SOD-123, shunt to GND) — family ref [`bzx85c.pdf`](reference/datasheets/bzx85c.pdf) |
 | **AO3401A** | Q6 | 5 V ideal diode / reverse block (P-FET SOT-23, gate tied to drain) |
 | **RVT1A101M0605** | C1 | +5VA bulk 100 µF 10 V (SMD 6.3×5.4 mm) |
@@ -137,7 +137,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 
 **External (not assembled):** LCD modules, SHT31 sensor boards, external DIN SSRs.
 
-**Datasheets:** [`reference/datasheets/README.md`](reference/datasheets/README.md) (14/15 on disk; `usb-c-j41.pdf` deferred — J41 DNP v1).
+**Datasheets:** [`reference/datasheets/README.md`](reference/datasheets/README.md) — water TVS + Amphenol **54602** fp refs on disk; `usb-c-j41.pdf` deferred (J41 DNP v1).
 
 Validate LCSC stock before **J1**.
 
