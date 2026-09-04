@@ -766,28 +766,6 @@
 			)
 		)
 	)
-	(global_label "WM_B2_COLD"
-		(shape bidirectional)
-		(at 25.4 127 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "40181403-8d3b-4ad8-9ad9-6e0f6a5691d1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(global_label "EXP_A_P1_DOOR_SAUNA"
 		(shape bidirectional)
 		(at 25.4 33.02 180)
@@ -876,28 +854,6 @@
 			)
 		)
 	)
-	(global_label "WM_B1_HOT"
-		(shape bidirectional)
-		(at 25.4 90.17 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7ac755d6-7f70-43d3-ac34-0630a4722389")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(global_label "EXP_B_P2_BTN3"
 		(shape bidirectional)
 		(at 114.3 95.25 180)
@@ -920,28 +876,6 @@
 			)
 		)
 	)
-	(global_label "WM_B1_COLD"
-		(shape bidirectional)
-		(at 25.4 87.63 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "92150ec0-3fc9-47e3-9970-b6bca67ff99c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(global_label "GND"
 		(shape bidirectional)
 		(at 25.4 85.09 180)
@@ -954,28 +888,6 @@
 		(uuid "aad4d60b-1201-4082-a010-b276e2ef64c8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 25.4 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "WM_B2_HOT"
-		(shape bidirectional)
-		(at 25.4 129.54 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ab9c91e9-08ee-41d2-8b91-90a00a7b306d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1070,502 +982,6 @@
 			(effects
 				(font
 					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "+5VA"
-		(shape bidirectional)
-		(at 25.4 92.71 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "4484dfd4-3c17-467c-8cb3-5ed9acfc0c89")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 25.4 95.25 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "e5c08d2e-580f-4066-b428-fe814b471e31")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "+5VA"
-		(shape bidirectional)
-		(at 25.4 97.79 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "be507d32-d6de-4f12-9247-96f148d7182e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "+5VA"
-		(shape bidirectional)
-		(at 25.4 132.08 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "3045e400-49cf-4bfb-9be3-d547d6226077")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape bidirectional)
-		(at 25.4 134.62 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "0f14ad9b-6c4a-4ff2-8a4b-40f776fa42c5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "+5VA"
-		(shape bidirectional)
-		(at 25.4 137.16 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fd31d476-4789-442b-8d0f-48f4a5adf4bb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 25.4 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x06")
-		(at 30.48 129.54 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0d34f24d-ee24-4c03-8bde-2c35fe82d45b")
-		(property "Reference" "J5"
-			(at 30.48 121.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "WATER_B2"
-			(at 30.48 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical"
-			(at 30.48 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 30.48 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 30.48 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "5"
-			(uuid "093ba63a-dccc-44f5-9b05-404a91647d27")
-		)
-		(pin "1"
-			(uuid "09145449-96d4-41e4-9a77-c2019dccf13d")
-		)
-		(pin "3"
-			(uuid "bc0f92af-990c-41ca-9b88-e7e6b5ad8d96")
-		)
-		(pin "4"
-			(uuid "a9ee0cac-ca9f-416d-bc6c-6975a63ce848")
-		)
-		(pin "6"
-			(uuid "7923b8ef-4445-4889-a93d-96ff8f5bc10e")
-		)
-		(pin "2"
-			(uuid "bf49089f-9d43-4535-892e-0c8a9cd11f87")
-		)
-		(instances
-			(project "connectors"
-				(path "/47dd188b-b977-4943-9943-e113444381d6"
-					(reference "J5")
-					(unit 1)
-				)
-			)
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
-					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 30.48 30.48 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2ec9e2d6-af01-4a19-985b-bc2701d4c306")
-		(property "Reference" "J2"
-			(at 30.48 27.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DOOR_SAUNA"
-			(at 30.48 35.56 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
-			(at 30.48 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 30.48 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 30.48 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "395a1944-5af1-4b35-b0c7-0e65624b5a6b")
-		)
-		(pin "1"
-			(uuid "a5df55d6-8606-4d77-8a91-02b891f4ce45")
-		)
-		(instances
-			(project "connectors"
-				(path "/47dd188b-b977-4943-9943-e113444381d6"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 119.38 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3702796d-ba2f-49da-b6b5-125919307080")
-		(property "Reference" "J7"
-			(at 119.38 57.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "KWH_AUX"
-			(at 119.38 64.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
-			(at 119.38 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 119.38 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 119.38 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "18c35138-287b-458f-adec-72eb7357be2a")
-		)
-		(pin "2"
-			(uuid "c4a0e334-19b8-4a85-936f-f65231c8f544")
-		)
-		(instances
-			(project "connectors"
-				(path "/47dd188b-b977-4943-9943-e113444381d6"
-					(reference "J7")
-					(unit 1)
-				)
-			)
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
-					(reference "J7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x06")
-		(at 30.48 90.17 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5f2f0f40-f5c3-448e-b1aa-858f08b87e26")
-		(property "Reference" "J4"
-			(at 30.48 82.55 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "WATER_B1"
-			(at 30.48 100.33 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical"
-			(at 30.48 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 30.48 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 30.48 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "ff3c2281-27ee-477b-8729-79e00140f50c")
-		)
-		(pin "3"
-			(uuid "5b077a13-0145-449b-95f8-ea9e1aafc6ac")
-		)
-		(pin "1"
-			(uuid "687c1292-d3ba-44aa-b4bd-4444fd397586")
-		)
-		(pin "5"
-			(uuid "d6d9bb54-9335-4c8c-aeba-3f9553b2c2a8")
-		)
-		(pin "2"
-			(uuid "181c04b9-b1fa-4e94-bfe3-3f06c43bc5da")
-		)
-		(pin "6"
-			(uuid "0b335f61-0659-4c47-8483-31d6d8604c3b")
-		)
-		(instances
-			(project "connectors"
-				(path "/47dd188b-b977-4943-9943-e113444381d6"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
-					(reference "J4")
-					(unit 1)
 				)
 			)
 		)
@@ -1826,6 +1242,176 @@
 			(project "wanos-board"
 				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
 					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 30.48 30.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2ec9e2d6-af01-4a19-985b-bc2701d4c306")
+		(property "Reference" "J2"
+			(at 30.48 27.94 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DOOR_SAUNA"
+			(at 30.48 35.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
+			(at 30.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 30.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 30.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "395a1944-5af1-4b35-b0c7-0e65624b5a6b")
+		)
+		(pin "1"
+			(uuid "a5df55d6-8606-4d77-8a91-02b891f4ce45")
+		)
+		(instances
+			(project "connectors"
+				(path "/47dd188b-b977-4943-9943-e113444381d6"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 119.38 59.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3702796d-ba2f-49da-b6b5-125919307080")
+		(property "Reference" "J7"
+			(at 119.38 57.15 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "KWH_AUX"
+			(at 119.38 64.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
+			(at 119.38 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 119.38 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "18c35138-287b-458f-adec-72eb7357be2a")
+		)
+		(pin "2"
+			(uuid "c4a0e334-19b8-4a85-936f-f65231c8f544")
+		)
+		(instances
+			(project "connectors"
+				(path "/47dd188b-b977-4943-9943-e113444381d6"
+					(reference "J7")
+					(unit 1)
+				)
+			)
+			(project "wanos-board"
+				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662/08a79a1f-fed3-4b65-a041-bd4ae3cb853a"
+					(reference "J7")
 					(unit 1)
 				)
 			)

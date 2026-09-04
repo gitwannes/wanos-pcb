@@ -87,7 +87,7 @@ When safety opens, **`+12V`** at **J14** falls to **0 V** → opto **U4** on **`
 | Harness | Reuse |
 |---|---|
 | **SSR J1 → J13** | Reuse if 5-pin JST tail fits (same pinout) |
-| **Doors, water, kWh** | Reuse where pinout matches; water is **YF-B6/B10** 3-wire (VDD/GND/SIG) on **J4/J5** 6-pin — [`field-wiring.md`](field-wiring.md) § 2a |
+| **Doors, water, kWh** | Reuse where pinout matches; water is **YF-B6/B10** on **one Cat5** → **J4** RJ45 — [`field-wiring.md`](field-wiring.md) § 2a (not legacy dual 6-pin JST) |
 | **SHT11 plant → SHT31** | Re-terminate or replace tails (**SDA/SCL** vs DATA/CLOCK) — [`field-wiring.md`](field-wiring.md) § 7 |
 | **Two-Pi WISC** | **One Pi** on wanos-pcb-v1 (I/O + e-ink integrated) |
 

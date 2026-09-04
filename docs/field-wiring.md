@@ -6,7 +6,7 @@ Locked **R1** (2026-09-01) + **R2** (2026-09-01). Canonical electrical behaviour
 
 **WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
 
-**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J5**, **J6–J8** → **`connectors.kicad_sch`** (water **J4–J5** pinouts). YF front-end (pull-ups / series / debounce / activity LEDs) → **`water_meters.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Door/kWh activity LEDs → **`io_expanders.kicad_sch`**; water activity LEDs → **`water_meters.kicad_sch`**.
+**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J3**, **J6–J8** → **`connectors.kicad_sch`**. Water **J4** (RJ45) + YF front-end / TVS → **`water_meters.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Door/kWh activity LEDs → **`io_expanders.kicad_sch`**; water activity LEDs → **`water_meters.kicad_sch`**.
 
 ---
 
@@ -36,7 +36,7 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 
 ---
 
-## 2a. Water meters — J4 / J5 (6-pin) + YF-B6/B10
+## 2a. Water meters — J4 (RJ45) + YF-B6/B10 over Cat5 (~10 m)
 
 **Sensor:** YF-B6 / YF-B10 hall flow meter — datasheet [`reference/datasheets/external/YF-B6 B10 waterflow-sensor.pdf`](reference/datasheets/external/YF-B6%20B10%20waterflow-sensor.pdf).
 
@@ -44,35 +44,53 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 |---|---|
 | Supply | **DC 5–15 V** (min **4.5 V**) → board **`+5VA`** |
 | Output | **Open-drain** (requires pull-up) — yellow wire |
-| Wires | Red **VDD**, black **GND**, yellow **SIG** |
+| Wires (sensor) | Red **VDD**, black **GND**, yellow **SIG** |
 | Rate | \(F = 6.6 \times Q\) (L/min) → ~7–200 Hz |
+| Field cable | **One Cat5/Cat5e UTP** (~**10 m**) → board **J4** RJ45 (8P8C) |
 
 **No MOSFET / opto** on v1 — OD + pull-up to **`+3V3`** is level-safe into PCA9554.
 
-**On-board front-end** (sheet **`water_meters.kicad_sch`**), per channel:
+**On-board front-end** (sheet **`water_meters.kicad_sch`**), per SIG channel:
 
 | Element | Value | Role |
 |---|---|---|
+| **TVS** | **PESD5V0S1BA** (**D25**–**D28**) | ESD / surge clamp SIG → **GND** (long Cat5) — [`pesd5v0s1ba.pdf`](reference/datasheets/pesd5v0s1ba.pdf) |
 | **Rpu** | **10 kΩ** → **`+3V3`** | Idle HIGH |
 | **Rs** | **330 Ω** | Series field → expander |
 | **Cd** | **100 nF** | Debounce / EMI (\(\tau \approx 1\,\text{ms}\)) |
 | **Rled + D** | **1k0** + LED | Activity (lights on pulse / SIG low) |
 
-**J4 / J5 pinout** (pin **1** = square pad):
+Plus **D29** **SMBJ5.0A** across **`+5VA`** → **GND** at **J4** (sensor supply clamp) — [`smbj5.0a.pdf`](reference/datasheets/smbj5.0a.pdf).
 
-| Pin | Signal | Sensor wire |
-|---:|---|---|
-| **1** | **GND** | Black (both meters) |
-| **2** | **COLD SIG** | Yellow cold |
-| **3** | **HOT SIG** | Yellow hot |
-| **4** | **`+5VA`** | Red (both meters) |
-| **5** | **GND** | Extra return |
-| **6** | **`+5VA`** | Extra supply |
+**J4** — TE Connectivity **5556416-1** (LCSC **C86492**): RJ45 8P8C **TH**, **no LED**, **no magnetics**, unshielded. Schematic uses `Connector_Generic:Conn_01x08` + footprint **`Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal`** (Amphenol **54602** land-pattern class — [`amphenol-54602.pdf`](reference/datasheets/amphenol-54602.pdf), [`amphenol-54602-drawing.pdf`](reference/datasheets/amphenol-54602-drawing.pdf)). JLC assembly: **wave soldering**.
 
-| Connector | Cold net | Hot net | Expander |
-|---|---|---|---|
-| **J4** (bath 1) | `WM_B1_COLD` | `WM_B1_HOT` | **U1** P2 / P3 |
-| **J5** (bath 2) | `WM_B2_COLD` | `WM_B2_HOT` | **U1** P4 / P5 |
+Optional Cat5 foil/drain: bond at enclosure / PE (jack has no SH tabs) — [`grounding.md`](grounding.md).
+
+### Cat5 wiring (T568B) — recommended
+
+Colour cheat-sheet: [`reference/datasheets/rj45-t568b-wiring-colors.jpg`](reference/datasheets/rj45-t568b-wiring-colors.jpg).
+
+| J4 pin | T568B wire | Pair | Net | Field / sensor |
+|---:|---|---|---|---|
+| **1** | White/Orange | 2 | `WM_B1_COLD` | Bath 1 cold yellow |
+| **2** | Orange | 2 | **GND** | Bath 1 cold black (pair return) |
+| **3** | White/Green | 3 | `WM_B1_HOT` | Bath 1 hot yellow |
+| **6** | Green | 3 | **GND** | Bath 1 hot black (pair return) |
+| **4** | Blue | 1 | **`+5VA`** | All reds (VDD) |
+| **5** | White/Blue | 1 | **GND** | Extra / common black return |
+| **7** | White/Brown | 4 | `WM_B2_COLD` | Bath 2 cold yellow |
+| **8** | Brown | 4 | `WM_B2_HOT` | Bath 2 hot yellow |
+
+**Bath 2 blacks:** splice to any **GND** conductor (pins **2** / **5** / **6**). **Bath 2** cold+hot share pair 4 (OK at ~7–200 Hz); do not leave unused pair conductors floating at the board end — they are already assigned.
+
+**Shielded Cat5 (optional):** jack is **unshielded** — bond foil/drain to enclosure **PE** / chassis at **board end only** (not both ends).
+
+| Net | Expander |
+|---|---|
+| `WM_B1_COLD` / `WM_B1_HOT` | **U1** P2 / P3 |
+| `WM_B2_COLD` / `WM_B2_HOT` | **U1** P4 / P5 |
+
+**J5** is **unused** on v1 (former second water JST — collapsed into **J4**).
 
 ---
 
@@ -83,8 +101,8 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 | **J1** | HDMI | E-ink SPI | See [`hdmi-spi-eink.md`](hdmi-spi-eink.md) |
 | **J2** | 2 | Door sauna | |
 | **J3** | 2 | Door bathroom | |
-| **J4** | 6 | Water meters bathroom 1 | YF-B6/B10 ×2 — § 2a |
-| **J5** | 6 | Water meters bathroom 2 | YF-B6/B10 ×2 — § 2a |
+| **J4** | 8 (RJ45) | Water meters B1+B2 | Cat5 ~10 m — § 2a |
+| **J5** | — | **Unused v1** | Former water JST; collapsed into **J4** |
 | **J6** | 2 | kWh main | |
 | **J7** | 2 | kWh aux | Full-board feature |
 | **J8** | 4 | Sauna LCD buttons | Cat5 UTP — § 5 |
