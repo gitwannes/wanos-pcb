@@ -6,7 +6,7 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 **Status:** **S1** **Done** **2026-09-01** — ERC **0 errors**; **Gate-S1** next.
 
-**Shipped:** [`projects/wanos-board/wanos-board.kicad_pro`](../../projects/wanos-board/wanos-board.kicad_pro) + 8 hierarchical sheets · ERC report [`wanos-board-erc.rpt`](../../projects/wanos-board/wanos-board-erc.rpt) · product docs updated (J17 power, J41 DNP, LED values).
+**Shipped:** [`projects/wanos-board/wanos-board.kicad_pro`](../../projects/wanos-board/wanos-board.kicad_pro) + 7 hierarchical sheets · ERC report [`wanos-board-erc.rpt`](../../projects/wanos-board/wanos-board-erc.rpt) · product docs updated (J17 power, J41 DNP, LED values, 12 V monitor on **Pi_Power**).
 
 **Related:** [`board-spec.md`](../board-spec.md) · [`io-expander-map.md`](../io-expander-map.md) · [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) · [`component-selection.md`](../component-selection.md) · [`projects/wanos-board/components.xlsx`](../../projects/wanos-board/components.xlsx) · [`kicad-setup.md`](../kicad-setup.md) · Sequence → [`pipeline.md`](pipeline.md).
 
@@ -40,17 +40,19 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 | Refs | Value | Notes |
 |---|---|---|
-| **R17–R28** (activity) | **1k0** | ~1.3 mA @ 3.3 V |
-| **R29**, **R31** (status, 5 V rails) | **2k0** | ~1.5 mA @ 5 V (Vf ~2 V) |
-| **R30** (status, 12 V) | **6k8** | ~1.5 mA @ 12 V — matched brightness to **2k0** @ 5 V |
+| **R17–R24** (field activity, **`io_expanders.kicad_sch`**) | **1k0** | ~1.3 mA @ 3.3 V |
+| **R25–R28** (SSR activity, **`ssr_drivers.kicad_sch`**) | **1k0** | ~3 mA @ 5 V (**`+5VA`** → **`SSR_*`**) |
+| **R29** (status, **+5VA**) | **2k0** | ~1.5 mA @ 5 V (Vf ~2 V) |
+| **R30** (status, **+12V**) | **6k8** | ~1.5 mA @ 12 V — matched brightness to **2k0** @ 5 V |
 
 **Status LED sense:**
 
 | LED | Sense |
 |---|---|
 | **5 V in** | Post-**F1** / **`+5VA`** entry (PSU + polyfuse OK) |
-| **5 V Pi** | **`+5V-PI`** at **J40** pin **2** feed (post-**FB1**) |
-| **12 V** | **`+12VA`** at **J14** |
+| **12 V** | **`+12V`** at **J14** (external PSU input, after field temp safety) |
+
+**D25** / **R31** dropped **2026-09-02** — duplicate **`+5VA`** indicator (same rail as **D23**).
 
 **HDMI panel 5 V (locked 2026-09-01 — option 2):**
 
@@ -65,7 +67,7 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 |---|---|
 | Symbols | **A** — KiCad stock + Konnect/JLC greenfield; WISC = topology reference only |
 | **bom-targets.yaml** | Sync from `components.xlsx` where MD matches; fix xlsx drift (see below) |
-| Expander **B** P3–P5 | **10k** pull-up to 3.3 V, **no** field wire, silk **SPARE/DNP** |
+| Expander **B** P3–P5, P7 | **NC** v1 — no nets, no pull-ups; firmware output **LOW** at init |
 | **R32** (opto LED) | **1k5** |
 
 **Implement-time housekeeping (not kickoff blockers):** sync `bom-targets.yaml` + fix `components.xlsx` drift (drop **J15**, **J1** → **C6990958**, **J41** DNP, add **J17**, **F1**, **F2**, **D1/D2**); product docs (`board-spec`, `field-wiring`, …) at **S1 DoD**.
@@ -91,14 +93,14 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 
 | Sheet | Source |
 |---|---|
-| `Pi_Power` | **J17** 5 V screw in, input conditioning (**F1**, **Q6**, **D1**), **FB1**, **J40** 5 V to Pi; **J41** DNP |
-| `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) |
-| `SSR_Drivers` | Pi GPIO → R/Q → **J13** (5-pin); 12 V rail ref |
-| `Safety_12V_Mon` | U4 opto → Exp B P6; R32, R33, C17 |
+| `Pi_Power` | **J17** + **J14** screw terminals; 5 V conditioning (**F1**, **Q6**, **D1**), **FB1**, **J40**; **D3** TVS; status **D23** / **D24**; **U4** 12 V monitor → Exp B P6 (**R32**, **R33**, **C17**); **J41** DNP |
+| `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) — **U1**/**U2**, I²C pull-ups, field activity **D11–D18** / **R17–R24** |
+| `SSR_Drivers` | Pi GPIO → R/Q → **J13** (5-pin); **`+12V`** rail ref; SSR activity **D19–D22** / **R25–R28** |
 | `HDMI_SPI` | J1 — [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) |
 | `I2C_Plant` | U5 TCA9546A; **J9–J12** SHT31; **J16** LCD |
-| `Connectors` | **J2–J16** field JST per [`field-wiring.md`](../field-wiring.md) |
-| `LEDs` | Activity + status |
+| `Connectors` | Field JST **J2–J8** per [`field-wiring.md`](../field-wiring.md) |
+
+Status on **Pi_Power**; SSR activity on **SSR_Drivers**. Field input activity LEDs co-located on **IO_Expanders** (no separate **LEDs** sheet).
 
 Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konnect.
 
@@ -106,9 +108,9 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 
 - [x] Connector pin counts match [`field-wiring.md`](../field-wiring.md) (R1 Done)
 - [x] 12 V opto on **Expander B P6** only
-- [x] **R9/R10 = 2k2** I²C pull-ups; no R11–R16
+- [x] **R9/R10 = 2k2** I²C pull-ups; **R11–R13** DNP (no PCA9615); **R14–R16** on SSR sheet
 - [x] TCA9546A @ **0x70**; four SHT31 channels **J9–J12**
-- [x] Four SSR field strings + **Q5** master safety + Pi GPIO net names match **R2** BCM table
+- [x] Four SSR field strings + **Q5** safety gate + **R16** **`SAFETY_BUS`** pull-up; Pi GPIO net names match **R2** BCM table
 - [x] PCA9554 A0–A2 tied; unique I²C addresses
 - [x] HDMI nets named per hdmi-spi-eink doc
 
@@ -125,7 +127,21 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 
 **Accepted warnings:** `endpoint_off_grid`, `unconnected_wire_endpoint`, `isolated_pin_label` on global labels / cosmetic routing.
 
-**Post-implement fix:** **J13 pin 1** restored to **GND** (was briefly tied to **+12VA** during ERC pass — corrected per [`field-wiring.md`](../field-wiring.md) § 6).
+**Post-implement fix:** **J13 pin 1** restored to **GND** (was briefly tied to **+12V** during ERC pass — corrected per [`field-wiring.md`](../field-wiring.md) § 6).
+
+**2026-09-02:** **`safety_12v_mon.kicad_sch`** merged into **`pi_power.kicad_sch`** (**U4**, **R32**–**R33**, **C17**); status LEDs **D23** / **D24** on **Pi_Power**; net name **`+12V`** (not **`+12VA`**) for external 12 V input; **J14** + **D3** TVS moved to **Pi_Power** (off **Connectors**).
+
+**2026-09-02:** Re-run ERC + netlist after **`leds.kicad_sch`** removal and Exp B **NC** cleanup — [`wanos-board-erc.rpt`](../../projects/wanos-board/wanos-board-erc.rpt) on disk may still list the old **LEDs** sheet.
+
+**2026-09-02:** **`leds.kicad_sch`** removed from root hierarchy (**`wanos-board.kicad_sch`** / **`wanos-board.kicad_pro`**); file deleted.
+
+**2026-09-02:** Expander **B** P3–P5, P7 → **NC** (dropped **`UI_*`** nets and **R34**–**R36**).
+
+**2026-09-02:** Field input activity LEDs **D11–D18** / **R17–R24** moved from **`leds.kicad_sch`** to **`io_expanders.kicad_sch`** (with **U1**/**U2**); **`leds.kicad_sch`** sheet dropped from hierarchy.
+
+**2026-09-02:** SSR activity LEDs **D19–D22** / **R25–R28** moved from **`leds.kicad_sch`** to **`ssr_drivers.kicad_sch`** (cathodes on **`SSR_*`** nets).
+
+**2026-09-02:** **`io_expanders.kicad_sch`** rework — PCA9554 address straps (**U1** `0x20`, **U2** `0x21`); **C3**/**C4** per-chip VCC decoupling; **C5** dropped (redundant). See [`io-expander-map.md`](../io-expander-map.md) § 1 / § 6.
 
 **Footprint follow-up (L1 / Gate-S1):** **Q1–Q5** SSR drivers SOT-23; pi-power **Q6** ideal diode + **F1** polyfuse + **C1/D1** SMD (**2026-09-02**).
 

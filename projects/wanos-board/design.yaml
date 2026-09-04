@@ -29,16 +29,16 @@ rails:
     notes: From Pi
   - name: SSR_12V
     voltage: 12.0
-    notes: J14 after external safety; monitored U4
+    notes: J14 +12V after external safety; monitored U4 on pi_power
   - name: GND
     voltage: 0
 
 blocks:
   - id: pi_power
-    description: J17 5V screw in, WISC conditioning, FB1, J40 5V to Pi; J41 DNP
+    description: J17 + J14 screw terminals; 5V conditioning, D3 TVS, FB1, J40; status D23/D24; U4 12V monitor; J41 DNP
     doc: docs/gpio-interface.md
   - id: io_expanders
-    description: PCA9554PW x2 — doors, meters, kWh, buttons, 12V mon; INT NC
+    description: PCA9554PW x2 — doors, meters, kWh, buttons, field activity LEDs, 12V mon; INT NC
     doc: docs/io-expander-map.md
   - id: sht31_plant
     description: TCA9546A mux — 4x SHT31 @ 0x44, 4x 4-pin Cat5 ~4-5m
@@ -46,9 +46,6 @@ blocks:
   - id: ssr_drivers
     description: Pi GPIO -> PN2222A x4 -> J13 5-pin; safety BCM4 on-board
     doc: docs/external-plant.md
-  - id: safety_12v_mon
-    description: Optocoupler -> Expander B P6
-    doc: docs/io-expander-map.md
   - id: eink_hdmi_spi
     description: Molex 208658-1052 J1 — SPI per hdmi-spi-eink.md
     doc: docs/hdmi-spi-eink.md

@@ -16,7 +16,7 @@ Off-board wiring for sauna **12 V DC plant**, **DIN SSRs**, and independent **te
 |---|---|
 | **12 V PSU** | Sauna SSR **coil** supply (not Pi logic) |
 | **Temp safety** | Independent hardware — **cuts 12 V** on overtemperature; **not** controlled by WanOS |
-| **wanos PCB** | Monitors 12 V presence (opto → expander); drives SSR coils via **J13**; **master safety** on-board GPIO |
+| **wanos PCB** | Monitors 12 V (opto **U4**); drives **4×** SSR coil returns via **J13**; **BCM 4** on-board safety gate (**Q5**) |
 | **4× DIN SSR** | Switch **mains** heater / IR loads — **not** on PCB |
 
 ---
@@ -32,11 +32,11 @@ Off-board wiring for sauna **12 V DC plant**, **DIN SSRs**, and independent **te
 | Sauna phase **U** | 4 | Heater phase U |
 | **IR** relay | 5 | IR / auxiliary heater |
 
-**J13 pin 1** = **GND** (control return). Pinout matches WISC 2.5.3 **J1** — see [`field-wiring.md`](field-wiring.md) § 6.
+**J13 pin 1** = **GND** (control return). Pinout → [`field-wiring.md`](field-wiring.md) § 6.
 
 ### Coil wiring (DC 12 V)
 
-- **Coil +** (all four modules): common **+12VA** from PCB (same rail as **J14** after field safety).
+- **Coil +** (all four modules): common **`+12V`** from PCB (same rail as **J14** after field safety).
 - **Coil −** (each module): individual return via **J13** pins 2–5 — PCB sinks current through **PN2222A** when the matching Pi GPIO is active.
 - Coil rating **12–24 V DC** — site uses **12 V** plant.
 
@@ -44,29 +44,33 @@ Off-board wiring for sauna **12 V DC plant**, **DIN SSRs**, and independent **te
 
 - Mains connections **only** at SSR **load** terminals — qualified installer; **no mains** on wanos PCB.
 
-### Master safety (on-board)
+### On-board safety gate (BCM 4)
 
-**BCM 4** drives the **master safety** SSR path on the PCB (not routed to **J13**). External G3PJ modules are the **four field channels** on J13 pins 2–5.
+WanOS **arms** the four field SSR drivers by asserting **BCM 4** high. That turns **Q5** on and pulls the shared **`SAFETY_BUS`** (emitters of **Q1–Q4**) toward **GND**, so the field GPIOs can sink coil current when active.
+
+- **R16** (10 kΩ **`+5VA`** → **`SAFETY_BUS`**) holds the bus high when **Q5** is off.
+- There is **no** fifth G3PJ module and **no** safety coil net on **J13**.
+- Independent **12 V** hard-lock: external temp safety + opto **U4** on **`pi_power`** (§ 3) — separate from **BCM 4** / **Q5**.
 
 ---
 
 ## 3. 12 V plant — J14
 
-**J14** — **KF301-2P** screw terminal.
+**J14** — **KF301-2P** screw terminal on **`pi_power.kicad_sch`** (with **D3** TVS at entry).
 
 | Pin | Signal |
 |----:|--------|
-| **1** | **+12VA** — 12 V **after** external temp safety |
+| **1** | **`+12V`** — 12 V **after** external temp safety |
 | **2** | **GND** — 12 V return |
 
 ### Field wiring
 
 ```text
-PSU (+) ---> [external temp safety - NC] ---> J14-1 (+12VA)
+PSU (+) ---> [external temp safety - NC] ---> J14-1 (+12V)
 PSU (-)  -----------------------------------> J14-2 (GND)
 ```
 
-When safety opens, **+12VA** at **J14** falls to **0 V** → opto **U4** → **EXP_B_P6** → WanOS **hard-lock** (Pi / 5 V stay up).
+When safety opens, **`+12V`** at **J14** falls to **0 V** → opto **U4** on **`pi_power`** → **EXP_B_P6** → WanOS **hard-lock** (Pi / 5 V stay up).
 
 ---
 
@@ -112,4 +116,4 @@ PCB in **low-voltage control cabinet** (not in hot steam zone). **No** conformal
 
 - [`grounding.md`](grounding.md)
 - [`gpio-interface.md`](gpio-interface.md)
-- WISC reference → [`reference/wisc-board/`](reference/wisc-board/)
+- Legacy production reference → [`reference/wisc-board/`](reference/wisc-board/) (intent / migration only)

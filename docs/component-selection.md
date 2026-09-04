@@ -16,7 +16,7 @@ Verified JLCPCB-compatible parts for **wanos-pcb-v1**, aligned with [`board-spec
 |---|---:|---|
 | **B2B-XH-A** | 2 | Doors **J2–J3**, kWh **J6–J7** |
 | **B4B-XH-A** | 4 | Buttons **J8**, SHT31 **J9–J12**, LCD **J16** |
-| **B5B-XH-A** | 5 | SSR **J13** (WISC J1 parity, vertical) |
+| **B5B-XH-A** | 5 | SSR **J13** (vertical) |
 | **B6B-XH-A** | 6 | Water **J4–J5** |
 
 **KiCad footprints (vertical):**
@@ -32,7 +32,7 @@ Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical
 
 ## 2. Screw terminals (12 V)
 
-- **KF301-2P** — **J14** only (**J15** dropped R2)
+- **KF301-2P** — **J14** (12 V in) and **J17** (5 V in); both on **`pi_power.kicad_sch`**
 
 Footprint: `TerminalBlock_Phoenix_MKDS-2-5.08_1x02`.
 
@@ -64,7 +64,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 
 | Part | Ref | Role |
 |---|---|---|
-| **PN2222A-TA** × 5 | Q1–Q5 | SSR drivers + master safety (SOT-23) |
+| **PN2222A-TA** × 5 | Q1–Q5 | SSR field drivers + safety gate **Q5** (SOT-23) |
 | **PC817A** SMD | U4 | 12 V opto |
 | **SMBJ12A** | D3 | 12 V TVS (SMD SMB) — [`smbj12a.pdf`](reference/datasheets/smbj12a.pdf) |
 | **BZT52C5V6** | D1 | 5 V overvoltage clamp (SMD SOD-123, shunt to GND) — family ref [`bzx85c.pdf`](reference/datasheets/bzx85c.pdf) |
@@ -80,16 +80,23 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 
 | Ref | Value | Role |
 |---|---|---|
-| **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups (4–5 m Cat5 @ 100 kHz) |
-| R1–R4 | 470 Ω | SSR base |
-| R5–R8 | 10k | SSR pulldown |
-| R17–R28 | **1k0** | Activity LEDs |
-| R29, R31 | **2k0** | Status LEDs (5 V rails) |
-| R30 | **6k8** | Status LED (12 V) |
+| **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups on **`io_expanders.kicad_sch`** (4–5 m Cat5 @ 100 kHz) |
+| **C3**, **C4** | 100 nF | PCA9554 VCC decoupling (**U1**, **U2** on **`io_expanders.kicad_sch`**) |
+| **C6**, **C7** | 100 nF | TCA9546A VCC decoupling (**U5** on **`i2c_plant.kicad_sch`**) |
+| R1–R4 | 470 Ω | SSR field base (**Q1–Q4**) |
+| R5–R8 | 10 kΩ | SSR field base pulldown (base → emitter / **`SAFETY_BUS`**) |
+| **R14** | 470 Ω | **Q5** base (**GPIO_SSR_SAFETY**) |
+| **R15** | 10 kΩ | **Q5** base pulldown → **GND** |
+| **R16** | 10 kΩ | **`SAFETY_BUS`** pull-up → **`+5VA`** |
+| C8–C12 | 100 nF | SSR driver decoupling (C–E per **Q1–Q5**) |
+| R17–R24 | **1k0** | Field input activity LEDs (**`io_expanders.kicad_sch`**, **`+3V3`**) |
+| R25–R28 | **1k0** | SSR activity LEDs (**`ssr_drivers.kicad_sch`**, **`+5VA`** → **`SSR_*`**) |
+| R29 | **2k0** | Status LED (**+5VA**) |
+| R30 | **6k8** | Status LED (**+12V**) |
 | R32 | **1k5** | Opto LED |
 | R33 + C17 | 10k + 100 nF | Opto RC (optional) |
 
-**Not populated v1:** R11–R16 (removed — no PCA9615 segment).
+**Not populated v1:** **R11–R13** (PCA9615 segment removed).
 
 ---
 

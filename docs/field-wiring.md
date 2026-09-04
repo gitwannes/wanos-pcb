@@ -6,6 +6,8 @@ Locked **R1** (2026-09-01) + **R2** (2026-09-01). Canonical electrical behaviour
 
 **WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
 
+**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J8** → **`connectors.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Field input activity LEDs **D11–D18** / **R17–R24** → **`io_expanders.kicad_sch`** (with **U1**/**U2**).
+
 ---
 
 ## 1. Standard 4-pin I²C JST (XH)
@@ -50,10 +52,10 @@ Used on **J2–J3** (doors), **J6–J7** (kWh). Matches WISC 2.5.3 production pr
 | **J10** | 4 | SHT31 cinema | Mux **ch 1** |
 | **J11** | 4 | SHT31 sauna mid | Mux **ch 2** |
 | **J12** | 4 | SHT31 sauna high | Mux **ch 3** |
-| **J13** | 5 | SSR field (WISC J1 class) | § 6 |
-| **J14** | 2 | 12 V in (KF301) — post-safety **+12VA** + GND | § 9 |
+| **J13** | 5 | SSR field | § 6 |
+| **J14** | 2 | 12 V in (KF301) — **`+12V`** + GND · schematic: **`pi_power`** | § 9 |
 | **J16** | 4 | LCD I²C (both screens) | § 4 |
-| **J17** | 2 | **5 V screw in** (KF301) — external PSU + / GND | § 10 |
+| **J17** | 2 | **5 V screw in** (KF301) — external PSU + / GND · schematic: **`pi_power`** | § 10 |
 | **J40** | 40 | Pi header | |
 | **J41** | — | USB-C | **DNP v1** |
 
@@ -86,27 +88,31 @@ Leave Orange, Green, Blue solids unconnected (or tie to GND at PCB end only).
 
 ---
 
-## 6. SSR — J13 (5-pin, WISC parity)
+## 6. SSR — J13 (5-pin field header)
 
-WISC production **J1**: **B5B-XH-A 1×05 vertical**. Pin 1 = **GND**; pins 2–5 = SSR drive lines to external DIN SSR opto inputs.
+**Connector:** **B5B-XH-A 1×05** vertical on **`ssr_drivers.kicad_sch`**.
 
-| Pin | WISC net (reference) | wanos channel |
+| Pin | Signal | wanos channel |
 |---:|---|---|
-| **1** | GND | GND |
-| **2** | SSR phase 3 | Sauna phase W |
-| **3** | SSR phase 2 | Sauna phase V |
-| **4** | SSR phase 1 | Sauna phase U |
-| **5** | SSR IR | IR relay |
+| **1** | **GND** | Control return |
+| **2** | `SSR_PHASE_W` | Sauna phase W |
+| **3** | `SSR_PHASE_V` | Sauna phase V |
+| **4** | `SSR_PHASE_U` | Sauna phase U |
+| **5** | `SSR_IR` | IR relay |
 
-**Safety (master)** is driven on-board (**BCM 4**) — not on this 5-pin field header (same as WISC).
+**Safety gate:** **BCM 4** → on-board **Q5** / **`SAFETY_BUS`** — **not** on this header. See [`board-spec.md`](board-spec.md) § 4.1.
+
+**Harness reuse:** a legacy 5-pin SSR tail may plug in if its pinout matches this table ([`external-plant.md`](external-plant.md) § 5).
 
 ---
 
 ## 9. 12 V input — J14 (KF301-2P)
 
+Schematic: **`pi_power.kicad_sch`** (with **D3** SMBJ12A TVS at entry).
+
 | Pin | Signal |
 |----:|--------|
-| **1** | **+12VA** — after external temp safety |
+| **1** | **`+12V`** — after external temp safety |
 | **2** | **GND** |
 
 Detail → [`external-plant.md`](external-plant.md) § 3.
@@ -114,6 +120,8 @@ Detail → [`external-plant.md`](external-plant.md) § 3.
 ---
 
 ## 10. 5 V input — J17 (KF301-2P)
+
+Schematic: **`pi_power.kicad_sch`**.
 
 | Pin | Signal |
 |----:|--------|

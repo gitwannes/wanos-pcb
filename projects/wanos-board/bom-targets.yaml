@@ -28,7 +28,7 @@ parts:
     mpn: PN2222A-TA
     lcsc: C181091
     footprint: Package_TO_SOT_SMD:SOT-23
-    role: SSR drivers + master safety
+    role: SSR field drivers Q1-Q4 + safety gate Q5
   - ref: J1
     mpn: Molex 208658-1052
     lcsc: C6990958
@@ -86,7 +86,17 @@ parts:
   - ref: R9-R10
     mpn: 2k2
     lcsc: C17513
-    role: I2C pull-ups
+    role: I2C pull-ups (io_expanders.kicad_sch)
+  - ref: C3-C4
+    mpn: 100nF
+    lcsc: C49678
+    footprint: Capacitor_SMD:C_0805_2012Metric
+    role: PCA9554 VCC decoupling U1-U2 (io_expanders.kicad_sch)
+  - ref: C6-C7
+    mpn: 100nF
+    lcsc: C49678
+    footprint: Capacitor_SMD:C_0805_2012Metric
+    role: TCA9546A VCC decoupling U5 (i2c_plant.kicad_sch)
   - ref: R1-R4
     mpn: 470R
     lcsc: C17477
@@ -94,11 +104,32 @@ parts:
   - ref: R5-R8
     mpn: 10k
     lcsc: C17414
-    role: SSR pulldown
-  - ref: R17-R28
+    role: SSR field base pulldown
+  - ref: R14
+    mpn: 470R
+    lcsc: C17477
+    role: Q5 safety gate base
+  - ref: R15
+    mpn: 10k
+    lcsc: C17414
+    role: Q5 base pulldown
+  - ref: R16
+    mpn: 10k
+    lcsc: C17414
+    role: SAFETY_BUS pull-up to +5VA
+  - ref: C8-C12
+    mpn: 100nF
+    lcsc: C49678
+    footprint: Capacitor_SMD:C_0805_2012Metric
+    role: SSR driver C-E decoupling per Q1-Q5
+  - ref: R17-R24
     mpn: 1k0
     lcsc: C17513
-    role: Activity LEDs
+    role: Field input activity LEDs (io_expanders.kicad_sch)
+  - ref: R25-R28
+    mpn: 1k0
+    lcsc: C17513
+    role: SSR activity LEDs (ssr_drivers.kicad_sch)
   - ref: R29
     mpn: 2k0
     lcsc: C17513
@@ -107,10 +138,6 @@ parts:
     mpn: 6k8
     lcsc: C17607
     role: Status LED 12 V
-  - ref: R31
-    mpn: 2k0
-    lcsc: C17513
-    role: Status LED 5 V Pi
   - ref: R32
     mpn: 1k5
     lcsc: C22843
@@ -119,14 +146,12 @@ parts:
     mpn: 10k
     lcsc: C17414
     role: Opto pull-up
-  - ref: R34-R36
-    mpn: 10k
-    lcsc: C17414
-    role: Exp B P3-P5 pull-ups (DNP field)
 
 notes:
   - "R1 + R2 closed 2026-09-01 — see docs/todo/_archive/phaseR-requirements.md"
   - "J17 5V screw in; J2-J16 connector map in field-wiring.md; J15 dropped R2; J41 DNP v1"
   - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
+  - "PCA9554 decoupling C3/C4 on io_expanders; C5 dropped; U5 C6/C7 on i2c_plant"
+  - "Exp B P3-P5 P7 NC v1; R34-R36 dropped"
   - "LCSC codes are targets — validate stock at J1 order time"
   - "Datasheets: docs/reference/datasheets/ (14/15 on disk; J41 DNP — usb-c-j41.pdf N/A v1)"

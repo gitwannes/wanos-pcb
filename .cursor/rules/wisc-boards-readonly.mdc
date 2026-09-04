@@ -18,7 +18,7 @@ This applies even when the operator has a WISC board **open in KiCad** or asks t
 - **Read** schematics, PCB, gerbers, and libraries for analysis
 - **Konnect / file reads** against these paths (e.g. `get_project_info`, `open_project`, `get_board_info` with `source: file`)
 - **Document** findings in product docs (`docs/*.md` outside `reference/wisc-board/`) or pipeline docs (`docs/todo/`)
-- **Copy patterns** into `projects/wanos-board/` only after an explicit **`implement`** / **`ship`** / **`patch`** command on wanos-pcb-v1 work
+- **Copy patterns** into `projects/wanos-board/` only after an explicit **`implement`** / **`ship`** / **`patch`** command on wanos-pcb-v1 work — and only when locked in wanos product docs, not because WISC does it that way ([`wanos-greenfield-wisc-intent.mdc`](wanos-greenfield-wisc-intent.mdc))
 
 ## Where new design lives
 

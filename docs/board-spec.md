@@ -54,9 +54,9 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 
 ### 2.2 12 V monitoring (R1 lock)
 
-Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
+Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P6_12V_MON`).
 
-- 12 V → **R32 1k5** → optocoupler LED
+- 12 V (**`+12V`** at **J14**) → **R32 1k5** → optocoupler LED
 - Transistor → pull-up to 3.3 V → **Expander B pin P6**
 - Optional RC: 10 kΩ + 100 nF
 - Part: **PC817A** class (see [`reference/datasheets/pc817a.pdf`](reference/datasheets/pc817a.pdf))
@@ -75,7 +75,7 @@ Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 ### 3.2 Water meters — bathroom 1 and 2
 
 - **J4**, **J5** — 6-pin JST each (cold + hot)
-- **Expander A** P2–P5; activity LEDs **1k0** (R17–R28)
+- **Expander A** P2–P5; activity LEDs **1k0** (**R17–R24** on **`io_expanders.kicad_sch`**)
 
 ### 3.3 kWh counters (main + aux)
 
@@ -100,12 +100,38 @@ Optocoupler (**U4**) → **Expander B P6** (`EXP_B_P6_12V_MON`).
 
 ## 4. Outputs
 
-### 4.1 SSR channels (4×)
+### 4.1 SSR channels (4× field + on-board safety gate)
 
-- 3 sauna phases + 1 IR
-- **Pi GPIO** → 470 Ω → **PN2222A** (**Q1–Q4** field, **Q5** master safety BCM4) → external SSR
-- **J13** — **5-pin** JST vertical (**WISC J1** parity); pin **1** = **GND**
-- 12 V SSR opto supply; software PWM ~1–5 Hz on sauna phases
+**External:** 4× **Omron G3PJ-225B** DIN SSRs — coil **+** common **`+12V`**, coil **−** per channel via **J13** pins 2–5 ([`external-plant.md`](external-plant.md)). **No** fifth external SSR.
+
+**On-board drivers** (`ssr_drivers.kicad_sch`):
+
+| Ref | Role | BCM |
+|---|---|---:|
+| **Q5** | Safety gate — arms field drivers when on | **4** |
+| **Q4** | IR coil return | **14** |
+| **Q3** | Sauna phase U | **15** |
+| **Q2** | Sauna phase V | **17** |
+| **Q1** | Sauna phase W | **18** |
+
+**Hardware safety interlock** (not a fifth SSR coil):
+
+- **Q5** (**PN2222A**): emitter **GND**, collector **`SAFETY_BUS`** (shared with **Q1–Q4** emitters).
+- **Q1–Q4**: emitters on **`SAFETY_BUS`**; collectors on **`SSR_*`** → **J13** pins 2–5.
+- **BCM 4** high → **Q5** on → **`SAFETY_BUS`** pulled toward GND → field GPIOs can sink coil current.
+- **BCM 4** low → **`SAFETY_BUS`** floats high via **R16** (10 kΩ to **`+5VA`**) → field drivers cannot energize coils even if GPIO 14/15/17/18 are high.
+- **R14** 470 Ω (**GPIO_SSR_SAFETY** → **Q5** base), **R15** 10 kΩ base pulldown to **GND**.
+- **No** on-board activity LED on the safety path (§ 5).
+
+**Field channels:** **Pi GPIO** → **R1–R4** 470 Ω → **Q1–Q4** bases; **R5–R8** 10 kΩ base–emitter on each channel.
+
+**J13** — **5-pin** JST vertical (**B5B-XH-A**); pin **1** = **GND** — [`field-wiring.md`](field-wiring.md) § 6.
+
+**Decoupling:** **C8–C12** 100 nF collector–emitter per **Q1–Q5**.
+
+**SSR activity LEDs:** **D19–D22** / **R25–R28** on this sheet (§ 5.3).
+
+12 V SSR opto supply; software PWM ~1–5 Hz on sauna phases.
 
 ### 4.2 E-ink (HDMI → SPI)
 
@@ -128,28 +154,43 @@ See [`hdmi-spi-eink.md`](hdmi-spi-eink.md). Panel **+5 V** (HDMI pin **18**) via
 
 ## 5. Indicator LEDs
 
-**15** visible indicators (3 status + 12 activity). **No** activity LED on **master safety** SSR (BCM 4). **Four** SSR activity LEDs (**IR** + phases **U/V/W**) on **J13** channels.
+**14** visible indicators (2 status + 12 activity). **No** activity LED on the **BCM 4** / **Q5** safety path. **Four** SSR activity LEDs (**IR** + phases **U/V/W**) on **J13** channels.
 
 ### 5.1 Status (dim)
 
-Resistors: **R29**, **R31** = **2k0** (5 V rails); **R30** = **6k8** (12 V — matched brightness).
+On **`pi_power.kicad_sch`**. Resistors: **R29** = **2k0** (**+5VA**); **R30** = **6k8** (**+12V** — matched brightness).
 
 | LED | Indicates |
 |---|---|
 | 5 V in | **`+5VA`** post-**F1** (PSU + polyfuse OK; self-resets after overcurrent) |
-| 12 V | **+12VA** at **J14** |
-| 5 V Pi | **`+5V-PI`** at **J40** pin **2** (post-**FB1**) |
+| 12 V | **`+12V`** at **J14** (external PSU input, after field temp safety) |
 
-### 5.2 Activity
+**D25** dropped — was a duplicate **`+5VA`** indicator (same rail as **D23**).
 
-Resistors **R17–R28** = **1k0**.
+### 5.2 Field input activity (`io_expanders.kicad_sch`)
 
-| Group | Count | Signals |
-|---|---:|---|
-| Doors | 2 | J2 sauna, J3 bathroom |
-| Water B1 / B2 | 4 | J4–J5 cold + hot |
-| kWh | 2 | J6 main, J7 aux |
-| SSR (J13) | 4 | IR, phase U, V, W |
+**Eight** LEDs (**D11–D18**), resistors **R17–R24** = **1k0**, anode on **`+3V3`**, cathode on expander input nets.
+
+| Group | Count | LEDs | Signals |
+|---|---:|---|---|
+| Doors | 2 | D11, D12 | J2 sauna, J3 bathroom |
+| Water B1 / B2 | 4 | D13–D16 | J4–J5 cold + hot |
+| kWh | 2 | D17, D18 | J6 main, J7 aux |
+
+### 5.3 SSR activity (`ssr_drivers.kicad_sch`)
+
+**Four** LEDs (**D19–D22**), resistors **R25–R28** = **1k0** (target **2k0** when all indicators move to **`+5VA`** — see § 5.1), anode on **`+5VA`**, cathode on **`SSR_*`** (12 V coil-return domain).
+
+| LED | R | Net | Driver |
+|---|---|---|---|
+| D22 | R28 | `SSR_IR` | **Q4** |
+| D21 | R27 | `SSR_PHASE_U` | **Q3** |
+| D20 | R26 | `SSR_PHASE_V` | **Q2** |
+| D19 | R25 | `SSR_PHASE_W` | **Q1** |
+
+When the driver is off, the LED can see **~7 V reverse** (12 V net vs 5 V rail). Typical 0805 indicators are specced under **5 V** reverse — field risk is **indicator failure only**, not SSR switching.
+
+**Further revisions (optional):** add a **series reverse-blocking diode** (e.g. 1N4148 class, SOD-123) in each SSR activity string **only if** bring-up or field use shows LED degradation or failures. **Not required for v1.**
 
 ---
 
@@ -158,12 +199,15 @@ Resistors **R17–R28** = **1k0**.
 ### 6.1 I²C
 
 - **PCA9554PW × 2**, **TCA9546A**, **J16** LCD tap on **local bus**
-- Pull-ups: **2k2** on **SCL** and **SDA** only (**R9**, **R10**)
+- Pull-ups: **2k2** on **SCL** and **SDA** only (**R9**, **R10** on **`io_expanders.kicad_sch`**)
+- VCC decoupling: **C3**/**C4** (PCA9554 **U1**/**U2**), **C6**/**C7** (**U5** mux) — [`io-expander-map.md`](io-expander-map.md) § 6
 - **100 kHz**; keep I²C away from SSR/12 V zone
 
 ### 6.2 SSR area
 
-- 100 nF near each PN2222A; ferrite on Pi 5 V; **SMBJ12A** on 12 V input
+- **C8–C12:** 100 nF across collector–emitter of each **Q1–Q5**
+- **R16:** 10 kΩ **`+5VA`** → **`SAFETY_BUS`** (field-driver emitter rail)
+- Ferrite on Pi 5 V; **SMBJ12A** on 12 V input
 
 ### 6.3 Safety
 
@@ -179,7 +223,7 @@ Resistors **R17–R28** = **1k0**.
 | **Left** | Pi **J40**, HDMI **J1**, **J17** 5 V screw |
 | **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, decoupling |
 | **Right** | **J2–J8** field inputs, activity LEDs |
-| **Bottom** | **J14** 12 V, **J13** SSR, Q1–Q4, U4 opto, TVS |
+| **Bottom** | **J14** 12 V (**pi_power**), **J13** SSR, **Q1–Q5**, SSR activity **D19–D22**, **U4** opto, **D3** TVS |
 | **Center** | Routing keep-out; lock HDMI before Freerouting |
 
 Silkscreen font → [`reference/silkscreen/README.md`](reference/silkscreen/README.md).

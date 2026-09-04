@@ -1,0 +1,40 @@
+---
+description: wanos-pcb-v1 is greenfield; WISC is intent/history only, not implementation authority
+alwaysApply: true
+---
+
+# wanos greenfield vs WISC reference
+
+**wanos-pcb-v1** (`projects/wanos-board/`) is a **new** carrier design. It is **not** a spin of the WISC PCB and must not be documented or implemented as "match WISC schematic/net-by-net."
+
+## WISC (`docs/reference/wisc-board/`)
+
+Use WISC **only** for:
+
+- **Intent** — what the deployed system does (e.g. four DIN SSR channels, BCM 4 arms outputs, independent 12 V temp cutout).
+- **Migration** — harness reuse, operator cutover, historical GPIO names in WanOS today.
+- **Read-only analysis** — see [`.cursor/rules/wisc-boards-readonly.mdc`](wisc-boards-readonly.mdc).
+
+Do **not** use WISC as authority for:
+
+- Schematic topology, ref designators, part values, or net names on wanos.
+- "Parity" wording that implies copying WISC implementation (prefer **wanos** channel / connector tables).
+- KiCad symbol orientation, footprint choice, or passives count on wanos.
+- Doc statements like "same as WISC" / "WISC parity" when describing **how** wanos works — use **wanos-pcb-v1** product docs and the shipped schematic instead.
+
+## Canonical sources for wanos behaviour
+
+| Topic | Home |
+|---|---|
+| Electrical behaviour, SSR interlock, R16 | [`docs/board-spec.md`](../docs/board-spec.md), [`docs/external-plant.md`](../docs/external-plant.md), [`docs/grounding.md`](../docs/grounding.md) |
+| Connector pinouts | [`docs/field-wiring.md`](../docs/field-wiring.md) |
+| BCM / software | [`docs/gpio-interface.md`](../docs/gpio-interface.md) |
+| KiCad sources | `projects/wanos-board/` |
+
+When WISC and wanos differ, **wanos docs + schematic win**. Note migration impact in product docs only when operator-visible.
+
+## Agent behaviour
+
+- Reviews, triage, and implementation: cite **wanos** paths and product docs first.
+- Mention WISC only when explaining **legacy intent** or **field migration**, with a clear label (e.g. "legacy production reference").
+- Do not recommend changes to wanos solely because WISC does something differently unless the operator locks that as a requirement.

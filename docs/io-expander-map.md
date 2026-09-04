@@ -20,13 +20,30 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 
 **Not on v1:** PCA9615 differential driver (**U3** omitted).
 
+**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **R9**/**R10**, **R17**–**R24**, **D11**–**D18**, **C3**/**C4**. **TCA9546A** (**U5**) + **C6**/**C7** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
+
+### PCA9554 address straps (hardware pins — not GPIO)
+
+Address = `0x20 + (A2<<2) + (A1<<1) + A0`. **Direct tie** to **`+3V3`** or **GND** — no address pull resistors on v1.
+
+| IC | I²C addr | Pin 1 (A0) | Pin 2 (A1) | Pin 3 (A2) |
+|---|---|---|---|---|
+| **U1** | `0x20` | GND | GND | GND |
+| **U2** | `0x21` | **`+3V3`** | GND | GND |
+
+| Pin | Both ICs |
+|---|---|
+| **8** | GND |
+| **9** (INT) | **NC** v1 — polled I²C only |
+| **16** (VCC) | **`+3V3`** + **100 nF** to GND (**C3** @ U1, **C4** @ U2) |
+
 ---
 
 ## 2. PCA9554PW — Expander A (meters + doors + kWh)
 
-**Part:** `U1` — PCA9554PW (TSSOP-16)  
-**Power:** VCC = 3.3 V; GND  
-**I²C address:** `0x20` (U1 — A0–A2 = low)
+**Part:** `U1` — PCA9554PW (TSSOP-16) on **`io_expanders.kicad_sch`**  
+**Power:** pin **16** → **`+3V3`** (**C3** 100 nF); pin **8** → GND  
+**I²C address:** `0x20` (A0–A2 = low — § 1)
 
 | Pin | Net | Field |
 |---|---|---|
@@ -39,29 +56,53 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 | P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) |
 | P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) |
 
-**Per-input hardware:** 100 nF debounce; activity LED 220–330 Ω where specified in [`board-spec.md`](board-spec.md).
+**Per-input hardware:** 100 nF debounce (target — see [`board-spec.md`](board-spec.md)); activity LED **1k0** (**R17**–**R24**, **D11**–**D18**) on this sheet — **`+3V3`** → resistor → LED → expander GPIO. The LED string biases the line high when the field input is idle (no separate 10 kΩ on used Exp A pins).
+
+### Field input activity LEDs (same sheet)
+
+| Refs | Value | Nets |
+|---|---|---|
+| **D11**–**D12**, **R17**–**R18** | 1k0 | **J2** sauna door, **J3** bathroom door |
+| **D13**–**D16**, **R19**–**R22** | 1k0 | **J4**–**J5** water cold + hot |
+| **D17**–**D18**, **R23**–**R24** | 1k0 | **J6** kWh main, **J7** kWh aux |
+
+Status LEDs (**D23**/**D24**) stay on **`pi_power.kicad_sch`**; SSR activity (**D19**–**D22**) on **`ssr_drivers.kicad_sch`**.
 
 ---
 
 ## 3. PCA9554PW — Expander B (buttons + 12 V monitor)
 
-**Part:** `U2` — PCA9554PW (TSSOP-16)  
-**I²C address:** `0x21` (U2 — A0 = high, A1–A2 = low)
+**Part:** `U2` — PCA9554PW (TSSOP-16) on **`io_expanders.kicad_sch`**  
+**Power:** pin **16** → **`+3V3`** (**C4** 100 nF); pin **8** → GND  
+**I²C address:** `0x21` (A0 = high, A1–A2 = low — § 1)
 
 | Pin | Net | Field |
 |---|---|---|
 | P0 | `EXP_B_P0_BTN1` | Sauna LCD button 1 (**J8**) |
 | P1 | `EXP_B_P1_BTN2` | Sauna LCD button 2 (**J8**) |
 | P2 | `EXP_B_P2_BTN3` | Sauna LCD button 3 (**J8**) |
-| P3 | `EXP_B_P3_UI_READY` | Spare — **DNP** v1 |
-| P4 | `EXP_B_P4_UI_ERROR` | Spare — **DNP** v1 |
-| P5 | `EXP_B_P5_UI_LED` | Spare — **DNP** v1 |
+| P3 | — | **NC** v1 |
+| P4 | — | **NC** v1 |
+| P5 | — | **NC** v1 |
 | P6 | `EXP_B_P6_12V_MON` | **12 V opto monitor (U4)** — safety-critical |
-| P7 | `EXP_B_P7_SPARE` | Spare |
+| P7 | — | **NC** v1 |
 
-**Buttons:** Pull-up to 3.3 V; switch to GND when pressed; software debounce.
+**Buttons:** Active-low to **GND** when pressed (**J8**). Target: **10 kΩ** pull-up to **`+3V3`** per button input — confirm on schematic before sign-off.
 
-**INT pin:** **Not connected** on v1 (polled I²C only).
+**Unused GPIO (P3, P4, P5, P7):** hardware **NC** — no nets, no pull resistors. Firmware: configure as **output LOW** at PCA9554 init (see [`gpio-interface.md`](gpio-interface.md)).
+
+### 3.1 Pull-up strategy (why not every pin?)
+
+| Pin group | Pull bias | Why |
+|---|---|---|
+| **I²C** SCL/SDA | **R9**/**R10** 2k2 | Bus requirement — not GPIO |
+| **Exp A** P0–P7 (field) | **R17**–**R24** + LED to **`+3V3`** | ~1 kΩ path holds line high when field is open; pulse/door active-low |
+| **Exp B** P0–P2 (buttons) | **10 kΩ** target (see buttons note) | Switch shorts to **GND** when pressed |
+| **Exp B** P6 (12 V mon) | **R33** on **`pi_power.kicad_sch`** | Opto open-collector output |
+| **Exp B** P3–P5, P7 | **NC** — no hardware bias | Unused; firmware drives **LOW** as output |
+| Address **A0–A2** | Direct **GND** / **`+3V3`** tie | Strap, not pull resistor |
+
+Do **not** add 10 kΩ on every GPIO: used inputs already have a defined idle state from the field device, the activity-LED string, or a dedicated sense circuit.
 
 ---
 
@@ -69,7 +110,7 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 
 **R1 lock:** optocoupler output → **`EXP_B_P6_12V_MON`** only.
 
-- 12 V → 1 kΩ–2.2 kΩ → optocoupler LED (**U4** PC817 class)
+- 12 V → **R32** **1k5** → optocoupler LED (**U4** PC817) on **`pi_power.kicad_sch`**
 - Transistor → pull-up to 3.3 V → Expander B P6
 - Optional RC: 10 kΩ + 100 nF
 
@@ -96,10 +137,16 @@ Software: write mux channel byte to **`0x70`**, then read SHT31 at **`0x44`**.
 
 ## 6. Decoupling and layout
 
-- **100 nF** on each PCA9554 and TCA9546 VCC; optional **1 µF** bulk nearby
-- Expander A near **right-edge** field JST inputs
-- Expander B near **top-edge** button + LCD zone
-- U5 near I²C cluster; keep SHT31 JSTs grouped on top/right edge
+| Ref | Value | IC | Sheet |
+|---|---|---|---|
+| **C3** | 100 nF | **U1** VCC | `io_expanders.kicad_sch` |
+| **C4** | 100 nF | **U2** VCC | `io_expanders.kicad_sch` |
+| **C6** | 100 nF | **U5** VCC | `i2c_plant.kicad_sch` |
+| **C7** | 100 nF | **U5** (bulk optional) | `i2c_plant.kicad_sch` |
+
+One **100 nF** per expander at the chip is sufficient; **C5** was dropped (duplicate / unwired).
+
+**Layout:** U1 near **right-edge** field JST inputs; U2 near button + LCD zone; U5 near I²C cluster; SHT31 JSTs grouped on top/right edge.
 
 ---
 

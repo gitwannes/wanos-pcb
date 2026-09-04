@@ -686,20 +686,12 @@
       "IO_Expanders"
     ],
     [
-      "b3396166-4e71-4834-91ac-121b289b8e21",
-      "Safety_12V_Mon"
-    ],
-    [
       "d5d2b518-35f2-4645-9c36-5b2d12c7d297",
       "I2C_Plant"
     ],
     [
       "08a79a1f-fed3-4b65-a041-bd4ae3cb853a",
       "Connectors"
-    ],
-    [
-      "5223e218-2b0a-48ff-a1ad-0a8e1e905c39",
-      "LEDs"
     ]
   ],
   "text_variables": {},

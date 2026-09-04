@@ -35,13 +35,13 @@ Historical WISC pin map (reference only) → [§ WISC legacy](#wisc-legacy-refer
 
 | Signal | BCM | Field / notes |
 |---|---:|---|
-| Master safety | **4** | On-board — **not** J13 |
+| Safety gate (arms **J13** drivers) | **4** | On-board **Q5** / **`SAFETY_BUS`** — **not** J13 |
 | IR relay | **14** | J13 pin **5** |
 | Sauna phase U | **15** | J13 pin **4** |
 | Sauna phase V | **17** | J13 pin **3** |
 | Sauna phase W | **18** | J13 pin **2** |
 
-Software PWM ~1–5 Hz on sauna phases (same intent as WISC).
+Software PWM ~1–5 Hz on sauna phases.
 
 ### E-ink — HDMI J1 → SPI
 
@@ -60,6 +60,8 @@ HDMI **physical pin** → signal per [`hdmi-spi-eink.md`](hdmi-spi-eink.md). **B
 ### Expander interrupts
 
 **PCA9554 INT** (U1, U2): **NC** on v1 — poll I²C only.
+
+**U2 unused GPIO (P3, P4, P5, P7):** hardware **NC** on v1. At init, configure these pins as **outputs driven LOW** so they do not float.
 
 ---
 

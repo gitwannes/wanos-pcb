@@ -16,7 +16,8 @@ All of the following tie to **one PCB ground plane** (common **GND**):
 - Every field JST **pin 1 GND** (**J2–J8**, **J9–J12**, **J13** pin 1)
 - **J14** pin 2 (12 V return)
 - HDMI **J1** shields and repurposed GND pins per [`hdmi-spi-eink.md`](hdmi-spi-eink.md)
-- Transistor emitters (SSR drivers), opto **U4** return
+- **Q5** emitter (safety gate), opto **U4** return
+- **Q1–Q4** emitters on **`SAFETY_BUS`** (not direct **GND** — see § 3)
 
 There is **no** separate “signal ground” vs “power ground” on the PCB for v1.
 
@@ -25,16 +26,31 @@ There is **no** separate “signal ground” vs “power ground” on the PCB fo
 ## 2. 12 V DC return
 
 - **J14-2** is the **12 V PSU negative** and PCB **GND**.
-- **+12VA** at **J14-1** is **after** the external temp-safety series insert ([`external-plant.md`](external-plant.md) § 3).
-- SSR **coil +** common connects to **+12VA** on-board; coil **−** returns per channel through **J13** to PCB drivers.
+- **`+12V`** at **J14-1** is **after** the external temp-safety series insert ([`external-plant.md`](external-plant.md) § 3).
+- SSR **coil +** common connects to **`+12V`** on-board; coil **−** returns per channel through **J13** to PCB drivers.
 
 ---
 
 ## 3. SSR control return
 
 - **J13 pin 1** = **GND** for the 5-pin SSR field harness.
-- Pi GPIO → **PN2222A** → external SSR coil **−** terminals (pins 2–5).
-- **Master safety** (BCM 4) is on-board — not on **J13**.
+- **J13 pins 2–5** = coil **−** returns; each net is sunk by **Q1–Q4** collectors when the matching Pi GPIO is active **and** the safety gate is armed.
+- **`+12V`** (common coil **+**) is on-board from **J14** / plant distribution — not on **J13**.
+
+### Safety bus (`SAFETY_BUS`)
+
+On **`ssr_drivers.kicad_sch`**:
+
+| Node | Connection |
+|---|---|
+| **Q5** emitter | **GND** |
+| **Q5** collector | **`SAFETY_BUS`** |
+| **Q1–Q4** emitters | **`SAFETY_BUS`** |
+| **R16** | **`+5VA`** → **`SAFETY_BUS`** (10 kΩ pull-up) |
+
+**BCM 4** drives **Q5** (**R14** / **R15** on base). When **Q5** is off, **`SAFETY_BUS`** is high and field drivers cannot pull coil returns low. **BCM 4** is on-board only — not routed to **J13**.
+
+Detail → [`board-spec.md`](board-spec.md) § 4.1 · [`external-plant.md`](external-plant.md) § 2.
 
 ---
 
@@ -42,7 +58,7 @@ There is **no** separate “signal ground” vs “power ground” on the PCB fo
 
 - Pi powered via **J17** external 5 V → on-board **`+5VA`** → **J40** header pins **2 & 4** (**J41** USB-C **DNP** v1).
 - **5 V** and **3.3 V** logic return through Pi header **GND** to PCB plane.
-- When **12 V** is cut by temp safety, **5 V** to Pi must **remain** (USB / board supply independent of **+12VA**).
+- When **12 V** is cut by temp safety, **5 V** to Pi must **remain** (USB / board supply independent of **`+12V`**).
 
 ---
 

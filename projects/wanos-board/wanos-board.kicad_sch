@@ -98,52 +98,6 @@
 		)
 	)
 	(sheet
-		(at 235 75)
-		(size 60 40)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0)
-		)
-		(uuid "5223e218-2b0a-48ff-a1ad-0a8e1e905c39")
-		(property "Sheetname" "LEDs"
-			(at 235 74.365 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "leds.kicad_sch"
-			(at 235 115.635 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
-					(page "9")
-				)
-			)
-		)
-	)
-	(sheet
 		(at 95 25)
 		(size 60 40)
 		(exclude_from_sim no)
@@ -231,52 +185,6 @@
 			(project "wanos-board"
 				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
 					(page "2")
-				)
-			)
-		)
-	)
-	(sheet
-		(at 235 25)
-		(size 60 40)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0)
-		)
-		(uuid "b3396166-4e71-4834-91ac-121b289b8e21")
-		(property "Sheetname" "Safety_12V_Mon"
-			(at 235 24.365 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "safety_12v_mon.kicad_sch"
-			(at 235 65.635 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(instances
-			(project "wanos-board"
-				(path "/b64fe9be-4bba-4a4c-aa66-7fa6f4bbb662"
-					(page "6")
 				)
 			)
 		)
