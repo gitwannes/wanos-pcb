@@ -44,7 +44,7 @@ blocks:
     description: J4 TE 5556416-1 (C86492) TH RJ45 no-LED — YF-B6/B10 x4 Cat5 ~10m; TVS D25-D29; OD pull-up 3V3; J5 unused
     doc: docs/field-wiring.md
   - id: sht31_plant
-    description: TCA9546A mux — 4x SHT31 @ 0x44, 4x 4-pin Cat5 ~4-5m
+    description: TCA9548A mux — 5x SHT31 @ 0x44 on ch0-4 (J9-J12, J18); ch5-7 NC; ~4-5m Cat5
     doc: docs/field-wiring.md
   - id: ssr_drivers
     description: Pi GPIO -> PN2222A x4 -> J13 5-pin; safety BCM4 on-board
@@ -53,7 +53,7 @@ blocks:
     description: Molex 208658-1052 J1 — SPI per hdmi-spi-eink.md
     doc: docs/hdmi-spi-eink.md
   - id: lcd_i2c
-    description: 1x 4-pin I2C J16 (2 LCDs paralleled)
+    description: 1x 4-pin I2C J16 (2 LCDs paralleled; root bus, not muxed)
     doc: docs/field-wiring.md
 
 constraints:

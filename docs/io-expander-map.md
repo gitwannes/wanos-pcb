@@ -2,7 +2,7 @@
 
 # wanos-pcb-v1 — I/O expander schematic block
 
-Two **PCA9554PW** expanders plus **TCA9546A** I²C mux on the Pi local bus. Ready for KiCad sheet **IO_EXPANDERS** (R1 locked **2026-09-01**).
+Two **PCA9554PW** expanders plus **TCA9548A** I²C mux on the Pi local bus. Ready for KiCad sheet **IO_EXPANDERS** (R1 locked **2026-09-01**).
 
 Field pinouts → [`field-wiring.md`](field-wiring.md).
 
@@ -15,12 +15,12 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 - Devices on local bus:
   - PCA9554PW Expander A (**U1**)
   - PCA9554PW Expander B (**U2**)
-  - **TCA9546A** mux (**U5**, address **`0x70`**)
-  - **J16** LCD I²C (both modules paralleled on one 4-pin header)
+  - **TCA9548A** mux (**U5**, address **`0x70`**)
+  - **J16** LCD I²C (both modules paralleled on one 4-pin header; root bus, not muxed)
 
 **Not on v1:** PCA9615 differential driver (**U3** omitted).
 
-**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **R9**/**R10**, door/kWh activity **D11**–**D12** / **D17**–**D18** / **R17**–**R18** / **R23**–**R24**, button pull-ups **R34**–**R36**, **C3**/**C4**. Water front-end → [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch). **TCA9546A** (**U5**) + **C6**/**C7** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
+**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **R9**/**R10**, door/kWh activity **D11**–**D12** / **D17**–**D18** / **R17**–**R18** / **R23**–**R24**, button pull-ups **R34**–**R36**, **C3**/**C4**. Water front-end → [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch). **TCA9548A** (**U5**) + **C6**/**C7** + **J9–J12**/**J18**/**J16** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
 
 ### PCA9554 address straps (hardware pins — not GPIO)
 
@@ -131,9 +131,9 @@ Logic: **LOW** = 12 V present; **HIGH** = 12 V missing → hard-lock.
 
 ---
 
-## 5. SHT31 plant — TCA9546A mux
+## 5. SHT31 plant — TCA9548A mux
 
-Four SHT31 modules share I²C address **`0x44`**. **U5** (TCA9546A) selects one channel at a time.
+Five SHT31 modules share I²C address **`0x44`**. **U5** (**TCA9548A**, 8-ch) selects one channel at a time. Channels **5–7** are NC. **J16** LCD stays on the root Pi I²C bus.
 
 | Mux ch | JST | Sensor |
 |---:|---|---|
@@ -141,10 +141,12 @@ Four SHT31 modules share I²C address **`0x44`**. **U5** (TCA9546A) selects one 
 | 1 | **J10** | Cinema |
 | 2 | **J11** | Sauna mid |
 | 3 | **J12** | Sauna high |
+| 4 | **J18** | Spare (location TBD) |
+| 5–7 | — | NC |
 
-Each channel: **4-pin JST**, WISC **2.6.4 J7** pinout (GND, SDA, SCL, 3V3) over **~4–5 m Cat5**.
+Each used channel: **4-pin JST**, WISC **2.6.4 J7** pinout (GND, SDA, SCL, 3V3) over **~4–5 m Cat5**.
 
-Software: write mux channel byte to **`0x70`**, then read SHT31 at **`0x44`**.
+Software: write mux channel select byte to **`0x70`**, then read SHT31 at **`0x44`**.
 
 ---
 

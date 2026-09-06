@@ -98,7 +98,7 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 | `Water_Meters` | **J4** RJ45 + YF front-end (TVS, OD pull-ups, series R, debounce, LEDs) — [`field-wiring.md`](../field-wiring.md) § 2a |
 | `SSR_Drivers` | Pi GPIO → R/Q → **J13** (5-pin); **`+12V`** rail ref; SSR activity **D19–D22** / **R25–R28** |
 | `HDMI_SPI` | J1 — [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) |
-| `I2C_Plant` | U5 TCA9546A; **J9–J12** SHT31; **J16** LCD |
+| `I2C_Plant` | U5 TCA9548A; **J9–J12**/**J18** SHT31; **J16** LCD (root bus) |
 | `Connectors` | Field JST **J2–J3**, **J6–J8** per [`field-wiring.md`](../field-wiring.md) |
 
 Status on **Pi_Power**; SSR activity on **SSR_Drivers**. Water conditioning on **Water_Meters**. Door/kWh activity LEDs on **IO_Expanders**.
@@ -110,7 +110,7 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 - [x] Connector pin counts match [`field-wiring.md`](../field-wiring.md) (R1 Done)
 - [x] 12 V opto on **Expander B P6** only
 - [x] **R9/R10 = 2k2** I²C pull-ups; **R11–R13** DNP (no PCA9615); **R14–R16** on SSR sheet
-- [x] TCA9546A @ **0x70**; four SHT31 channels **J9–J12**
+- [x] TCA9548A @ **0x70**; five SHT31 channels **J9–J12**, **J18** (ch 0–4); ch 5–7 NC; **J16** on root I²C
 - [x] Four SSR field strings + **Q5** safety gate + **R16** **`SAFETY_BUS`** pull-up; Pi GPIO net names match **R2** BCM table
 - [x] PCA9554 A0–A2 tied; unique I²C addresses
 - [x] HDMI nets named per hdmi-spi-eink doc

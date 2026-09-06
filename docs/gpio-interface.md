@@ -29,7 +29,7 @@ Historical WISC pin map (reference only) → [§ WISC legacy](#wisc-legacy-refer
 | SDA | **2** | U1, U2, U5, **J16** LCD |
 | SCL | **3** | |
 
-**Addresses:** U1 **PCA9554** `0x20` · U2 **PCA9554** `0x21` · U5 **TCA9546A** `0x70`
+**Addresses:** U1 **PCA9554** `0x20` · U2 **PCA9554** `0x21` · U5 **TCA9548A** `0x70`
 
 ### SSR outputs (Pi GPIO)
 
@@ -72,8 +72,8 @@ HDMI **physical pin** → signal per [`hdmi-spi-eink.md`](hdmi-spi-eink.md). **B
 | Doors, water, 2× kWh | **PCA9554** U1 + **J2–J4**, **J6–J7** (water via **`water_meters`** / **J4** RJ45) |
 | Sauna LCD buttons | **PCA9554** U2 **P0–P2** + **J8** |
 | 12 V presence / hard-lock | Opto **U4** → **U2 P6** |
-| SHT31 × 4 | **TCA9546A** U5 + **J9–J12** (ch 0–3, sensor @ `0x44`) |
-| LCD × 2 (paralleled) | **J16** I²C |
+| SHT31 × 5 | **TCA9548A** U5 + **J9–J12**, **J18** (ch 0–4, sensor @ `0x44`; ch 5–7 NC) |
+| LCD × 2 (paralleled) | **J16** I²C (root bus, not muxed) |
 
 ---
 

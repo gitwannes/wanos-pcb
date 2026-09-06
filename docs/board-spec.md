@@ -19,7 +19,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 **wanos-pcb-v1** provides:
 
 - Digital inputs (doors, water meters, kWh meters, buttons) via **PCA9554** expanders
-- **SHT31** temperature/humidity (4×) via **TCA9546A** mux + Cat5 plant cables
+- **SHT31** temperature/humidity (5×) via **TCA9548A** mux + Cat5 plant cables
 - SSR control outputs (3-phase sauna + IR)
 - **12 V** sauna rail monitoring (optocoupler hard-lock)
 - **1×** I²C LCD header (two displays paralleled)
@@ -39,7 +39,7 @@ WanOS is a Raspberry-Pi-based home-automation controller for sauna, bathroom, ci
 #### 5 V (stable, independent)
 
 - Powers Raspberry Pi
-- Powers logic (PCA9554PW, TCA9546A, LEDs, I²C sensors on local bus)
+- Powers logic (PCA9554PW, TCA9548A, LEDs, I²C sensors on local bus)
 - Must **remain powered** when sauna safety triggers
 - External **5 V** via **J17** screw terminal → input conditioning → **`+5VA`**
 - **Pi** fed via **J40** header pins **2 & 4** (header injection; **J41** USB-C **DNP** v1)
@@ -90,11 +90,12 @@ Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P
 - **J8** — 4-pin JST (3 buttons + GND); Cat5 UTP harness
 - **Expander B** P0–P2; pinout → [`field-wiring.md`](field-wiring.md) § 5
 
-### 3.5 SHT31 sensors (4×)
+### 3.5 SHT31 sensors (5×)
 
-- Bathroom, cinema, sauna mid, sauna high
-- **TCA9546A** (**U5**) @ **`0x70`** — one mux channel per sensor
-- **J9–J12** — 4× 4-pin JST, WISC **2.6.4 J7** I²C pinout
+- Bathroom, cinema, sauna mid, sauna high, spare (**J18** location TBD)
+- **TCA9548A** (**U5**) @ **`0x70`** — 8-ch mux; ch **0–4** used, ch **5–7** NC
+- **J9–J12**, **J18** — 5× 4-pin JST, WISC **2.6.4 J7** I²C pinout
+- **J16** LCD stays on root Pi I²C (not behind the mux)
 - **~4–5 m Cat5** per sensor; all modules at I²C **`0x44`**
 - **100 kHz** Standard mode; **no PCA9615** on v1
 - Detail → [`field-wiring.md`](field-wiring.md) § 7
@@ -201,7 +202,7 @@ When the driver is off, the LED can see **~7 V reverse** (12 V net vs 5 V rail).
 
 ### 6.1 I²C
 
-- **PCA9554PW × 2**, **TCA9546A**, **J16** LCD tap on **local bus**
+- **PCA9554PW × 2**, **TCA9548A**, **J16** LCD tap on **local bus**
 - Pull-ups: **2k2** on **SCL** and **SDA** only (**R9**, **R10** on **`io_expanders.kicad_sch`**)
 - VCC decoupling: **C3**/**C4** (PCA9554 **U1**/**U2**), **C6**/**C7** (**U5** mux) — [`io-expander-map.md`](io-expander-map.md) § 6
 - **100 kHz**; keep I²C away from SSR/12 V zone
@@ -224,7 +225,7 @@ When the driver is off, the LED can see **~7 V reverse** (12 V net vs 5 V rail).
 | Zone | Content |
 |---|---|
 | **Left** | Pi **J40**, HDMI **J1**, **J17** 5 V screw |
-| **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, decoupling |
+| **Top** | U1, U2, U5, I²C pull-ups, **J16**, **J9–J12**, **J18**, decoupling |
 | **Right** | **J2–J4**, **J6–J8** field inputs, activity LEDs |
 | **Bottom** | **J14** 12 V (**pi_power**), **J13** SSR, **Q1–Q5**, SSR activity **D19–D22**, **U4** opto, **D3** TVS |
 | **Center** | Routing keep-out; lock HDMI before Freerouting |

@@ -6,13 +6,13 @@ Locked **R1** (2026-09-01) + **R2** (2026-09-01). Canonical electrical behaviour
 
 **WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
 
-**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J3**, **J6–J8** → **`connectors.kicad_sch`**. Water **J4** (RJ45) + YF front-end / TVS → **`water_meters.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Door/kWh activity LEDs → **`io_expanders.kicad_sch`**; water activity LEDs → **`water_meters.kicad_sch`**.
+**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J3**, **J6–J8** → **`connectors.kicad_sch`**. Water **J4** (RJ45) + YF front-end / TVS → **`water_meters.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J18**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Door/kWh activity LEDs → **`io_expanders.kicad_sch`**; water activity LEDs → **`water_meters.kicad_sch`**.
 
 ---
 
 ## 1. Standard 4-pin I²C JST (XH)
 
-Used on **J9–J12** (SHT31 plant) and **J16** (LCD).
+Used on **J9–J12**, **J18** (SHT31 plant) and **J16** (LCD).
 
 | Pin | Signal | Notes |
 |---:|---|---|
@@ -194,8 +194,9 @@ On-board chain: **F1** 2 A polyfuse (resettable) → **Q6** ideal diode → **D1
 
 ## 7. SHT31 plant — Cat5 per sensor
 
-- **4×** separate Cat5 runs (~**4–5 m** each), one **4-pin JST** per sensor (**J9–J12**).
-- **TCA9546A** (U5) on PCB @ I²C **`0x70`** — select channel, then poll SHT31 at **`0x44`** (all modules use default address).
+- **5×** separate Cat5 runs (~**4–5 m** each), one **4-pin JST** per sensor (**J9–J12**, **J18**).
+- **TCA9548A** (U5) on PCB @ I²C **`0x70`** — 8-ch mux; select channel, then poll SHT31 at **`0x44`** (all modules use default address). Channels **5–7** NC.
+- **J16** LCD remains on the root Pi I²C bus (not behind the mux).
 - **No PCA9615** on v1 — direct I²C through mux per channel.
 - **Pull-ups:** **2k2** on main `I2C_SCL` / `I2C_SDA` only (**R9**, **R10**) — sized for ~5 m Cat5 @ 100 kHz.
 
@@ -207,6 +208,8 @@ On-board chain: **F1** 2 A polyfuse (resettable) → **Q6** ideal diode → **D1
 | 1 | J10 | Cinema |
 | 2 | J11 | Sauna mid |
 | 3 | J12 | Sauna high |
+| 4 | J18 | Spare (location TBD) |
+| 5–7 | — | NC |
 
 ---
 

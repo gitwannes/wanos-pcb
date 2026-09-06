@@ -117,7 +117,7 @@ Each header: **4-pin XH** (data, clock, 3V3, GND style plant cable).
 | Water meters | 1× bathroom (J5) | **2× bathrooms** + extra pulses |
 | kWh | 1× (J2) | **2×** kWh |
 | Sauna LCD buttons | None | Expander B + 4-pin JST |
-| Temperature | SHT11 × 4 | **SHT31 × 4** + **TCA9546A** mux (no PCA9615 v1) |
+| Temperature | SHT11 × 4 | **SHT31 × 5** + **TCA9548A** mux (no PCA9615 v1); LCD on root I²C |
 | 12 V monitor | None | **Optocoupler** → Expander B P6 |
 | LCD | None | **2× I²C LCD** JST |
 | E-ink | **J3** Molex `1746679-1` | **HDMI Type-A → SPI** ([`hdmi-spi-eink.md`](../../hdmi-spi-eink.md)) |

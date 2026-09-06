@@ -19,7 +19,7 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 | Done | Part | Filename |
 |:---:|---|---|
 | [x] | NXP **PCA9554PW** (I/O expander) | `pca9554.pdf` |
-| [x] | TI **TCA9546A** (I²C mux) | `tca9546a.pdf` |
+| [x] | TI **TCA9548A** (I²C mux) | `tca9548a.pdf` |
 | [x] | **PC817A** (12 V opto, U4) | `pc817a.pdf` |
 | [x] | **PN2222A** (SSR driver) | `pn2222a.pdf` |
 | [x] | **SMBJ12A** (12 V TVS, **D3**) | `smbj12a.pdf` |

@@ -17,7 +17,7 @@ Application logic stays in [gitwannes/wanos](https://github.com/gitwannes/wanos)
 ## What wanos-pcb-v1 provides
 
 - Digital inputs (doors, water meters, 2× kWh, buttons) via **PCA9554** expanders
-- **SHT31 × 4** via **TCA9546A** mux and Cat5 plant cables (~4–5 m)
+- **SHT31 × 5** via **TCA9548A** mux and Cat5 plant cables (~4–5 m); **J16** LCD on root I²C
 - SSR drives (3-phase sauna + IR) via Pi GPIO
 - **12 V** rail monitoring (optocoupler → Expander B P6)
 - **1×** I²C LCD header (two displays paralleled on **J16**)
@@ -36,7 +36,7 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 | [`field-wiring.md`](field-wiring.md) | JST pinouts, Cat5, mux channels (**R1**) |
 | [`component-selection.md`](component-selection.md) | JLCPCB parts and footprints |
 | [`hdmi-spi-eink.md`](hdmi-spi-eink.md) | WISC e-ink HDMI→SPI |
-| [`io-expander-map.md`](io-expander-map.md) | PCA9554 + TCA9546 map |
+| [`io-expander-map.md`](io-expander-map.md) | PCA9554 + TCA9548 map |
 | [`gpio-interface.md`](gpio-interface.md) | Pi BCM map + software strategy (**R2**) |
 | [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant |
 | [`grounding.md`](grounding.md) | Ground / return scheme |

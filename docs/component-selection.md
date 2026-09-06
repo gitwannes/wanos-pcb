@@ -15,7 +15,7 @@ Verified JLCPCB-compatible parts for **wanos-pcb-v1**, aligned with [`board-spec
 | MPN pattern | Pins | wanos use |
 |---|---:|---|
 | **B2B-XH-A** | 2 | Doors **J2–J3**, kWh **J6–J7** |
-| **B4B-XH-A** | 4 | Buttons **J8**, SHT31 **J9–J12**, LCD **J16** |
+| **B4B-XH-A** | 4 | Buttons **J8**, SHT31 **J9–J12**/**J18**, LCD **J16** |
 | **B5B-XH-A** | 5 | SSR **J13** (vertical) |
 | ~~B6B-XH-A~~ | 6 | **Not used v1** (water was 2×6 JST; now **J4** RJ45) |
 
@@ -56,10 +56,10 @@ Pin mapping → [`hdmi-spi-eink.md`](hdmi-spi-eink.md).
 | Part | Ref | Role |
 |---|---|---|
 | **PCA9554PW** × 2 | U1, U2 | 8-bit expanders |
-| **TCA9546A** | U5 | 4-ch I²C mux @ **0x70** (SHT31 @ **0x44**) |
+| **TCA9548A** | U5 | 8-ch I²C mux @ **0x70** (SHT31 @ **0x44** on ch 0–4) |
 | ~~PCA9615DP~~ | — | **Not used v1** |
 
-Footprints: `Package_SO:TSSOP-16_4.4x5mm_P0.65mm` (9554, 9546).
+Footprints: `Package_SO:TSSOP-16_4.4x5mm_P0.65mm` (9554); `Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm` (9548).
 
 Net map → [`io-expander-map.md`](io-expander-map.md).
 
@@ -89,7 +89,7 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 |---|---|---|
 | **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups on **`io_expanders.kicad_sch`** (4–5 m Cat5 @ 100 kHz) |
 | **C3**, **C4** | 100 nF | PCA9554 VCC decoupling (**U1**, **U2** on **`io_expanders.kicad_sch`**) |
-| **C6**, **C7** | 100 nF | TCA9546A VCC decoupling (**U5** on **`i2c_plant.kicad_sch`**) |
+| **C6**, **C7** | 100 nF | TCA9548A VCC decoupling (**U5** on **`i2c_plant.kicad_sch`**) |
 | **R34**–**R36** | 10 kΩ | Exp B button **P0–P2** pull-ups (**`io_expanders.kicad_sch`**) |
 | **R37**–**R40** | 10 kΩ | Water YF OD pull-ups → **`+3V3`** (**`water_meters.kicad_sch`**) |
 | **R41**–**R44** | **330 Ω** | Water series field → expander (**`water_meters.kicad_sch`**) |
@@ -123,12 +123,12 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 | Water | RJ45 8P8C | **J4** — YF-B6/B10 ×4, Cat5 ~10 m, **`+5VA`** |
 | kWh | JST XH 2-pin × 2 | J6, J7 |
 | Buttons | JST XH 4-pin | J8 |
-| SHT31 plant | JST XH 4-pin × 4 | J9–J12 |
+| SHT31 plant | JST XH 4-pin × 5 | J9–J12, J18 |
 | SSR | JST XH **5-pin** vertical | J13 |
 | 12 V | KF301 2P | J14 |
-| LCD | JST XH 4-pin × 1 | J16 |
+| LCD | JST XH 4-pin × 1 | J16 (root I²C, not muxed) |
 | Expanders | PCA9554PW × 2 | U1, U2 |
-| I²C mux | TCA9546A | U5 |
+| I²C mux | TCA9548A | U5 |
 | SSR drivers | PN2222A × 5 | Q1–Q5 |
 | 12 V monitor | PC817A | U4 |
 | Pi header | 2×20 | J40 |

@@ -17,9 +17,9 @@ parts:
     lcsc: C79990
     role: Expander B @ 0x21
   - ref: U5
-    mpn: TCA9546A
+    mpn: TCA9548A
     lcsc: C130026
-    role: I2C mux @ 0x70
+    role: I2C mux @ 0x70 (8-ch; SHT31 on ch 0-4)
   - ref: U4
     mpn: PC817A
     lcsc: C411142
@@ -96,7 +96,7 @@ parts:
     mpn: 100nF
     lcsc: C49678
     footprint: Capacitor_SMD:C_0805_2012Metric
-    role: TCA9546A VCC decoupling U5 (i2c_plant.kicad_sch)
+    role: TCA9548A VCC decoupling U5 (i2c_plant.kicad_sch)
   - ref: R1-R4
     mpn: 470R
     lcsc: C17477
@@ -189,8 +189,8 @@ parts:
 
 notes:
   - "R1 + R2 closed 2026-09-01 — see docs/todo/_archive/phaseR-requirements.md"
-  - "J17 5V screw in; J2-J16 connector map in field-wiring.md; J15 dropped R2; J41 DNP v1"
-  - "TCA9546A U5; PCA9615 not used v1; R9/R10 2k2 only"
+  - "J17 5V screw in; J2-J16 + J18 connector map in field-wiring.md; J15 dropped R2; J41 DNP v1"
+  - "TCA9548A U5; PCA9615 not used v1; R9/R10 2k2 only; J16 LCD on root I2C"
   - "PCA9554 decoupling C3/C4 on io_expanders; C5 dropped; U5 C6/C7 on i2c_plant"
   - "Exp B P3-P5 P7 NC v1; R34-R36 = button pull-ups"
   - "Water YF-B6/B10: J4 TE 5556416-1 (C86492) TH no-LED + water_meters.kicad_sch; D25-D29 TVS; R37-R44 C18-C21; J5 unused; no MOSFET"

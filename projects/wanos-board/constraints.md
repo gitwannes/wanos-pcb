@@ -21,7 +21,7 @@ Applies to `projects/wanos-board/`. Canonical spec → [`docs/board-spec.md`](..
 - SSR outputs: **Pi GPIO** → 470 Ω → PN2222A — **not** expander PWM
 - 12 V monitor: **`EXP_B_P6_12V_MON`** (locked)
 - PCA9554: **`0x20`** (U1), **`0x21`** (U2); **INT pins NC**
-- TCA9546A @ **`0x70`**; four SHT31 plant ports **J9–J12**
+- TCA9548A @ **`0x70`**; five SHT31 plant ports **J9–J12**, **J18** (ch 0–4); **J16** LCD on root I²C
 - I²C pull-ups: **2k2** on SCL/SDA only (**R9**, **R10**)
 - **No PCA9615** on v1
 - **J14** only for 12 V (**J15** dropped)

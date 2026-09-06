@@ -58,7 +58,7 @@ PCB layout for **wanos-pcb-v1** (85 × 56 mm). DRC clean before **Gate-L1** and 
 
 - [ ] **L2:** **Q6** carries full Pi current — see [§ L2](#l2--pi-power-high-current-layout-manual)
 - [ ] SSR / 12 V area isolated from I²C ([`board-spec.md`](../board-spec.md) § 6)
-- [ ] Decoupling at each PCA9554 / TCA9546A
+- [ ] Decoupling at each PCA9554 / TCA9548A
 - [ ] Test pads TP1–TP10 accessible
 - [ ] Copper pour / grounding per [`grounding.md`](../grounding.md)
 - [ ] Assembly drawing notes for hand-solder TH parts (JST, terminals, J40)
