@@ -89,7 +89,8 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 |---|---|---|
 | **R9**, **R10** | **2k2** | I²C SCL/SDA pull-ups on **`io_expanders.kicad_sch`** (4–5 m Cat5 @ 100 kHz) |
 | **C3**, **C4** | 100 nF | PCA9554 VCC decoupling (**U1**, **U2** on **`io_expanders.kicad_sch`**) |
-| **C6**, **C7** | 100 nF | TCA9548A VCC decoupling (**U5** on **`i2c_plant.kicad_sch`**) |
+| **C6** | 100 nF | TCA9548A VCC decoupling (**U5** on **`i2c_plant.kicad_sch`**) |
+| **R11** | 10 kΩ | TCA9548A **`~RESET`** pull-up to **`+3V3`** (**`i2c_plant.kicad_sch`**) |
 | **R34**–**R36** | 10 kΩ | Exp B button **P0–P2** pull-ups (**`io_expanders.kicad_sch`**) |
 | **R37**–**R40** | 10 kΩ | Water YF OD pull-ups → **`+3V3`** (**`water_meters.kicad_sch`**) |
 | **R41**–**R44** | **330 Ω** | Water series field → expander (**`water_meters.kicad_sch`**) |

@@ -20,7 +20,7 @@ Field pinouts → [`field-wiring.md`](field-wiring.md).
 
 **Not on v1:** PCA9615 differential driver (**U3** omitted).
 
-**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **R9**/**R10**, door/kWh activity **D11**–**D12** / **D17**–**D18** / **R17**–**R18** / **R23**–**R24**, button pull-ups **R34**–**R36**, **C3**/**C4**. Water front-end → [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch). **TCA9548A** (**U5**) + **C6**/**C7** + **J9–J12**/**J18**/**J16** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
+**KiCad sheet:** [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) — **U1**, **U2**, **J4** water, **J8** buttons, **R9**/**R10**, **C3**/**C4**. Door/kWh **greenfield** front-ends → [`pulse_inputs.kicad_sch`](../projects/wanos-board/pulse_inputs.kicad_sch) (remove legacy **J2/J3/J6/J7** stubs here when adopting). **TCA9548A** (**U5**) + **C6** + **R11** + **J9–J12**/**J18**/**J16** on [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch).
 
 ### PCA9554 address straps (hardware pins — not GPIO)
 
@@ -49,18 +49,18 @@ Address = `0x20 + (A2<<2) + (A1<<1) + A0`. **Direct tie** to **`+3V3`** or **GND
 |---|---|---|
 | P0 | `EXP_A_P0_DOOR_BATH` | Bathroom door (**J3**) |
 | P1 | `EXP_A_P1_DOOR_SAUNA` | Sauna door (**J2**) |
-| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4** RJ45) — via **`water_meters.kicad_sch`** |
-| P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) — via **`water_meters.kicad_sch`** |
-| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J4**) — via **`water_meters.kicad_sch`** |
-| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J4**) — via **`water_meters.kicad_sch`** |
-| P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) |
-| P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) |
+| P2 | `EXP_A_P2_WM_B1_COLD` | Bathroom 1 cold (**J4** RJ45) |
+| P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) |
+| P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J4**) |
+| P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J4**) |
+| P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) — SDM72D-M; front-end → [`field-wiring.md`](field-wiring.md) § 2b |
+| P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) — same |
 
-**Doors / kWh (this sheet):** activity LED **1k0** (**D11**–**D12**, **D17**–**D18** / **R17**–**R18**, **R23**–**R24**) — **`+3V3`** → R → LED → GPIO. Debounce **100 nF** still target for doors/kWh (not yet separate sheet).
+**Doors / kWh activity LEDs:** **D11**–**D12**, **D17**–**D18** / **R17**–**R18**, **R23**–**R24**. **kWh target:** full RC + TVS + **`+5VA`** pull-up (§ 2b) — not yet on schematic (today only LED path).
 
-### Water meters (YF-B6/B10) — separate sheet
+### Water meters (YF-B6/B10)
 
-Canonical: [`field-wiring.md`](field-wiring.md) § 2a · schematic [`water_meters.kicad_sch`](../projects/wanos-board/water_meters.kicad_sch).
+Canonical: [`field-wiring.md`](field-wiring.md) § 2a.
 
 | Field net | Series | Pull-up | Debounce | TVS | Activity | Expander net |
 |---|---|---|---|---|---|---|
@@ -108,8 +108,8 @@ Status LEDs (**D23**/**D24**) on **`pi_power.kicad_sch`**; SSR activity (**D19**
 | Pin group | Pull bias | Why |
 |---|---|---|
 | **I²C** SCL/SDA | **R9**/**R10** 2k2 | Bus requirement — not GPIO |
-| **Exp A** doors / kWh | Activity LED **1k0** path (for now) | Idle bias via LED string; dedicated 10k + RC still preferred |
-| **Exp A** water P2–P5 | **R37**–**R40** 10k on **`water_meters.kicad_sch`** | YF OD → must pull to **`+3V3`** (not 5 V) |
+| **Exp A** doors / kWh | **Target:** 10k pull-up + RC (§ [`field-wiring.md`](field-wiring.md) 2b for kWh on **`+5VA`**) | Today: LED path only — incomplete for ~10 m Cat5 |
+| **Exp A** water P2–P5 | **R37**–**R40** 10k | YF OD → pull to **`+3V3`** (not 5 V) |
 | **Exp B** P0–P2 (buttons) | **R34**–**R36** 10 kΩ | Switch shorts to **GND** when pressed |
 | **Exp B** P6 (12 V mon) | **R33** on **`pi_power.kicad_sch`** | Opto open-collector output |
 | **Exp B** P3–P5, P7 | **NC** — no hardware bias | Unused; firmware drives **LOW** as output |
@@ -133,7 +133,7 @@ Logic: **LOW** = 12 V present; **HIGH** = 12 V missing → hard-lock.
 
 ## 5. SHT31 plant — TCA9548A mux
 
-Five SHT31 modules share I²C address **`0x44`**. **U5** (**TCA9548A**, 8-ch) selects one channel at a time. Channels **5–7** are NC. **J16** LCD stays on the root Pi I²C bus.
+Five SHT31 modules share I²C address **`0x44`**. **U5** (**TCA9548A**, 8-ch) selects one channel at a time. Channels **5–7** are NC. **J16** LCD stays on the root Pi I²C bus. **`~RESET`** pulled to **`+3V3`** via **R11** 10 kΩ.
 
 | Mux ch | JST | Sensor |
 |---:|---|---|
@@ -157,9 +157,9 @@ Software: write mux channel select byte to **`0x70`**, then read SHT31 at **`0x4
 | **C3** | 100 nF | **U1** VCC | `io_expanders.kicad_sch` |
 | **C4** | 100 nF | **U2** VCC | `io_expanders.kicad_sch` |
 | **C6** | 100 nF | **U5** VCC | `i2c_plant.kicad_sch` |
-| **C7** | 100 nF | **U5** (bulk optional) | `i2c_plant.kicad_sch` |
+| **R11** | 10 kΩ | **U5** `~RESET` → **`+3V3`** | `i2c_plant.kicad_sch` |
 
-One **100 nF** per expander at the chip is sufficient; **C5** was dropped (duplicate / unwired).
+One **100 nF** ceramic per digital IC VCC is sufficient; **C5** (duplicate) and **C7** (optional bulk) were dropped. **R11** holds mux RESET inactive (not driven from the Pi on v1).
 
 **Layout:** U1 near **right-edge** field JST inputs; U2 near button + LCD zone; U5 near I²C cluster; SHT31 JSTs grouped on top/right edge.
 

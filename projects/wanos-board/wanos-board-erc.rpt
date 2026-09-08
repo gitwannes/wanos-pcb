@@ -1,4 +1,4 @@
-ERC report (2026-09-04T13:08:34, Encoding UTF8)
+ERC report (2026-09-06T15:59:58, Encoding UTF8)
 Report includes: Errors
 
 ***** Sheet /
@@ -14,9 +14,6 @@ Report includes: Errors
 [wire_dangling]: Wires not connected to anything
     ; error
     @(237.49 mm, 59.69 mm): Vertical Wire, length 3.81 mm
-[label_dangling]: Label not connected
-    ; error
-    @(25.40 mm, 124.46 mm): Global Label 'GND'
 
 ***** Sheet /Pi_Power/
 
@@ -30,9 +27,7 @@ Report includes: Errors
 
 ***** Sheet /I2C_Plant/
 
-***** Sheet /Connectors/
-
- ** ERC messages: 5  Errors 5  Warnings 0
+ ** ERC messages: 4  Errors 4  Warnings 0
 
  ** Ignored checks:
     - Global label only appears once in the schematic

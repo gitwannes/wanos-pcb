@@ -38,10 +38,13 @@ blocks:
     description: J17 + J14 screw terminals; 5V conditioning, D3 TVS, FB1, J40; status D23/D24; U4 12V monitor; J41 DNP
     doc: docs/gpio-interface.md
   - id: io_expanders
-    description: PCA9554PW x2 — doors, kWh, buttons, door/kWh LEDs, 12V mon; INT NC
+    description: PCA9554 x2 + J4 water + J8 buttons; legacy J2/J3/J6/J7 stubs until Pulse_Inputs cutover
     doc: docs/io-expander-map.md
+  - id: pulse_inputs
+    description: Greenfield door reed J2/J3 (+3V3 front-end) + kWh SDM72 J6/J7 (+5VA front-end)
+    doc: docs/field-wiring.md
   - id: water_meters
-    description: J4 TE 5556416-1 (C86492) TH RJ45 no-LED — YF-B6/B10 x4 Cat5 ~10m; TVS D25-D29; OD pull-up 3V3; J5 unused
+    description: "REMOVED as sheet - water lives on io_expanders (J4)"
     doc: docs/field-wiring.md
   - id: sht31_plant
     description: TCA9548A mux — 5x SHT31 @ 0x44 on ch0-4 (J9-J12, J18); ch5-7 NC; ~4-5m Cat5

@@ -6,7 +6,7 @@ Locked **R1** (2026-09-01) + **R2** (2026-09-01). Canonical electrical behaviour
 
 **WISC reference pinout for all 4-pin I²C JST:** WISC **2.6.4** board **J7** (not 2.5.3 SHT11 DATA/CLOCK headers).
 
-**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field JST **J2–J3**, **J6–J8** → **`connectors.kicad_sch`**. Water **J4** (RJ45) + YF front-end / TVS → **`water_meters.kicad_sch`**. **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J18**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**. Door/kWh activity LEDs → **`io_expanders.kicad_sch`**; water activity LEDs → **`water_meters.kicad_sch`**.
+**KiCad schematic sheets:** **J14** + **J17** + **J40** → **`pi_power.kicad_sch`**. Field expanders + water **J4** → **`io_expanders.kicad_sch`**. Door + kWh front-ends (greenfield) → **`pulse_inputs.kicad_sch`** (**Pulse_Inputs**; retire duplicate **J2/J3/J6/J7** stubs on IO_Expanders when adopting). **J13** → **`ssr_drivers.kicad_sch`**. **J9–J12**, **J18**, **J16** → **`i2c_plant.kicad_sch`**. **J1** → **`hdmi_spi.kicad_sch`**.
 
 ---
 
@@ -91,6 +91,74 @@ Colour cheat-sheet: [`reference/datasheets/rj45-t568b-wiring-colors.jpg`](refere
 | `WM_B2_COLD` / `WM_B2_HOT` | **U1** P4 / P5 |
 
 **J5** is **unused** on v1 (former second water JST — collapsed into **J4**).
+
+---
+
+## 2b. kWh meters — J6 / J7 (Eastron SDM72D-M, ~10 m Cat5)
+
+**Plant:** 2× **Eastron SDM72D-M** (or equivalent) — datasheet [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf).
+
+**Pulse output (from meter manual):** passive **opto / transistor**, polarity-dependent, needs external **5–27 V DC**, max **~27 mA**. Default **1000 imp/kWh**, pulse width **~35 ms** (fixed at that constant). Idle open; pulse closes to the meter’s pulse return.
+
+**Board connectors:** **J6** (main) / **J7** (aux) — 2-pin JST, pin **1 = GND**, pin **2 = SIG** → Expander A **P6** / **P7**.
+
+**Cable:** ~**10 m Cat5** (one pair SIG+GND per meter is enough; spare pairs unused or tied GND at PCB end).
+
+### Target on-board front-end (wanos greenfield — per channel)
+
+Same idea as water YF channels, but pull-up on **`+5VA`** because the SDM72 pulse rail is specified **≥ 5 V** (do **not** use only `+3V3` pull-up).
+
+```
+  +5VA ---- Rpu 10k ----+---- Jx pin2 (SIG) ---- field Cat5 ---- SDM72 pulse (+)
+                        |                              |
+                        +---- Rled 1k0 ----|>|----+     SDM72 pulse (-) ---- Jx pin1 (GND)
+                        |                   LED  |
+                        |                        +---- (LED cathode toward SIG so LED
+                        |                              lights on pulse LOW)
+                        |
+                        +---- Rs 330 ----+---- EXP_A_Px (U1 P6/P7)
+                        |                |
+                       TVS              Cd 100n
+                    PESD5V0S1BA           |
+                        |                |
+                       GND              GND
+```
+
+| Ref | Value | Role |
+|---|---|---|
+| **R51** / **R54** | **10 kΩ** to **`+5VA`** | Idle HIGH; feeds meter opto (~0.5 mA when closed, ≪ 27 mA) |
+| **R52** / **R55** | **330 Ω** | Series into PCA9554 (cable / ESD) |
+| **C24** / **C25** | **100 nF** | Debounce / EMI at expander pin |
+| **D34** / **D36** | **PESD5V0S1BA** | SIG clamp at board |
+| **R53**/**R56** + **D35**/**D37** | **1k0** from **`+5VA`** | Activity; lights when SIG is pulled LOW |
+
+**Logic:** idle **HIGH** (~5 V on expander pin — PCA9554 I/O abs-max allows this with VCC = 3.3 V); pulse **LOW**; software counts falling edges / polls.
+
+**Polarity:** respect meter pulse **+ / −** marking on the JST (SIG = +, GND = −).
+
+**Schematic:** [`pulse_inputs.kicad_sch`](../projects/wanos-board/pulse_inputs.kicad_sch) — **J6**/**J7** with **R51**–**R56**, **C24**/**C25**, **D34**–**D37**. Until old stubs on **`io_expanders`** are removed, expect duplicate designators.
+
+---
+
+## 2c. Doors — J2 / J3 (reed contacts)
+
+**Plant:** reed switches (dry contact to **GND** when active). ~field cable (treat like pulse inputs for EMI).
+
+**Board:** **J2** sauna → Exp A **P1**; **J3** bathroom → Exp A **P0**.
+
+### Target / drawn front-end (same sheet as kWh)
+
+Pull-up on **`+3V3`** (reed needs no 5 V rail):
+
+| Ref | Value | Role |
+|---|---|---|
+| **R45**/**R48** | **10 kΩ** → **`+3V3`** | Idle HIGH |
+| **R46**/**R49** | **330 Ω** | Series into PCA9554 |
+| **C22**/**C23** | **100 nF** | Debounce / EMI at expander (`τ` with 10k ≈ **1 ms** — suitable for reed) |
+| **D30**/**D32** | **PESD5V0S1BA** | SIG TVS |
+| **R47**/**R50** + LED | **1k0** from **`+3V3`** | Activity on pulse/contact **LOW** |
+
+**Schematic:** [`pulse_inputs.kicad_sch`](../projects/wanos-board/pulse_inputs.kicad_sch) — **J2**/**J3**. Retire LED-only stubs on **`io_expanders`** when adopting.
 
 ---
 

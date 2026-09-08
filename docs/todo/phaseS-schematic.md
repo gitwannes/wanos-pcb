@@ -94,14 +94,13 @@ KiCad schematic and project for **wanos-pcb-v1**. ERC clean before **Gate-S1** a
 | Sheet | Source |
 |---|---|
 | `Pi_Power` | **J17** + **J14** screw terminals; 5 V conditioning (**F1**, **Q6**, **D1**), **FB1**, **J40**; **D3** TVS; status **D23** / **D24**; **U4** 12 V monitor → Exp B P6 (**R32**, **R33**, **C17**); **J41** DNP |
-| `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) — **U1**/**U2**, I²C pull-ups, door/kWh activity LEDs |
+| `IO_Expanders` | [`io-expander-map.md`](../io-expander-map.md) — **U1**/**U2**, I²C pull-ups, field JST **J2–J3**/**J6–J8**, door/kWh activity LEDs |
 | `Water_Meters` | **J4** RJ45 + YF front-end (TVS, OD pull-ups, series R, debounce, LEDs) — [`field-wiring.md`](../field-wiring.md) § 2a |
 | `SSR_Drivers` | Pi GPIO → R/Q → **J13** (5-pin); **`+12V`** rail ref; SSR activity **D19–D22** / **R25–R28** |
 | `HDMI_SPI` | J1 — [`hdmi-spi-eink.md`](../hdmi-spi-eink.md) |
-| `I2C_Plant` | U5 TCA9548A; **J9–J12**/**J18** SHT31; **J16** LCD (root bus) |
-| `Connectors` | Field JST **J2–J3**, **J6–J8** per [`field-wiring.md`](../field-wiring.md) |
+| `I2C_Plant` | U5 TCA9548A; **C6** 100 nF; **R11** 10 kΩ RESET; **J9–J12**/**J18** SHT31; **J16** LCD (root bus) |
 
-Status on **Pi_Power**; SSR activity on **SSR_Drivers**. Water conditioning on **Water_Meters**. Door/kWh activity LEDs on **IO_Expanders**.
+Status on **Pi_Power**; SSR activity on **SSR_Drivers**. Water conditioning on **Water_Meters**. Door/kWh/button field JSTs + activity LEDs on **IO_Expanders** (no separate **Connectors** sheet).
 
 Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konnect.
 
@@ -110,7 +109,7 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 - [x] Connector pin counts match [`field-wiring.md`](../field-wiring.md) (R1 Done)
 - [x] 12 V opto on **Expander B P6** only
 - [x] **R9/R10 = 2k2** I²C pull-ups; **R11–R13** DNP (no PCA9615); **R14–R16** on SSR sheet
-- [x] TCA9548A @ **0x70**; five SHT31 channels **J9–J12**, **J18** (ch 0–4); ch 5–7 NC; **J16** on root I²C
+- [x] TCA9548A @ **0x70**; five SHT31 channels **J9–J12**, **J18** (ch 0–4); ch 5–7 NC; **J16** on root I²C; **C6** 100 nF; **R11** 10 kΩ `~RESET` pull-up; **C7** dropped
 - [x] Four SSR field strings + **Q5** safety gate + **R16** **`SAFETY_BUS`** pull-up; Pi GPIO net names match **R2** BCM table
 - [x] PCA9554 A0–A2 tied; unique I²C addresses
 - [x] HDMI nets named per hdmi-spi-eink doc
@@ -129,6 +128,8 @@ Use Konnect schematic tools and/or manual KiCad; **ERC** via `kicad-cli` or Konn
 **Accepted warnings:** `endpoint_off_grid`, `unconnected_wire_endpoint`, `isolated_pin_label` on global labels / cosmetic routing.
 
 **Post-implement fix:** **J13 pin 1** restored to **GND** (was briefly tied to **+12V** during ERC pass — corrected per [`field-wiring.md`](../field-wiring.md) § 6).
+
+**2026-09-06:** Field JST **J2–J3**, **J6–J8** moved from **`connectors.kicad_sch`** onto **`io_expanders.kicad_sch`**; **`connectors.kicad_sch`** deleted; orphan **Connectors** sheet removed from **`wanos-board.kicad_sch`** / **`.kicad_pro`**.
 
 **2026-09-02:** **`safety_12v_mon.kicad_sch`** merged into **`pi_power.kicad_sch`** (**U4**, **R32**–**R33**, **C17**); status LEDs **D23** / **D24** on **Pi_Power**; net name **`+12V`** (not **`+12VA`**) for external 12 V input; **J14** + **D3** TVS moved to **Pi_Power** (off **Connectors**).
 

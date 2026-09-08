@@ -51,6 +51,7 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 | [x] | Omron **G3PJ-225B DC12-24** (DIN SSR) | `external/omron-g3pj.pdf` |
 | [x] | **SHT3x** (Sensirion — SHT31 plant sensor) | `external/sht3x.pdf` |
 | [x] | **YF-B6 / YF-B10** water flow sensor | `external/YF-B6 B10 waterflow-sensor.pdf` |
+| [x] | Eastron **SDM72D-M** (kWh pulse meter) | `external/sdm72d-m.pdf` |
 
 ### Pi power (R2 lock — J41 DNP v1)
 

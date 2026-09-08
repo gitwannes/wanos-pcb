@@ -82,8 +82,16 @@ Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P
 
 ### 3.3 kWh counters (main + aux)
 
-- **J6**, **J7** — 2× 2-pin JST
-- **Expander A** P6 (main), P7 (aux); activity LEDs
+- **Plant:** 2× **Eastron SDM72D-M** — [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf)
+- **J6**, **J7** — 2× 2-pin JST; ~**10 m Cat5** each
+- **Expander A** P6 (main), P7 (aux)
+- **Pulse:** passive opto, needs **5–27 V** external — board pull-up on **`+5VA`**, not `+3V3` alone
+- **Target front-end (drawn on `pulse_inputs.kicad_sch`):** 10 kΩ pull-up to **`+5VA`**, 330 Ω series, 100 nF debounce, PESD TVS, activity LED **1k0** from **`+5VA`** — [`field-wiring.md`](field-wiring.md) § 2b
+- Retire incomplete **J6**/**J7** stubs on **`io_expanders`** when cutting over
+
+### 3.3a Doors (reed)
+
+- **J2** / **J3** — reed to GND; front-end on **`pulse_inputs.kicad_sch`**: 10 kΩ to **`+3V3`**, 330 Ω, 100 nF, PESD, activity LED — [`field-wiring.md`](field-wiring.md) § 2c
 
 ### 3.4 Buttons (sauna LCD)
 
@@ -204,7 +212,7 @@ When the driver is off, the LED can see **~7 V reverse** (12 V net vs 5 V rail).
 
 - **PCA9554PW × 2**, **TCA9548A**, **J16** LCD tap on **local bus**
 - Pull-ups: **2k2** on **SCL** and **SDA** only (**R9**, **R10** on **`io_expanders.kicad_sch`**)
-- VCC decoupling: **C3**/**C4** (PCA9554 **U1**/**U2**), **C6**/**C7** (**U5** mux) — [`io-expander-map.md`](io-expander-map.md) § 6
+- VCC decoupling: **C3**/**C4** (PCA9554 **U1**/**U2**), **C6** (**U5** mux); **R11** 10 kΩ **`~RESET`** pull-up on **U5** — [`io-expander-map.md`](io-expander-map.md) § 6
 - **100 kHz**; keep I²C away from SSR/12 V zone
 
 ### 6.2 SSR area
