@@ -6,7 +6,7 @@ Off-board wiring for sauna **12 V DC plant**, **DIN SSRs**, and independent **te
 
 **On-board connectors:** [`field-wiring.md`](field-wiring.md) · **Ground returns:** [`grounding.md`](grounding.md) · **Board spec:** [`board-spec.md`](board-spec.md)
 
-**Datasheet:** [`reference/datasheets/omron-g3pj.pdf`](reference/datasheets/omron-g3pj.pdf)
+**Datasheets:** SSR → [`reference/datasheets/external/omron-g3pj.pdf`](reference/datasheets/external/omron-g3pj.pdf) · kWh meters → § 5a · pack index → [`reference/datasheets/README.md`](reference/datasheets/README.md)
 
 ---
 
@@ -90,6 +90,22 @@ When safety opens, **`+12V`** at **J14** falls to **0 V** → opto **U4** on **`
 | **Doors, water, kWh** | Reuse where pinout matches; water is **YF-B6/B10** on **one Cat5** → **J4** RJ45 — [`field-wiring.md`](field-wiring.md) § 2a (not legacy dual 6-pin JST) |
 | **SHT11 plant → SHT31** | Re-terminate or replace tails (**SDA/SCL** vs DATA/CLOCK) — [`field-wiring.md`](field-wiring.md) § 7 |
 | **Two-Pi WISC** | **One Pi** on wanos-pcb-v1 (I/O + e-ink integrated) |
+
+---
+
+## 5a. kWh meters (plant inventory)
+
+Site may have **more than two** energy meters. **Not all need a pulse run to wanos.** PCB has **two** pulse inputs (**J6** main, **J7** aux) — wiring and software map → [`field-wiring.md`](field-wiring.md) § 2b · [`board-spec.md`](board-spec.md) § 3.3.
+
+This section is **plant reference** (which devices exist / how their S0 ports behave). It does **not** lock which meter is on which JST.
+
+| Part | Role (typical) | Datasheet | Pulse / S0 (from datasheet) | Notes vs wanos **J6/J7** (`+5VA` pull-up) |
+|---|---|---|---|---|
+| **Eastron SDM72D-M** | 3-ph / multi-param DIN meter (also RS485 Modbus) | [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf) | Configurable pulse; default **1000 imp/kWh**; passive opto needs external DC | **Design reference** for the drawn front-end (docs historically used **5–27 V**, ~**27 mA**, ~**35 ms**). Compatible with **`+5VA`** rail class. |
+| **Sibratec DDS-1Y-18L** | 1-ph DIN, LCD, pulse for PLC | [`dds-1y-18l.pdf`](reference/datasheets/external/dds-1y-18l.pdf) | Specs: **2000 /kWh**, width **~90 ms**; PLC use **10–30 V DC**, **~27 mA** (limits also cite max **60 V DC** / **50 mA**); terminals **20/21**; ≤**20 m** without amp | **Do not assume** drop-in on **`+5VA`**: published operating band starts at **10 V**. Faceplate text shows **1000 imp/kWh** while body text says **2000** — confirm on the physical unit before software constants. |
+| **Finder 7E.12.8.230.0002** | 1-ph 10(25) A, 2-module, SO open-collector (DIN **43864**) | [`finder-7e.12.8.230.0002.pdf`](reference/datasheets/external/finder-7e.12.8.230.0002.pdf) | External **5–30 V DC**, max **20 mA**; SO **2000 imp/kWh**, pulse **~100 ms** (7E.12 row); cable up to **1000 m** at 30 V / 20 mA | Voltage class **OK** with **`+5VA`**. Imp/kWh and pulse width differ from SDM72 defaults — software must match the wired meter. |
+
+**wanos pulse class:** passive / SO open-collector, polarity-aware, idle open, pulse closes to return — same electrical story as § 2b. **Modbus** on the SDM72 is plant-side only on v1 (no RS485 on the carrier).
 
 ---
 

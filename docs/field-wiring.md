@@ -94,11 +94,13 @@ Colour cheat-sheet: [`reference/datasheets/rj45-t568b-wiring-colors.jpg`](refere
 
 ---
 
-## 2b. kWh meters — J6 / J7 (Eastron SDM72D-M, ~10 m Cat5)
+## 2b. kWh meters — J6 / J7 (S0 pulse, ~10 m Cat5)
 
-**Plant:** 2× **Eastron SDM72D-M** (or equivalent) — datasheet [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf).
+**PCB:** two channels only (**J6** / **J7**). Site may have additional DIN kWh meters that stay display-only or use another controller — full inventory + pulse specs → [`external-plant.md`](external-plant.md) § 5a.
 
-**Pulse output (from meter manual):** passive **opto / transistor**, polarity-dependent, needs external **5–27 V DC**, max **~27 mA**. Default **1000 imp/kWh**, pulse width **~35 ms** (fixed at that constant). Idle open; pulse closes to the meter’s pulse return.
+**Front-end design reference:** Eastron **SDM72D-M** — [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf). Other plant meters (DDS-1Y-18L, Finder **7E.12.8.230.0002**) share the SO / passive-pulse idea but **not** the same V / imp/kWh numbers.
+
+**Pulse output (SDM72 manual class):** passive **opto / transistor**, polarity-dependent, needs external **5–27 V DC**, max **~27 mA**. Default **1000 imp/kWh**, pulse width **~35 ms** (fixed at that constant). Idle open; pulse closes to the meter’s pulse return.
 
 **Board connectors:** **J6** (main) / **J7** (aux) — 2-pin JST, pin **1 = GND**, pin **2 = SIG** → Expander A **P6** / **P7**.
 

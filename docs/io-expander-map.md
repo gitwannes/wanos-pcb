@@ -53,7 +53,7 @@ Address = `0x20 + (A2<<2) + (A1<<1) + A0`. **Direct tie** to **`+3V3`** or **GND
 | P3 | `EXP_A_P3_WM_B1_HOT` | Bathroom 1 hot (**J4**) |
 | P4 | `EXP_A_P4_WM_B2_COLD` | Bathroom 2 cold (**J4**) |
 | P5 | `EXP_A_P5_WM_B2_HOT` | Bathroom 2 hot (**J4**) |
-| P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) — SDM72D-M; front-end → [`field-wiring.md`](field-wiring.md) § 2b |
+| P6 | `EXP_A_P6_KWH_MAIN` | kWh main (**J6**) — S0 pulse (design ref SDM72D-M; plant inventory → [`external-plant.md`](external-plant.md) § 5a); front-end → [`field-wiring.md`](field-wiring.md) § 2b |
 | P7 | `EXP_A_P7_KWH_AUX` | kWh aux (**J7**) — same |
 
 **Doors / kWh activity LEDs:** **D11**–**D12**, **D17**–**D18** / **R17**–**R18**, **R23**–**R24**. **kWh target:** full RC + TVS + **`+5VA`** pull-up (§ 2b) — not yet on schematic (today only LED path).

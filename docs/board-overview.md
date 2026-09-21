@@ -38,7 +38,7 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 | [`hdmi-spi-eink.md`](hdmi-spi-eink.md) | WISC e-ink HDMI→SPI |
 | [`io-expander-map.md`](io-expander-map.md) | PCA9554 + TCA9548 map |
 | [`gpio-interface.md`](gpio-interface.md) | Pi BCM map + software strategy (**R2**) |
-| [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant |
+| [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant + kWh inventory |
 | [`grounding.md`](grounding.md) | Ground / return scheme |
 | [`reference/datasheets/README.md`](reference/datasheets/README.md) | Datasheet pack |
 | [`reference/silkscreen/README.md`](reference/silkscreen/README.md) | Silkscreen font + artwork |

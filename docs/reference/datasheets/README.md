@@ -52,6 +52,8 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 | [x] | **SHT3x** (Sensirion — SHT31 plant sensor) | `external/sht3x.pdf` |
 | [x] | **YF-B6 / YF-B10** water flow sensor | `external/YF-B6 B10 waterflow-sensor.pdf` |
 | [x] | Eastron **SDM72D-M** (kWh pulse meter) | `external/sdm72d-m.pdf` |
+| [x] | Sibratec **DDS-1Y-18L** (1-ph kWh, S0-style pulse) | `external/dds-1y-18l.pdf` |
+| [x] | Finder **7E.12.8.230.0002** (1-ph kWh, SO DIN 43864) | `external/finder-7e.12.8.230.0002.pdf` |
 
 ### Pi power (R2 lock — J41 DNP v1)
 
@@ -77,7 +79,7 @@ Operator reference PDFs for board design, JLCPCB ordering, and external-plant do
 
 ## Status
 
-**On disk:** water TVS pair (**PESD** + **SMBJ5.0A**), Amphenol **54602** fp refs, and T568B colour jpg present. Deferred only: **`usb-c-j41.pdf`** (J41 DNP v1).
+**On disk:** water TVS pair (**PESD** + **SMBJ5.0A**), Amphenol **54602** fp refs, T568B colour jpg, and plant kWh PDFs (**SDM72D-M**, **DDS-1Y-18L**, Finder **7E.12**) present. Deferred only: **`usb-c-j41.pdf`** (J41 DNP v1).
 
 ---
 

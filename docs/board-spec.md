@@ -82,11 +82,11 @@ Optocoupler (**U4**) on **`pi_power.kicad_sch`** → **Expander B P6** (`EXP_B_P
 
 ### 3.3 kWh counters (main + aux)
 
-- **Plant:** 2× **Eastron SDM72D-M** — [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf)
-- **J6**, **J7** — 2× 2-pin JST; ~**10 m Cat5** each
-- **Expander A** P6 (main), P7 (aux)
-- **Pulse:** passive opto, needs **5–27 V** external — board pull-up on **`+5VA`**, not `+3V3` alone
+- **PCB:** **2** pulse inputs only — **J6** (main), **J7** (aux); ~**10 m Cat5** each → Expander A **P6** / **P7**
+- **Plant inventory** (may include meters **not** wired to wanos): SDM72D-M, DDS-1Y-18L, Finder **7E.12.8.230.0002** — [`external-plant.md`](external-plant.md) § 5a
+- **Front-end design reference:** Eastron **SDM72D-M** S0 / passive opto — [`sdm72d-m.pdf`](reference/datasheets/external/sdm72d-m.pdf); needs external DC (**5–27 V** class) — board pull-up on **`+5VA`**, not `+3V3` alone
 - **Target front-end (drawn on `pulse_inputs.kicad_sch`):** 10 kΩ pull-up to **`+5VA`**, 330 Ω series, 100 nF debounce, PESD TVS, activity LED **1k0** from **`+5VA`** — [`field-wiring.md`](field-wiring.md) § 2b
+- **Other plant meters:** same SO class may be usable on **J6/J7**, but check voltage band and imp/kWh (DDS published **10–30 V** — not a drop-in on **`+5VA`**)
 - Retire incomplete **J6**/**J7** stubs on **`io_expanders`** when cutting over
 
 ### 3.3a Doors (reed)
@@ -266,7 +266,7 @@ DRC → [`projects/wanos-board/constraints.md`](../projects/wanos-board/constrai
 |---|---|
 | [`field-wiring.md`](field-wiring.md) | JST pinouts, Cat5, mux channels |
 | [`component-selection.md`](component-selection.md) | Parts and footprints |
-| [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant |
+| [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant + kWh inventory |
 | [`grounding.md`](grounding.md) | Ground / return scheme |
 | [`gpio-interface.md`](gpio-interface.md) | Pi BCM + software strategy |
 | [`io-expander-map.md`](io-expander-map.md) | Expander + mux map |
