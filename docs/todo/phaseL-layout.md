@@ -4,7 +4,7 @@
 
 PCB layout for **wanos-pcb-v1** (85 × 56 mm). DRC clean before **Gate-L1** and **Ops2**.
 
-**Status:** **L1** open — blocked on **Gate-S1**.
+**Status:** **L1** open — **Gate-S1** Done **2026-09-21**; near-term Sequence leads with operator **Ops-Remote1** (wanos-remote), then **L1**.
 
 **Related:** [`board-spec.md`](../board-spec.md) § 7 · [`constraints.md`](../../projects/wanos-board/constraints.md) · Sequence → [`pipeline.md`](pipeline.md).
 
@@ -40,7 +40,7 @@ PCB layout for **wanos-pcb-v1** (85 × 56 mm). DRC clean before **Gate-L1** and 
 
 ### Prereqs
 
-- **Gate-S1** closed
+- **Gate-S1** closed (**2026-09-21**)
 - Footprints assigned in schematic
 
 ### KiCad deliverables (implement phase)

@@ -16,6 +16,8 @@ Operator review of **`projects/wanos-board/`** hierarchical sheets before **L1**
 | [x] | [`i2c_plant.kicad_sch`](../projects/wanos-board/i2c_plant.kicad_sch) | **U5** TCA9548A, **C6**, **R11** RESET pull-up, **J9–J12**/**J18** SHT31, **J16** LCD (root bus) |
 | [x] | [`wanos-board.kicad_sch`](../projects/wanos-board/wanos-board.kicad_sch) | Root hierarchy (no separate **Connectors** / **LEDs** sheets) |
 
-**Signed off:** _date / Wannes_ — (fill when all rows checked)
+**Signed off:** **2026-09-21** / **Wannes** — Gate-S1 closed; S track archived.
 
-Pipeline: [`docs/todo/phaseS-schematic.md`](todo/phaseS-schematic.md) § Gate-S1
+**Note:** After sign-off, retire duplicate **J2/J3/J6/J7** stubs on [`io_expanders.kicad_sch`](../projects/wanos-board/io_expanders.kicad_sch) when cutting over to [`pulse_inputs.kicad_sch`](../projects/wanos-board/pulse_inputs.kicad_sch) (operator tidy — not blocking Gate-S1).
+
+Pipeline: [`docs/todo/_archive/phaseS-schematic.md`](todo/_archive/phaseS-schematic.md) (Done) · next Sequence **Ops-Remote1** → [`docs/todo/pipeline.md`](todo/pipeline.md)

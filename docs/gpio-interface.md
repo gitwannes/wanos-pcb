@@ -16,7 +16,7 @@ Field connectors → [`field-wiring.md`](field-wiring.md) · Expander pins → [
 | **Cutover** | **wanos-pcb-v1** | Operator updates **wanos** for expanders, SHT31, HDMI SPI — **all** board functions (**V1a** / main repo) |
 | **No adapter** | — | No shim to preserve WISC GPIO map on this PCB |
 
-Historical WISC pin map (reference only) → [§ WISC legacy](#wisc-legacy-reference-only).
+Historical WISC pin map (reference only) → [`gpio-map.md`](gpio-map.md) (full BCM inventory) · short tables [§ WISC legacy](#wisc-legacy-reference-only).
 
 ---
 
@@ -79,7 +79,8 @@ HDMI **physical pin** → signal per [`hdmi-spi-eink.md`](hdmi-spi-eink.md). **B
 
 ## WISC legacy (reference only)
 
-Direct **BCM** on production **WISC** — for migration context, **not** wanos-pcb-v1 wiring.
+Direct **BCM** on production **WISC** — for migration context, **not** wanos-pcb-v1 wiring.  
+**Full claimed / free / 1-wire inventory:** [`gpio-map.md`](gpio-map.md).
 
 ### Pulse / digital inputs
 
@@ -114,6 +115,7 @@ Direct **BCM** on production **WISC** — for migration context, **not** wanos-p
 
 ## Related
 
+- [`gpio-map.md`](gpio-map.md) — WISC production BCM map (canonical)
 - [`external-plant.md`](external-plant.md)
 - [`board-spec.md`](board-spec.md)
 - Delivery: [`todo/phaseV-verify.md`](todo/phaseV-verify.md) § V1a

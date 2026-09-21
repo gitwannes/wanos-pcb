@@ -37,7 +37,8 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 | [`component-selection.md`](component-selection.md) | JLCPCB parts and footprints |
 | [`hdmi-spi-eink.md`](hdmi-spi-eink.md) | WISC e-ink HDMI→SPI |
 | [`io-expander-map.md`](io-expander-map.md) | PCA9554 + TCA9548 map |
-| [`gpio-interface.md`](gpio-interface.md) | Pi BCM map + software strategy (**R2**) |
+| [`gpio-interface.md`](gpio-interface.md) | Pi BCM map + software strategy (**R2**) — **wanos-pcb-v1** |
+| [`gpio-map.md`](gpio-map.md) | WISC production BCM inventory (claimed / free / 1-wire) |
 | [`remotepcb.md`](remotepcb.md) | **wanos-remote** — plant pulse + 1-Wire module (Cat5 / U5) |
 | [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant + kWh inventory |
 | [`grounding.md`](grounding.md) | Ground / return scheme |
@@ -46,7 +47,7 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 | [`reference/wisc-board/`](reference/wisc-board/) | WISC summaries + read-only KiCad |
 | [`jlcpcb-ordering.md`](jlcpcb-ordering.md) | Fab export checklist |
 | [`kicad-setup.md`](kicad-setup.md) | KiCad 10, Konnect, Cursor MCP |
-| [`todo/pipeline.md`](todo/pipeline.md) | Delivery pipeline (S1 → V1b) |
+| [`todo/pipeline.md`](todo/pipeline.md) | Delivery pipeline (**Ops-Remote1** → **L1** → …) |
 
 **V1a close-out (planned):** `docs/installer-one-pager.md`, `docs/cutover-wisc-to-wanos-pcb-v1.md`.
 

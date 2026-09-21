@@ -28,4 +28,6 @@ Same PCB / same I²C straps (`MCP 0x22`, `DS2482 0x18`). Never enable ch 5 and 6
 
 ## Status
 
-Schematic **v0.1** — open in KiCad, run ERC, nudge wires to pins as needed (generator uses global labels; some IC pin attachments may need manual cleanup). Layout not started (40×60 hold).
+Schematic **v0.1** — **Ops-Remote1** (operator): clean in KiCad, run ERC, check vs [`docs/remotepcb.md`](../../docs/remotepcb.md). Layout not started (40×60 hold).
+
+Pipeline: [`docs/todo/pipeline.md`](../../docs/todo/pipeline.md) Sequence #1.

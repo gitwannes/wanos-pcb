@@ -28,7 +28,8 @@ Do **not** use WISC as authority for:
 |---|---|
 | Electrical behaviour, SSR interlock, R16 | [`docs/board-spec.md`](../docs/board-spec.md), [`docs/external-plant.md`](../docs/external-plant.md), [`docs/grounding.md`](../docs/grounding.md) |
 | Connector pinouts | [`docs/field-wiring.md`](../docs/field-wiring.md) |
-| BCM / software | [`docs/gpio-interface.md`](../docs/gpio-interface.md) |
+| BCM / software (**wanos-pcb-v1**) | [`docs/gpio-interface.md`](../docs/gpio-interface.md) |
+| WISC production BCM inventory | [`docs/gpio-map.md`](../docs/gpio-map.md) |
 | KiCad sources | `projects/wanos-board/` |
 
 When WISC and wanos differ, **wanos docs + schematic win**. Note migration impact in product docs only when operator-visible.

@@ -2,7 +2,7 @@
 
 # Remote plant PCB — universal pulse + 1-Wire
 
-**Status:** schematic **v0.1** in [`projects/wanos-remote/`](../projects/wanos-remote/) — open in KiCad, run ERC, clean pin attachments. **No layout yet.** Main carrier changes still after remote bring-up.  
+**Status:** schematic **v0.1** in [`projects/wanos-remote/`](../projects/wanos-remote/). **Next (operator):** clean schematic pin attachments + run ERC + check vs this doc — pipeline **Ops-Remote1**. **No layout yet.** Main carrier layout (**L1**) follows remote schematic check; main PCB *cutover* changes still after remote bring-up.  
 **Role:** universal remote module — **4×** opto pulse inputs + **4×** DS18B20 (1-Wire). Same PCB for water and kWh instances.
 
 Today’s main-board water / kWh wiring → [`field-wiring.md`](field-wiring.md), [`io-expander-map.md`](io-expander-map.md).

@@ -41,14 +41,13 @@ wanos-pcb/
 
 | Step | Id | What |
 |---|---|---|
-| ~~1–3~~ | ~~**R1, R2, Ops1**~~ | ~~Requirements / Konnect setup~~ **Done** |
-| 4 | **S1** | KiCad schematic — **ERC clean** (Gate-S1 next) |
-| 5 | **Gate-S1** | Schematic sign-off |
-| 6 | **L1** | PCB layout |
-| 7 | **Gate-L1** | Layout sign-off |
-| 8–9 | **Ops2, J1** | Fab readiness + JLCPCB order |
-| 10 | **Ops3** | Receiving inspection |
-| 11–12 | **V1a, V1b** | Bring-up / extended software |
+| ~~…~~ | ~~**R / Ops1 / S / Gate-S1**~~ | ~~Requirements + main schematic~~ **Done** **2026-09-21** |
+| **1** | **Ops-Remote1** | Operator: clean + check **wanos-remote** schematic |
+| **2** | **L1** | Main carrier PCB layout |
+| **3** | **Gate-L1** | Layout sign-off |
+| **4–5** | **Ops2, J1** | Fab readiness + JLCPCB order |
+| **6** | **Ops3** | Receiving inspection |
+| **7–8** | **V1a, V1b** | Bring-up / extended software |
 
 Full backlog → [`docs/todo/pipeline.md`](docs/todo/pipeline.md).
 
@@ -59,9 +58,12 @@ Full backlog → [`docs/todo/pipeline.md`](docs/todo/pipeline.md).
 | Doc | Purpose |
 |---|---|
 | [`docs/board-spec.md`](docs/board-spec.md) | **wanos-pcb-v1** specification |
-| [`docs/gpio-interface.md`](docs/gpio-interface.md) | Pi BCM + software strategy |
+| [`docs/remotepcb.md`](docs/remotepcb.md) | **wanos-remote** plant module |
+| [`docs/gpio-interface.md`](docs/gpio-interface.md) | Pi BCM + software strategy (**wanos-pcb-v1**) |
+| [`docs/gpio-map.md`](docs/gpio-map.md) | WISC production BCM inventory |
 | [`docs/external-plant.md`](docs/external-plant.md) | DIN SSR + 12 V plant |
 | [`docs/field-wiring.md`](docs/field-wiring.md) | Connector pinouts |
+| [`docs/schematic-signoff.md`](docs/schematic-signoff.md) | Gate-S1 record (Done) |
 | [`docs/reference/datasheets/README.md`](docs/reference/datasheets/README.md) | Datasheet pack |
 | [`docs/kicad-setup.md`](docs/kicad-setup.md) | Konnect + KiCad 10 (**Ops1** Done) |
 | [`projects/wanos-board/components.xlsx`](projects/wanos-board/components.xlsx) | BOM / LCSC seed |
@@ -70,9 +72,9 @@ Full backlog → [`docs/todo/pipeline.md`](docs/todo/pipeline.md).
 
 ## Workflow
 
-1. ~~**`kickoff R2`**~~ — **Done** (2026-09-01).
-2. **`implement`** — **S1** → **L1** → **J1**.
-3. Operator **Gate-S1** / **Gate-L1** between phases.
+1. ~~**`kickoff` / S1 / Gate-S1**~~ — **Done** (schematic signed **2026-09-21**).
+2. **Ops-Remote1** — operator cleans + checks [`projects/wanos-remote/`](projects/wanos-remote/).
+3. **`implement` L1** — main carrier layout (after Gate-S1).
 4. **`V1a`** — board + updated **wanos**; cutover from WISC.
 
 **DoD (every phase):** audit all `docs/**/*.md` + this README.
