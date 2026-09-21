@@ -138,6 +138,22 @@ Net map → [`io-expander-map.md`](io-expander-map.md).
 
 **External (not assembled):** LCD modules, SHT31 sensor boards, external DIN SSRs.
 
+---
+
+## 7b. wanos-remote (plant module)
+
+Canonical design → [`remotepcb.md`](remotepcb.md). KiCad → [`projects/wanos-remote/`](../projects/wanos-remote/). BOM rows in [`components.xlsx`](../projects/wanos-board/components.xlsx) with **`board=remote`**.
+
+| Part | Role |
+|---|---|
+| TE **5556416-1** / LCSC **C86492** | Uplink RJ45 (same class as main water jack) |
+| **B3B-XH-A** | 3-pin pulse + temp JST |
+| **TLP281-4** | Quad opto |
+| **MCP23017A** | I/O expander `@ 0x22` |
+| **DS2482-800** | 1-Wire master `@ 0x18` (LCSC TBD) |
+| **AP2204K-3.3** | VIN → 3V3 |
+| **SMBJ12A** | VIN TVS on remote |
+
 **Datasheets:** [`reference/datasheets/README.md`](reference/datasheets/README.md) — water TVS + Amphenol **54602** fp refs on disk; `usb-c-j41.pdf` deferred (J41 DNP v1).
 
 Validate LCSC stock before **J1**.

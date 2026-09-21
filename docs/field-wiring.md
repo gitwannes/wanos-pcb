@@ -265,7 +265,7 @@ On-board chain: **F1** 2 A polyfuse (resettable) → **Q6** ideal diode → **D1
 ## 7. SHT31 plant — Cat5 per sensor
 
 - **5×** separate Cat5 runs (~**4–5 m** each), one **4-pin JST** per sensor (**J9–J12**, **J18**).
-- **TCA9548A** (U5) on PCB @ I²C **`0x70`** — 8-ch mux; select channel, then poll SHT31 at **`0x44`** (all modules use default address). Channels **5–7** NC.
+- **TCA9548A** (U5) on PCB @ I²C **`0x70`** — 8-ch mux; select channel, then poll SHT31 at **`0x44`** (all modules use default address). Channels **5–6** reserved for **wanos-remote** ([`remotepcb.md`](remotepcb.md)); ch **7** NC until used.
 - **J16** LCD remains on the root Pi I²C bus (not behind the mux).
 - **No PCA9615** on v1 — direct I²C through mux per channel.
 - **Pull-ups:** **2k2** on main `I2C_SCL` / `I2C_SDA` only (**R9**, **R10**) — sized for ~5 m Cat5 @ 100 kHz.

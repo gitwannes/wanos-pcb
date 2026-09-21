@@ -1,0 +1,49 @@
+# --- file: projects/wanos-remote/design.yaml ---
+# Design intent — wanos-remote (draft 2026-09-21)
+
+name: wanos-remote
+revision: wanos-remote-v0.1
+description: >
+  Universal plant remote — 4x opto-isolated pulse inputs + 4x DS18B20 via DS2482-800,
+  Cat5 uplink to main TCA9548A (ch5 water / ch6 kWh). 40x60 mm target.
+kicadVersion: "10.0"
+
+spec: docs/remotepcb.md
+bomSeed: projects/wanos-board/components.xlsx  # filter board=remote
+mainCarrier: projects/wanos-board/
+datasheets: docs/reference/datasheets/
+
+rails:
+  - name: VIN
+    voltage: 12.0
+    notes: From main +12V over Cat5; SMBJ12A local; min 11.5 V at board
+  - name: S0_RAIL
+    voltage: 12.0
+    notes: VIN via 10R + bulk; opto LEDs + YF VDD + power LED
+  - name: LOGIC_3V3
+    voltage: 3.3
+    notes: AP2204K-3.3 from VIN
+  - name: GND
+    voltage: 0
+
+blocks:
+  - id: uplink
+    description: RJ45 J1 — I2C + VIN + GND (no INT); pair map remotepcb.md §5
+  - id: power
+    description: D10 SMBJ12A; R17/C5/C6 S0_RAIL; U4 AP2204; power LED D9
+  - id: pulse
+    description: U1 TLP281-4 + J2-J5; MCP U3 GPA0-3; activity LEDs + SW1
+  - id: onewire
+    description: U2 DS2482-800 @ 0x18; J6-J9; IO4-7 NC
+
+i2c:
+  mcp23017a: "0x22"
+  ds2482_800: "0x18"
+
+constraints:
+  boardSizeMm: [40, 60]
+  layers: 2
+  thicknessMm: 1.6
+  surfaceFinish: ENIG
+  tooling: Konnect + KiCad 10
+  regenerate: python projects/wanos-remote/_regen_schematic.py

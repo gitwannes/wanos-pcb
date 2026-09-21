@@ -1,0 +1,3826 @@
+[
+  {
+    "description": "Input Power pin not driven by any Output Power pins: Symbol #PWR1 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR1 Pin 1 [Power input, Line]",
+        "uuid": "6863d2c5-9d3a-4e54-a729-a49012d6b5c8",
+        "x": 0.1468,
+        "y": 1.5492
+      }
+    ],
+    "rule": "power_pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.1468,
+    "y": 1.5492
+  },
+  {
+    "description": "Pin not connected: Symbol R12 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R12 Pin 1 [Passive, Line]",
+        "uuid": "faf1c1e5-366c-4173-91f5-42db0efa72ae",
+        "x": 0.55,
+        "y": 0.2881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.2881
+  },
+  {
+    "description": "Pin not connected: Symbol R12 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R12 Pin 2 [Passive, Line]",
+        "uuid": "54be4691-6405-431b-811d-658e58bac52c",
+        "x": 0.55,
+        "y": 0.3643
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.3643
+  },
+  {
+    "description": "Pin not connected: Symbol R11 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R11 Pin 1 [Passive, Line]",
+        "uuid": "f61fbef5-43ba-4f18-9d16-f601a05f9159",
+        "x": 0.55,
+        "y": 0.5881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.5881
+  },
+  {
+    "description": "Pin not connected: Symbol R11 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R11 Pin 2 [Passive, Line]",
+        "uuid": "4f5292f2-ed9c-45bc-ba3b-a59c80c43ce2",
+        "x": 0.55,
+        "y": 0.6643
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.6643
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_A2'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_A2'",
+        "uuid": "5332eb4e-90e4-4412-9558-8064173b8e7b",
+        "x": 0.55,
+        "y": 0.85
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.85
+  },
+  {
+    "description": "Pin not connected: Symbol R10 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R10 Pin 1 [Passive, Line]",
+        "uuid": "66e01da4-bb6e-422c-933e-0d8c233cda6d",
+        "x": 0.55,
+        "y": 0.8881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.8881
+  },
+  {
+    "description": "Pin not connected: Symbol R10 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R10 Pin 2 [Passive, Line]",
+        "uuid": "ccb3341e-bdb1-493e-a618-1b19f72deec3",
+        "x": 0.55,
+        "y": 0.9643
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 0.9643
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_A1'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_A1'",
+        "uuid": "d76a8d22-b72f-46c6-9d61-d15f0e0dea55",
+        "x": 0.55,
+        "y": 1.15
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 1.15
+  },
+  {
+    "description": "Pin not connected: Symbol R9 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R9 Pin 1 [Passive, Line]",
+        "uuid": "36d908cc-49d9-4885-a959-54879025aa4b",
+        "x": 0.55,
+        "y": 1.1881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 1.1881
+  },
+  {
+    "description": "Pin not connected: Symbol R9 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R9 Pin 2 [Passive, Line]",
+        "uuid": "0eb6b8d6-a597-4b32-b029-65a0a00b5dd3",
+        "x": 0.55,
+        "y": 1.2643
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.55,
+    "y": 1.2643
+  },
+  {
+    "description": "Label not connected: Global Label 'SIG4'",
+    "items": [
+      {
+        "description": "Global Label 'SIG4'",
+        "uuid": "426edf40-02e5-411d-8727-5594d41a134d",
+        "x": 0.62,
+        "y": 0.2246
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.62,
+    "y": 0.2246
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_A4'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_A4'",
+        "uuid": "406bd85b-d040-4de6-a1e5-8980c226a0ab",
+        "x": 0.62,
+        "y": 0.2754
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.62,
+    "y": 0.2754
+  },
+  {
+    "description": "Label not connected: Global Label 'SIG3'",
+    "items": [
+      {
+        "description": "Global Label 'SIG3'",
+        "uuid": "cd6b9861-df13-4b03-b05a-b884e0a01f03",
+        "x": 0.62,
+        "y": 0.5246
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.62,
+    "y": 0.5246
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_A3'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_A3'",
+        "uuid": "25437702-8366-45ba-9b7a-eb08526bdc48",
+        "x": 0.62,
+        "y": 0.5754
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.62,
+    "y": 0.5754
+  },
+  {
+    "description": "Label not connected: Global Label 'SIG2'",
+    "items": [
+      {
+        "description": "Global Label 'SIG2'",
+        "uuid": "958d79e3-7e12-4f95-9b1e-a8391c9f3964",
+        "x": 0.62,
+        "y": 0.8246
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.62,
+    "y": 0.8246
+  },
+  {
+    "description": "Label not connected: Global Label 'SIG1'",
+    "items": [
+      {
+        "description": "Global Label 'SIG1'",
+        "uuid": "b6478dbb-45c5-463a-912b-b98d3edf0a51",
+        "x": 0.62,
+        "y": 1.1246
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.62,
+    "y": 1.1246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 16 [C, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 16 [C, Open collector, Line]",
+        "uuid": "f0ff5f0e-9148-4630-bfe0-267dc9e73fee",
+        "x": 0.623,
+        "y": 0.2246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 0.2246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 15 [E, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 15 [E, Passive, Line]",
+        "uuid": "b0fb4e33-33aa-4df2-9835-9514a929683b",
+        "x": 0.623,
+        "y": 0.2754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 0.2754
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 14 [C, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 14 [C, Open collector, Line]",
+        "uuid": "60125344-8b1f-4171-983f-98a90a4266c7",
+        "x": 0.623,
+        "y": 0.5246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 0.5246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 13 [E, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 13 [E, Passive, Line]",
+        "uuid": "cffe804e-cb87-4a20-9197-a03f8bf68e5f",
+        "x": 0.623,
+        "y": 0.5754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 0.5754
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 12 [C, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 12 [C, Open collector, Line]",
+        "uuid": "9eaa1805-80c3-4c35-b96b-5bc637de9296",
+        "x": 0.623,
+        "y": 0.8246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 0.8246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 11 [E, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 11 [E, Passive, Line]",
+        "uuid": "13d42ed7-715d-4594-9bc3-3c2b49e0723c",
+        "x": 0.623,
+        "y": 0.8754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 0.8754
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 10 [C, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 10 [C, Open collector, Line]",
+        "uuid": "713d3136-c548-4419-8243-0f9b6ae4e211",
+        "x": 0.623,
+        "y": 1.1246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 1.1246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 9 [E, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 9 [E, Passive, Line]",
+        "uuid": "eaab49fd-1b1e-4b76-a386-0e4b621da279",
+        "x": 0.623,
+        "y": 1.1754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.623,
+    "y": 1.1754
+  },
+  {
+    "description": "Pin not connected: Symbol R19 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R19 Pin 1 [Passive, Line]",
+        "uuid": "51da2e9c-f764-49b3-a921-066ac617d5a5",
+        "x": 0.6619,
+        "y": 1.4
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.6619,
+    "y": 1.4
+  },
+  {
+    "description": "Label not connected: Global Label 'I2C_SDA'",
+    "items": [
+      {
+        "description": "Global Label 'I2C_SDA'",
+        "uuid": "f4b10f5d-339d-433c-8e50-71120f3f93c5",
+        "x": 0.7,
+        "y": 1.3
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7,
+    "y": 1.3
+  },
+  {
+    "description": "Label not connected: Global Label 'I2C_SDA_J'",
+    "items": [
+      {
+        "description": "Global Label 'I2C_SDA_J'",
+        "uuid": "9a573f1a-ee9e-4630-bee6-c746be47f2a9",
+        "x": 0.7,
+        "y": 1.5
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7,
+    "y": 1.5
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR6 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR6 Pin 1 [Power input, Line]",
+        "uuid": "f606f800-ca85-4b01-a4e6-2328c440fe3e",
+        "x": 0.7,
+        "y": 1.65
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7,
+    "y": 1.65
+  },
+  {
+    "description": "Pin not connected: Symbol D10 Pin 2 [A2, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D10 Pin 2 [A2, Passive, Line]",
+        "uuid": "e2dc8073-5241-4594-be77-35f3998171ec",
+        "x": 0.7,
+        "y": 1.7119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7,
+    "y": 1.7119
+  },
+  {
+    "description": "Pin not connected: Symbol D10 Pin 1 [A1, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D10 Pin 1 [A1, Passive, Line]",
+        "uuid": "a567c993-b2d5-4c36-beab-08bf691394ce",
+        "x": 0.7,
+        "y": 1.7881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7,
+    "y": 1.7881
+  },
+  {
+    "description": "Label not connected: Global Label 'VIN'",
+    "items": [
+      {
+        "description": "Global Label 'VIN'",
+        "uuid": "e7d018ab-3d60-4732-a0d1-73608516cfc3",
+        "x": 0.7,
+        "y": 1.85
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7,
+    "y": 1.85
+  },
+  {
+    "description": "Pin not connected: Symbol R19 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R19 Pin 2 [Passive, Line]",
+        "uuid": "8493c892-e106-4b39-a240-7008ab9f0529",
+        "x": 0.7381,
+        "y": 1.4
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.7381,
+    "y": 1.4
+  },
+  {
+    "description": "Pin not connected: Symbol R20 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R20 Pin 1 [Passive, Line]",
+        "uuid": "717f81b1-7e0b-4c20-a7e4-f80259e339bc",
+        "x": 0.8119,
+        "y": 1.4
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.8119,
+    "y": 1.4
+  },
+  {
+    "description": "Label not connected: Global Label 'I2C_SCL'",
+    "items": [
+      {
+        "description": "Global Label 'I2C_SCL'",
+        "uuid": "ddc3dfa2-4860-4764-a215-2d754765b84e",
+        "x": 0.85,
+        "y": 1.3
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.85,
+    "y": 1.3
+  },
+  {
+    "description": "Label not connected: Global Label 'I2C_SCL_J'",
+    "items": [
+      {
+        "description": "Global Label 'I2C_SCL_J'",
+        "uuid": "5793609f-576b-4c0b-91c5-661bda2f6a5d",
+        "x": 0.85,
+        "y": 1.5
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.85,
+    "y": 1.5
+  },
+  {
+    "description": "Label not connected: Global Label 'S0_RAIL'",
+    "items": [
+      {
+        "description": "Global Label 'S0_RAIL'",
+        "uuid": "0b65f714-e8d5-416f-bbf6-0fb04da7eeba",
+        "x": 0.85,
+        "y": 1.52
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.85,
+    "y": 1.52
+  },
+  {
+    "description": "Pin not connected: Symbol R17 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R17 Pin 1 [Passive, Line]",
+        "uuid": "a7ee42c2-5997-44d4-8058-b84bda6df9f0",
+        "x": 0.85,
+        "y": 1.5619
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.85,
+    "y": 1.5619
+  },
+  {
+    "description": "Pin not connected: Symbol R17 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R17 Pin 2 [Passive, Line]",
+        "uuid": "b7f8fbb8-27eb-454f-b13e-1cd50ddee92b",
+        "x": 0.85,
+        "y": 1.6381
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.85,
+    "y": 1.6381
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 7 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 7 [A, Passive, Line]",
+        "uuid": "d3f1d871-fda7-4a15-b4e8-c31b4a5e71cd",
+        "x": 0.877,
+        "y": 0.2246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 0.2246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 8 [C, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 8 [C, Passive, Line]",
+        "uuid": "c680588d-7f07-4f4a-8802-0b52c26c17cc",
+        "x": 0.877,
+        "y": 0.2754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 0.2754
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 5 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 5 [A, Passive, Line]",
+        "uuid": "a9fa2548-d454-4e18-b9ad-0f7ea1be1f33",
+        "x": 0.877,
+        "y": 0.5246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 0.5246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 6 [C, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 6 [C, Passive, Line]",
+        "uuid": "70df6af7-2983-4bc3-b611-5def8eac8536",
+        "x": 0.877,
+        "y": 0.5754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 0.5754
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 3 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 3 [A, Passive, Line]",
+        "uuid": "36697413-a45a-4173-9d34-b7763ecde6da",
+        "x": 0.877,
+        "y": 0.8246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 0.8246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 4 [C, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 4 [C, Passive, Line]",
+        "uuid": "45b32006-70d8-499f-b43c-2c55150d452c",
+        "x": 0.877,
+        "y": 0.8754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 0.8754
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 1 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 1 [A, Passive, Line]",
+        "uuid": "aa81c733-69a4-4dfa-a181-d52bfc0159b6",
+        "x": 0.877,
+        "y": 1.1246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 1.1246
+  },
+  {
+    "description": "Pin not connected: Symbol U1 Pin 2 [C, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol U1 Pin 2 [C, Passive, Line]",
+        "uuid": "279b5a42-cb54-4866-9b0a-a89794da8eb4",
+        "x": 0.877,
+        "y": 1.1754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.877,
+    "y": 1.1754
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR30 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR30 Pin 1 [Power input, Line]",
+        "uuid": "2e0c94ac-8f98-4dfb-88fd-fe38e3f873e8",
+        "x": 0.88,
+        "y": 0.2246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.88,
+    "y": 0.2246
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_C4'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_C4'",
+        "uuid": "d3972bb2-3f8f-48e8-83e5-8fae016161d9",
+        "x": 0.88,
+        "y": 0.2754
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.88,
+    "y": 0.2754
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR26 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR26 Pin 1 [Power input, Line]",
+        "uuid": "83a9b2d1-d27f-45db-8885-acc301711d4c",
+        "x": 0.88,
+        "y": 0.5246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.88,
+    "y": 0.5246
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR22 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR22 Pin 1 [Power input, Line]",
+        "uuid": "bdeb0671-0a56-4df7-bc15-227d19da9f99",
+        "x": 0.88,
+        "y": 0.8246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.88,
+    "y": 0.8246
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR18 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR18 Pin 1 [Power input, Line]",
+        "uuid": "be00f976-6f06-4fa2-8bd4-d03cb1e995a2",
+        "x": 0.88,
+        "y": 1.1246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.88,
+    "y": 1.1246
+  },
+  {
+    "description": "Pin not connected: Symbol R20 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R20 Pin 2 [Passive, Line]",
+        "uuid": "2843826a-93a3-4718-bc7e-7dbc1ac07f1a",
+        "x": 0.8881,
+        "y": 1.4
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.8881,
+    "y": 1.4
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR7 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR7 Pin 1 [Power input, Line]",
+        "uuid": "12116c42-3195-4dda-abe4-4f07f369b229",
+        "x": 0.95,
+        "y": 1.47
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.95,
+    "y": 1.47
+  },
+  {
+    "description": "Pin not connected: Symbol C5 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C5 Pin 1 [Passive, Line]",
+        "uuid": "07e4dec3-8fba-44ee-a765-a966de79bc46",
+        "x": 0.95,
+        "y": 1.5119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.95,
+    "y": 1.5119
+  },
+  {
+    "description": "Pin not connected: Symbol C5 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C5 Pin 2 [Passive, Line]",
+        "uuid": "844945bf-c1d8-40c6-a6a1-ab0b238b0fb3",
+        "x": 0.95,
+        "y": 1.5881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 0.95,
+    "y": 1.5881
+  },
+  {
+    "description": "Pin not connected: Symbol R4 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R4 Pin 1 [Passive, Line]",
+        "uuid": "af9fbd11-4f28-4893-9bc4-67f9a775ed5a",
+        "x": 1.0119,
+        "y": 0.2754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0119,
+    "y": 0.2754
+  },
+  {
+    "description": "Pin not connected: Symbol R3 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R3 Pin 1 [Passive, Line]",
+        "uuid": "421c6558-c4d8-4953-985b-8ab058176c65",
+        "x": 1.0119,
+        "y": 0.5754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0119,
+    "y": 0.5754
+  },
+  {
+    "description": "Pin not connected: Symbol R2 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R2 Pin 1 [Passive, Line]",
+        "uuid": "65fb3ac5-2f38-419c-b77c-d53d3f924725",
+        "x": 1.0119,
+        "y": 0.8754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0119,
+    "y": 0.8754
+  },
+  {
+    "description": "Pin not connected: Symbol R1 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R1 Pin 1 [Passive, Line]",
+        "uuid": "d916b0c4-17f4-4765-8543-afaf64b47530",
+        "x": 1.0119,
+        "y": 1.1754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0119,
+    "y": 1.1754
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_C3'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_C3'",
+        "uuid": "3cf8448a-1243-47df-8a0b-7907819638e3",
+        "x": 1.05,
+        "y": 0.67
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.05,
+    "y": 0.67
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_C2'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_C2'",
+        "uuid": "67bf3840-950c-47f4-b214-03a6d602eb77",
+        "x": 1.05,
+        "y": 0.97
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.05,
+    "y": 0.97
+  },
+  {
+    "description": "Label not connected: Global Label 'OPTO_C1'",
+    "items": [
+      {
+        "description": "Global Label 'OPTO_C1'",
+        "uuid": "e1c76f4b-40a5-4237-b1db-f45302247602",
+        "x": 1.05,
+        "y": 1.27
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.05,
+    "y": 1.27
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR8 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR8 Pin 1 [Power input, Line]",
+        "uuid": "7d416240-16f1-427c-814a-8d9980ba25db",
+        "x": 1.05,
+        "y": 1.47
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.05,
+    "y": 1.47
+  },
+  {
+    "description": "Pin not connected: Symbol C6 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C6 Pin 1 [Passive, Line]",
+        "uuid": "c5e15228-a1ca-426e-8a92-83fbcb2c3197",
+        "x": 1.05,
+        "y": 1.5119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.05,
+    "y": 1.5119
+  },
+  {
+    "description": "Pin not connected: Symbol C6 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C6 Pin 2 [Passive, Line]",
+        "uuid": "569a718e-52dc-4ed4-a71e-0f86944c6f4b",
+        "x": 1.05,
+        "y": 1.5881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.05,
+    "y": 1.5881
+  },
+  {
+    "description": "Pin not connected: Symbol R4 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R4 Pin 2 [Passive, Line]",
+        "uuid": "d3abb958-0980-441e-9483-ecf668ffa918",
+        "x": 1.0881,
+        "y": 0.2754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0881,
+    "y": 0.2754
+  },
+  {
+    "description": "Pin not connected: Symbol R3 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R3 Pin 2 [Passive, Line]",
+        "uuid": "9212e0d3-4ac7-4ff9-9191-2d5a09f23925",
+        "x": 1.0881,
+        "y": 0.5754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0881,
+    "y": 0.5754
+  },
+  {
+    "description": "Pin not connected: Symbol R2 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R2 Pin 2 [Passive, Line]",
+        "uuid": "c9cb8f4f-fc85-456a-803e-35a0ca34ea79",
+        "x": 1.0881,
+        "y": 0.8754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0881,
+    "y": 0.8754
+  },
+  {
+    "description": "Pin not connected: Symbol R1 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R1 Pin 2 [Passive, Line]",
+        "uuid": "96533177-643c-41fa-be5a-6305c6678628",
+        "x": 1.0881,
+        "y": 1.1754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.0881,
+    "y": 1.1754
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR9 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR9 Pin 1 [Power input, Line]",
+        "uuid": "1063beee-c940-4698-9f28-3dd54189cd3e",
+        "x": 1.15,
+        "y": 1.5
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.15,
+    "y": 1.5
+  },
+  {
+    "description": "Pin not connected: Symbol D9 Pin 1 [K, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D9 Pin 1 [K, Passive, Line]",
+        "uuid": "f5192c87-14d4-4f6d-95e1-5ef75c02e498",
+        "x": 1.1619,
+        "y": 1.5
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.1619,
+    "y": 1.5
+  },
+  {
+    "description": "Pin not connected: Symbol R8 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R8 Pin 1 [Passive, Line]",
+        "uuid": "830f9eb3-68c9-48ef-8077-5e2e8e825c31",
+        "x": 1.2,
+        "y": 0.3119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.3119
+  },
+  {
+    "description": "Pin not connected: Symbol R8 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R8 Pin 2 [Passive, Line]",
+        "uuid": "5709f017-69b2-4585-85cb-5260e78188ff",
+        "x": 1.2,
+        "y": 0.3881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.3881
+  },
+  {
+    "description": "Label not connected: Global Label 'PULSE_CH3'",
+    "items": [
+      {
+        "description": "Global Label 'PULSE_CH3'",
+        "uuid": "1329a860-e8cb-4ac2-b5b7-734be80e4c0d",
+        "x": 1.2,
+        "y": 0.59
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.59
+  },
+  {
+    "description": "Pin not connected: Symbol R7 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R7 Pin 1 [Passive, Line]",
+        "uuid": "67ad0412-b0d5-47e0-be01-d8dac09f67ff",
+        "x": 1.2,
+        "y": 0.6119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.6119
+  },
+  {
+    "description": "Pin not connected: Symbol R7 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R7 Pin 2 [Passive, Line]",
+        "uuid": "e057f0ce-c6d5-44f7-8e83-6130a813a637",
+        "x": 1.2,
+        "y": 0.6881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.6881
+  },
+  {
+    "description": "Pin not connected: Symbol R6 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R6 Pin 1 [Passive, Line]",
+        "uuid": "d1ef7d06-d8be-4463-ab08-ef27a805a2b8",
+        "x": 1.2,
+        "y": 0.9119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.9119
+  },
+  {
+    "description": "Pin not connected: Symbol R6 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R6 Pin 2 [Passive, Line]",
+        "uuid": "28f1715c-811a-47cb-a7f2-7c8725109459",
+        "x": 1.2,
+        "y": 0.9881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 0.9881
+  },
+  {
+    "description": "Pin not connected: Symbol R5 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R5 Pin 1 [Passive, Line]",
+        "uuid": "d048493e-36ad-439a-8f36-3d5f75bd8810",
+        "x": 1.2,
+        "y": 1.2119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 1.2119
+  },
+  {
+    "description": "Pin not connected: Symbol R5 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R5 Pin 2 [Passive, Line]",
+        "uuid": "60c4c37d-ac34-4687-ba2e-b22b32b7a5a5",
+        "x": 1.2,
+        "y": 1.2881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 1.2881
+  },
+  {
+    "description": "Label not connected: Global Label 'LED_PWR'",
+    "items": [
+      {
+        "description": "Global Label 'LED_PWR'",
+        "uuid": "08208a84-835a-4f8a-8d5f-c4cc45931684",
+        "x": 1.2,
+        "y": 1.62
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 1.62
+  },
+  {
+    "description": "Pin not connected: Symbol R18 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R18 Pin 1 [Passive, Line]",
+        "uuid": "14bf60f5-0e48-4652-9515-b81e80cc3a6f",
+        "x": 1.2,
+        "y": 1.6619
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 1.6619
+  },
+  {
+    "description": "Pin not connected: Symbol R18 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R18 Pin 2 [Passive, Line]",
+        "uuid": "02d01e25-d8ac-41f9-9123-0d174ab2277c",
+        "x": 1.2,
+        "y": 1.7381
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2,
+    "y": 1.7381
+  },
+  {
+    "description": "Pin not connected: Symbol D9 Pin 2 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D9 Pin 2 [A, Passive, Line]",
+        "uuid": "482cdf2b-0524-4d0f-a87e-c5b2eeb0edbb",
+        "x": 1.2381,
+        "y": 1.5
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.2381,
+    "y": 1.5
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR31 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR31 Pin 1 [Power input, Line]",
+        "uuid": "31a52c39-2819-49ed-b564-336878093552",
+        "x": 1.3,
+        "y": 0.21
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.21
+  },
+  {
+    "description": "Pin not connected: Symbol C4 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C4 Pin 1 [Passive, Line]",
+        "uuid": "5255478c-baad-4e90-b485-f41aa1ed4c82",
+        "x": 1.3,
+        "y": 0.2519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.2519
+  },
+  {
+    "description": "Pin not connected: Symbol C4 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C4 Pin 2 [Passive, Line]",
+        "uuid": "9435a8ea-f5d5-48a4-8ff0-60a9b7efe25a",
+        "x": 1.3,
+        "y": 0.3281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.3281
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR27 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR27 Pin 1 [Power input, Line]",
+        "uuid": "3f7f6803-79ca-44f3-87c3-9ca29ac42dda",
+        "x": 1.3,
+        "y": 0.51
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.51
+  },
+  {
+    "description": "Pin not connected: Symbol C3 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C3 Pin 1 [Passive, Line]",
+        "uuid": "587a4683-4424-405a-8201-51ec7b179e3e",
+        "x": 1.3,
+        "y": 0.5519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.5519
+  },
+  {
+    "description": "Pin not connected: Symbol C3 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C3 Pin 2 [Passive, Line]",
+        "uuid": "5e82dd78-d811-4442-8c45-e5f8ae765732",
+        "x": 1.3,
+        "y": 0.6281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.6281
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR23 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR23 Pin 1 [Power input, Line]",
+        "uuid": "d0daf618-1d28-4fd3-bf12-54b3a5b651cf",
+        "x": 1.3,
+        "y": 0.81
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.81
+  },
+  {
+    "description": "Pin not connected: Symbol C2 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C2 Pin 1 [Passive, Line]",
+        "uuid": "daa5e0b0-b621-48cb-81e7-7c98809f2925",
+        "x": 1.3,
+        "y": 0.8519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.8519
+  },
+  {
+    "description": "Pin not connected: Symbol C2 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C2 Pin 2 [Passive, Line]",
+        "uuid": "5b87a239-4bfd-44ab-ae3a-cf1eb8c263fb",
+        "x": 1.3,
+        "y": 0.9281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 0.9281
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR19 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR19 Pin 1 [Power input, Line]",
+        "uuid": "9e8799c0-493b-4380-88b6-421f2ff7faab",
+        "x": 1.3,
+        "y": 1.11
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 1.11
+  },
+  {
+    "description": "Pin not connected: Symbol C1 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C1 Pin 1 [Passive, Line]",
+        "uuid": "d3bd30d9-55de-4d15-be1a-892479d60450",
+        "x": 1.3,
+        "y": 1.1519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 1.1519
+  },
+  {
+    "description": "Pin not connected: Symbol C1 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C1 Pin 2 [Passive, Line]",
+        "uuid": "5f87be1f-3f6f-41e7-bd69-4877dff2b95d",
+        "x": 1.3,
+        "y": 1.2281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.3,
+    "y": 1.2281
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR11 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR11 Pin 1 [Power input, Line]",
+        "uuid": "566b363b-b4c2-4c3b-9644-e2bd0ebe18b8",
+        "x": 1.35,
+        "y": 1.77
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.35,
+    "y": 1.77
+  },
+  {
+    "description": "Pin not connected: Symbol C7 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C7 Pin 1 [Passive, Line]",
+        "uuid": "8a7884eb-26d4-4680-9662-20a17f3b0d4c",
+        "x": 1.35,
+        "y": 1.8119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.35,
+    "y": 1.8119
+  },
+  {
+    "description": "Pin not connected: Symbol C7 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C7 Pin 2 [Passive, Line]",
+        "uuid": "4d15d4de-1282-4100-bf36-db3946577c97",
+        "x": 1.35,
+        "y": 1.8881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.35,
+    "y": 1.8881
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR32 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR32 Pin 1 [Power input, Line]",
+        "uuid": "c2e03620-ad81-4b8c-8195-03f43accb0ad",
+        "x": 1.4,
+        "y": 0.21
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.21
+  },
+  {
+    "description": "Pin not connected: Symbol D4 Pin 2 [A2, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D4 Pin 2 [A2, Passive, Line]",
+        "uuid": "c2e6b411-1b0c-4166-a953-5b1dd05079ba",
+        "x": 1.4,
+        "y": 0.2519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.2519
+  },
+  {
+    "description": "Pin not connected: Symbol D4 Pin 1 [A1, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D4 Pin 1 [A1, Passive, Line]",
+        "uuid": "ea4eebe2-868e-4308-85f6-9e96e1dfef23",
+        "x": 1.4,
+        "y": 0.3281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.3281
+  },
+  {
+    "description": "Label not connected: Global Label 'PULSE_CH4'",
+    "items": [
+      {
+        "description": "Global Label 'PULSE_CH4'",
+        "uuid": "cf82a709-7365-42ef-8e2d-b1db31422b34",
+        "x": 1.4,
+        "y": 0.37
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.37
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR28 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR28 Pin 1 [Power input, Line]",
+        "uuid": "9f2428e6-66f8-4fcb-846f-9beb424ce6fd",
+        "x": 1.4,
+        "y": 0.51
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.51
+  },
+  {
+    "description": "Pin not connected: Symbol D3 Pin 2 [A2, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D3 Pin 2 [A2, Passive, Line]",
+        "uuid": "76285c88-c5bd-4719-8e53-ab238a686809",
+        "x": 1.4,
+        "y": 0.5519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.5519
+  },
+  {
+    "description": "Pin not connected: Symbol D3 Pin 1 [A1, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D3 Pin 1 [A1, Passive, Line]",
+        "uuid": "10fd680e-ec24-40c8-933c-a20099b324d6",
+        "x": 1.4,
+        "y": 0.6281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.6281
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR24 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR24 Pin 1 [Power input, Line]",
+        "uuid": "543a92fd-af83-4231-b8d1-1dae164ff021",
+        "x": 1.4,
+        "y": 0.81
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.81
+  },
+  {
+    "description": "Pin not connected: Symbol D2 Pin 2 [A2, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D2 Pin 2 [A2, Passive, Line]",
+        "uuid": "034ca277-9327-40da-9a09-461ceb42973d",
+        "x": 1.4,
+        "y": 0.8519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.8519
+  },
+  {
+    "description": "Pin not connected: Symbol D2 Pin 1 [A1, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D2 Pin 1 [A1, Passive, Line]",
+        "uuid": "0a32c1c6-bdc9-4053-a49f-e70b7701f90f",
+        "x": 1.4,
+        "y": 0.9281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 0.9281
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR20 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR20 Pin 1 [Power input, Line]",
+        "uuid": "37b2c2b5-6b05-4166-a0b2-01310451a37d",
+        "x": 1.4,
+        "y": 1.11
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 1.11
+  },
+  {
+    "description": "Pin not connected: Symbol D1 Pin 2 [A2, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D1 Pin 2 [A2, Passive, Line]",
+        "uuid": "d87d80c1-8073-4f37-b121-76e9348cb296",
+        "x": 1.4,
+        "y": 1.1519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 1.1519
+  },
+  {
+    "description": "Pin not connected: Symbol D1 Pin 1 [A1, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D1 Pin 1 [A1, Passive, Line]",
+        "uuid": "544c56a5-7ce4-4eb5-89d5-2def7101b012",
+        "x": 1.4,
+        "y": 1.2281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 1.2281
+  },
+  {
+    "description": "Label not connected: Global Label 'PULSE_CH1'",
+    "items": [
+      {
+        "description": "Global Label 'PULSE_CH1'",
+        "uuid": "911c7d46-71d0-43fa-8524-7bde36e21faa",
+        "x": 1.4,
+        "y": 1.27
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.4,
+    "y": 1.27
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR12 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR12 Pin 1 [Power input, Line]",
+        "uuid": "11ee9fa9-7800-4b03-ba6a-159d007ec1bc",
+        "x": 1.45,
+        "y": 1.77
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.45,
+    "y": 1.77
+  },
+  {
+    "description": "Pin not connected: Symbol C8 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C8 Pin 1 [Passive, Line]",
+        "uuid": "72004a2f-b52b-4eae-a854-6bcf64ecba26",
+        "x": 1.45,
+        "y": 1.8119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.45,
+    "y": 1.8119
+  },
+  {
+    "description": "Pin not connected: Symbol C8 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C8 Pin 2 [Passive, Line]",
+        "uuid": "56948066-44b0-49c4-858e-9e7073345800",
+        "x": 1.45,
+        "y": 1.8881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.45,
+    "y": 1.8881
+  },
+  {
+    "description": "Label not connected: Global Label 'LED_ACT'",
+    "items": [
+      {
+        "description": "Global Label 'LED_ACT'",
+        "uuid": "75f3cd89-9ad6-43d0-827e-0f959e23847a",
+        "x": 1.48,
+        "y": 1.25
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.48,
+    "y": 1.25
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR10 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR10 Pin 1 [Power input, Line]",
+        "uuid": "eed06511-dec3-4cb3-b89e-1d4f820eb8b8",
+        "x": 1.5,
+        "y": 1.55
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5,
+    "y": 1.55
+  },
+  {
+    "description": "Pin not connected: Symbol D8 Pin 1 [K, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D8 Pin 1 [K, Passive, Line]",
+        "uuid": "92b1a669-dd8b-4921-84a6-b78f2171c6d7",
+        "x": 1.5119,
+        "y": 0.35
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5119,
+    "y": 0.35
+  },
+  {
+    "description": "Pin not connected: Symbol D7 Pin 1 [K, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D7 Pin 1 [K, Passive, Line]",
+        "uuid": "364cbdad-08db-4279-b2a0-d493f59a8b3c",
+        "x": 1.5119,
+        "y": 0.65
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5119,
+    "y": 0.65
+  },
+  {
+    "description": "Pin not connected: Symbol D6 Pin 1 [K, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D6 Pin 1 [K, Passive, Line]",
+        "uuid": "ac8b523d-f2da-4269-b43b-1099790eca21",
+        "x": 1.5119,
+        "y": 0.95
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5119,
+    "y": 0.95
+  },
+  {
+    "description": "Pin not connected: Symbol D5 Pin 1 [K, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D5 Pin 1 [K, Passive, Line]",
+        "uuid": "a7739349-310a-42c4-a908-8ec6469b5e98",
+        "x": 1.5119,
+        "y": 1.25
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5119,
+    "y": 1.25
+  },
+  {
+    "description": "Pin not connected: Symbol D8 Pin 2 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D8 Pin 2 [A, Passive, Line]",
+        "uuid": "01c6659a-01e2-44ba-ba76-4bb5fe0fe53e",
+        "x": 1.5881,
+        "y": 0.35
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5881,
+    "y": 0.35
+  },
+  {
+    "description": "Pin not connected: Symbol D7 Pin 2 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D7 Pin 2 [A, Passive, Line]",
+        "uuid": "9c3c2455-40e6-48f9-b7d9-497126730ae3",
+        "x": 1.5881,
+        "y": 0.65
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5881,
+    "y": 0.65
+  },
+  {
+    "description": "Pin not connected: Symbol D6 Pin 2 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D6 Pin 2 [A, Passive, Line]",
+        "uuid": "b85db98a-b4ce-4f7a-9f3f-3066332fa1f7",
+        "x": 1.5881,
+        "y": 0.95
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5881,
+    "y": 0.95
+  },
+  {
+    "description": "Pin not connected: Symbol D5 Pin 2 [A, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol D5 Pin 2 [A, Passive, Line]",
+        "uuid": "c6a8bfd4-83d5-4227-92f9-352f499f56af",
+        "x": 1.5881,
+        "y": 1.25
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.5881,
+    "y": 1.25
+  },
+  {
+    "description": "Label not connected: Global Label 'ACT_K4'",
+    "items": [
+      {
+        "description": "Global Label 'ACT_K4'",
+        "uuid": "aa908eeb-01f2-47a0-ab2e-51ced802e4ec",
+        "x": 1.6,
+        "y": 0.35
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 0.35
+  },
+  {
+    "description": "Label not connected: Global Label 'ACT_K3'",
+    "items": [
+      {
+        "description": "Global Label 'ACT_K3'",
+        "uuid": "3353ff37-2fab-4d67-b786-354e836791b1",
+        "x": 1.6,
+        "y": 0.65
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 0.65
+  },
+  {
+    "description": "Label not connected: Global Label 'ACT_K2'",
+    "items": [
+      {
+        "description": "Global Label 'ACT_K2'",
+        "uuid": "030d0182-0b2d-4c6e-9b09-7b2828a0bb0b",
+        "x": 1.6,
+        "y": 0.95
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 0.95
+  },
+  {
+    "description": "Label not connected: Global Label 'ACT_K1'",
+    "items": [
+      {
+        "description": "Global Label 'ACT_K1'",
+        "uuid": "66b4d93c-7057-42e0-afef-ad0e6af15b54",
+        "x": 1.6,
+        "y": 1.25
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 1.25
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR13 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR13 Pin 1 [Power input, Line]",
+        "uuid": "254331c2-5366-4b54-90d3-36fd9569e52c",
+        "x": 1.6,
+        "y": 1.77
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 1.77
+  },
+  {
+    "description": "Pin not connected: Symbol C15 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C15 Pin 1 [Passive, Line]",
+        "uuid": "ac6a6e65-697d-41b3-bc04-59df86207dde",
+        "x": 1.6,
+        "y": 1.8119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 1.8119
+  },
+  {
+    "description": "Pin not connected: Symbol C15 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C15 Pin 2 [Passive, Line]",
+        "uuid": "2de81d5d-a054-4838-8959-3295410ff68b",
+        "x": 1.6,
+        "y": 1.8881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 1.8881
+  },
+  {
+    "description": "Label not connected: Global Label '+3V3'",
+    "items": [
+      {
+        "description": "Global Label '+3V3'",
+        "uuid": "37d8082e-af65-4e43-b6a8-06f908b97cc9",
+        "x": 1.6,
+        "y": 1.93
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6,
+    "y": 1.93
+  },
+  {
+    "description": "Pin not connected: Symbol R16 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R16 Pin 1 [Passive, Line]",
+        "uuid": "ea583e21-9786-42f6-b2bd-b32a263dd076",
+        "x": 1.6619,
+        "y": 0.35
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6619,
+    "y": 0.35
+  },
+  {
+    "description": "Pin not connected: Symbol R15 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R15 Pin 1 [Passive, Line]",
+        "uuid": "2b9bd12c-0378-44bf-b190-41e1d483cfb4",
+        "x": 1.6619,
+        "y": 0.65
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6619,
+    "y": 0.65
+  },
+  {
+    "description": "Pin not connected: Symbol R14 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R14 Pin 1 [Passive, Line]",
+        "uuid": "c8ed327b-96d1-443b-9a70-4f77c21ca30f",
+        "x": 1.6619,
+        "y": 0.95
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6619,
+    "y": 0.95
+  },
+  {
+    "description": "Pin not connected: Symbol R13 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R13 Pin 1 [Passive, Line]",
+        "uuid": "533b6bf8-74ca-413e-a88c-ffe7608bdd3e",
+        "x": 1.6619,
+        "y": 1.25
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.6619,
+    "y": 1.25
+  },
+  {
+    "description": "Label not connected: Global Label 'PULSE_CH2'",
+    "items": [
+      {
+        "description": "Global Label 'PULSE_CH2'",
+        "uuid": "8f60a91a-e761-45aa-9473-cae3a15fc156",
+        "x": 1.7,
+        "y": 0.87
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7,
+    "y": 0.87
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR14 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR14 Pin 1 [Power input, Line]",
+        "uuid": "f21a3462-420b-40c6-b33a-68f890c12fa4",
+        "x": 1.7,
+        "y": 1.77
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7,
+    "y": 1.77
+  },
+  {
+    "description": "Pin not connected: Symbol C9 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C9 Pin 1 [Passive, Line]",
+        "uuid": "d12a15fe-6836-419b-9abd-77fcdc9f7a59",
+        "x": 1.7,
+        "y": 1.8119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7,
+    "y": 1.8119
+  },
+  {
+    "description": "Pin not connected: Symbol C9 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C9 Pin 2 [Passive, Line]",
+        "uuid": "33680b37-9a42-4e81-8a05-4aa1911cd589",
+        "x": 1.7,
+        "y": 1.8881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7,
+    "y": 1.8881
+  },
+  {
+    "description": "Pin not connected: Symbol R16 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R16 Pin 2 [Passive, Line]",
+        "uuid": "c928b1f3-e1e3-4283-bf7e-69b959855afc",
+        "x": 1.7381,
+        "y": 0.35
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7381,
+    "y": 0.35
+  },
+  {
+    "description": "Pin not connected: Symbol R15 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R15 Pin 2 [Passive, Line]",
+        "uuid": "aa81ef09-cb91-4729-bef8-0304eb333139",
+        "x": 1.7381,
+        "y": 0.65
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7381,
+    "y": 0.65
+  },
+  {
+    "description": "Pin not connected: Symbol R14 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R14 Pin 2 [Passive, Line]",
+        "uuid": "41a0865f-51db-4c70-a034-b162cb65b03a",
+        "x": 1.7381,
+        "y": 0.95
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7381,
+    "y": 0.95
+  },
+  {
+    "description": "Pin not connected: Symbol R13 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R13 Pin 2 [Passive, Line]",
+        "uuid": "132385b6-53af-4035-892e-31055b3c709c",
+        "x": 1.7381,
+        "y": 1.25
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.7381,
+    "y": 1.25
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR15 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR15 Pin 1 [Power input, Line]",
+        "uuid": "4f4daf59-c039-4b34-8c73-d935e43b60dd",
+        "x": 1.8,
+        "y": 1.77
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.8,
+    "y": 1.77
+  },
+  {
+    "description": "Pin not connected: Symbol C13 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C13 Pin 1 [Passive, Line]",
+        "uuid": "ec9935c3-00e6-4316-907a-32dd960f72fe",
+        "x": 1.8,
+        "y": 1.8119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.8,
+    "y": 1.8119
+  },
+  {
+    "description": "Pin not connected: Symbol C13 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C13 Pin 2 [Passive, Line]",
+        "uuid": "c8b7fabd-7bce-43fe-b151-b94ff5a1fa0c",
+        "x": 1.8,
+        "y": 1.8881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.8,
+    "y": 1.8881
+  },
+  {
+    "description": "Pin not connected: Symbol SW1 Pin 1 [1, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol SW1 Pin 1 [1, Passive, Line]",
+        "uuid": "65446219-b18c-45c0-9654-cfeac96ef9cb",
+        "x": 1.8492,
+        "y": 0.4
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.8492,
+    "y": 0.4
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR16 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR16 Pin 1 [Power input, Line]",
+        "uuid": "d711ecee-ec78-46bc-9a0a-35d904209aa8",
+        "x": 1.9,
+        "y": 1.9
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.9,
+    "y": 1.9
+  },
+  {
+    "description": "Input Power pin not driven by any Output Power pins: Symbol #PWR16 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR16 Pin 1 [Power input, Line]",
+        "uuid": "d711ecee-ec78-46bc-9a0a-35d904209aa8",
+        "x": 1.9,
+        "y": 1.9
+      }
+    ],
+    "rule": "power_pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.9,
+    "y": 1.9
+  },
+  {
+    "description": "Pin not connected: Symbol SW1 Pin 2 [2, Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol SW1 Pin 2 [2, Passive, Line]",
+        "uuid": "ff13d8aa-eae1-4a56-98af-8c6a2761682e",
+        "x": 1.9508,
+        "y": 0.4
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 1.9508,
+    "y": 0.4
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR34 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR34 Pin 1 [Power input, Line]",
+        "uuid": "2e25ceb8-4dba-4d29-94d2-492a6851874c",
+        "x": 2.1,
+        "y": 0.74
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.1,
+    "y": 0.74
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR33 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR33 Pin 1 [Power input, Line]",
+        "uuid": "f0b65eb6-35ae-4557-b67b-e486c0e5ed09",
+        "x": 2.1,
+        "y": 0.8
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.1,
+    "y": 0.8
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 12 [SCK, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 12 [SCK, Input, Line]",
+        "uuid": "d45ce373-2624-4111-be04-09b6a2931e7a",
+        "x": 2.173,
+        "y": 0.7468
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.7468
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U3 Pin 12 [SCK, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 12 [SCK, Input, Line]",
+        "uuid": "d45ce373-2624-4111-be04-09b6a2931e7a",
+        "x": 2.173,
+        "y": 0.7468
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.7468
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 13 [SDA, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 13 [SDA, Bidirectional, Line]",
+        "uuid": "2bda3998-a361-4cb5-9a4a-68f040b19cab",
+        "x": 2.173,
+        "y": 0.7722
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.7722
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 20 [INTA, Tri-state, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 20 [INTA, Tri-state, Line]",
+        "uuid": "6b52046e-2136-4755-ab26-139d67ae6dea",
+        "x": 2.173,
+        "y": 0.8992
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.8992
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 19 [INTB, Tri-state, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 19 [INTB, Tri-state, Line]",
+        "uuid": "5ea25e33-2fe0-4676-b181-19c8aadb2e87",
+        "x": 2.173,
+        "y": 0.9246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.9246
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 18 [~{RESET}, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 18 [~{RESET}, Input, Line]",
+        "uuid": "ffbc1c39-9757-49b3-87b1-095a83258a5f",
+        "x": 2.173,
+        "y": 0.9754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.9754
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U3 Pin 18 [~{RESET}, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 18 [~{RESET}, Input, Line]",
+        "uuid": "ffbc1c39-9757-49b3-87b1-095a83258a5f",
+        "x": 2.173,
+        "y": 0.9754
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 0.9754
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 15 [A0, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 15 [A0, Input, Line]",
+        "uuid": "49da1e1d-480b-457e-b368-5375e1079c50",
+        "x": 2.173,
+        "y": 1.1024
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 1.1024
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U3 Pin 15 [A0, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 15 [A0, Input, Line]",
+        "uuid": "49da1e1d-480b-457e-b368-5375e1079c50",
+        "x": 2.173,
+        "y": 1.1024
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 1.1024
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 16 [A1, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 16 [A1, Input, Line]",
+        "uuid": "6063dc0e-9174-4c01-9f56-95926a7575f5",
+        "x": 2.173,
+        "y": 1.1278
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 1.1278
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U3 Pin 16 [A1, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 16 [A1, Input, Line]",
+        "uuid": "6063dc0e-9174-4c01-9f56-95926a7575f5",
+        "x": 2.173,
+        "y": 1.1278
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 1.1278
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 17 [A2, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 17 [A2, Input, Line]",
+        "uuid": "1c7ea6b9-5030-471c-86cb-cbe981e69b93",
+        "x": 2.173,
+        "y": 1.1532
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 1.1532
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U3 Pin 17 [A2, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 17 [A2, Input, Line]",
+        "uuid": "1c7ea6b9-5030-471c-86cb-cbe981e69b93",
+        "x": 2.173,
+        "y": 1.1532
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.173,
+    "y": 1.1532
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR35 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR35 Pin 1 [Power input, Line]",
+        "uuid": "c43b85e6-ef8d-4c54-9213-ac15c8bd9da9",
+        "x": 2.3,
+        "y": 0.65
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.3,
+    "y": 0.65
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 9 [V_{DD}, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 9 [V_{DD}, Power input, Line]",
+        "uuid": "5012ea9d-1841-4d62-a55c-cb4ea47c9ae5",
+        "x": 2.3,
+        "y": 0.696
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.3,
+    "y": 0.696
+  },
+  {
+    "description": "Input Power pin not driven by any Output Power pins: Symbol U3 Pin 9 [V_{DD}, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 9 [V_{DD}, Power input, Line]",
+        "uuid": "5012ea9d-1841-4d62-a55c-cb4ea47c9ae5",
+        "x": 2.3,
+        "y": 0.696
+      }
+    ],
+    "rule": "power_pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.3,
+    "y": 0.696
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 10 [V_{SS}, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 10 [V_{SS}, Power input, Line]",
+        "uuid": "94b9bbfe-675a-428a-bc30-dcd0bde415c9",
+        "x": 2.3,
+        "y": 1.204
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.3,
+    "y": 1.204
+  },
+  {
+    "description": "Input Power pin not driven by any Output Power pins: Symbol U3 Pin 10 [V_{SS}, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 10 [V_{SS}, Power input, Line]",
+        "uuid": "94b9bbfe-675a-428a-bc30-dcd0bde415c9",
+        "x": 2.3,
+        "y": 1.204
+      }
+    ],
+    "rule": "power_pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.3,
+    "y": 1.204
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 21 [GPA0, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 21 [GPA0, Bidirectional, Line]",
+        "uuid": "adc961cb-21bd-46e6-ad3d-ad5804d5137b",
+        "x": 2.427,
+        "y": 0.7468
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.7468
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 22 [GPA1, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 22 [GPA1, Bidirectional, Line]",
+        "uuid": "cbae35c0-9052-48b6-8b68-31f6f1c00830",
+        "x": 2.427,
+        "y": 0.7722
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.7722
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 23 [GPA2, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 23 [GPA2, Bidirectional, Line]",
+        "uuid": "482ca9df-a50f-4c87-b11f-63457604d881",
+        "x": 2.427,
+        "y": 0.7976
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.7976
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 24 [GPA3, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 24 [GPA3, Bidirectional, Line]",
+        "uuid": "cf698be6-99c0-4c2d-873a-316743d884be",
+        "x": 2.427,
+        "y": 0.823
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.823
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 25 [GPA4, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 25 [GPA4, Bidirectional, Line]",
+        "uuid": "942ff16f-3e73-4991-8177-559140ea91a2",
+        "x": 2.427,
+        "y": 0.8484
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.8484
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 26 [GPA5, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 26 [GPA5, Bidirectional, Line]",
+        "uuid": "2dc284a1-e8e5-4a66-98bd-d00fc496226f",
+        "x": 2.427,
+        "y": 0.8738
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.8738
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 27 [GPA6, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 27 [GPA6, Bidirectional, Line]",
+        "uuid": "79d15b04-9cf7-4ba1-b5ef-fe089da2df89",
+        "x": 2.427,
+        "y": 0.8992
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.8992
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 28 [GPA7, Output, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 28 [GPA7, Output, Line]",
+        "uuid": "4a4ea5ed-99a8-49dc-8b54-c0bfe35143be",
+        "x": 2.427,
+        "y": 0.9246
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.9246
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 1 [GPB0, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 1 [GPB0, Bidirectional, Line]",
+        "uuid": "0ee55506-c51b-41a0-bdb0-1e6422678d5e",
+        "x": 2.427,
+        "y": 0.9754
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 0.9754
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 2 [GPB1, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 2 [GPB1, Bidirectional, Line]",
+        "uuid": "5a65d8b6-21b4-4ccb-831c-adf43ced4ca0",
+        "x": 2.427,
+        "y": 1.0008
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.0008
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 3 [GPB2, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 3 [GPB2, Bidirectional, Line]",
+        "uuid": "556d3dbe-d869-41a9-aa78-5c646460e39f",
+        "x": 2.427,
+        "y": 1.0262
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.0262
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 4 [GPB3, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 4 [GPB3, Bidirectional, Line]",
+        "uuid": "8bd1beeb-1e5f-4d69-ba6b-dce26ae28604",
+        "x": 2.427,
+        "y": 1.0516
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.0516
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 5 [GPB4, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 5 [GPB4, Bidirectional, Line]",
+        "uuid": "1647ec50-c4f3-4287-ba81-310ba4cf81d2",
+        "x": 2.427,
+        "y": 1.077
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.077
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 6 [GPB5, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 6 [GPB5, Bidirectional, Line]",
+        "uuid": "6cb32d3e-4f0c-430c-b5b7-242e4acedba5",
+        "x": 2.427,
+        "y": 1.1024
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.1024
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 7 [GPB6, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 7 [GPB6, Bidirectional, Line]",
+        "uuid": "2d64df7b-6d54-4356-8e12-437c98716bc7",
+        "x": 2.427,
+        "y": 1.1278
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.1278
+  },
+  {
+    "description": "Pin not connected: Symbol U3 Pin 8 [GPB7, Output, Line]",
+    "items": [
+      {
+        "description": "Symbol U3 Pin 8 [GPB7, Output, Line]",
+        "uuid": "5de1f82b-45d8-48e6-b00a-179e187ea3fc",
+        "x": 2.427,
+        "y": 1.1532
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.427,
+    "y": 1.1532
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR36 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR36 Pin 1 [Power input, Line]",
+        "uuid": "29ec2cfe-ca78-44fc-9a7d-e33c6231301a",
+        "x": 2.6,
+        "y": 1.17
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.6,
+    "y": 1.17
+  },
+  {
+    "description": "Pin not connected: Symbol C12 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C12 Pin 1 [Passive, Line]",
+        "uuid": "3af45cd8-584e-4310-900c-bd8771b19e74",
+        "x": 2.6,
+        "y": 1.2119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.6,
+    "y": 1.2119
+  },
+  {
+    "description": "Pin not connected: Symbol C12 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C12 Pin 2 [Passive, Line]",
+        "uuid": "64748e10-ceaf-44a0-8781-27c8df9b60f1",
+        "x": 2.6,
+        "y": 1.2881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.6,
+    "y": 1.2881
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR37 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR37 Pin 1 [Power input, Line]",
+        "uuid": "f8bc27b2-33fd-403e-88d5-6105cfafb59c",
+        "x": 2.7,
+        "y": 1.17
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.7,
+    "y": 1.17
+  },
+  {
+    "description": "Pin not connected: Symbol C10 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C10 Pin 1 [Passive, Line]",
+        "uuid": "e1eb58ab-58ea-428e-a727-1b07576a3c55",
+        "x": 2.7,
+        "y": 1.2119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.7,
+    "y": 1.2119
+  },
+  {
+    "description": "Pin not connected: Symbol C10 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C10 Pin 2 [Passive, Line]",
+        "uuid": "17a8d29b-57b4-44e5-8e4f-290a8e1e2d67",
+        "x": 2.7,
+        "y": 1.2881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.7,
+    "y": 1.2881
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR41 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR41 Pin 1 [Power input, Line]",
+        "uuid": "067c4f4a-3715-4816-bb2a-a70cc30bb0c9",
+        "x": 2.95,
+        "y": 0.89
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.95,
+    "y": 0.89
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR40 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR40 Pin 1 [Power input, Line]",
+        "uuid": "02ad21f5-b5c5-4464-a250-fd06a9f24c2c",
+        "x": 2.95,
+        "y": 0.92
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.95,
+    "y": 0.92
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR39 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR39 Pin 1 [Power input, Line]",
+        "uuid": "184502b7-2aad-4594-be57-17d5531c3a83",
+        "x": 2.95,
+        "y": 0.95
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 2.95,
+    "y": 0.95
+  },
+  {
+    "description": "Pin not connected: Symbol R24 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R24 Pin 1 [Passive, Line]",
+        "uuid": "4c38b097-9992-4223-80e5-b226bfd3ee9e",
+        "x": 3.0,
+        "y": -0.0281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": -0.0281
+  },
+  {
+    "description": "Pin not connected: Symbol R24 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R24 Pin 2 [Passive, Line]",
+        "uuid": "a1e6ab57-b03e-42a9-ae40-f9ff2548ed48",
+        "x": 3.0,
+        "y": 0.0481
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.0481
+  },
+  {
+    "description": "Pin not connected: Symbol R23 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R23 Pin 1 [Passive, Line]",
+        "uuid": "6aca985d-4419-4023-8b97-cd5d2971d480",
+        "x": 3.0,
+        "y": 0.1519
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.1519
+  },
+  {
+    "description": "Pin not connected: Symbol R23 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R23 Pin 2 [Passive, Line]",
+        "uuid": "50ca58c1-84f7-4e24-a851-2be60601710b",
+        "x": 3.0,
+        "y": 0.2281
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.2281
+  },
+  {
+    "description": "Pin not connected: Symbol R22 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R22 Pin 1 [Passive, Line]",
+        "uuid": "e2a0bc4d-b13d-4095-84c0-309f8c5f6809",
+        "x": 3.0,
+        "y": 0.3319
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.3319
+  },
+  {
+    "description": "Pin not connected: Symbol R22 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R22 Pin 2 [Passive, Line]",
+        "uuid": "5462ad0b-9b29-44e7-95fe-4d4947273cec",
+        "x": 3.0,
+        "y": 0.4081
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.4081
+  },
+  {
+    "description": "Pin not connected: Symbol R21 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R21 Pin 1 [Passive, Line]",
+        "uuid": "dd98d0f8-9ef6-4b1b-a32b-2a4b851f29da",
+        "x": 3.0,
+        "y": 0.5119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.5119
+  },
+  {
+    "description": "Pin not connected: Symbol R21 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol R21 Pin 2 [Passive, Line]",
+        "uuid": "5bb07216-7b89-4d14-bc8d-b296592e3c61",
+        "x": 3.0,
+        "y": 0.5881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0,
+    "y": 0.5881
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 5 [IO0, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 5 [IO0, Open collector, Line]",
+        "uuid": "7ddb3c94-466e-461f-8299-15b09a676cff",
+        "x": 3.0222,
+        "y": 0.8984
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 0.8984
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 6 [IO1, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 6 [IO1, Open collector, Line]",
+        "uuid": "7ce3eb55-0105-41ee-aedd-743570962f3b",
+        "x": 3.0222,
+        "y": 0.9238
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 0.9238
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 7 [IO2, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 7 [IO2, Open collector, Line]",
+        "uuid": "b64feba4-bce0-49df-84e2-5825ebe9365a",
+        "x": 3.0222,
+        "y": 0.9492
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 0.9492
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 8 [IO3, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 8 [IO3, Open collector, Line]",
+        "uuid": "2cdeb72b-1202-4dfa-b2b8-9cedf38468e3",
+        "x": 3.0222,
+        "y": 0.9746
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 0.9746
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 12 [IO4, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 12 [IO4, Open collector, Line]",
+        "uuid": "67ee96f1-f888-4970-8645-b981cd19d08c",
+        "x": 3.0222,
+        "y": 1.0254
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 1.0254
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 13 [IO5, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 13 [IO5, Open collector, Line]",
+        "uuid": "a740d694-0682-4bb1-8fe2-1eed4101170d",
+        "x": 3.0222,
+        "y": 1.0508
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 1.0508
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 14 [IO6, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 14 [IO6, Open collector, Line]",
+        "uuid": "8ac94e3f-78f1-4208-9bdb-8378d9d252d6",
+        "x": 3.0222,
+        "y": 1.0762
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 1.0762
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 15 [IO7, Open collector, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 15 [IO7, Open collector, Line]",
+        "uuid": "ad510c01-ad56-4ac7-a9d5-71648cf0dc04",
+        "x": 3.0222,
+        "y": 1.1016
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.0222,
+    "y": 1.1016
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR38 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR38 Pin 1 [Power input, Line]",
+        "uuid": "9e9895c7-cefb-4521-8a0a-95951ee46c2b",
+        "x": 3.2,
+        "y": 0.8
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.2,
+    "y": 0.8
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 4 [GND, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 4 [GND, Power input, Line]",
+        "uuid": "dcb1fa01-e5ae-4a6c-8ee4-5a39619f3ff3",
+        "x": 3.2,
+        "y": 0.8222
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.2,
+    "y": 0.8222
+  },
+  {
+    "description": "Input Power pin not driven by any Output Power pins: Symbol U2 Pin 4 [GND, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 4 [GND, Power input, Line]",
+        "uuid": "dcb1fa01-e5ae-4a6c-8ee4-5a39619f3ff3",
+        "x": 3.2,
+        "y": 0.8222
+      }
+    ],
+    "rule": "power_pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.2,
+    "y": 0.8222
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 3 [VCC, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 3 [VCC, Power input, Line]",
+        "uuid": "459f536f-1db2-4f1d-9950-f79357c58dea",
+        "x": 3.2,
+        "y": 1.1778
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.2,
+    "y": 1.1778
+  },
+  {
+    "description": "Input Power pin not driven by any Output Power pins: Symbol U2 Pin 3 [VCC, Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 3 [VCC, Power input, Line]",
+        "uuid": "459f536f-1db2-4f1d-9950-f79357c58dea",
+        "x": 3.2,
+        "y": 1.1778
+      }
+    ],
+    "rule": "power_pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.2,
+    "y": 1.1778
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 1 [SDA, Bidirectional, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 1 [SDA, Bidirectional, Line]",
+        "uuid": "1981bfab-565e-49d1-b86c-21582fe7ff5a",
+        "x": 3.3778,
+        "y": 0.9238
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 0.9238
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 2 [SCL, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 2 [SCL, Input, Line]",
+        "uuid": "1322773b-256d-40d3-9aac-488ef689ae3e",
+        "x": 3.3778,
+        "y": 0.9492
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 0.9492
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U2 Pin 2 [SCL, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 2 [SCL, Input, Line]",
+        "uuid": "1322773b-256d-40d3-9aac-488ef689ae3e",
+        "x": 3.3778,
+        "y": 0.9492
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 0.9492
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 9 [AD0, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 9 [AD0, Input, Line]",
+        "uuid": "1fd39abb-a03d-41ea-94bf-25d7743346b4",
+        "x": 3.3778,
+        "y": 1.0254
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 1.0254
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U2 Pin 9 [AD0, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 9 [AD0, Input, Line]",
+        "uuid": "1fd39abb-a03d-41ea-94bf-25d7743346b4",
+        "x": 3.3778,
+        "y": 1.0254
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 1.0254
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 10 [AD1, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 10 [AD1, Input, Line]",
+        "uuid": "ca659ea3-b125-4285-b7e1-51f3ae84c895",
+        "x": 3.3778,
+        "y": 1.0508
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 1.0508
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U2 Pin 10 [AD1, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 10 [AD1, Input, Line]",
+        "uuid": "ca659ea3-b125-4285-b7e1-51f3ae84c895",
+        "x": 3.3778,
+        "y": 1.0508
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 1.0508
+  },
+  {
+    "description": "Pin not connected: Symbol U2 Pin 11 [AD2, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 11 [AD2, Input, Line]",
+        "uuid": "9f72af84-e1eb-4237-bc71-262f20bf9401",
+        "x": 3.3778,
+        "y": 1.0762
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 1.0762
+  },
+  {
+    "description": "Input pin not driven by any Output pins: Symbol U2 Pin 11 [AD2, Input, Line]",
+    "items": [
+      {
+        "description": "Symbol U2 Pin 11 [AD2, Input, Line]",
+        "uuid": "9f72af84-e1eb-4237-bc71-262f20bf9401",
+        "x": 3.3778,
+        "y": 1.0762
+      }
+    ],
+    "rule": "pin_not_driven",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.3778,
+    "y": 1.0762
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR42 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR42 Pin 1 [Power input, Line]",
+        "uuid": "34a08ead-e2b4-484d-ab28-eecb75fc0a27",
+        "x": 3.4,
+        "y": 1.17
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.4,
+    "y": 1.17
+  },
+  {
+    "description": "Pin not connected: Symbol C11 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C11 Pin 1 [Passive, Line]",
+        "uuid": "293ea51c-86b2-453b-b1ae-c01c1e6e46f0",
+        "x": 3.4,
+        "y": 1.2119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.4,
+    "y": 1.2119
+  },
+  {
+    "description": "Pin not connected: Symbol C11 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C11 Pin 2 [Passive, Line]",
+        "uuid": "cfb28e8f-09d0-4f06-a262-f2fa21f0b4e0",
+        "x": 3.4,
+        "y": 1.2881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.4,
+    "y": 1.2881
+  },
+  {
+    "description": "Label not connected: Global Label 'OW3'",
+    "items": [
+      {
+        "description": "Global Label 'OW3'",
+        "uuid": "0b9f097c-b044-4fc4-94c7-c172ef17e17a",
+        "x": 3.45,
+        "y": 1.01
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.45,
+    "y": 1.01
+  },
+  {
+    "description": "Label not connected: Global Label 'OW2'",
+    "items": [
+      {
+        "description": "Global Label 'OW2'",
+        "uuid": "c847d345-047d-428f-953b-23ee2907e91c",
+        "x": 3.45,
+        "y": 1.04
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.45,
+    "y": 1.04
+  },
+  {
+    "description": "Label not connected: Global Label 'OW1'",
+    "items": [
+      {
+        "description": "Global Label 'OW1'",
+        "uuid": "316d50d8-c323-439e-ba69-32f0b96e4b66",
+        "x": 3.45,
+        "y": 1.07
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.45,
+    "y": 1.07
+  },
+  {
+    "description": "Label not connected: Global Label 'OW0'",
+    "items": [
+      {
+        "description": "Global Label 'OW0'",
+        "uuid": "ac108393-7c9a-4427-84b2-05d9fdb32156",
+        "x": 3.45,
+        "y": 1.1
+      }
+    ],
+    "rule": "label_dangling",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.45,
+    "y": 1.1
+  },
+  {
+    "description": "Pin not connected: Symbol #PWR43 Pin 1 [Power input, Line]",
+    "items": [
+      {
+        "description": "Symbol #PWR43 Pin 1 [Power input, Line]",
+        "uuid": "634d7c42-042c-4ab6-9447-82149babaf7a",
+        "x": 3.5,
+        "y": 1.17
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.5,
+    "y": 1.17
+  },
+  {
+    "description": "Pin not connected: Symbol C14 Pin 1 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C14 Pin 1 [Passive, Line]",
+        "uuid": "c09af1f9-e351-45e8-aaee-575f2a88d3be",
+        "x": 3.5,
+        "y": 1.2119
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.5,
+    "y": 1.2119
+  },
+  {
+    "description": "Pin not connected: Symbol C14 Pin 2 [Passive, Line]",
+    "items": [
+      {
+        "description": "Symbol C14 Pin 2 [Passive, Line]",
+        "uuid": "e52e19d6-594f-45eb-a655-dd80434c075e",
+        "x": 3.5,
+        "y": 1.2881
+      }
+    ],
+    "rule": "pin_not_connected",
+    "severity": "error",
+    "sheet": "/",
+    "x": 3.5,
+    "y": 1.2881
+  }
+]

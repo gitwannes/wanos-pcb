@@ -38,6 +38,7 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 | [`hdmi-spi-eink.md`](hdmi-spi-eink.md) | WISC e-ink HDMI→SPI |
 | [`io-expander-map.md`](io-expander-map.md) | PCA9554 + TCA9548 map |
 | [`gpio-interface.md`](gpio-interface.md) | Pi BCM map + software strategy (**R2**) |
+| [`remotepcb.md`](remotepcb.md) | **wanos-remote** — plant pulse + 1-Wire module (Cat5 / U5) |
 | [`external-plant.md`](external-plant.md) | Off-board SSR + 12 V plant + kWh inventory |
 | [`grounding.md`](grounding.md) | Ground / return scheme |
 | [`reference/datasheets/README.md`](reference/datasheets/README.md) | Datasheet pack |
@@ -53,8 +54,9 @@ Canonical electrical spec → [`board-spec.md`](board-spec.md).
 
 | Artifact | Location |
 |---|---|
-| KiCad project | `projects/wanos-board/` |
-| BOM seed | `projects/wanos-board/components.xlsx` |
+| KiCad project (main carrier) | `projects/wanos-board/` |
+| KiCad project (**remote**) | `projects/wanos-remote/` |
+| BOM seed (`board` = main \| remote) | `projects/wanos-board/components.xlsx` |
 | Fabrication outputs | `projects/wanos-board/fabrication/` |
 
 ---

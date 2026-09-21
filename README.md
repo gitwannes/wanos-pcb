@@ -14,6 +14,7 @@ KiCad design and JLCPCB fabrication for **wanos-pcb-v1** — first-generation Wa
 wanos-pcb/
 ├── docs/
 │   ├── board-spec.md            # wanos-pcb-v1 electrical spec (canonical)
+│   ├── remotepcb.md             # wanos-remote plant module
 │   ├── field-wiring.md          # JST pinouts + Cat5
 │   ├── gpio-interface.md        # Pi BCM map (R2)
 │   ├── external-plant.md        # Off-board SSR + 12 V
@@ -23,14 +24,14 @@ wanos-pcb/
 │   │   ├── silkscreen/
 │   │   └── wisc-board/
 │   └── todo/
-├── projects/wanos-board/
-│   ├── wanos-board.kicad_pro    # KiCad 10 project (S1)
-│   ├── wanos-board.kicad_sch
-│   ├── wanos-board.kicad_pcb    # stub for L1
-│   ├── components.xlsx
-│   ├── bom-targets.yaml
-│   ├── design.yaml
-│   └── fabrication/
+├── projects/wanos-board/        # Main Pi carrier
+│   ├── wanos-board.kicad_pro
+│   ├── components.xlsx          # BOM: column board = main | remote
+│   └── …
+├── projects/wanos-remote/       # Plant remote (pulse + 1-Wire)
+│   ├── wanos-remote.kicad_pro
+│   ├── wanos-remote.kicad_sch
+│   └── design.yaml
 └── README.md
 ```
 

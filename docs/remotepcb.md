@@ -2,8 +2,8 @@
 
 # Remote plant PCB — universal pulse + 1-Wire
 
-**Status:** design draft — not kicked off / not locked for implement. **No KiCad yet.**  
-**Role:** universal remote module — **4×** opto pulse inputs + **4×** DS18B20 (1-Wire). Reusable for water, kWh S0, dry-contact doors, and pipe temps.
+**Status:** schematic **v0.1** in [`projects/wanos-remote/`](../projects/wanos-remote/) — open in KiCad, run ERC, clean pin attachments. **No layout yet.** Main carrier changes still after remote bring-up.  
+**Role:** universal remote module — **4×** opto pulse inputs + **4×** DS18B20 (1-Wire). Same PCB for water and kWh instances.
 
 Today’s main-board water / kWh wiring → [`field-wiring.md`](field-wiring.md), [`io-expander-map.md`](io-expander-map.md).
 
@@ -13,14 +13,24 @@ Today’s main-board water / kWh wiring → [`field-wiring.md`](field-wiring.md)
 
 | Item | Spec |
 |---|---|
-| Channels | **4×** universal pulse + **4×** DS18B20 (4 of 8 DS2482 channels) |
-| Link to main | **Cat5 UTP ~6 m** → main **RJ45** (first uplink reuses **J4**) |
-| I²C | **U5** TCA9548A channel **5** (`SD5` / `SC5`) @ **100 kHz** |
-| Power | Main **`+12V`** → Cat5 → remote **VIN** → **AP2204K-3.3** → **3V3**; filtered **`S0_RAIL`** for opto LEDs |
+| Channels (PCB) | **4×** universal pulse + **4×** DS18B20 footprints (4 of 8 DS2482 channels brought out) |
+| Instances | **2×** identical remotes |
+| Remote **#1** | **4×** water flow + **2×** pipe temp (2× temp JST unused) |
+| Remote **#2** | **2×** kWh S0 + **1×** temp (2× pulse + 3× temp JST unused) |
+| Link | **Cat5 UTP ~6 m** → main **RJ45** (#1 reuses **J4**; #2 = second RJ45 on main later) |
+| I²C | **U5** TCA9548A — #1 on **ch 5**, #2 on **ch 6** @ **100 kHz** |
+| Power | Main **`+12V`** → Cat5 → remote **VIN** → **AP2204K-3.3** → **3V3**; filtered **`S0_RAIL`** for opto + power LED |
+| VIN at remote | Target ≈ **12 V**; **minimum 11.5 V** after cable / PPTC (plant supply may be raised to achieve this) |
 | 12 V loss | Remote offline when plant 12 V is down (Pi may still run on 5 V) |
 | Field connectors | **4× JST 3-pin** pulse + **4× JST 3-pin** temp; uplink **RJ45** |
 | Activity LEDs | **4×** + **1×** SMD button (LEDs lit only while pressed) |
-| Instances | ≥1 board; more remotes on mux ch **6+** if needed |
+| Power LED | Always on from **`S0_RAIL`** |
+| MCP INT | **Not used** — no INT wire; WanOS **polls** when mux channel selected |
+| MCP GPIO | **GPA0–GPA3** = pulse ch 1–4; remaining GPIO **no nets** (firmware: outputs LOW) |
+| DS2482 IO | **IO0–IO3** → temp J6–J9; **IO4–IO7** **NC** (do not tie to GND) |
+| VIN TVS | **SMBJ12A** on remote **VIN→GND** at RJ45 (in addition to main port TVS) |
+| KiCad project | [`projects/wanos-remote/`](../projects/wanos-remote/) (create on implement) |
+| Bring-up | Remote first on **12 V lab supply**; main PCB changes after |
 
 ---
 
@@ -29,73 +39,68 @@ Today’s main-board water / kWh wiring → [`field-wiring.md`](field-wiring.md)
 ```
   Pi root I²C (R9/R10 2k2)
        |
-       +-- U1 PCA9554 0x20  (doors / kWh until remotes absorb; water P2–P5 removed after cutover)
+       +-- U1 PCA9554 0x20  (doors; water/kWh removed after remotes cut over)
        +-- U2 PCA9554 0x21  (buttons / 12 V mon)
        +-- U5 TCA9548A 0x70
        |      ch 0–4 : SHT31 plant (unchanged)
-       |      ch 5   : remote uplink #1 (SD5/SC5) ---- Cat5 ---- remote RJ45
-       |      ch 6–7 : NC or second remote later
+       |      ch 5   : remote #1 (water)  ---- Cat5 ---- RJ45
+       |      ch 6   : remote #2 (kWh)    ---- Cat5 ---- RJ45
+       |      ch 7   : NC / spare
        +-- J16 LCD (root, not muxed)
 
-  Main J4: +12V (plant) -- PPTC -- SMBJ12A -- Cat5 ---- remote VIN
+  Main per uplink: +12V (plant) -- PPTC -- SMBJ12A -- Cat5 ---- remote VIN
 
-  Remote PCB:
-       VIN (~12 V) -- input filter
-            |-- AP2204K-3.3 --> +3V3 --> DS2482-800 + MCP23017 + logic RC/TVS/LED
-            |-- small RC --> S0_RAIL --> R_LED ×4 --> TLP281-4 LEDs
+  Remote PCB (identical hardware both instances):
+       VIN (≥11.5 V, nom ~12 V) -- input filter
+            |-- AP2204K-3.3 --> +3V3 --> DS2482-800 + MCP23017A + logic
+            |-- R_S0 / C_S0 --> S0_RAIL --> R_LED ×4 --> TLP281-4
+            |                              --> power LED + series R
        Field JST 3-pin ×4 pulse --> S0_RAIL / SIG / GND
        Field JST 3-pin ×4 temp  --> +3V3 / 1-Wire / GND
-       INT (OD) --> Cat5 pair 4 --> main (2k2 pull-up) --> TBD GPIO
+       (MCP INT pin: NC on board / no Cat5 pair — poll only)
 ```
 
 ---
 
-## 3. Main PCB changes
+## 3. Main PCB changes (after remote)
 
-### 3.1 Connector **J4** (redefined)
+### 3.1 Connectors
 
-Remove today’s water-meter RJ45 (four SIG + `+5VA` into **U1**).
-
-New **J4** = uplink to remote #1:
-
-| Net / pin group | Connection |
+| Jack | Role |
 |---|---|
-| **SDA** | **U5** **`SD5`** |
-| **SCL** | **U5** **`SC5`** |
-| **`+12V`** | Polyfuse (§ 3.3) from plant **`+12V`** (**J14** domain) |
-| **GND** | Board GND (multiple returns — § 5) |
-| **INT** | MCP23017 INT; **2k2** pull-up to **`+3V3`** on main; **landing pin TBD** |
+| **J4** (redefined) | Uplink remote **#1** → **U5 SD5/SC5** + **`+12V`** + GND |
+| Second RJ45 (designator TBD) | Uplink remote **#2** → **U5 SD6/SC6** + **`+12V`** + GND |
 
-Jack: TE **5556416-1** / Amphenol **54602**-class RJ45 TH, no magnetics, no jack LEDs.  
-Do **not** put **`+5VA`** on this uplink. Lock 8P8C pinout with remote (§ 5).
+Remove today’s water-meter **J4** function (four SIG + `+5VA` into **U1**).  
+Jack class: TE **5556416-1** / Amphenol **54602**-class RJ45 TH, no magnetics, no jack LEDs.  
+Do **not** put **`+5VA`** on these uplinks. Pair map → § 5 (no INT).
 
-### 3.2 Remove on-main water front-end (first cutover)
+### 3.2 Remove on-main front-ends (cutover)
 
-- Drop `water_meters.kicad_sch` channel parts  
-- Drop **U1** **P2–P5** water nets  
+- Water: drop `water_meters` parts; **U1** **P2–P5**  
+- kWh: drop **J6/J7** front-ends; **U1** **P6/P7** when remote #2 is live  
+- Doors (**J2/J3**) stay on main for now unless later remapped  
 
-Doors (**J2/J3**) and kWh (**J6/J7**) move to the same remote board type later (extra remotes / channels).
+### 3.3 Port protection (locked)
 
-### 3.3 Port protection on remote **`+12V`** feed
+Per remote RJ45 on main:
 
 | Part | Role | Spec |
 |---|---|---|
-| **PPTC** | Overcurrent | **Proposed: TECHFUSE `nSMD050-33V`** (LCSC **C70077**) — **500 mA** hold, **1 A** trip, **33 V** max, 1206, R≈150 mΩ |
-| **SMBJ12A** | Port **TVS** | **`+12V`** → GND at **J4** (same as main **D3**) |
+| **PPTC** | Overcurrent | TECHFUSE **`nSMD050-33V`** (LCSC **C70077**) — **500 mA** hold, **1 A** trip, **33 V** max, 1206, R≈150 mΩ |
+| **SMBJ12A** | Port **TVS** | **`+12V`** → GND at jack |
 
 Order: plant **`+12V`** → **PPTC** → jack (TVS at connector).
 
-**Why this PPTC:** remote load ≪ 150 mA (LDO + sensors + gated LEDs); **500 mA** hold avoids nuisance trips; **33 V** rating has margin on a 12 V rail (do **not** reuse main **F2** / typical 6–8 V 1206 PPTCs). Drop ≈ **15 mV** at 100 mA.
+Remote load ≪ 150 mA; **500 mA** hold avoids nuisance trips; **33 V** rating has margin on 12 V (do **not** reuse typical 6–8 V 1206 PPTCs). Drop ≈ **15 mV** at 100 mA.
 
-**Alternate:** BNstar **SMD1206-050C-16V** (LCSC **C2760267**) — same hold, only **16 V** max (tighter; rely more on **SMBJ12A**).
+### 3.4 No INT landing
 
-### 3.4 INT landing
-
-Options: free **Pi BCM**, **U2** free pin, or freed **U1** pin after water move. Lock before schematic.
+MCP23017 **INT** not brought to main. No GPIO / pull-up reserved for remote IRQ.
 
 ### 3.5 Rail clamps
 
-Prefer **port TVS** on **J4 `+12V`**. Do not conflate with Pi **5 V** clamp (**D1**). Leave main **D3** / **J14** unless budget review says otherwise.
+Port **SMBJ12A** on each uplink **`+12V`**. Do not conflate with Pi **5 V** clamp (**D1**).
 
 ---
 
@@ -105,24 +110,26 @@ Prefer **port TVS** on **J4 `+12V`**. Do not conflate with Pi **5 V** clamp (**D
 
 | Direction | Count | Path |
 |---|---:|---|
-| In | 4 | Universal pulse → **TLP281-4** → **MCP23017** |
-| In | 4 | DS18B20 → **DS2482-800** (4 of 8 ch) |
-| Uplink | 1 | I²C + INT + **`+12V`** + GND over Cat5 |
+| In | 4 | Universal pulse → **TLP281-4** → **MCP23017A** |
+| In | 4 | DS18B20 → **DS2482-800** (4 of 8 ch brought out; populate as needed) |
+| Uplink | 1 | I²C + **`+12V`** + GND over Cat5 (**no INT**) |
 
 ### 4.2 Power
 
-**Cable:** **`VIN` ≈ 11–13 V** = main **`+12V`** after PPTC / drop.
+**Cable:** **`VIN` ≥ 11.5 V**, nominal ~**12 V** = main **`+12V`** after PPTC + Cat5 (raise plant PSU if needed).
+
+**VIN clamp (remote):** **SMBJ12A** **VIN → GND** at RJ45 entry (same class as main port TVS). Does not replace main PPTC/SMBJ; local protection for lab bring-up and cable ESD.
 
 #### 4.2.1 **3V3** — **AP2204K-3.3**
 
 ```
-VIN (11–13 V) → AP2204K-3.3 → +3V3
+VIN (11.5–13 V class) → AP2204K-3.3 → +3V3
 ```
 
 | Item | Spec |
 |---|---|
 | Part | **AP2204K-3.3** (SOT-23-5), e.g. **AP2204K-3.3TRG1** |
-| Vin | **2.3–24 V** |
+| Vin | **2.3–24 V** (11.5 V min is fine) |
 | Iout | **150 mA** |
 | EN | Tie to **VIN** (always on) |
 | Cin | **47–100 µF** electrolytic + **100 nF** ceramic |
@@ -135,16 +142,17 @@ Dissipation at ~50 mA ≈ **0.44 W** — copper under SOT-23-5. Activity LEDs ga
 ```
 VIN → R_S0 (10 Ω) → S0_RAIL →|| C_S0 (10 µF + 100 nF) → GND
                               └→ R_LED ×4 → TLP281-4 anodes
+                              └→ power LED + series R
 ```
 
 | Ref | Value | Role |
 |---|---|---|
 | **R_S0** | **10 Ω**, 1%, 0.125 W | Soft RC with **C_S0**; limits HF dump into rail |
-| **C_S0** | **10 µF** (X5R/X7R or electrolytic) + **100 nF** ceramic | Bulk + HF at opto |
+| **C_S0** | **10 µF** + **100 nF** | Bulk + HF at opto / power LED |
 
 Drop at 4× ~2.3 mA ≈ **0.1 V** across **10 Ω** — fine. Keep **C_S0** and LED returns close to the TLP281-4; star field GND away from digital return.
 
-Used for **R_LED** and pulse JST pin 1 (**VDD** / loop supply).
+Used for **R_LED**, pulse JST pin 1 (**VDD** / loop supply), and **power LED**.
 
 #### 4.2.3 No remote 5 V rail
 
@@ -152,30 +160,33 @@ YF-B6 VDD (**5–15 V**) = **`S0_RAIL`** on the pulse JST.
 
 #### 4.2.4 Power LED (always on)
 
-Separate from activity LEDs — **always glows** when board is powered.
+From **`S0_RAIL`** — shows plant loop supply present (tracks opto / meter domain).
 
-| Option | Series R | Note |
-|---|---|---|
-| From **`+3V3`** (preferred) | **1 kΩ**–**2 kΩ** | Matches main indicator class; independent of 12 V LED domain |
-| From **VIN** / **`S0_RAIL`** | **4.7 kΩ**–**6.8 kΩ** | Brightness match to 12 V (main **R30** = 6k8 on `+12V`) |
-
-Not gated by the test button.
-
-### 4.3 ICs
-
-| IC | Role |
+| Item | Spec |
 |---|---|
-| **TLP281-4** | Quad optocoupler |
-| **DS2482-800** | 1-Wire master — 4 channels used |
-| **MCP23017A** | I/O expander — 4 pulse GPIOs (**A** die — see note) |
-| **AP2204K-3.3** | 12 V → **3V3** |
+| Series R | **4.7 kΩ**–**6.8 kΩ** (brightness class vs main **R30** on `+12V`) |
+| Gating | **Not** gated by test button |
 
-**MCP23017 vs MCP23017A:** Microchip **A** revision fixes early-silicon register/BANK errata. Order **MCP23017A** (e.g. SOIC-28); do not buy unmarked legacy **MCP23017** if **A** is available.
+### 4.3 ICs and addresses (**locked**)
 
-I²C addresses **TBD** — must not collide with root when ch 5 selected (**U1 `0x20`**, **U2 `0x21`**, **U5 `0x70`**, LCD).
+| IC | Role | I²C addr |
+|---|---|---|
+| **TLP281-4** | Quad optocoupler | — |
+| **DS2482-800** | 1-Wire master | **`0x18`** (AD2/AD1/AD0 = 0) |
+| **MCP23017A** | I/O expander | **`0x22`** (A2/A1/A0 strapped; avoid `0x20`/`0x21`) |
+| **AP2204K-3.3** | 12 V → **3V3** | — |
 
-**DS2482-800:** pins 11/10/9 → `0001 1 [11][10][9]` → **`0x18`–`0x1F`**.  
-**MCP23017A:** pins 17/16/15 → `0100 [17][16][15]` → **`0x20`–`0x27`**.
+Same straps on **both** remotes. Safe because only one of **U5 ch 5 / ch 6** is enabled at a time.  
+**Never** enable ch 5 and ch 6 together (same addresses → bus fight).
+
+**MCP23017A:** order **A** die (SOIC-28); avoid unmarked legacy **MCP23017**.  
+**INTA/INTB:** **NC**.  
+**Address straps for `0x22`:** A2=0, A1=1, A0=0 (hard-tie).  
+**GPIO:** **GPA0–GPA3** → `PULSE_CH1`–`PULSE_CH4`; other GPA/GPB pins **no copper nets** (init as outputs LOW in firmware).
+
+**DS2482-800:** AD2/AD1/AD0 = 0 → **`0x18`**. **IO0–IO3** → temp JST data; **IO4–IO7** leave **unconnected** (1-Wire open-drain ports — do **not** tie to GND).
+
+Address formulas (reference): DS2482 `0001 1 [11][10][9]` → `0x18`–`0x1F`; MCP `0100 [17][16][15]` → `0x20`–`0x27`.
 
 ### 4.4 I²C
 
@@ -184,19 +195,20 @@ I²C addresses **TBD** — must not collide with root when ch 5 selected (**U1 `
 | Speed | **100 kHz** |
 | Pull-ups | **2k2** on main **R9/R10** only; **none** on remote |
 | Series | **22 Ω** on SDA/SCL at remote |
-| Mux | Visible only when **U5 ch 5** (or 6) selected |
+| Mux | #1 visible on **ch 5**; #2 on **ch 6** |
 
 ### 4.5 1-Wire
 
 | Item | Spec |
 |---|---|
-| Pull-up | **2k2** to **`+3V3`** per used channel, at DS2482 |
-| Unused ch | No pull-ups |
+| Active IO | **IO0–IO3** → J6–J9 data |
+| Pull-up | **2k2** to **`+3V3`** on IO0–IO3 at DS2482 |
+| Unused IO | **IO4–IO7** **NC** (unconnected — not GND) |
 | Power | Powered probes via temp JST **`+3V3`** (not parasite by default) |
 
 ### 4.6 Universal pulse (4× around one **TLP281-4**)
 
-Same PCB channel for S0 kWh, YF-B6 / hall OD, and dry contacts. Idle **HIGH**, active **LOW** at MCP.
+Same PCB channel for S0 kWh, YF-B6 / hall OD, and dry contacts. Idle **HIGH**, active **LOW** at MCP. WanOS **polls** GPIO (no INT).
 
 #### 4.6.1 Logic side (per channel)
 
@@ -218,7 +230,7 @@ Same PCB channel for S0 kWh, YF-B6 / hall OD, and dry contacts. Idle **HIGH**, a
 |---|---|
 | **R_LED** | **4.7 kΩ**, 1%, **0.25 W** from **`S0_RAIL`** to opto LED anode |
 
-≈ **2.3 mA** at 12 V (Vf ≈ 1.2 V).
+≈ **2.3 mA** at 12 V (Vf ≈ 1.2 V); still OK at **11.5 V** VIN / `S0_RAIL`.
 
 | Source | Wiring |
 |---|---|
@@ -233,33 +245,11 @@ Same PCB channel for S0 kWh, YF-B6 / hall OD, and dry contacts. Idle **HIGH**, a
 | LEDs | **4×** SMD activity — sense **`PULSE_CHx`** (active LOW) |
 | Button | **1×** SMD tactile — enables activity-LED supply only |
 | Series R | **1 kΩ** per activity LED |
-| Power LED | **Not** on this circuit — always on (§ 4.2.4) |
+| Power LED | From **`S0_RAIL`** — § 4.2.4 |
 
-**Topology:** button closes a shared **anode rail** (`+3V3` → button → LED anodes). Each cathode → **1 kΩ** → **`PULSE_CHx`** (or LED + 1 kΩ in series to `PULSE_CHx`). While button open, no LED current. While held: channel active (MCP input low / opto on) → that LED lights.
-
-**1 kΩ insight (from `+3V3`):** \(I \approx (3.3 - V_f) / 1\,\mathrm{k}\Omega\) → ~**1.3 mA** (red, Vf≈2.0 V) to ~**0.5 mA** (blue/white, Vf≈2.8 V). Fine for a brief press-to-test indicator; four LEDs lit ≈ **2–5 mA** total — negligible vs AP2204 budget. Do **not** use 1 kΩ from **12 V** into a 3.3 V-rated LED path.
-
-#### 4.6.4 Per-channel BOM (×4) + shared
-
-| Ref | Part |
-|---|---|
-| U? | **TLP281-4** (one IC, four channels) |
-| R_IN / R_PU / C_RC / D_ESD / R_LED / D_ACT | as above |
-| Shared | 1× SMD button |
+**Topology:** button closes a shared **anode rail** (`+3V3` → button → LED anodes). Each cathode → **1 kΩ** → **`PULSE_CHx`**. While button open, no activity-LED current.
 
 ### 4.7 Connection map
-
-**KiCad (draft):** `Device:Optocoupler_4Channel`, `Device:R` / `C` / `D_TVS` / `LED`, switch, JST, `power:+3V3` / `GND`, nets **`VIN`**, **`S0_RAIL`**.  
-Footprints: SOIC-16 opto; **0603** R/C; TVS **SOD-323**; JST XH (or plant family); RJ45 uplink.
-
-**TLP281-4 (SO16):**
-
-| Ch | LED A / C | Collector / Emitter |
-|---|---|---|
-| 1 | 1 / 2 | 10 / 9 |
-| 2 | 3 / 4 | 12 / 11 |
-| 3 | 5 / 6 | 14 / 13 |
-| 4 | 7 / 8 | 16 / 15 |
 
 **Pulse JST — 3-pin:**
 
@@ -277,38 +267,78 @@ Footprints: SOIC-16 opto; **0603** R/C; TVS **SOD-323**; JST XH (or plant family
 | 2 | **1-Wire data** |
 | 3 | **GND** |
 
+**TLP281-4 (SO16):**
+
+| Ch | LED A / C | Collector / Emitter |
+|---|---|---|
+| 1 | 1 / 2 | 10 / 9 |
+| 2 | 3 / 4 | 12 / 11 |
+| 3 | 5 / 6 | 14 / 13 |
+| 4 | 7 / 8 | 16 / 15 |
+
 ### 4.8 Decoupling / misc
 
 - **100 nF** at each IC VCC; bulk on **3V3** near DS2482 / MCP  
-- MCP INT open-drain; **2k2** pull-up on **main**
+- MCP **INTA/INTB**: **NC** (unused)
 
 ---
 
-## 5. Cat5 UTP (~6 m)
+## 5. Cat5 UTP (~6 m) — pair map (**locked**)
 
 | Pair | Colors (T568B-oriented) | Signal |
 |---|---|---|
 | **1** | White/Green + Green | **SDA + GND** |
 | **2** | White/Orange + Orange | **SCL + GND** |
 | **3** | White/Blue + Blue | **`+12V` (VIN) + GND** |
-| **4** | White/Brown + Brown | **MCP23017 INT + GND** |
+| **4** | White/Brown + Brown | **GND + GND** (ex-INT pair — both to GND; improves return) |
 
-Lock 8P8C pin table (main **J4** ↔ remote) before fab.
+Same map both remotes. **Logical** assignment is colour/pair above; **numeric** RJ45 pin 1–8 depends on the jack footprint’s pad numbering (KiCad `RJ45_Amphenol_54602-x08_Horizontal` / TE **5556416-1**) — lock pad↔net in schematic when the footprint is placed, not before.
 
 ---
 
-## 6. Physical
+## 6. Channel map (**locked**)
+
+### 6.1 U5 mux
+
+| U5 ch | Use |
+|---|---|
+| 0–4 | SHT31 plant |
+| **5** | Remote **#1** (water) |
+| **6** | Remote **#2** (kWh) |
+| 7 | NC / spare |
+
+### 6.2 Remote #1 — water
+
+| Pulse JST | Function | Temp JST | Function |
+|---|---|---|---|
+| 1 | Bath 1 cold (YF) | 1 | Pipe temp A |
+| 2 | Bath 1 hot (YF) | 2 | Pipe temp B |
+| 3 | Bath 2 cold (YF) | 3 | **Unused** |
+| 4 | Bath 2 hot (YF) | 4 | **Unused** |
+
+### 6.3 Remote #2 — kWh
+
+| Pulse JST | Function | Temp JST | Function |
+|---|---|---|---|
+| 1 | kWh main (S0) | 1 | Temp probe |
+| 2 | kWh aux (S0) | 2 | **Unused** |
+| 3 | **Unused** | 3 | **Unused** |
+| 4 | **Unused** | 4 | **Unused** |
+
+---
+
+## 7. Physical
 
 | Item | Spec |
 |---|---|
-| Size | **40 × 60 mm** (fit check required) |
+| Size | **40 × 60 mm** (**hold** — fit check later) |
 | Connectors | **1× RJ45**; **8× JST 3-pin** (4 pulse + 4 temp) |
 | Placement | RJ45 short edge; JST opposite / long edge; ICs center |
 | Layout | Star / split GND for S0 returns; short I²C; ESD at connectors |
 
 ---
 
-## 7. DS18B20 mounting
+## 8. DS18B20 mounting
 
 - Paste between probe and copper sleeve; firm spring contact; clean pipe surface  
 - Insulate sleeve + pipe; strain-relieve ~2 m leads  
@@ -316,42 +346,66 @@ Lock 8P8C pin table (main **J4** ↔ remote) before fab.
 
 ---
 
-## 8. Software / WanOS
+## 9. Software / WanOS
 
 | Topic | Spec |
 |---|---|
-| Water after cutover | **U5 ch 5** → **MCP23017** (opto) |
-| Doors / kWh | Migrate to same remote type over time |
-| Pipe temps | DS2482-800 + DS18B20 |
-| Mux | Exclusive select vs SHT31 ch 0–4 |
+| Remote #1 | **U5 ch 5** → MCP **`0x22`** (water) + DS2482 **`0x18`** (2 temps) |
+| Remote #2 | **U5 ch 6** → same addresses (kWh + 1 temp) |
+| Mux | **Exclusive** select — never ch 5+6 together |
+| Counting | **Poll** MCP GPIO; software edges only |
+| Schedule | Prefer water poll cadence for edge capture; kWh slow; temps/SHT31 lower priority |
 | Idxs | Keep legacy idxs; change hardware backend |
-| Counting | Software edges only — MCP has **no** hardware counter; INT does not eliminate miss risk under Linux |
 
 ---
 
-## 9. Open items
+## 9a. KiCad / BOM
 
-1. Lock **J4** 8P8C pinout (both ends).  
-2. **INT** destination (BCM vs expander) — or drop INT and poll only.  
-3. Confirm PPTC: **`nSMD050-33V` / C70077** (proposal) vs **SMD1206-050C-16V / C2760267**. **SMBJ12A** = port TVS.  
-4. Cable IR drop at 6 m under max load.  
-5. **DS2482-800** and **MCP23017A** I²C addresses (no collision on ch 5).  
-6. First remote **channel map**; how many remotes.  
-7. Power LED rail: **`+3V3`** + 1–2 kΩ vs **VIN** + 4.7–6.8 kΩ.  
-8. Cutover sequencing (water-only first vs wait for doors/kWh).  
-9. **40×60** mechanical fit.  
-10. Product docs on ship.  
-11. Pipeline: `triage` when scheduled; no KiCad until `kickoff` + `implement`.
+| Item | Path |
+|---|---|
+| KiCad project | [`projects/wanos-remote/`](../projects/wanos-remote/) |
+| BOM | [`components.xlsx`](../projects/wanos-board/components.xlsx) — `board=remote` |
+| Regenerate sch | `python projects/wanos-remote/_regen_schematic.py` |
+
+## 10. Open items
+
+1. **Hold** — **40×60** mechanical fit / layout.  
+2. KiCad **ERC cleanup** — attach global labels to IC pins (generator places labels nearby).  
+3. RJ45 **pad↔net** verify vs footprint when laying out.  
+4. Power LED brightness on bench (R18 **6k8**).  
+5. Verify / fill **LCSC** for **DS2482-800** and JST **B3B-XH-A**.  
+6. Product docs on main cutover (`field-wiring`, `board-spec`, `io-expander-map`, `gpio-interface`).  
+7. Main: second RJ45 + per-port **PPTC/SMBJ12A** when main work starts.  
+8. Pipeline: `triage` when scheduled.
 
 ---
 
-## 10. Design notes
+## 11. Design notes / VIN check
 
-- Opto + single **4.7 kΩ** from **`S0_RAIL`** covers S0, hall OD, and dry contact at plant 12 V.  
-- **AP2204K-3.3** for 24 V Vin; activity LEDs gated; power LED always on.  
-- Port: **PPTC** (overcurrent) + **SMBJ12A** (TVS) — different parts.  
-- **`S0_RAIL`:** **10 Ω + 10 µF ‖ 100 nF**.  
-- I²C over Cat5: 100 kHz, pair-with-GND, root 2k2, 22 Ω series at remote.
+- **11.5 V min at remote VIN:** OK for **AP2204K-3.3**, YF (**5–15 V** on `S0_RAIL`), S0 (**5–27 V**), and opto LED current with **4.7 kΩ**. Raising plant 12 V to compensate Cat5/PPTC drop is fine; keep remote VIN **≤ ~15 V** practical headroom for YF on `S0_RAIL` (YF abs max 15 V — do not crank plant so high that `S0_RAIL` exceeds sensor rating).  
+- Opto + single **4.7 kΩ** from **`S0_RAIL`** covers S0, hall OD, and dry contact.  
+- Port: **PPTC** + **SMBJ12A**. **`S0_RAIL`:** **10 Ω + 10 µF ‖ 100 nF**.  
+- I²C: 100 kHz, pair-with-GND, root 2k2, 22 Ω series; **no INT**.  
+- Bring-up: **12 V lab PSU** into remote VIN pins / RJ45 before main respin.
+
+---
+
+## 12. Verbatim locks
+
+**2026-09-21**
+
+- UTP pair map = § 5; remove INT altogether; PPTC **nSMD050-33V** + **SMBJ12A** OK.  
+- VIN at remote close to 12 V, **≥ 11.5 V** OK (raise plant 12 V as needed).  
+- Addresses **`0x18` + `0x22`** locked both remotes.  
+- Mux ch 5 / 6; #1 = 4 water + 2 temp; #2 = 2 kWh + 1 temp.  
+- Power LED from **`S0_RAIL`**; bench on **12 V lab supply**; remote board before main PCB.
+
+**2026-09-21 (schematic readiness)**
+
+- MCP **GPA0–GPA3** = pulses; other GPIO no nets / firmware LOW.  
+- DS2482 **IO0–IO3** → temps; **IO4–IO7** unconnected (not GND).  
+- Project path **`projects/wanos-remote/`**.  
+- **SMBJ12A** TVS on remote VIN as well as main.
 
 ---
 
