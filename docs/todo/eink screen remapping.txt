@@ -1,0 +1,94 @@
+WISC e-ink display - HDMI connector used as custom signal header
+Recommended GPIO-to-pair mapping for best signal integrity
+===================================================================
+
+Context:
+- HDMI connector/cable is repurposed as a 6-signal + power + ground
+  header for the Waveshare e-ink SPI display, not used as real HDMI.
+- Each TMDS pair (D0, D1, D2, CK) has its own individual shield,
+  separate from the others -> cross-talk between pairs is already
+  well suppressed by the cable construction.
+- The real risk is WITHIN a pair, since the two conductors are
+  tightly twisted together.
+- The CK pair is currently unused (spare), which allows dedicating
+  ground references to the two most noise-sensitive signals instead
+  of pairing every signal with another active line.
+
+Recommended mapping
+--------------------------------------------------------------------
+HDMI pair   +  conductor           -  conductor      Notes
+--------------------------------------------------------------------
+CK          CLK   (GPIO11)         GND                CLK has the fastest
+                                                        edges / highest
+                                                        harmonic content on
+                                                        the bus -> give it a
+                                                        true ground reference,
+                                                        not another active
+                                                        neighbour.
+
+D2          BUSY  (GPIO24)         GND                BUSY is the only
+                                                        INPUT, sampled in a
+                                                        polling loop -> most
+                                                        vulnerable to induced
+                                                        noise, so it gets the
+                                                        other spare ground
+                                                        rather than sharing
+                                                        with MOSI.
+
+D1          MOSI  (GPIO10)         RST   (GPIO17)     MOSI is the 2nd fastest
+                                                        signal, but RST is
+                                                        only driven during
+                                                        reset() - effectively
+                                                        static while MOSI is
+                                                        active during SPI
+                                                        bursts, so there's
+                                                        temporal separation as
+                                                        well as physical.
+
+D0          CS    (GPIO8)          DC    (GPIO25)     Both are moderate-speed
+                                                        control outputs (CS
+                                                        toggles per
+                                                        transaction, DC
+                                                        toggles per
+                                                        command/data byte) -
+                                                        similar activity
+                                                        class, lowest-risk
+                                                        pairing left over.
+
+pin 18      3.3V                   -                  unchanged
+
+shield/     GND                    -                  unchanged common
+outer                                                  return
+--------------------------------------------------------------------
+
+General notes
+--------------------------------------------------------------------
+- Verify the cable is fully wired straight-through on all conductors
+  you're using before final assembly. Some cheap HDMI cables skip or
+  bundle pins not needed for real HDMI (CEC / utility especially) -
+  check continuity with a multimeter first.
+
+- Keep the cable run as short as reasonably possible. At GPIO logic
+  levels and SPI clock speeds (up to 4 MHz here), problems are very
+  unlikely under 1-2 meters, but there's no benefit to a longer run
+  than the install actually needs.
+
+- Mark or key the connector physically (paint, label, epoxy-blocked
+  unused shell pins, or a non-HDMI connector type) so it's clear at a
+  glance this is NOT a real HDMI port - protects against someone
+  later plugging in genuine HDMI source/sink hardware, which could
+  damage the Pi's GPIOs or the connected equipment.
+
+Series resistor suggestion (only if needed)
+--------------------------------------------------------------------
+If, after rewiring, you still see intermittent display corruption or
+hangs in ReadBusy(), the standard next step is to add a small series
+resistor at the Raspberry Pi end of the two fastest lines:
+
+    CLK  (GPIO11) -> 33-100 ohm series resistor -> cable
+    MOSI (GPIO10) -> 33-100 ohm series resistor -> cable
+
+This dampens reflection/ringing on longer or less well-terminated
+runs. Usually unnecessary at typical kiosk-scale cable distances -
+treat this as the next lever to pull only if problems actually show
+up, not a pre-emptive change.
